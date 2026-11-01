@@ -364,7 +364,52 @@
         <!-- Media Showcase Column -->
         <div class="product-media-column">
           <div class="main-image-frame" id="lidaidMainFrame" title="Napsauta suurentaaksesi kuvan">
+            <span class="corner-crosshair top-left" aria-hidden="true">+</span>
+            <span class="corner-crosshair top-right" aria-hidden="true">+</span>
+            <span class="corner-crosshair bottom-left" aria-hidden="true">+</span>
+            <span class="corner-crosshair bottom-right" aria-hidden="true">+</span>
+
             <img id="lidaidMainImg" src="assets/img/lidaid-device.webp" alt="LidAid-latausluukunlämmitin laitekotelo">
+
+            <!-- Interactive Anatomy Hotspots -->
+            <div class="hotspot-layer" id="lidaidHotspots" aria-label="Laitteen tekniset rakenneosat">
+              <button type="button" class="hotspot-pin" style="top: 40%; left: 32%;" aria-label="Rakenneosa: Päävirtakytkin" data-title="Päävirtakytkin" data-desc="ON / OFF -kytkin virrankatkaisuun ja manuaaliseen ohitukseen.">
+                <span class="hotspot-pulse" aria-hidden="true"></span>
+                <span class="hotspot-icon" aria-hidden="true">+</span>
+                <span class="hotspot-tooltip">
+                  <strong>Pääkytkin (ON / OFF)</strong>
+                  <em>Manuaalinen ohitus ja virrankatkaisu</em>
+                </span>
+              </button>
+
+              <button type="button" class="hotspot-pin" style="top: 26%; left: 52%;" aria-label="Rakenneosa: LED-merkkivalot" data-title="LED-merkkivalot" data-desc="Kaksiväriset LEDit osoittavat valmiustilan ja aktiivisen lämmityksen.">
+                <span class="hotspot-pulse" aria-hidden="true"></span>
+                <span class="hotspot-icon" aria-hidden="true">+</span>
+                <span class="hotspot-tooltip">
+                  <strong>LED-merkkivalot</strong>
+                  <em>Osoittaa valmiustilan ja aktiivisen lämmityksen</em>
+                </span>
+              </button>
+
+              <button type="button" class="hotspot-pin" style="top: 40%; left: 72%;" aria-label="Rakenneosa: Lämpötilansäädin" data-title="Lämpötilansäädin" data-desc="Portaaton säätöalue +45 °C ... +65 °C olosuhteiden mukaan.">
+                <span class="hotspot-pulse" aria-hidden="true"></span>
+                <span class="hotspot-icon" aria-hidden="true">+</span>
+                <span class="hotspot-tooltip">
+                  <strong>Lämpötilansäädin</strong>
+                  <em>Portaaton säätö +45 ... +65 °C</em>
+                </span>
+              </button>
+
+              <button type="button" class="hotspot-pin" style="top: 76%; left: 68%;" aria-label="Rakenneosa: Johtosarja ja NTC-anturi" data-title="Johtosarja & Anturi" data-desc="12V herätejohto ja tarkka NTC-anturi auton luukun sisään.">
+                <span class="hotspot-pulse" aria-hidden="true"></span>
+                <span class="hotspot-icon" aria-hidden="true">+</span>
+                <span class="hotspot-tooltip">
+                  <strong>Johtosarja &amp; NTC-anturi</strong>
+                  <em>12V herätekytkentä ja tarkka lämpöanturi</em>
+                </span>
+              </button>
+            </div>
+
             <div class="zoom-hint" id="zoomBadge">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               <span>Suurenna kuva</span>
@@ -477,6 +522,56 @@
             </div>
           </div>
 
+          <!-- Interactive Winter Condition & Thermostat Simulator -->
+          <div class="winter-sim-card" id="winterSimCard">
+            <div class="sim-header">
+              <div class="sim-header-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+                <span>Talvisää- &amp; termostaattisimulaattori</span>
+              </div>
+              <span class="sim-badge">Interaktiivinen testi</span>
+            </div>
+
+            <p class="sim-desc">
+              Testaa liukusäätimellä, miten mikroprosessori ohjaa lämmitystehoa ja suojaa akkua eri pakkasasteissa:
+            </p>
+
+            <div class="sim-control-panel">
+              <div class="sim-temp-display-wrap">
+                <div class="sim-temp-meta">Simuloitu ulkolämpötila</div>
+                <div class="sim-temp-val" id="tempDisplay">-15 °C</div>
+                <div class="sim-status-pill" id="tempStatus">
+                  <span class="status-dot-pulse"></span>
+                  <span>Aktiivinen lämmitys käynnissä</span>
+                </div>
+              </div>
+
+              <div class="sim-slider-row">
+                <span class="slider-bound">-30 °C</span>
+                <div class="slider-track-wrap">
+                  <input type="range" id="tempSlider" min="-30" max="15" value="-15" step="1" aria-label="Säädä simulaattorin ulkolämpötilaa">
+                </div>
+                <span class="slider-bound">+15 °C</span>
+              </div>
+            </div>
+
+            <div class="sim-feedback-box" id="simFeedbackBox">
+              <div class="sim-feedback-grid">
+                <div class="sim-feedback-item">
+                  <span class="sim-kpi-label">Lämpöelementti</span>
+                  <span class="sim-kpi-val" id="simElementTemp">+60 °C (Täysteho)</span>
+                </div>
+                <div class="sim-feedback-item">
+                  <span class="sim-kpi-label">Akun suojaus &amp; virta</span>
+                  <span class="sim-kpi-val" id="simPowerUsage">~20 W (Vain auton ollessa hereillä)</span>
+                </div>
+              </div>
+              <div class="sim-feedback-desc" id="tempElementState">
+                <strong>Kova pakkanen:</strong> Mikroprosessori ohjaa silikonilämpöelementtiä tehokkaasti sulattaen luukun tiivisteen ja vapauttaen lukitussalvan sohjosta ja jäästä.
+              </div>
+            </div>
+          </div>
+
           <!-- Video Showcase -->
           <div class="product-video-block">
             <div class="video-header-bar">
@@ -493,6 +588,8 @@
 
           <!-- Tech Specs Table -->
           <div class="tech-specs-card">
+            <span class="corner-crosshair top-left" aria-hidden="true">+</span>
+            <span class="corner-crosshair top-right" aria-hidden="true">+</span>
             <div class="specs-title">
               <span>Tekniset tiedot (LidAid)</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
@@ -523,6 +620,36 @@
                 <span class="spec-val">125 x 80 x 32 mm</span>
               </li>
             </ul>
+          </div>
+
+          <!-- In-The-Box Contents -->
+          <div class="package-contents-card">
+            <div class="package-header">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              <h4>Pakkauksen toimitussisältö (Plug-and-play)</h4>
+            </div>
+            <div class="package-grid">
+              <div class="package-item">
+                <span class="package-check" aria-hidden="true">✓</span>
+                <div><strong>LidAid-ohjainyksikkö</strong> alumiinikotelossa portaattomalla säädöllä</div>
+              </div>
+              <div class="package-item">
+                <span class="package-check" aria-hidden="true">✓</span>
+                <div><strong>Joustava silikonilämpöelementti</strong> teippi- ja anturipinnalla</div>
+              </div>
+              <div class="package-item">
+                <span class="package-check" aria-hidden="true">✓</span>
+                <div><strong>Täydellinen kytkentäsarja</strong>, asennusliittimet ja sulakepesä</div>
+              </div>
+              <div class="package-item">
+                <span class="package-check" aria-hidden="true">✓</span>
+                <div><strong>Suomenkielinen selkeä asennusohje</strong> kytkentäkaavioineen</div>
+              </div>
+              <div class="package-item">
+                <span class="package-check" aria-hidden="true">✓</span>
+                <div><strong>2 vuoden tehdastakuu</strong> ja keksijän suora puhelintuki</div>
+              </div>
+            </div>
           </div>
 
           <!-- Pricing & Action Card -->
@@ -583,7 +710,43 @@
           </div>
 
           <div class="main-image-frame" id="tbsMainFrame" title="Napsauta suurentaaksesi kuvan">
+            <span class="corner-crosshair top-left" aria-hidden="true">+</span>
+            <span class="corner-crosshair top-right" aria-hidden="true">+</span>
+            <span class="corner-crosshair bottom-left" aria-hidden="true">+</span>
+            <span class="corner-crosshair bottom-right" aria-hidden="true">+</span>
+
             <img id="tbsMainImg" src="assets/img/tbs-device.webp" alt="Perävaunun takavalokytkin TBS-231-L laiteyksikkö">
+
+            <!-- Interactive Anatomy Hotspots -->
+            <div class="hotspot-layer" id="tbsHotspots" aria-label="Takavalokytkimen rakenneosat">
+              <button type="button" class="hotspot-pin" style="top: 25%; left: 35%;" aria-label="Rakenneosa: ON / OFF -kytkin" data-title="Pääkytkin" data-desc="Tieliikennevarmistettu ON/OFF-kytkin peruutusvalotoiminnolle.">
+                <span class="hotspot-pulse" aria-hidden="true"></span>
+                <span class="hotspot-icon" aria-hidden="true">+</span>
+                <span class="hotspot-tooltip">
+                  <strong>Pääkytkin (ON / OFF)</strong>
+                  <em>Tieliikennevarmistettu käyttökytkin</em>
+                </span>
+              </button>
+
+              <button type="button" class="hotspot-pin" style="top: 52%; left: 52%;" aria-label="Rakenneosa: Patentoitu mikropiirilogiikka" data-title="Patentoitu Logiikka" data-desc="Tunnistaa vilkkusignaalin ja sytyttää vain kärryn valot.">
+                <span class="hotspot-pulse" aria-hidden="true"></span>
+                <span class="hotspot-icon" aria-hidden="true">+</span>
+                <span class="hotspot-tooltip">
+                  <strong>Patentoitu logiikkapiiri</strong>
+                  <em>Tunnistaa hätävilkut ilman auton sumuvaloa</em>
+                </span>
+              </button>
+
+              <button type="button" class="hotspot-pin" style="top: 80%; left: 30%;" aria-label="Rakenneosa: Takavalojen johtimet" data-title="12V Johtosarja" data-desc="Liitetään suoraan takavaloihin mukana tulevilla rosvoliittimillä.">
+                <span class="hotspot-pulse" aria-hidden="true"></span>
+                <span class="hotspot-icon" aria-hidden="true">+</span>
+                <span class="hotspot-tooltip">
+                  <strong>Kytkentäjohtosarja</strong>
+                  <em>12V kytkentä ilman 13-napapistorasiaa</em>
+                </span>
+              </button>
+            </div>
+
             <div class="zoom-hint">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               <span>Suurenna kuva</span>
@@ -661,6 +824,8 @@
 
           <!-- Tech Specs Table -->
           <div class="tech-specs-card">
+            <span class="corner-crosshair top-left" aria-hidden="true">+</span>
+            <span class="corner-crosshair top-right" aria-hidden="true">+</span>
             <div class="specs-title-row">
               <span class="specs-heading">Tekniset tiedot</span>
               <span class="tbs-badge" id="tbsModelBadge">Malli: TBS-231-L (LED-takavalot)</span>
@@ -687,6 +852,36 @@
                 <span class="spec-val">Suomi (Sipoo)</span>
               </li>
             </ul>
+          </div>
+
+          <!-- In-The-Box Contents -->
+          <div class="package-contents-card">
+            <div class="package-header">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              <h4>Pakkauksen toimitussisältö (Plug-and-play)</h4>
+            </div>
+            <div class="package-grid">
+              <div class="package-item">
+                <span class="package-check" aria-hidden="true">✓</span>
+                <div><strong>TBS-kytkinlaite</strong> valitsemassasi LED- tai polttimomallissa</div>
+              </div>
+              <div class="package-item">
+                <span class="package-check" aria-hidden="true">✓</span>
+                <div><strong>Valmis ajoneuvojohdotus</strong> suojakuorella ja merkityillä liitännöillä</div>
+              </div>
+              <div class="package-item">
+                <span class="package-check" aria-hidden="true">✓</span>
+                <div><strong>Asennusrosvoliittimet</strong> ja rengasmaadoitusliitin</div>
+              </div>
+              <div class="package-item">
+                <span class="package-check" aria-hidden="true">✓</span>
+                <div><strong>Suomenkielinen seikkaperäinen asennus- ja kytkentäohje</strong></div>
+              </div>
+              <div class="package-item">
+                <span class="package-check" aria-hidden="true">✓</span>
+                <div><strong>2 vuoden valmistajan takuu</strong> ja suora tekninen asennustuki</div>
+              </div>
+            </div>
           </div>
 
           <!-- Pricing & Action Card -->
@@ -731,37 +926,102 @@
         </p>
       </div>
 
+      <!-- Ilta-Sanomat Press Feature Banner -->
+      <div class="press-feature-banner">
+        <div class="press-logo-badge">
+          <span class="press-badge-text">ILTA-SANOMAT</span>
+          <span class="press-sub-badge">Autot-toimitus</span>
+        </div>
+        <div class="press-feature-content">
+          <p class="press-quote">
+            ”Sipoolainen keksijä ratkaisi sähköautoilijoiden talvipiinan – termostaattiohjattu lämmitin pitää latausluukun toimintakunnossa paukkupakkasillakin.”
+          </p>
+          <div class="press-meta">
+            <span class="press-author">Toimittaja Tommi Lempinen, Ilta-Sanomat</span>
+            <a href="https://www.is.fi/autot/art-2000010071605.html" target="_blank" rel="noopener noreferrer" class="press-link" aria-label="Lue koko artikkeli Ilta-Sanomista">
+              <span>Lue koko artikkeli IS.fi:stä</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <div class="reviews-grid">
         <div class="review-card">
-          <div class="review-stars">★★★★★</div>
+          <div class="review-top-row">
+            <div class="review-stars" aria-label="5 tähteä">
+              <svg class="star-svg" width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star-svg" width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star-svg" width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star-svg" width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star-svg" width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <span class="review-verified-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Vahvistettu ostaja
+            </span>
+          </div>
           <p class="review-quote">
             "Cupra Bornin latausluukku jäätyi joka kerta kun satoi nuoskalunta ja pakastui. LidAidin asennuksen jälkeen ongelma katosi täysin. Luukku aukeaa pehmeästi kuin kesällä!"
           </p>
           <div class="review-author">
-            <span class="author-name">Mikko T., Espoo</span>
-            <span class="author-car">Cupra Born e-Boost 2023</span>
+            <div class="author-avatar" aria-hidden="true">MT</div>
+            <div class="author-info">
+              <span class="author-name">Mikko T., Espoo</span>
+              <span class="author-car">Cupra Born e-Boost 2023</span>
+            </div>
           </div>
         </div>
 
         <div class="review-card">
-          <div class="review-stars">★★★★★</div>
+          <div class="review-top-row">
+            <div class="review-stars" aria-label="5 tähteä">
+              <svg class="star-svg" width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star-svg" width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star-svg" width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star-svg" width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star-svg" width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <span class="review-verified-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Vahvistettu ostaja
+            </span>
+          </div>
           <p class="review-quote">
             "Peräkärryn peruuttaminen pimeällä mökkitielle oli yhtä tuskaa kun takasumuvalo vain häikäisi peileistä. TBS-takavalokytkin teki kärryn omista valoista loistavat peruutusvalot."
           </p>
           <div class="review-author">
-            <span class="author-name">Antti K., Kuusamo</span>
-            <span class="author-car">Muuli 1400XL &amp; VW Amarok</span>
+            <div class="author-avatar" aria-hidden="true">AK</div>
+            <div class="author-info">
+              <span class="author-name">Antti K., Kuusamo</span>
+              <span class="author-car">Muuli 1400XL &amp; VW Amarok</span>
+            </div>
           </div>
         </div>
 
         <div class="review-card">
-          <div class="review-stars">★★★★★</div>
+          <div class="review-top-row">
+            <div class="review-stars" aria-label="5 tähteä">
+              <svg class="star-svg" width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star-svg" width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star-svg" width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star-svg" width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star-svg" width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <span class="review-verified-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Vahvistettu ostaja
+            </span>
+          </div>
           <p class="review-quote">
             "Lapin talvessa -32 asteessa LidAid toimi kuin kello. Akku ei purkaantunut ja luukku pysyi sulana. Suomalainen insinöörityö parhaimmillaan!"
           </p>
           <div class="review-author">
-            <span class="author-name">Jari V., Rovaniemi</span>
-            <span class="author-car">Skoda Enyaq iV 80</span>
+            <div class="author-avatar" aria-hidden="true">JV</div>
+            <div class="author-info">
+              <span class="author-name">Jari V., Rovaniemi</span>
+              <span class="author-car">Skoda Enyaq iV 80</span>
+            </div>
           </div>
         </div>
       </div>

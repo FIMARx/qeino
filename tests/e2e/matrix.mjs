@@ -184,6 +184,39 @@ try {
     const searchSkodaActive = await b.ev(`document.querySelector('.compat-chip[data-brand="skoda"]')?.classList.contains('active')`);
     check(`${d.id}: EV search 'enyaq' activates Skoda`, searchSkodaActive === true);
 
+    // Interactive Winter Simulator Test
+    console.log(`   ... Testing Interactive Winter Simulator & Hotspots ...`);
+    await b.ev(`(() => {
+      const slider = document.getElementById('tempSlider');
+      if (slider) {
+        slider.value = '10';
+        slider.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+    })()`);
+    await sleep(200);
+    const simCutoffText = await b.ev(`document.getElementById('simPowerUsage')?.textContent.trim()`);
+    check(`${d.id}: Winter simulator responds to +10 °C cutoff`, simCutoffText && simCutoffText.includes('0 W'), simCutoffText);
+
+    // Reset slider to -15 °C
+    await b.ev(`(() => {
+      const slider = document.getElementById('tempSlider');
+      if (slider) {
+        slider.value = '-15';
+        slider.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+    })()`);
+    await sleep(200);
+
+    // Hotspot Click Test
+    await click('#lidaidHotspots .hotspot-pin');
+    await sleep(200);
+    const hotspotActive = await b.ev(`document.querySelector('#lidaidHotspots .hotspot-pin')?.classList.contains('active')`);
+    check(`${d.id}: LidAid hotspot activates on click`, hotspotActive === true);
+
+    // Close hotspot
+    await b.ev(`document.body.click()`);
+    await sleep(150);
+
     // 5. Scroll down to Takavalokytkin & TBS Model Selector
     console.log(`   ... Testing TBS Model Switcher, Demonstration Video & Patent Seal ...`);
     const lidaidVideoSrc = await b.ev(`document.querySelector('#lidaid .video-wrap video source')?.getAttribute('src')`);
@@ -193,6 +226,12 @@ try {
 
     const patentText = await b.ev(`document.querySelector('.patent-seal-card')?.textContent.trim()`);
     check(`${d.id}: Patent seal badge is rendered`, patentText && patentText.includes('Patentoitu'), patentText);
+
+    const packageCards = await b.ev(`document.querySelectorAll('.package-contents-card').length`);
+    check(`${d.id}: In-The-Box package cards rendered for both products`, packageCards >= 2, String(packageCards));
+
+    const pressBannerText = await b.ev(`document.querySelector('.press-feature-banner')?.textContent.trim()`);
+    check(`${d.id}: Ilta-Sanomat press banner is rendered`, pressBannerText && pressBannerText.includes('ILTA-SANOMAT'), pressBannerText);
 
     // Schema.org structured data check
     const jsonLdValid = await b.ev(`(() => {

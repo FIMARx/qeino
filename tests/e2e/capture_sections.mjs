@@ -10,7 +10,7 @@ async function main() {
     await b.goto('http://127.0.0.1:8080/');
     await new Promise((r) => setTimeout(r, 600));
 
-    const sections = ['hero', 'lidaid', 'takavalokytkin', 'tilausohje', 'syntytarina', 'yhteystiedot'];
+    const sections = ['hero', 'lidaid', 'takavalokytkin', 'kokemuksia', 'tilausohje', 'syntytarina', 'yhteystiedot'];
     for (const sec of sections) {
       await b.ev(`document.getElementById('${sec}')?.scrollIntoView({ behavior: 'instant', block: 'start' })`);
       await new Promise((r) => setTimeout(r, 400));

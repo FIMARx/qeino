@@ -885,6 +885,134 @@ nav {
   flex-shrink: 0;
 }
 
+/* CAD Blueprint Corner Marks */
+.corner-crosshair {
+  position: absolute;
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: #94A3B8;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 2;
+  opacity: 0.6;
+}
+
+.corner-crosshair.top-left { top: 10px; left: 12px; }
+.corner-crosshair.top-right { top: 10px; right: 12px; }
+.corner-crosshair.bottom-left { bottom: 10px; left: 12px; }
+.corner-crosshair.bottom-right { bottom: 10px; right: 12px; }
+
+/* Interactive Product Anatomy Hotspots */
+.hotspot-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.hotspot-pin {
+  pointer-events: auto;
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
+  border-radius: 50%;
+  background: rgba(11, 19, 32, 0.88);
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+  z-index: 5;
+  padding: 0;
+  outline: none;
+  transform: translate(-50%, -50%);
+}
+
+.hotspot-pin:hover,
+.hotspot-pin:focus,
+.hotspot-pin.active {
+  background: var(--brand-blue);
+  border-color: #FFFFFF;
+  transform: translate(-50%, -50%) scale(1.12);
+  box-shadow: 0 6px 18px rgba(29, 78, 216, 0.4);
+}
+
+.hotspot-pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(29, 78, 216, 0.7);
+  animation: pulse-ring 2.4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 0.2; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+.hotspot-icon {
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.hotspot-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: #0B1320;
+  color: #FFFFFF;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  width: max-content;
+  max-width: 210px;
+  white-space: normal;
+  text-align: left;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, transform 0.2s;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 10;
+}
+
+.hotspot-tooltip strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 12.5px;
+  color: #FFFFFF;
+  margin-bottom: 2px;
+}
+
+.hotspot-tooltip em {
+  display: block;
+  font-style: normal;
+  font-size: 11px;
+  color: #94A3B8;
+  line-height: 1.35;
+}
+
+.hotspot-pin:hover .hotspot-tooltip,
+.hotspot-pin:focus .hotspot-tooltip,
+.hotspot-pin.active .hotspot-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
 .gallery-thumbs {
   display: flex;
   gap: 12px;
@@ -1222,6 +1350,176 @@ nav {
   transform: translateY(-1px);
 }
 
+/* Winter Condition & Thermostat Simulator */
+.winter-sim-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  margin-top: 20px;
+}
+
+.sim-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.sim-header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.sim-badge {
+  background: rgba(2, 132, 199, 0.1);
+  color: #0284C7;
+  border: 1px solid rgba(2, 132, 199, 0.25);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.sim-desc {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.sim-control-panel {
+  background: var(--bg-surface-alt);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 18px;
+  margin-bottom: 16px;
+}
+
+.sim-temp-display-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.sim-temp-meta {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sim-temp-val {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--brand-blue);
+  line-height: 1;
+}
+
+.sim-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  background: #FFFFFF;
+  border: 1px solid var(--border-line);
+  color: var(--text-primary);
+}
+
+.status-dot-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3B82F6;
+  box-shadow: 0 0 8px #3B82F6;
+}
+
+.sim-slider-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.slider-bound {
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  min-width: 44px;
+}
+
+.slider-track-wrap {
+  flex: 1;
+}
+
+.slider-track-wrap input[type=range] {
+  width: 100%;
+  height: 38px;
+  cursor: pointer;
+  accent-color: var(--brand-blue);
+}
+
+.sim-feedback-box {
+  background: var(--bg-well);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+}
+
+.sim-feedback-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 12px;
+}
+
+.sim-kpi-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+.sim-kpi-val {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.sim-feedback-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .sim-feedback-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Video Showcase */
 .product-video-block {
   background: #FFFFFF;
@@ -1390,6 +1688,62 @@ nav {
   text-align: right;
 }
 
+/* Package Contents Card */
+.package-contents-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+  margin-top: 20px;
+}
+
+.package-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  color: var(--brand-blue);
+}
+
+.package-header h4 {
+  font-family: var(--font-heading);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.package-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.package-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.package-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.12);
+  color: #047857;
+  font-size: 11px;
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
 /* Pricing Action Box */
 .pricing-action-box {
   background: #FFFFFF;
@@ -1530,7 +1884,104 @@ nav {
 }
 
 .reviews-header {
-  margin-bottom: 44px;
+  margin-bottom: 32px;
+}
+
+/* Ilta-Sanomat Press Feature Banner */
+.press-feature-banner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  margin-bottom: 36px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.press-logo-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #DC2626;
+  color: #FFFFFF;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.press-badge-text {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.press-sub-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.press-feature-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.press-quote {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: #F8FAFC;
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.press-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.press-author {
+  font-size: 12px;
+  color: #94A3B8;
+  font-weight: 600;
+}
+
+.press-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #38BDF8;
+  text-decoration: none;
+  transition: var(--transition);
+  min-height: 36px;
+}
+
+.press-link:hover {
+  color: #BAE6FD;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .press-feature-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+  }
 }
 
 .reviews-grid {
@@ -1557,12 +2008,38 @@ nav {
   box-shadow: var(--shadow-hover);
 }
 
+.review-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .review-stars {
   display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.star-svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.review-verified-badge {
+  display: inline-flex;
+  align-items: center;
   gap: 4px;
-  color: #F59E0B;
-  margin-bottom: 14px;
-  font-size: 16px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #047857;
+  background: #ECFDF5;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
 }
 
 .review-quote {
@@ -1578,7 +2055,28 @@ nav {
   padding-top: 14px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 12px;
+}
+
+.author-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--brand-blue-light);
+  border: 1px solid var(--brand-blue-border);
+  color: var(--brand-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
 }
 
 .author-name {

@@ -253,22 +253,36 @@ function initQeinoApp() {
   const tempDisplay = document.getElementById('tempDisplay');
   const tempStatus = document.getElementById('tempStatus');
   const tempElementState = document.getElementById('tempElementState');
+  const simElementTemp = document.getElementById('simElementTemp');
+  const simPowerUsage = document.getElementById('simPowerUsage');
 
   if (tempSlider && tempDisplay) {
-    tempSlider.addEventListener('input', (e) => {
-      const val = parseInt(e.target.value, 10);
-      tempDisplay.textContent = `${val} °C`;
+    const updateSim = (val) => {
+      tempDisplay.textContent = `${val > 0 ? '+' : ''}${val} °C`;
       
       if (val > 4) {
-        if (tempStatus) tempStatus.innerHTML = '<span style="color:#10B981;">● Ulkolämpötila yli +4 °C</span>';
-        if (tempElementState) tempElementState.innerHTML = '<strong>Lepoasennossa:</strong> Lämmitys katkaistu automaattisesti virransäästön varmistamiseksi.';
-      } else if (val >= -5) {
-        if (tempStatus) tempStatus.innerHTML = '<span style="color:#0284C7;">● Pikkupakkanen / kostea</span>';
-        if (tempElementState) tempElementState.innerHTML = '<strong>Aktiivinen:</strong> Elementti säätyy n. +45 °C pitäen mekanismin vapaana jäästä ja sohjosta.';
+        tempDisplay.style.color = '#059669';
+        if (tempStatus) tempStatus.innerHTML = '<span class="status-dot-pulse" style="background:#10B981; box-shadow:0 0 8px #10B981;"></span><span>Lauha / Kesätila: Virta katkaistu (0 W)</span>';
+        if (simElementTemp) simElementTemp.textContent = 'Lepotilassa (0 W)';
+        if (simPowerUsage) simPowerUsage.textContent = '0 W (Ei kuormita akkua lainkaan)';
+        if (tempElementState) tempElementState.innerHTML = '<strong>Automaattinen virransäästö:</strong> Kun ulkolämpötila nousee yli +4 °C, mikroprosessori katkaisee elementin virransyötön kokonaan. Akkua ei pureta koskaan turhaan.';
+      } else if (val >= -4) {
+        tempDisplay.style.color = '#0284C7';
+        if (tempStatus) tempStatus.innerHTML = '<span class="status-dot-pulse" style="background:#0284C7; box-shadow:0 0 8px #0284C7;"></span><span>Pikkupakkanen / kostea sohjokeli</span>';
+        if (simElementTemp) simElementTemp.textContent = '+45 °C (Ylläpitolämpö)';
+        if (simPowerUsage) simPowerUsage.textContent = '~15 W (Vain auton ollessa hereillä)';
+        if (tempElementState) tempElementState.innerHTML = '<strong>Sohjo- ja nollakeli:</strong> Elementti tuottaa tasaisen ylläpitolämmön (+45 °C), joka pitää luukun reunan, tiivisteen ja lukitustapin täysin vapaana sohjosta ja alijäähtyneestä vedestä.';
       } else {
-        if (tempStatus) tempStatus.innerHTML = '<span style="color:#3B82F6;">● Kova pakkanen</span>';
-        if (tempElementState) tempElementState.innerHTML = '<strong>Täysteholämmitys:</strong> Mikroprosessori ohjaa lämmitystä portaattomasti jopa +65 °C asti estäen luukun ja latauspistoolin kiinnijäätymisen.';
+        tempDisplay.style.color = '#1D4ED8';
+        if (tempStatus) tempStatus.innerHTML = '<span class="status-dot-pulse" style="background:#3B82F6; box-shadow:0 0 8px #3B82F6;"></span><span>Kova pakkanen: Täysteholämmitys</span>';
+        if (simElementTemp) simElementTemp.textContent = '+65 °C (Täysteho sulatus)';
+        if (simPowerUsage) simPowerUsage.textContent = '~20 W (Vain auton ollessa hereillä)';
+        if (tempElementState) tempElementState.innerHTML = '<strong>Täysteholämmitys:</strong> Mikroprosessori ohjaa lämmitystä portaattomasti jopa +65 °C asti estäen luukun ja latauspistoolin kiinnijäätymisen paukkupakkasillakin.';
       }
+    };
+
+    tempSlider.addEventListener('input', (e) => {
+      updateSim(parseInt(e.target.value, 10));
     });
   }
 
@@ -383,6 +397,23 @@ function initQeinoApp() {
       }
     });
   }
+
+  // 12. Interactive Hotspot Touch & Click Toggle
+  const hotspotPins = document.querySelectorAll('.hotspot-pin');
+  hotspotPins.forEach(pin => {
+    pin.addEventListener('click', (e) => {
+      e.stopPropagation(); // Do not trigger lightbox modal click
+      const wasActive = pin.classList.contains('active');
+      hotspotPins.forEach(p => p.classList.remove('active'));
+      if (!wasActive) {
+        pin.classList.add('active');
+      }
+    });
+  });
+
+  document.addEventListener('click', () => {
+    hotspotPins.forEach(p => p.classList.remove('active'));
+  });
 }
 
 if (document.readyState === 'loading') {

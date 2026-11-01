@@ -18,10 +18,10 @@
   <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" sizes="192x192" href="assets/img/icon-192.png">
 
-  <!-- Google Fonts: Libre Franklin (Official Brand Typography) -->
+  <!-- Archi Iconic Google Fonts: Dosis (Headings), Karla (Body), Space Mono (Specs) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
@@ -29,12 +29,39 @@
 <body>
 
   <!-- ==========================================================================
-       HEADER & NAVIGATION
+       TOP INFO BAR (Archi Signature Architecture)
+       ========================================================================== -->
+  <div class="top-info-bar">
+    <div class="container top-info-inner">
+      <div class="top-info-group">
+        <div class="top-info-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Pohjanniityntie 15, Sipoo</span>
+        </div>
+        <div class="top-info-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:0443069752"><strong>044 306 9752</strong> (Hannu Alhovuori)</a>
+        </div>
+      </div>
+      <div class="top-info-group hide-mobile">
+        <div class="top-info-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:qeino.fi@gmail.com">qeino.fi@gmail.com</a>
+        </div>
+        <div class="top-info-badge">
+          Suomalainen insinöörityö
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SITE HEADER & NAVIGATION
        ========================================================================== -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="#alku" class="logo-link" aria-label="Qeino Oy Etusivu">
-        <img src="assets/img/logo-blue.svg" alt="Qeino Oy Logo" class="logo-svg">
+        <img src="assets/img/logo-white.svg" alt="Qeino Oy Logo" class="logo-svg">
         <span class="logo-subtext">Finland</span>
       </a>
 
@@ -52,7 +79,7 @@
       </nav>
 
       <div class="header-cta">
-        <a href="#yhteystiedot" class="btn btn-primary" onclick="selectInquiryProduct('Yleinen tiedustelu')">
+        <a href="#yhteystiedot" class="btn btn-custom" onclick="selectInquiryProduct('Yleinen tiedustelu')">
           <span>Ota yhteyttä</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
@@ -65,30 +92,31 @@
   </header>
 
   <!-- ==========================================================================
-       HERO SECTION
+       HERO SECTION (Archi Bold Architectural Stage)
        ========================================================================== -->
   <section class="hero-section" id="alku">
     <div class="hero-grid-pattern"></div>
     <div class="container hero-content">
       <div class="hero-text-block">
-        <div class="section-label dark">
+        <div class="teaser dark">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          Suomalaista autosähköinnovaatiota
+          01 / Suomalaista autosähköinnovaatiota
         </div>
         <h1 class="hero-title">
           Älykkäät ratkaisut autoiluun <span class="highlight">pakkasessa ja pimeässä</span>
         </h1>
+        <div class="small-border"></div>
         <p class="hero-desc">
-          Qeino Oy kehittää ja valmistaa kotimaisia elektroniikkaratkaisuja, jotka tekevät sähköautoilusta ja perävaunun käytöstä vaivatonta. Ei monimutkaisuutta – vain toimivaa, kestävää insinööriosaamista.
+          Qeino Oy kehittää ja valmistaa kotimaisia elektroniikkaratkaisuja, jotka tekevät sähköautoilusta ja perävaunun käytöstä vaivatonta. Ei monimutkaisuutta – vain toimivaa, kestävää insinööriosaamista Sipoosta.
         </p>
 
         <div class="hero-actions">
-          <a href="#lidaid" class="btn btn-primary">
+          <a href="#lidaid" class="btn btn-custom">
             <span>Tutustu LidAidiin</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
           </a>
-          <a href="#takavalokytkin" class="btn btn-ghost-dark">
-            <span>Perävaunun takavalokytkin</span>
+          <a href="#takavalokytkin" class="btn btn-line">
+            <span>Takavalokytkin</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
           </a>
         </div>
@@ -129,7 +157,7 @@
               <span class="status-dot"></span>
               Tuotannossa & Saatavilla
             </span>
-            <span style="font-size:0.8rem; color:#94A3B8; font-weight:600;">Sipoo, Finland</span>
+            <span style="font-size:0.8rem; color:#9DA3AF; font-weight:600; font-family:var(--font-mono);">Sipoo, Finland</span>
           </div>
           
           <div class="hero-card-img-wrap">
@@ -158,7 +186,7 @@
                 <span class="val">&gt; +4°C autom.</span>
               </div>
             </div>
-            <a href="#lidaid" class="btn btn-primary" style="padding:0.5rem 1rem; font-size:0.85rem;">
+            <a href="#lidaid" class="btn btn-line" style="padding:0.5rem 1rem; font-size:0.85rem;">
               Katso esite
             </a>
           </div>
@@ -168,7 +196,7 @@
   </section>
 
   <!-- ==========================================================================
-       TRUST & REASSURANCE STRIP (Takuut ja toimitusvarmuus)
+       TRUST & REASSURANCE STRIP (Archi Minimalist Strip)
        ========================================================================== -->
   <section class="trust-ribbon" aria-label="Takuut ja toimituslupaukset">
     <div class="container">
@@ -218,17 +246,18 @@
        ========================================================================== -->
   <section class="product-section" id="lidaid">
     <div class="container">
-      <div class="section-label">
+      <div class="teaser">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        Sähkö- ja hybridiautoilijan talvipelastus
+        01 / Termostaattiohjattu lämmitin sähköautoille
       </div>
       <h2 class="section-title">LidAid-latausluukunlämmitin</h2>
+      <div class="small-border"></div>
       <p class="section-subtitle">
         Lopeta latausluukun nyrkillä paukuttaminen ja kuumailmapuhaltimella sulattelu. Älykäs termostaattiohjattu lämmitin takaa, että latausluukku ja pistoke toimivat vaivattomasti joka aamu.
       </p>
 
       <div class="product-grid">
-        <!-- Gallery -->
+        <!-- Gallery (Optimized with spacious frames and no-crop contain) -->
         <div class="product-gallery" id="lidaidGallery">
           <div class="main-image-frame" id="lidaidMainFrame" title="Klikkaa suurentaaksesi kuva">
             <img src="assets/img/lidaid-device.webp" alt="LidAid latausluukunlämmittimen ohjain ja johdotus" id="lidaidMainImg">
@@ -268,7 +297,7 @@
           </div>
 
           <h3>Miten LidAid toimii?</h3>
-          <p style="color:#475569; margin-top:0.5rem;">
+          <p style="color:var(--text-muted); margin-top:0.5rem;">
             LidAid on itsenäisesti toimiva, mikroprosessoriohjattu järjestelmä. Se tarkkailee ulkolämpötilaa ja kytkeytyy automaattisesti päälle pakkasen kiristyessä. Lämmityselementti sijoitetaan latausluukun taakse vesivaluma-aukon kautta, jolloin lämpö kohdistuu juuri oikeaan paikkaan ja estää jään muodostumisen luukun salpaan ja latauspistooliin.
           </p>
 
@@ -303,7 +332,7 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 <h4>Tarkista LidAidin yhteensopivuus autollesi</h4>
               </div>
-              <span class="compat-badge">Sopii kaikkiin Type 2 / CCS -sähköautoihin</span>
+              <span class="compat-badge">Sopii kaikkiin Type 2 / CCS -autoihin</span>
             </div>
             <p class="compat-desc">
               Valitse automerkkisi alta nähdäksesi mallikohtaiset asennustiedot:
@@ -346,7 +375,7 @@
           <div class="product-video-block">
             <div class="video-header-bar">
               <span>Testivideo: Luukku kasteltuna yöllä -15 °C pakkasessa</span>
-              <span style="color:#34D399;">Aito kenttätesti</span>
+              <span style="color:var(--accent-gold); font-weight:700;">Aito kenttätesti</span>
             </div>
             <div class="video-wrap">
               <video controls playsinline preload="metadata" poster="assets/img/lidaid-device.webp">
@@ -428,7 +457,7 @@
             </div>
           </div>
 
-          <!-- Price & Actions -->
+          <!-- Price & Actions (Spacious and high contrast) -->
           <div class="product-pricing-bar">
             <div class="price-info">
               <span class="price-label">Hinta & Tilaus</span>
@@ -436,12 +465,12 @@
               <span class="price-sub">Kuluttajille & jälleenmyyjäerät suoraan valmistajalta</span>
             </div>
             <div class="product-action-group">
-              <a href="#yhteystiedot" class="btn btn-primary" onclick="selectInquiryProduct('LidAid-latausluukunlämmitin')">
+              <a href="#yhteystiedot" class="btn btn-custom" onclick="selectInquiryProduct('LidAid-latausluukunlämmitin')">
                 <span>Tilaa / Pyydä tarjous</span>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
-              <a href="assets/docs/LidAid_kayttoohje.pdf" target="_blank" class="btn btn-secondary">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              <a href="assets/docs/LidAid_kayttoohje.pdf" target="_blank" class="btn btn-line">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                 <span>Lataa käyttöohje (PDF)</span>
               </a>
             </div>
@@ -474,17 +503,18 @@
        ========================================================================== -->
   <section class="product-section alt-bg" id="takavalokytkin">
     <div class="container">
-      <div class="section-label">
+      <div class="teaser">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
-        Patentoitu suomalainen keksintö
+        02 / Patentoitu suomalainen keksintö
       </div>
       <h2 class="section-title">Perävaunun takavalokytkin</h2>
+      <div class="small-border"></div>
       <p class="section-subtitle">
         Tehokkaat peruutus- ja työvalot peräkärryyn ilman ylimääräisiä kaapeleita tai kytkimiä vetoautoon. Ohjaus tapahtuu kätevästi ohjaamosta auton omilla vilkuilla!
       </p>
 
       <div class="product-grid">
-        <!-- Gallery -->
+        <!-- Gallery (Optimized with spacious frames and no-crop contain) -->
         <div class="product-gallery" id="tbsGallery">
           <div class="main-image-frame" id="tbsMainFrame" title="Klikkaa suurentaaksesi kuva">
             <img src="assets/img/tbs-device.webp" alt="Perävaunun takavalokytkin TBS-231-L" id="tbsMainImg">
@@ -518,16 +548,16 @@
             </button>
           </div>
 
-          <div class="section-label tbs-badge" id="tbsModelBadge" style="margin-bottom:0.75rem;">
+          <div class="section-label tbs-badge" id="tbsModelBadge" style="margin-bottom:1rem;">
             Malli: TBS-231-L (LED-takavalot)
           </div>
 
           <h3>Miksi tavallinen peräkärry tarvitsee tämän?</h3>
-          <p style="color:#475569; margin-top:0.5rem;" id="tbsTargetInfo">
+          <p style="color:var(--text-muted); margin-top:0.5rem;" id="tbsTargetInfo">
             Standardissa 7-napaisessa peräkärrypistokkeessa ei ole peruutusvalojohdinta. Pimeällä tai hämärässä peruuttaminen peräkärryn kanssa – erityisesti kapeilla mökkiteillä tai ahtaissa pihoissa – on vaarallista arpapeliä, ja auton omat peruutusvalot peittyvät kärryn taakse.
           </p>
 
-          <p style="color:#475569; margin-top:0.75rem;">
+          <p style="color:var(--text-muted); margin-top:0.75rem;">
             <strong>Qeinon patentoitu ratkaisu:</strong> Kytkinyksikkö asennetaan suoraan peräkärryyn. Se tarkkailee 7-napaisen liittimen kautta tulevia suuntavilkkusignaaleja. Kun laitat hätävilkut päälle hetkeksi, kärryn tehokkaat peruutus-/työvalot syttyvät! Kun haluat sammuttaa valot, näytät vain suuntavilkkua oikealle tai vasemmalle. Kuljettajan ei tarvitse nousta autosta tai asentaa uusia kytkimiä ohjaamoon!
           </p>
 
@@ -559,7 +589,7 @@
           <div class="product-video-block">
             <div class="video-header-bar">
               <span>Esittelyvideo: Takavalokytkimen toiminta käytännössä</span>
-              <span style="color:#60A5FA;">TBS-221 / TBS-231-L</span>
+              <span style="color:var(--accent-gold); font-weight:700;">TBS-221 / TBS-231-L</span>
             </div>
             <div class="video-wrap">
               <video controls playsinline preload="metadata" poster="assets/img/tbs-device.webp">
@@ -574,7 +604,7 @@
             <h4 style="margin-bottom:0.75rem; font-size:1.05rem;">Selkeä 6-johdinkytkentä (Vakio 7-napainen perävaunu):</h4>
             <div class="wire-legend-grid">
               <div class="wire-tag">
-                <span class="wire-dot" style="background:#FFFFFF; border:1px solid #94A3B8;"></span>
+                <span class="wire-dot" style="background:#FFFFFF; border:1px solid #6B7280;"></span>
                 <span>Valkoinen: Maa (GND)</span>
               </div>
               <div class="wire-tag">
@@ -676,12 +706,12 @@
               <span class="price-sub">Kysy myös valmiita paketteja tehokkailla LED-työvaloilla</span>
             </div>
             <div class="product-action-group">
-              <a href="#yhteystiedot" class="btn btn-primary" onclick="selectInquiryProduct('Takavalokytkin TBS')">
+              <a href="#yhteystiedot" class="btn btn-custom" onclick="selectInquiryProduct('Takavalokytkin TBS')">
                 <span>Tilaa / Pyydä tarjous</span>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
-              <a href="assets/docs/TBS-231-L_eng.pdf" target="_blank" class="btn btn-secondary">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              <a href="assets/docs/TBS-231-L_eng.pdf" target="_blank" class="btn btn-line">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                 <span>Tekninen ohje (PDF)</span>
               </a>
             </div>
@@ -695,7 +725,7 @@
                 <span>14 vrk palautusoikeus</span>
               </div>
               <div class="pricing-badge-item">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
                 <span>Lähetys 1–2 arkipäivässä</span>
               </div>
               <div class="pricing-badge-item">
@@ -711,12 +741,12 @@
               <img src="assets/img/csw-device.webp" alt="Webaston kauko-ohjain CSW-1 piirilevy" loading="lazy">
             </div>
             <div class="csw-card-text">
-              <div class="section-label" style="margin-bottom:0.5rem; font-size:0.75rem;">Erikoistuote</div>
+              <div class="teaser" style="margin-bottom:0.4rem; font-size:11px;">Erikoistuote</div>
               <h4 style="font-size:1.2rem; margin-bottom:0.5rem;">Webaston ja lisälämmittimien kauko-ohjain CSW-1</h4>
-              <p style="font-size:0.92rem; color:#64748B; line-height:1.5; margin-bottom:1rem;">
+              <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6; margin-bottom:1.2rem;">
                 Qeinon innovaatioihin kuuluu myös CSW-1 -ohjainyksikkö, joka mahdollistaa auton polttoainekäyttöisen lisälämmittimen (Webasto / Eberspächer) käynnistämisen ja sammuttamisen suoraan auton omalla avaimella ja vilkuilla ilman erillistä kalliitta kaukosäädintä.
               </p>
-              <button type="button" class="btn btn-secondary" style="padding:0.5rem 1rem; font-size:0.85rem;" onclick="selectInquiryProduct('CSW-1 Webasto-ohjain')">
+              <button type="button" class="btn btn-line" style="padding:0.6rem 1.2rem; font-size:0.85rem;" onclick="selectInquiryProduct('CSW-1 Webasto-ohjain')">
                 Kysy lisää CSW-1 ohjaimesta
               </button>
             </div>
@@ -732,11 +762,12 @@
   <section class="reviews-section" id="kokemuksia">
     <div class="container">
       <div class="reviews-header">
-        <div class="section-label">
+        <div class="teaser">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          Kenttätestit &amp; Käyttäjäkokemukset
+          03 / Kenttätestit &amp; Käyttäjäkokemukset
         </div>
         <h2 class="section-title">Todistetusti toimivaa pohjoisen pakkasissa</h2>
+        <div class="small-border center"></div>
         <p class="section-subtitle">
           Qeinon innovaatiot on luotu ratkaisemaan todellisia ongelmia, joihin sähköautoilijat ja perävaunun vetäjät törmäävät joka talvi.
         </p>
@@ -795,11 +826,12 @@
     <div class="container">
       <div class="story-grid">
         <div class="story-text">
-          <div class="section-label dark">
+          <div class="teaser dark">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-            Innovaatio syntyy arjen tarpeesta
+            04 / Innovaatio syntyy arjen tarpeesta
           </div>
           <h2>Qeinon syntytarina</h2>
+          <div class="small-border"></div>
           <p class="story-p">
             Qeino Oy:n tarina sai alkunsa suomalaisesta talvesta ja kahden kokeneen ammattilaisen kyllästymisestä jokatalviseen riesaan.
           </p>
@@ -854,11 +886,12 @@
   <section class="b2b-section" id="jalleenmyyjat">
     <div class="container">
       <div class="b2b-header">
-        <div class="section-label">
+        <div class="teaser">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7.5" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
-          B2B & Korjaamot
+          05 / B2B & Korjaamot
         </div>
         <h2 class="section-title">Palvelemme myös jälleenmyyjiä ja asennusliikkeitä</h2>
+        <div class="small-border center"></div>
         <p class="section-subtitle">
           Qeinon tuotteet tarjoavat erinomaisen lisämyyntimahdollisuuden autoliikkeille, autosähkökorjaamoille, perävaunumyyjille ja autotarvikeliikkeille.
         </p>
@@ -905,7 +938,7 @@
             Ota meihin yhteyttä, niin lähetämme teille jälleenmyyjätiedotteen ja tukkuhinnaston. Voimme myös toimittaa esittelylaitteet myymäläänne.
           </p>
         </div>
-        <a href="#yhteystiedot" class="btn btn-primary" onclick="selectInquiryProduct('Jälleenmyynti & tukkuhinnasto', true)">
+        <a href="#yhteystiedot" class="btn btn-custom" onclick="selectInquiryProduct('Jälleenmyynti & tukkuhinnasto', true)">
           <span>Pyydä jälleenmyyjähinnasto</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
@@ -919,8 +952,9 @@
   <section class="faq-section" id="ukk">
     <div class="container">
       <div class="faq-header">
-        <div class="section-label">Tietoa asennuksesta ja käytöstä</div>
+        <div class="teaser">06 / Tietoa asennuksesta ja käytöstä</div>
         <h2 class="section-title">Usein kysytyt kysymykset</h2>
+        <div class="small-border center"></div>
         <p class="section-subtitle">
           Täältä löydät vastaukset yleisimpiin kysymyksiin laitteiden asennuksesta, sähköjärjestelmistä ja käytöstä.
         </p>
@@ -1006,11 +1040,12 @@
   <section class="process-section" id="tilausohje">
     <div class="container">
       <div class="process-header">
-        <div class="section-label">
+        <div class="teaser">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-          Vaivaton ja luotettava toimitus
+          07 / Vaivaton ja luotettava toimitus
         </div>
         <h2 class="section-title">Miten tilaus etenee?</h2>
+        <div class="small-border center"></div>
         <p class="section-subtitle">
           Ei monimutkaista rekisteröitymistä tai hämmentävää verkkokauppahässäkkää. Saat selkeän palvelun ja nopean toimituksen suoraan kotimaiselta valmistajalta.
         </p>
@@ -1018,7 +1053,7 @@
 
       <div class="process-steps-grid">
         <div class="process-step-card">
-          <div class="step-badge">1</div>
+          <div class="step-badge">01</div>
           <div class="step-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
           </div>
@@ -1029,7 +1064,7 @@
         </div>
 
         <div class="process-step-card">
-          <div class="step-badge">2</div>
+          <div class="step-badge">02</div>
           <div class="step-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           </div>
@@ -1040,9 +1075,9 @@
         </div>
 
         <div class="process-step-card">
-          <div class="step-badge">3</div>
+          <div class="step-badge">03</div>
           <div class="step-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
           </div>
           <h3>3. Nopea Posti-toimitus Sipoosta</h3>
           <p>
@@ -1073,11 +1108,12 @@
        ========================================================================== -->
   <section class="contact-section" id="yhteystiedot">
     <div class="container">
-      <div class="section-label">
+      <div class="teaser">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Ota yhteyttä
+        08 / Ota yhteyttä
       </div>
       <h2 class="section-title">Yhteystiedot ja tilaustiedustelut</h2>
+      <div class="small-border"></div>
       <p class="section-subtitle">
         Vastaamme mielellämme kysymyksiin tuotteista, hinnoista, asennuksesta ja jälleenmyynnistä. Ota yhteyttä soittamalla, sähköpostilla tai alla olevalla lomakkeella.
       </p>
@@ -1107,7 +1143,7 @@
                 <div class="contact-item-text">
                   <span class="title">Puhelin</span>
                   <a href="tel:0443069752" class="val">044 306 9752</a>
-                  <span style="font-size:0.8rem; color:#64748B;">Hannu Alhovuori</span>
+                  <span style="font-size:0.8rem; color:var(--text-muted);">Hannu Alhovuori</span>
                 </div>
               </div>
 
@@ -1124,7 +1160,7 @@
           </div>
 
           <div class="company-meta-box">
-            <h4 style="font-size:0.95rem; margin-bottom:0.4rem; color:#1E293B;">Qeino Oy</h4>
+            <h4 style="font-size:0.95rem; margin-bottom:0.4rem; color:var(--text-white);">Qeino Oy</h4>
             <p>Suomalainen autosähköön ja ajoneuvoelektroniikkaan erikoistunut innovaatioyritys. Kotipaikka Sipoo.</p>
           </div>
         </div>
@@ -1179,7 +1215,7 @@
             </div>
 
             <div class="form-actions">
-              <button type="submit" class="btn btn-primary" style="width:100%;">
+              <button type="submit" class="btn btn-custom" style="width:100%;">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                 <span>Avaa sähköpostissa (Lähetä)</span>
               </button>
@@ -1195,18 +1231,18 @@
   </section>
 
   <!-- ==========================================================================
-       FOOTER
+       FOOTER (Archi Dark Minimalist Architecture)
        ========================================================================== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/img/logo-white.svg" alt="Qeino Oy" style="height:36px; width:auto;">
+          <img src="assets/img/logo-white.svg" alt="Qeino Oy" style="height:36px; width:auto; filter:brightness(0) invert(1);">
           <p>
             Suomalaista autosähkö- ja elektroniikkaosaamista. Innovatiiviset ratkaisut autoiluun, pakkaseen ja perävaunuihin.
           </p>
           <div style="margin-top:1.5rem;">
-            <a href="https://www.is.fi/autot/art-2000010071605.html" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem; color:#93C5FD; display:inline-flex; align-items:center; gap:0.4rem;">
+            <a href="https://www.is.fi/autot/art-2000010071605.html" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem; color:var(--accent-gold); display:inline-flex; align-items:center; gap:0.4rem; font-family:var(--font-heading); text-transform:uppercase; letter-spacing:1px; font-weight:700;">
               <span>Lue LidAidin esittely Ilta-Sanomista</span>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
             </a>

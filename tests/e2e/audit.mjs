@@ -166,25 +166,28 @@ export function auditPage(opts = {}) {
     }
   }
 
-  // 7b. Header Sibling Collision & Nav Multi-Line Wrap Check
+  // 7b. Header Sibling Collision & Nav Multi-Line Wrap Check (Desktop Nav)
   const logo = document.querySelector('.logo-link');
   const nav = document.querySelector('nav');
   const cta = document.querySelector('.header-cta');
-  if (logo && nav && visible(logo) && visible(nav) && vw > 1140) {
-    const lr = logo.getBoundingClientRect();
-    const nr = nav.getBoundingClientRect();
-    if (lr.right > nr.left + 4) {
-      add("HEADER OVERLAP", logo, `overlaps nav by ${Math.round(lr.right - nr.left)}px`);
+  const menuBtn = document.querySelector('.mobile-menu-btn');
+  const isDesktopNav = !menuBtn || getComputedStyle(menuBtn).display === 'none';
+
+  if (isDesktopNav) {
+    if (logo && nav && visible(logo) && visible(nav)) {
+      const lr = logo.getBoundingClientRect();
+      const nr = nav.getBoundingClientRect();
+      if (lr.right > nr.left + 4) {
+        add("HEADER OVERLAP", logo, `overlaps nav by ${Math.round(lr.right - nr.left)}px`);
+      }
     }
-  }
-  if (nav && cta && visible(nav) && visible(cta) && vw > 1140) {
-    const nr = nav.getBoundingClientRect();
-    const cr = cta.getBoundingClientRect();
-    if (nr.right > cr.left + 4) {
-      add("HEADER OVERLAP", nav, `overlaps cta by ${Math.round(nr.right - cr.left)}px`);
+    if (nav && cta && visible(nav) && visible(cta)) {
+      const nr = nav.getBoundingClientRect();
+      const cr = cta.getBoundingClientRect();
+      if (nr.right > cr.left + 4) {
+        add("HEADER OVERLAP", nav, `overlaps cta by ${Math.round(nr.right - cr.left)}px`);
+      }
     }
-  }
-  if (vw > 1140) {
     document.querySelectorAll('.nav-links li a').forEach(a => {
       if (visible(a)) {
         const r = a.getBoundingClientRect();

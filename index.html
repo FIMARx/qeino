@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qeino Oy | Älykästä ja kestävää autosähköä Suomesta</title>
+  <meta name="description" content="Qeino Oy kehittää ja valmistaa innovatiivisia autosähköratkaisuja pohjoisen äärioloihin. Tutustu LidAid-latausluukunlämmittimeen ja patentoituun perävaunun takavalokytkimeen.">
+  <meta name="keywords" content="Qeino, LidAid, latausluukun lämmitin, takavalokytkin, peräkärryn peruutusvalo, autosähkö, Sipoo, Hannu Alhovuori">
+  <meta name="author" content="Qeino Oy">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Qeino Oy | Älykästä autosähköä pohjoisen äärioloihin">
+  <meta property="og:description" content="LidAid-latausluukunlämmitin sähköautoille sekä patentoitu perävaunun takavalokytkin. Kotimaista insinööriosaamista Sipoosta.">
+  <meta property="og:image" content="assets/img/lidaid-device.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="assets/img/icon-192.png">
+
+  <!-- Google Fonts: Libre Franklin (Official Brand Typography) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#alku" class="logo-link" aria-label="Qeino Oy Etusivu">
+        <img src="assets/img/logo-blue.svg" alt="Qeino Oy Logo" class="logo-svg">
+        <span class="logo-subtext">Finland</span>
+      </a>
+
+      <nav aria-label="Päävalikko">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#lidaid">LidAid-lämmitin</a></li>
+          <li><a href="#takavalokytkin">Takavalokytkin</a></li>
+          <li><a href="#tarina">Syntytarina</a></li>
+          <li><a href="#jalleenmyyjat">Jälleenmyyjille</a></li>
+          <li><a href="#ukk">UKK</a></li>
+          <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-cta">
+        <a href="#yhteystiedot" class="btn btn-primary" onclick="selectInquiryProduct('Yleinen tiedustelu')">
+          <span>Ota yhteyttä</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Avaa valikko" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== -->
+  <section class="hero-section" id="alku">
+    <div class="hero-grid-pattern"></div>
+    <div class="container hero-content">
+      <div class="hero-text-block">
+        <div class="section-label dark">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Suomalaista autosähköinnovaatiota
+        </div>
+        <h1 class="hero-title">
+          Älykkäät ratkaisut autoiluun <span class="highlight">pakkasessa ja pimeässä</span>
+        </h1>
+        <p class="hero-desc">
+          Qeino Oy kehittää ja valmistaa kotimaisia elektroniikkaratkaisuja, jotka tekevät sähköautoilusta ja perävaunun käytöstä vaivatonta. Ei monimutkaisuutta – vain toimivaa, kestävää insinööriosaamista.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#lidaid" class="btn btn-primary">
+            <span>Tutustu LidAidiin</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+          </a>
+          <a href="#takavalokytkin" class="btn btn-ghost-dark">
+            <span>Perävaunun takavalokytkin</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+          </a>
+        </div>
+
+        <div class="hero-badges">
+          <div class="hero-badge-item">
+            <div class="hero-badge-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="hero-badge-text">
+              100 % Suomessa<br>suunniteltu & testattu
+            </div>
+          </div>
+          <div class="hero-badge-item">
+            <div class="hero-badge-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+            </div>
+            <div class="hero-badge-text">
+              Kestää ankarat<br>pakkaset (-40 °C)
+            </div>
+          </div>
+          <div class="hero-badge-item">
+            <div class="hero-badge-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div class="hero-badge-text">
+              Turvallinen & helppo<br>12V järjestelmään
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Card -->
+      <div class="hero-visual">
+        <div class="hero-product-preview-card">
+          <div class="card-header-status">
+            <span class="status-pill">
+              <span class="status-dot"></span>
+              Tuotannossa & Saatavilla
+            </span>
+            <span style="font-size:0.8rem; color:#94A3B8; font-weight:600;">Sipoo, Finland</span>
+          </div>
+          
+          <div class="hero-card-img-wrap">
+            <img src="assets/img/lidaid-device.webp" alt="LidAid-latausluukunlämmitin ja ohjainyksikkö" loading="eager">
+          </div>
+
+          <div class="hero-card-body">
+            <h3>LidAid-latausluukunlämmitin</h3>
+            <p>
+              Mikroprosessoriohjattu automaattilämmitin pitää sähköauton ja hybridin latausluukun ja pistokkeen sulana kovissakin pakkasissa.
+            </p>
+          </div>
+
+          <div class="hero-card-footer">
+            <div class="hero-specs-mini">
+              <div class="mini-spec">
+                <span class="label">Virrankulutus</span>
+                <span class="val">~20 W</span>
+              </div>
+              <div class="mini-spec">
+                <span class="label">Säätöalue</span>
+                <span class="val">+45...+65°C</span>
+              </div>
+              <div class="mini-spec">
+                <span class="label">Katkaisu</span>
+                <span class="val">&gt; +4°C autom.</span>
+              </div>
+            </div>
+            <a href="#lidaid" class="btn btn-primary" style="padding:0.5rem 1rem; font-size:0.85rem;">
+              Katso esite
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TUOTE 1: LIDAID-LATAUSLUUKUNLÄMMITIN
+       ========================================================================== -->
+  <section class="product-section" id="lidaid">
+    <div class="container">
+      <div class="section-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        Sähkö- ja hybridiautoilijan talvipelastus
+      </div>
+      <h2 class="section-title">LidAid-latausluukunlämmitin</h2>
+      <p class="section-subtitle">
+        Lopeta latausluukun nyrkillä paukuttaminen ja kuumailmapuhaltimella sulattelu. Älykäs termostaattiohjattu lämmitin takaa, että latausluukku ja pistoke toimivat vaivattomasti joka aamu.
+      </p>
+
+      <div class="product-grid">
+        <!-- Gallery -->
+        <div class="product-gallery" id="lidaidGallery">
+          <div class="main-image-frame">
+            <img src="assets/img/lidaid-device.webp" alt="LidAid latausluukunlämmittimen ohjain ja johdotus" id="lidaidMainImg">
+          </div>
+          <div class="gallery-thumbs">
+            <button class="thumb-btn active" data-full="assets/img/lidaid-device.webp" aria-label="Laitteen yleiskuva">
+              <img src="assets/img/lidaid-device.webp" alt="LidAid päänäkymä">
+            </button>
+            <button class="thumb-btn" data-full="assets/img/liittimet.webp" aria-label="Mukana toimitettavat asennustarvikkeet">
+              <img src="assets/img/liittimet.webp" alt="Asennussarja">
+            </button>
+          </div>
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-info-col">
+          <!-- Ilta-Sanomat Media Highlight -->
+          <div class="media-quote-card">
+            <div class="media-quote-header">
+              <span class="media-logo-badge">📰 Ilta-Sanomat Autot</span>
+              <span class="media-date">Julkaistu IS:ssä</span>
+            </div>
+            <p class="media-quote-text">
+              ”Jani osti uuden Skodan – talvella alkoivat ongelmat: ’Pelkäsin pakkasia’. Nyrkki heilui ja hiustenkuivaaja puhisi, kunnes työkaverukset loivat nerokkaan ratkaisun.”
+            </p>
+            <a href="https://www.is.fi/autot/art-2000010071605.html" target="_blank" rel="noopener noreferrer" class="media-link">
+              <span>Lue koko juttu ja katso video Ilta-Sanomista</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+
+          <h3>Miten LidAid toimii?</h3>
+          <p style="color:#475569; margin-top:0.5rem;">
+            LidAid on itsenäisesti toimiva, mikroprosessoriohjattu järjestelmä. Se tarkkailee ulkolämpötilaa ja kytkeytyy automaattisesti päälle pakkasen kiristyessä. Lämmityselementti sijoitetaan latausluukun taakse vesivaluma-aukon kautta, jolloin lämpö kohdistuu juuri oikeaan paikkaan ja estää jään muodostumisen luukun salpaan ja latauspistooliin.
+          </p>
+
+          <!-- Features Grid -->
+          <div class="features-grid">
+            <div class="feature-box">
+              <div class="feature-icon">🌡️</div>
+              <h4>2x NTC-tarkkuusanturit</h4>
+              <p>Toinen anturi mittaa ulkoilmaa ja toinen lämmityselementtiä pitäen lämmön optimaalisena.</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon">❄️</div>
+              <h4>Automaattinen pakkasvahti</h4>
+              <p>Laite katkaisee virran automaattisesti, kun ulkolämpötila nousee yli +4 °C.</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon">⚙️</div>
+              <h4>Portaaton lämpötilasäätö</h4>
+              <p>Säädettävissä nupista +45 °C – +65 °C välillä. Pienin asento riittää useimmiten.</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon">🔋</div>
+              <h4>Pieni virrankulutus</h4>
+              <p>Kulutus keskimäärin vain n. 20 W (vastaa yhtä 21W hehkulamppua). Toimii 12V akulla.</p>
+            </div>
+          </div>
+
+          <!-- Video Showcase -->
+          <div class="product-video-block">
+            <div class="video-header-bar">
+              <span>Testivideo: Luukku kasteltuna yöllä -15 °C pakkasessa</span>
+              <span style="color:#34D399;">Aito kenttätesti</span>
+            </div>
+            <div class="video-wrap">
+              <video controls playsinline preload="metadata" poster="assets/img/lidaid-device.webp">
+                <source src="assets/video/lidaid-demo.mp4" type="video/mp4">
+                Selaimesi ei tue videotoistoa.
+              </video>
+            </div>
+          </div>
+
+          <!-- Technical Specs -->
+          <div class="tech-specs-card">
+            <div class="specs-title">
+              <span>Tekniset tiedot (LidAid)</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            </div>
+            <ul class="specs-list">
+              <li>
+                <span class="spec-name">Käyttöjännite</span>
+                <span class="spec-val">12–16 VDC</span>
+              </li>
+              <li>
+                <span class="spec-name">Lepovirta</span>
+                <span class="spec-val">40 mA</span>
+              </li>
+              <li>
+                <span class="spec-name">Lämmitysteho</span>
+                <span class="spec-val">Keskimäärin ~20 W (elementti 50 W)</span>
+              </li>
+              <li>
+                <span class="spec-name">Lämpötilan säätöväli</span>
+                <span class="spec-val">+45 °C ... +65 °C</span>
+              </li>
+              <li>
+                <span class="spec-name">Käyttölämpötila</span>
+                <span class="spec-val">-40 °C ... +100 °C</span>
+              </li>
+              <li>
+                <span class="spec-name">Kotelon mitat</span>
+                <span class="spec-val">125 x 80 x 32 mm</span>
+              </li>
+              <li>
+                <span class="spec-name">Toimitussisältö</span>
+                <span class="spec-val">Ohjainyksikkö, 50W elementti, 2x NTC-anturit, johtosarja, kiinnitystarvikkeet, suomenkielinen ohje</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Price & Actions -->
+          <div class="product-pricing-bar">
+            <div class="price-info">
+              <span class="price-label">Hinta & Tilaus</span>
+              <span class="price-val">Kysy tarjous</span>
+              <span class="price-sub">Kuluttajille & jälleenmyyjäerät suoraan valmistajalta</span>
+            </div>
+            <div class="product-action-group">
+              <a href="#yhteystiedot" class="btn btn-primary" onclick="selectInquiryProduct('LidAid-latausluukunlämmitin')">
+                <span>Tilaa / Pyydä tarjous</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="assets/docs/LidAid_kayttoohje.pdf" target="_blank" class="btn btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                <span>Lataa käyttöohje (PDF)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TUOTE 2: PERÄVAUNUN TAKAVALOKYTKIN (TBS-231-L / TBS-221)
+       ========================================================================== -->
+  <section class="product-section alt-bg" id="takavalokytkin">
+    <div class="container">
+      <div class="section-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+        Patentoitu suomalainen keksintö
+      </div>
+      <h2 class="section-title">Perävaunun takavalokytkin</h2>
+      <p class="section-subtitle">
+        Tehokkaat peruutus- ja työvalot peräkärryyn ilman ylimääräisiä kaapeleita tai kytkimiä vetoautoon. Ohjaus tapahtuu kätevästi ohjaamosta auton omilla vilkuilla!
+      </p>
+
+      <div class="product-grid">
+        <!-- Gallery -->
+        <div class="product-gallery" id="tbsGallery">
+          <div class="main-image-frame">
+            <img src="assets/img/tbs-device.webp" alt="Perävaunun takavalokytkin TBS-231-L" id="tbsMainImg">
+          </div>
+          <div class="gallery-thumbs">
+            <button class="thumb-btn active" data-full="assets/img/tbs-device.webp" aria-label="Takavalokytkimen laiteyksikkö">
+              <img src="assets/img/tbs-device.webp" alt="Laitekotelo">
+            </button>
+            <button class="thumb-btn" data-full="assets/img/tbs-pcb.webp" aria-label="Piirilevy ja komponentit">
+              <img src="assets/img/tbs-pcb.webp" alt="Piirilevy">
+            </button>
+            <button class="thumb-btn" data-full="assets/img/tbs-kytkenta.webp" aria-label="Kytkentäkaavio">
+              <img src="assets/img/tbs-kytkenta.webp" alt="Kytkentäkaavio">
+            </button>
+          </div>
+        </div>
+
+        <!-- Details -->
+        <div class="product-info-col">
+          <!-- Model Switcher Tabs -->
+          <div class="model-selector">
+            <button class="model-tab tbs-model-tab active" data-model="TBS-231-L">
+              TBS-231-L (LED-valot)
+            </button>
+            <button class="model-tab tbs-model-tab" data-model="TBS-221">
+              TBS-221 (Hehkulamput)
+            </button>
+          </div>
+
+          <div class="section-label dark" id="tbsModelBadge" style="margin-bottom:0.75rem;">
+            Malli: TBS-231-L (LED-takavalot)
+          </div>
+
+          <h3>Miksi tavallinen peräkärry tarvitsee tämän?</h3>
+          <p style="color:#475569; margin-top:0.5rem;" id="tbsTargetInfo">
+            Standardissa 7-napaisessa peräkärrypistokkeessa ei ole peruutusvalojohdinta. Pimeällä tai hämärässä peruuttaminen peräkärryn kanssa – erityisesti kapeilla mökkiteillä tai ahtaissa pihoissa – on vaarallista arpapeliä, ja auton omat peruutusvalot peittyvät kärryn taakse.
+          </p>
+
+          <p style="color:#475569; margin-top:0.75rem;">
+            <strong>Qeinon patentoitu ratkaisu:</strong> Kytkinyksikkö asennetaan suoraan peräkärryyn. Se tarkkailee 7-napaisen liittimen kautta tulevia suuntavilkkusignaaleja. Kun laitat hätävilkut päälle hetkeksi, kärryn tehokkaat peruutus-/työvalot syttyvät! Kun haluat sammuttaa valot, näytät vain suuntavilkkua oikealle tai vasemmalle. Kuljettajan ei tarvitse nousta autosta tai asentaa uusia kytkimiä ohjaamoon!
+          </p>
+
+          <!-- Features Grid -->
+          <div class="features-grid">
+            <div class="feature-box">
+              <div class="feature-icon">🚗</div>
+              <h4>Ei kaapelointia ohjaamoon</h4>
+              <p>Valoja ohjataan suoraan auton omalla vilkkuvivulla ja hätävilkkukytkimellä.</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon">💡</div>
+              <h4>Tukee tehokkaita työvaloja</h4>
+              <p id="tbsLoadInfo">Maks. 5 A (jopa 60W LED-valotehoa). Turvallinen näkyvyys pimeässä.</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon">🛡️</div>
+              <h4>Roiskevesitiivis kotelo</h4>
+              <p>Suojattu pölyltä ja roiskeilta. Voidaan asentaa aisaan tai kärryn takalaitaan.</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon">📜</div>
+              <h4>Patentoitu toimintaperiaate</h4>
+              <p>Täysin ainutlaatuinen suomalainen logiikka, joka erottaa hätävilkut ja vilkut toisistaan.</p>
+            </div>
+          </div>
+
+          <!-- Video Showcase -->
+          <div class="product-video-block">
+            <div class="video-header-bar">
+              <span>Esittelyvideo: Takavalokytkimen toiminta käytännössä</span>
+              <span style="color:#60A5FA;">TBS-221 / TBS-231-L</span>
+            </div>
+            <div class="video-wrap">
+              <video controls playsinline preload="metadata" poster="assets/img/tbs-device.webp">
+                <source src="assets/video/tbs-demo.mp4" type="video/mp4">
+                Selaimesi ei tue videotoistoa.
+              </video>
+            </div>
+          </div>
+
+          <!-- Wiring Diagram & Color Codes -->
+          <div class="wiring-box">
+            <h4 style="margin-bottom:0.75rem; font-size:1.05rem;">Selkeä 6-johdinkytkentä (Vakio 7-napainen perävaunu):</h4>
+            <div class="wire-legend-grid">
+              <div class="wire-tag">
+                <span class="wire-dot" style="background:#FFFFFF; border:1px solid #94A3B8;"></span>
+                <span>Valkoinen: Maa (GND)</span>
+              </div>
+              <div class="wire-tag">
+                <span class="wire-dot" style="background:#EAB308;"></span>
+                <span>Keltainen: Vasen vilkku</span>
+              </div>
+              <div class="wire-tag">
+                <span class="wire-dot" style="background:#22C55E;"></span>
+                <span>Vihreä: Oikea vilkku</span>
+              </div>
+              <div class="wire-tag">
+                <span class="wire-dot" style="background:#78350F;"></span>
+                <span>Ruskea: Ajovalo (+12V)</span>
+              </div>
+              <div class="wire-tag">
+                <span class="wire-dot" style="background:#2563EB;"></span>
+                <span>Sininen: Releen kärki 1</span>
+              </div>
+              <div class="wire-tag">
+                <span class="wire-dot" style="background:#1D4ED8;"></span>
+                <span>Sininen: Releen kärki 2</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technical Specs -->
+          <div class="tech-specs-card">
+            <div class="specs-title">
+              <span>Tekniset tiedot (TBS-sarja)</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            </div>
+            <ul class="specs-list">
+              <li>
+                <span class="spec-name">Käyttöjännite</span>
+                <span class="spec-val">12–16 VDC</span>
+              </li>
+              <li>
+                <span class="spec-name">Lepovirta</span>
+                <span class="spec-val">40 mA</span>
+              </li>
+              <li>
+                <span class="spec-name">Maksimi kytkentävirta</span>
+                <span class="spec-val">5 A (esim. kaksi 27W LED-työvaloa)</span>
+              </li>
+              <li>
+                <span class="spec-name">Käyttölämpötila</span>
+                <span class="spec-val">-30 °C ... +85 °C</span>
+              </li>
+              <li>
+                <span class="spec-name">Kotelon mitat</span>
+                <span class="spec-val">125 x 80 x 32 mm</span>
+              </li>
+              <li>
+                <span class="spec-name">Käyttöalue</span>
+                <span class="spec-val">Mökkiteillä, pihoissa, työmailla ja tieliikenteen ulkopuolella</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Price & Actions -->
+          <div class="product-pricing-bar">
+            <div class="price-info">
+              <span class="price-label">Hinta & Saatavuus</span>
+              <span class="price-val">Kysy tarjous</span>
+              <span class="price-sub">Kysy myös valmiita paketteja tehokkailla LED-työvaloilla</span>
+            </div>
+            <div class="product-action-group">
+              <a href="#yhteystiedot" class="btn btn-primary" onclick="selectInquiryProduct('Takavalokytkin TBS')">
+                <span>Tilaa / Pyydä tarjous</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="assets/docs/TBS-231-L_eng.pdf" target="_blank" class="btn btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                <span>Tekninen ohje (PDF)</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Extra Innovation: CSW-1 Mention -->
+          <div class="csw-card">
+            <div class="csw-card-img">
+              <img src="assets/img/csw-device.webp" alt="Webaston kauko-ohjain CSW-1 piirilevy" loading="lazy">
+            </div>
+            <div class="csw-card-text">
+              <div class="section-label" style="margin-bottom:0.5rem; font-size:0.75rem;">Erikoistuote</div>
+              <h4 style="font-size:1.2rem; margin-bottom:0.5rem;">Webaston ja lisälämmittimien kauko-ohjain CSW-1</h4>
+              <p style="font-size:0.92rem; color:#64748B; line-height:1.5; margin-bottom:1rem;">
+                Qeinon innovaatioihin kuuluu myös CSW-1 -ohjainyksikkö, joka mahdollistaa auton polttoainekäyttöisen lisälämmittimen (Webasto / Eberspächer) käynnistämisen ja sammuttamisen suoraan auton omalla avaimella ja vilkuilla ilman erillistä kalliitta kaukosäädintä.
+              </p>
+              <button type="button" class="btn btn-secondary" style="padding:0.5rem 1rem; font-size:0.85rem;" onclick="selectInquiryProduct('CSW-1 Webasto-ohjain')">
+                Kysy lisää CSW-1 ohjaimesta
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       QEINON SYNTYTARINA
+       ========================================================================== -->
+  <section class="story-section" id="tarina">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-text">
+          <div class="section-label dark">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            Innovaatio syntyy arjen tarpeesta
+          </div>
+          <h2>Qeinon syntytarina</h2>
+          <p class="story-p">
+            Qeino Oy:n tarina sai alkunsa suomalaisesta talvesta ja kahden kokeneen ammattilaisen kyllästymisestä jokatalviseen riesaan.
+          </p>
+          <p class="story-p">
+            Keväällä 2020 sipoolainen <strong>Jani Raespuro</strong> hankki ladattavan hybridiauton. Ensimmäisten pakkasten saapuessa alkoivat kuitenkin ongelmat: auton latausluukku ja latauspistooli jäätyivät tiukasti kiinni. Aamuisin edessä oli nyrkillä hakkaamista, sulatteluspraylla suihkuttelua ja hiustenkuivaajan virittelyä autokatoksessa.
+          </p>
+          
+          <div class="story-highlight-box">
+            <p>
+              ”Pakkasia alkoi suorastaan pelätä. Lopulta löimme työkaverini Hannu Alhovuoren kanssa viisaat päät yhteen: eikö tähän oikeasti ole olemassa järkevää, automaattista ratkaisua?”
+            </p>
+          </div>
+
+          <p class="story-p">
+            Keksijä ja elektroniikan asiantuntija <strong>Hannu Alhovuori</strong> tarttui toimeen. Syntyi ensimmäinen LidAid-prototyyppi: mikroprosessoriohjattu laite, joka mittaa tarkasti ulkolämpötilaa ja lämmityselementtiä pitäen latausmekanismin luotettavasti sulana. Sitä seurasi toinen pitkään ratkaisematon ongelma – pimeät peräkärryt ilman peruutusvaloa – johon Hannu kehitti ja patentoi vilkkujen kautta ohjattavan takavalokytkimen.
+          </p>
+
+          <div class="story-pillars">
+            <div class="pillar-item">
+              <h4>Aito suomalainen tuotekehitys</h4>
+              <p>Jokainen laite suunnitellaan, kootaan ja testataan tarkasti Sipoossa suomalaisiin ääriolosuhteisiin.</p>
+            </div>
+            <div class="pillar-item">
+              <h4>Käytännönläheinen logiikka</h4>
+              <p>Ei tarpeetonta mobiiliappia tai pilvipalvelua – laitteet toimivat itsenäisesti, luotettavasti ja vuodesta toiseen.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-visual-col">
+          <div class="story-visual-card">
+            <div class="quote-mark">“</div>
+            <blockquote>
+              Me emme kehitä elektroniikkaa elektroniikan vuoksi. Qeinon jokainen tuote on syntynyt siitä, että olemme itse kohdanneet ärsyttävän ongelman tiellä tai pakkasessa ja todenneet: tämän voi tehdä fiksummin.
+            </blockquote>
+            <div class="founder-info">
+              <div class="founder-avatar-icon">HA</div>
+              <div class="founder-meta">
+                <h5>Hannu Alhovuori</h5>
+                <span>Perustaja & keksijä, Qeino Oy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       JÄLLEENMYYJILLE & YHTEISTYÖKUMPPANEILLE
+       ========================================================================== -->
+  <section class="b2b-section" id="jalleenmyyjat">
+    <div class="container">
+      <div class="b2b-header">
+        <div class="section-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7.5" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+          B2B & Korjaamot
+        </div>
+        <h2 class="section-title">Palvelemme myös jälleenmyyjiä ja asennusliikkeitä</h2>
+        <p class="section-subtitle">
+          Qeinon tuotteet tarjoavat erinomaisen lisämyyntimahdollisuuden autoliikkeille, autosähkökorjaamoille, perävaunumyyjille ja autotarvikeliikkeille.
+        </p>
+      </div>
+
+      <div class="b2b-cards-grid">
+        <div class="b2b-card">
+          <div class="b2b-card-icon">📦</div>
+          <h3>Valmiit asennussarjat</h3>
+          <p>
+            Toimitamme tuotteet täydellisinä paketteina sisältäen kaikki tarvittavat kiinnikkeet, liittimet, johdotukset sekä selkeät suomenkieliset ohjeet.
+          </p>
+        </div>
+
+        <div class="b2b-card">
+          <div class="b2b-card-icon">⚡</div>
+          <h3>Suora tekninen tuki</h3>
+          <p>
+            Saat yhteyden suoraan laitteen suunnittelijaan. Annamme asennusliikkeille ja jälleenmyyjille nopeaa puhelintukea ja opastusta.
+          </p>
+        </div>
+
+        <div class="b2b-card">
+          <div class="b2b-card-icon">📈</div>
+          <h3>Kilpailukykyiset tukkuhinnat</h3>
+          <p>
+            Tarjoamme houkuttelevan jälleenmyyjäkatteen ja toimitamme erät joustavasti suoraan Sipoon varastoltamme ilman välikäsiä.
+          </p>
+        </div>
+      </div>
+
+      <div class="b2b-banner">
+        <div>
+          <h3>Haluatko Qeinon tuotteet valikoimaasi?</h3>
+          <p>
+            Ota meihin yhteyttä, niin lähetämme teille jälleenmyyjätiedotteen ja tukkuhinnaston. Voimme myös toimittaa esittelylaitteet myymäläänne.
+          </p>
+        </div>
+        <a href="#yhteystiedot" class="btn btn-primary" onclick="selectInquiryProduct('Jälleenmyynti & tukkuhinnasto', true)">
+          <span>Pyydä jälleenmyyjähinnasto</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       USEIN KYSYTYT KYSYMYKSET (UKK / FAQ)
+       ========================================================================== -->
+  <section class="faq-section" id="ukk">
+    <div class="container">
+      <div class="faq-header">
+        <div class="section-label">Tietoa asennuksesta ja käytöstä</div>
+        <h2 class="section-title">Usein kysytyt kysymykset</h2>
+        <p class="section-subtitle">
+          Täältä löydät vastaukset yleisimpiin kysymyksiin laitteiden asennuksesta, sähköjärjestelmistä ja käytöstä.
+        </p>
+      </div>
+
+      <div class="faq-accordion">
+        <div class="faq-item active">
+          <button class="faq-question">
+            <span>Voinko asentaa laitteen itse vai tarvitaanko autosähköliike?</span>
+            <div class="faq-icon-arrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Jos sinulla on perustaidot sähköjohdoista (kuten juotoskolvin tai liitinten käyttö), voit asentaa sekä LidAidin että takavalokytkimen mukana toimitettavien selkeiden ohjeiden avulla itse. Mikäli et halua tehdä asennusta itse, voit kääntyä minkä tahansa asiantuntevan autokorjaamon tai autosähköliikkeen puoleen.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Kuluttaako LidAid auton 12V akun tyhjäksi talvella?</span>
+            <div class="faq-icon-arrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="faq-answer">
+            <p>
+              LidAidin keskimääräinen tehonkulutus on vain noin 20 Wattia (vastaa yhtä pientä hehkulamppua). Kun autolla ajetaan säännöllisesti, auton oma 12V akku latautuu ajon aikana normaalisti. Jos auto seisoo pakkasessa useita päiviä käyttämättömänä, suosittelemme kytkemään laitteen kytkimestä pois tai käyttämään ylläpitolaturia, aivan kuten auton muussakin talvikäytössä.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Kumpaa takavalokytkintä tarvitsen: TBS-221 vai TBS-231-L?</span>
+            <div class="faq-icon-arrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Valinta riippuu peräkärrysi takavaloista: Jos peräkärryssäsi on modernit <strong>LED-takavalot</strong>, valitse <strong>TBS-231-L</strong>. Jos peräkärryssäsi on perinteiset <strong>hehkulamput</strong>, valitse <strong>TBS-221</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Saako takavalokytkintä käyttää tavallisessa tieliikenteessä?</span>
+            <div class="faq-icon-arrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Takavalokytkintä ei ole hyväksytty yleiseen tieliikennekäyttöön. Laitteen voi laillisesti kytkeä päälle vasta kun olet yleisen tieliikenteen ulkopuolella, kuten mökkitiellä, työmaalla, puistoalueella tai omassa pihassa. Maantiellä ajettaessa laite pidetään kytkettynä pois.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Toimiiko takavalokytkin 24 Voltin järjestelmässä?</span>
+            <div class="faq-icon-arrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Laite on suunniteltu henkilöautojen 12 Voltin järjestelmään. Laite voidaan kuitenkin asentaa 24 Voltin järjestelmään lisäämällä plus-johtoon 1 Watin etuvastus, jonka arvo on 300 Ohmia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       YHTEYSTIEDOT JA TILAUSTIEDUSTELUT
+       ========================================================================== -->
+  <section class="contact-section" id="yhteystiedot">
+    <div class="container">
+      <div class="section-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Ota yhteyttä
+      </div>
+      <h2 class="section-title">Yhteystiedot ja tilaustiedustelut</h2>
+      <p class="section-subtitle">
+        Vastaamme mielellämme kysymyksiin tuotteista, hinnoista, asennuksesta ja jälleenmyynnistä. Ota yhteyttä soittamalla, sähköpostilla tai alla olevalla lomakkeella.
+      </p>
+
+      <div class="contact-grid">
+        <!-- Contact Info Box -->
+        <div class="contact-info-panel">
+          <div class="contact-card-box">
+            <h3>Qeino Oy</h3>
+            <div class="contact-list">
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div class="contact-item-text">
+                  <span class="title">Käynti- ja postiosoite</span>
+                  <a href="https://www.google.com/maps/search/Pohjanniityntie+15+04130+Sipoo" target="_blank" rel="noopener noreferrer" class="val">
+                    Pohjanniityntie 15<br>04130 Sipoo
+                  </a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div class="contact-item-text">
+                  <span class="title">Puhelin</span>
+                  <a href="tel:0443069752" class="val">044 306 9752</a>
+                  <span style="font-size:0.8rem; color:#64748B;">Hannu Alhovuori</span>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div class="contact-item-text">
+                  <span class="title">Sähköposti</span>
+                  <a href="mailto:qeino.fi@gmail.com" class="val">qeino.fi@gmail.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="company-meta-box">
+            <h4 style="font-size:0.95rem; margin-bottom:0.4rem; color:#1E293B;">Qeino Oy</h4>
+            <p>Suomalainen autosähköön ja ajoneuvoelektroniikkaan erikoistunut innovaatioyritys. Kotipaikka Sipoo.</p>
+          </div>
+        </div>
+
+        <!-- Smart Form -->
+        <div class="inquiry-form-card">
+          <h3>Lähetä tiedustelu</h3>
+          <p class="form-subtitle">Täytä tiedot, niin palaamme asiaan mahdollisimman pian.</p>
+
+          <form id="inquiryForm">
+            <div class="customer-type-toggle">
+              <button type="button" class="type-btn active" data-type="consumer">Yksityisasiakas</button>
+              <button type="button" class="type-btn" data-type="b2b">Yritys / Jälleenmyyjä</button>
+            </div>
+
+            <div class="form-group" id="companyFieldGroup" style="display:none;">
+              <label for="inquiryCompany" class="form-label">Yritys ja Y-tunnus</label>
+              <input type="text" id="inquiryCompany" class="form-control" placeholder="Esim. Autohuolto Oy, 1234567-8">
+            </div>
+
+            <div class="form-group">
+              <label for="inquiryProduct" class="form-label">Valitse tuote tai aihe *</label>
+              <select id="inquiryProduct" class="form-select">
+                <option value="LidAid-latausluukunlämmitin">LidAid-latausluukunlämmitin</option>
+                <option value="TBS-231-L (LED-malli)">Takavalokytkin TBS-231-L (LED-takavaloille)</option>
+                <option value="TBS-221 (Hehkulamppumalli)">Takavalokytkin TBS-221 (Hehkulampuille)</option>
+                <option value="CSW-1 Webasto-ohjain">CSW-1 Webaston kauko-ohjain</option>
+                <option value="Jälleenmyynti & tukkuhinnasto">Jälleenmyynti & tukkuhinnasto</option>
+                <option value="Yleinen tiedustelu">Muu kysymys tai palaute</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="inquiryName" class="form-label">Nimi *</label>
+                <input type="text" id="inquiryName" class="form-control" placeholder="Matti Meikäläinen" required>
+              </div>
+              <div class="form-group">
+                <label for="inquiryPhone" class="form-label">Puhelinnumero</label>
+                <input type="tel" id="inquiryPhone" class="form-control" placeholder="040 123 4567">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inquiryEmail" class="form-label">Sähköpostiosoite *</label>
+              <input type="email" id="inquiryEmail" class="form-control" placeholder="nimi@osoite.fi" required>
+            </div>
+
+            <div class="form-group">
+              <label for="inquiryMessage" class="form-label">Viesti tai kysymys</label>
+              <textarea id="inquiryMessage" class="form-control" rows="4" placeholder="Kirjoita viestisi, toivottu kappalemäärä tai autosi/perävaunusi malli..."></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" style="width:100%;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                <span>Avaa sähköpostissa (Lähetä)</span>
+              </button>
+              <button type="button" id="copyInquiryBtn" class="btn-copy-inquiry">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Kopioi valmis viesti leikepöydälle</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/img/logo-white.svg" alt="Qeino Oy" style="height:36px; width:auto;">
+          <p>
+            Suomalaista autosähkö- ja elektroniikkaosaamista. Innovatiiviset ratkaisut autoiluun, pakkaseen ja perävaunuihin.
+          </p>
+          <div style="margin-top:1.5rem;">
+            <a href="https://www.is.fi/autot/art-2000010071605.html" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem; color:#93C5FD; display:inline-flex; align-items:center; gap:0.4rem;">
+              <span>Lue LidAidin esittely Ilta-Sanomista</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Tuotteet</h4>
+          <ul class="footer-links">
+            <li><a href="#lidaid">LidAid-latausluukunlämmitin</a></li>
+            <li><a href="#takavalokytkin">Takavalokytkin TBS-231-L (LED)</a></li>
+            <li><a href="#takavalokytkin">Takavalokytkin TBS-221 (Hehkulamput)</a></li>
+            <li><a href="#takavalokytkin">Webaston kauko-ohjain CSW-1</a></li>
+            <li><a href="assets/docs/LidAid_kayttoohje.pdf" target="_blank">LidAid käyttöohje (PDF)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Yhteystiedot</h4>
+          <ul class="footer-links">
+            <li>Qeino Oy</li>
+            <li>Pohjanniityntie 15, 04130 Sipoo</li>
+            <li>Puh: <a href="tel:0443069752">044 306 9752</a></li>
+            <li>S-posti: <a href="mailto:qeino.fi@gmail.com">qeino.fi@gmail.com</a></li>
+            <li><a href="#jalleenmyyjat">Jälleenmyyjäyhteistyö</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Qeino Oy. Kaikki oikeudet pidätetään.
+        </div>
+        <div class="made-in-finland">
+          <span>🇫🇮 Suomalaista laatua ja suunnittelua</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

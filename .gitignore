@@ -1,0 +1,21 @@
+# Raw archive materials (contain 260MB raw video files exceeding GitHub 100MB limit)
+Aineistoja/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python cache & temp
+__pycache__/
+*.pyc
+*.pyo
+
+# Scratch & test scripts
+scratch/
+scratch_*.*
+find_coords.py
+test_*.py
+update_*.py
+apply_*.py
+generate_*.py

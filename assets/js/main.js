@@ -2,7 +2,8 @@
  * Qeino Oy — Main Client Logic
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+function initQeinoApp() {
+  console.log("QEINO APP INITIALIZED", !!document.getElementById('mobileMenuBtn'), !!document.getElementById('navLinks'));
   // 1. Mobile Menu Toggle
   const mobileBtn = document.getElementById('mobileMenuBtn');
   const navLinks = document.getElementById('navLinks');
@@ -274,4 +275,85 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-});
+
+  // 10. Vehicle Compatibility Selector for LidAid
+  const compatData = {
+    skoda: {
+      title: "Skoda Enyaq iV (50, 60, 80, 85, vRS) & Superb / Octavia iV",
+      desc: "Enyaqissa latausluukun salpamekanismi on erittäin altis nuoskalumen ja alijäähtyneen veden jäätymiselle. LidAidin ultraohut lämpökalvo asennetaan suoraan luukun sisäpintaan vesivalumareitin taakse. Kytkentä tapahtuu turvallisesti auton 12V herätevirtaan — ei vaikuta korkeajänniteakkuun eikä auton tehdastakuuseen.",
+      productVal: "LidAid-latausluukunlämmitin (Skoda)",
+      btnText: "Valitse LidAid Skodalle & pyydä tarjous"
+    },
+    vw: {
+      title: "Volkswagen ID.3, ID.4, ID.5, ID.7, ID. Buzz & Passat / Golf GTE",
+      desc: "VW MEB-pohjaisissa sähköautoissa (ID-sarja) latausluukku kerää herkästi sohjoa ajoviiman mukana. LidAidin termostaattiohjattu lämmitin pitää luukun reunan ja lukitustapin täysin sulana ilman pelkoa 12V akun tyhjenemisestä.",
+      productVal: "LidAid-latausluukunlämmitin (Volkswagen)",
+      btnText: "Valitse LidAid Volkswagenille & pyydä tarjous"
+    },
+    cupra: {
+      title: "Cupra Born, Tavascan, Terramar & Formentor / Leon e-Hybrid",
+      desc: "Cupran sähkö- ja hybridimalleissa latausluukun tiiviste ja lukitusjousi toimivat luotettavasti läpi talven. Ohut silikonielementti mahtuu huomaamattomasti luukun kotelon sisälle ilman pintamuutoksia.",
+      productVal: "LidAid-latausluukunlämmitin (Cupra / SEAT)",
+      btnText: "Valitse LidAid Cupralle & pyydä tarjous"
+    },
+    audi: {
+      title: "Audi Q4 e-tron, Q8 e-tron, e-tron GT & TFSI e -lataushybridit",
+      desc: "Täysin yhteensopiva Audin sähköisen luukunmekanismin kanssa. Lämmitin ehkäisee servo- ja lukitusmoottorin ylikuormittumisen, kun jää ei pääse estämään luukun avausliikettä.",
+      productVal: "LidAid-latausluukunlämmitin (Audi)",
+      btnText: "Valitse LidAid Audille & pyydä tarjous"
+    },
+    bmw: {
+      title: "BMW iX3, i4, iX, i5, i7, iX1 & 330e, 530e, 225xe -mallit",
+      desc: "BMW:n sähköisissä luukuissa LidAid suojaa luukun mekaanisen painallussalvan jäätymiseltä. Älykäs mikrokontrolleri kytkeytyy automaattisesti pois päältä lämpötilan noustessa yli +4 °C.",
+      productVal: "LidAid-latausluukunlämmitin (BMW)",
+      btnText: "Valitse LidAid BMW:lle & pyydä tarjous"
+    },
+    hyundai: {
+      title: "Hyundai Ioniq 5 / 6, Kona Electric & Kia EV6 / EV9, Niro EV",
+      desc: "Korealaisissa 800V-arkkitehtuurin autoissa LidAid kytkeytyy erilliseen 12V apujärjestelmään, joten pikalatausominaisuudet tai ajoakun takuu säilyvät 100 % koskemattomina.",
+      productVal: "LidAid-latausluukunlämmitin (Hyundai / Kia)",
+      btnText: "Valitse LidAid Hyundai/Kialle & pyydä tarjous"
+    },
+    other: {
+      title: "Kaikki muut Type 2 & CCS -sähköautot ja ladattavat hybridit",
+      desc: "LidAid on universaalisti asennettavissa käytännössä mihin tahansa 12V sähköjärjestelmällä varustettuun sähköautoon tai hybridiin (mm. Tesla Model 3/Y/S, Volvo EX40/EX30, Polestar 2/3/4, Mercedes-Benz EQ, Renault, Peugeot, Ford, Nissan ym.).",
+      productVal: "LidAid-latausluukunlämmitin (Muu automalli)",
+      btnText: "Valitse LidAid autollesi & pyydä tarjous"
+    }
+  };
+
+  const compatChips = document.querySelectorAll('.compat-chip');
+  const compatModelName = document.getElementById('compatModelName');
+  const compatModelText = document.getElementById('compatModelText');
+  const compatSelectBtn = document.getElementById('compatSelectBtn');
+
+  if (compatChips.length) {
+    compatChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        compatChips.forEach(c => {
+          c.classList.remove('active');
+          c.setAttribute('aria-selected', 'false');
+        });
+        chip.classList.add('active');
+        chip.setAttribute('aria-selected', 'true');
+
+        const brand = chip.getAttribute('data-brand');
+        const data = compatData[brand] || compatData.other;
+
+        if (compatModelName) compatModelName.textContent = data.title;
+        if (compatModelText) compatModelText.textContent = data.desc;
+        if (compatSelectBtn) {
+          const span = compatSelectBtn.querySelector('span');
+          if (span) span.textContent = data.btnText;
+          compatSelectBtn.setAttribute('onclick', `selectInquiryProduct('${data.productVal}')`);
+        }
+      });
+    });
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initQeinoApp);
+} else {
+  initQeinoApp();
+}

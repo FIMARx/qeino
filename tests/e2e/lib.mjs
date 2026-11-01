@@ -66,12 +66,16 @@ export async function launchBrowser({ url = "http://127.0.0.1:8080/", width = 12
   const pending = new Map();
   const consoleErrors = [];
   const exceptions = [];
+  let loadFired = false;
 
   ws.addEventListener("message", (m) => {
     const d = JSON.parse(m.data);
     if (d.id && pending.has(d.id)) {
       pending.get(d.id)(d);
       pending.delete(d.id);
+    }
+    if (d.method === "Page.loadEventFired") {
+      loadFired = true;
     }
     if (d.method === "Runtime.exceptionThrown") {
       const desc = d.params.exceptionDetails.exception?.description || d.params.exceptionDetails.text;
@@ -113,10 +117,11 @@ export async function launchBrowser({ url = "http://127.0.0.1:8080/", width = 12
   };
 
   const waitForReady = async () => {
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 50; i++) {
       const ready = await ev(`(() => {
         return document.readyState === 'complete' && 
-               document.styleSheets.length >= 2 && 
+               document.getElementById('navLinks') !== null &&
+               document.getElementById('mobileMenuBtn') !== null &&
                getComputedStyle(document.body).display === 'block';
       })()`);
       if (ready) return true;

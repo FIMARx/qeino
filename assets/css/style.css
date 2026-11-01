@@ -1711,9 +1711,562 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
+   TRUST & REASSURANCE RIBBON
+   ========================================================================== */
+.trust-ribbon {
+  background: #FFFFFF;
+  border-bottom: 1px solid #E2E8F0;
+  padding: 1.5rem 0;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+  position: relative;
+  z-index: 5;
+}
+
+.trust-ribbon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.95rem;
+  min-width: 0;
+}
+
+.trust-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  color: var(--brand-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.trust-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.trust-text strong {
+  font-size: 0.96rem;
+  color: #0F172A;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.trust-text span {
+  font-size: 0.82rem;
+  color: #475569;
+  line-height: 1.35;
+}
+
+/* ==========================================================================
+   INTERACTIVE VEHICLE COMPATIBILITY SELECTOR
+   ========================================================================== */
+.compat-card {
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  margin: 2.25rem 0;
+  box-shadow: var(--shadow-sm);
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.compat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.compat-header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.compat-header-title h4 {
+  font-size: 1.15rem;
+  color: #0F172A;
+  margin: 0;
+}
+
+.compat-header-title svg {
+  color: #0284C7;
+  flex-shrink: 0;
+}
+
+.compat-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: #EFF6FF;
+  color: #1E40AF;
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-full);
+  border: 1px solid #BFDBFE;
+  white-space: normal;
+}
+
+.compat-desc {
+  font-size: 0.92rem;
+  color: #475569;
+  margin-bottom: 1rem;
+}
+
+.compat-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.compat-chip {
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  border-radius: var(--radius-full);
+  padding: 0.45rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: var(--transition);
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compat-chip:hover {
+  border-color: var(--brand-blue);
+  color: var(--brand-blue);
+  background: #EFF6FF;
+}
+
+.compat-chip.active {
+  background: var(--brand-blue);
+  border-color: var(--brand-blue);
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(48, 75, 154, 0.3);
+}
+
+.compat-result {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius-sm);
+  padding: 1.35rem;
+  min-width: 0;
+}
+
+.compat-result-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #0F172A;
+  margin-bottom: 0.5rem;
+}
+
+.compat-result-title .check-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #DCFCE7;
+  color: #166534;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.compat-result p {
+  font-size: 0.92rem;
+  color: #334155;
+  line-height: 1.6;
+  margin-bottom: 1.15rem;
+}
+
+.compat-result-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px solid #E2E8F0;
+}
+
+.compat-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #475569;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+.compat-tag svg {
+  color: #0284C7;
+  flex-shrink: 0;
+}
+
+.compat-select-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: var(--brand-blue);
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-left: auto;
+  min-height: 42px;
+}
+
+.compat-select-btn:hover {
+  background: var(--brand-blue-hover);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   PACKAGE CONTENTS CARD (Pakkauksen toimitussisältö)
+   ========================================================================== */
+.box-contents-card {
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: var(--radius-md);
+  padding: 1.65rem;
+  margin: 2.25rem 0;
+  box-shadow: var(--shadow-sm);
+  min-width: 0;
+}
+
+.box-contents-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.15rem;
+}
+
+.box-contents-header h4 {
+  font-size: 1.05rem;
+  color: #0F172A;
+  margin: 0;
+}
+
+.box-contents-header svg {
+  color: var(--brand-blue);
+  flex-shrink: 0;
+}
+
+.box-contents-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.95rem;
+}
+
+.box-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  color: #334155;
+  line-height: 1.45;
+}
+
+.box-item strong {
+  color: #0F172A;
+}
+
+.box-item-check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #DCFCE7;
+  color: #166534;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   PRICING TRUST BADGES STRIP
+   ========================================================================== */
+.pricing-trust-badges {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+  padding-top: 1.15rem;
+  border-top: 1px solid #E2E8F0;
+  margin-top: 0.5rem;
+}
+
+.pricing-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1E3A8A;
+}
+
+.pricing-badge-item svg {
+  color: #0284C7;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   CUSTOMER REVIEWS & SOCIAL PROOF
+   ========================================================================== */
+.reviews-section {
+  padding: 6.5rem 0;
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+  position: relative;
+}
+
+.reviews-header {
+  max-width: 740px;
+  margin-bottom: 3rem;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.review-card {
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+
+.review-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: #93C5FD;
+}
+
+.review-stars {
+  color: #D97706;
+  font-size: 1.15rem;
+  letter-spacing: 2px;
+  margin-bottom: 0.85rem;
+}
+
+.review-text {
+  font-size: 0.98rem;
+  color: #334155;
+  line-height: 1.6;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding-top: 1rem;
+  border-top: 1px solid #F1F5F9;
+}
+
+.author-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  color: var(--brand-blue);
+  font-weight: 800;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-info strong {
+  font-size: 0.95rem;
+  color: #0F172A;
+  font-weight: 700;
+}
+
+.author-info span {
+  font-size: 0.82rem;
+  color: #475569;
+}
+
+/* ==========================================================================
+   ORDER PROCESS FLOW (Miten tilaus etenee?)
+   ========================================================================== */
+.process-section {
+  padding: 6.5rem 0;
+  background: #FFFFFF;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+  position: relative;
+}
+
+.process-header {
+  max-width: 740px;
+  margin-bottom: 3.5rem;
+}
+
+.process-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  position: relative;
+}
+
+.process-step-card {
+  background: #F8FAFC;
+  border: 1px solid #CBD5E1;
+  border-radius: var(--radius-md);
+  padding: 2.25rem 1.75rem 1.75rem;
+  position: relative;
+  transition: var(--transition);
+  min-width: 0;
+}
+
+.process-step-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--brand-blue);
+  background: #FFFFFF;
+}
+
+.step-badge {
+  position: absolute;
+  top: -14px;
+  left: 1.75rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--brand-blue);
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(48, 75, 154, 0.35);
+}
+
+.step-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  color: var(--brand-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.process-step-card h3 {
+  font-size: 1.15rem;
+  color: #0F172A;
+  margin-bottom: 0.65rem;
+}
+
+.process-step-card p {
+  font-size: 0.92rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.process-step-card p a {
+  color: var(--brand-blue);
+  font-weight: 700;
+}
+
+.process-guarantee-bar {
+  margin-top: 3rem;
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.guarantee-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: #1E3A8A;
+}
+
+.guarantee-pill svg {
+  color: #0284C7;
+  flex-shrink: 0;
+}
+
+.guarantee-pill a {
+  color: #1E3A8A;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
    RESPONSIVE DESIGN (Mobile & Tablet)
    ========================================================================== */
 @media (max-width: 1024px) {
+  .trust-ribbon-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+  .process-steps-grid {
+    grid-template-columns: 1fr;
+  }
   .hero-content {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -1843,9 +2396,49 @@ h1, h2, h3, h4 {
   .inquiry-form-card {
     padding: 1.75rem;
   }
+  .trust-ribbon-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .box-contents-grid {
+    grid-template-columns: 1fr;
+  }
+  .pricing-trust-badges {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+  .compat-select-btn {
+    width: 100%;
+    margin-left: 0;
+    justify-content: center;
+  }
+  .compat-result-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .process-guarantee-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
   .footer-bottom {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-trust-badges {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+  .compat-chips {
+    gap: 0.4rem;
+  }
+  .compat-chip {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.84rem;
   }
 }

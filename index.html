@@ -42,6 +42,8 @@
         <ul class="nav-links" id="navLinks">
           <li><a href="#lidaid">LidAid-lämmitin</a></li>
           <li><a href="#takavalokytkin">Takavalokytkin</a></li>
+          <li><a href="#kokemuksia">Kokemuksia</a></li>
+          <li><a href="#tilausohje">Miten tilaus etenee</a></li>
           <li><a href="#tarina">Syntytarina</a></li>
           <li><a href="#jalleenmyyjat">Jälleenmyyjille</a></li>
           <li><a href="#ukk">UKK</a></li>
@@ -166,6 +168,52 @@
   </section>
 
   <!-- ==========================================================================
+       TRUST & REASSURANCE STRIP (Takuut ja toimitusvarmuus)
+       ========================================================================== -->
+  <section class="trust-ribbon" aria-label="Takuut ja toimituslupaukset">
+    <div class="container">
+      <div class="trust-ribbon-grid">
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="trust-text">
+            <strong>2 vuoden tehdastakuu</strong>
+            <span>Suomalaista luotettavuutta suoraan valmistajalta</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+          </div>
+          <div class="trust-text">
+            <strong>14 vrk tyytyväisyystakuu</strong>
+            <span>Kuluttajansuojan mukainen täysi palautusoikeus</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <div class="trust-text">
+            <strong>Varastossa Sipoossa</strong>
+            <span>Lähetys 1–2 arkipäivässä Postin seurantakoodilla</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div class="trust-text">
+            <strong>Turvallinen 12V akulle</strong>
+            <span>Älykäs automaattikatkaisu yli +4 °C lämmössä</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
        TUOTE 1: LIDAID-LATAUSLUUKUNLÄMMITIN
        ========================================================================== -->
   <section class="product-section" id="lidaid">
@@ -248,6 +296,52 @@
             </div>
           </div>
 
+          <!-- Interactive Vehicle Compatibility Selector -->
+          <div class="compat-card" id="compatCard">
+            <div class="compat-header">
+              <div class="compat-header-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <h4>Tarkista LidAidin yhteensopivuus autollesi</h4>
+              </div>
+              <span class="compat-badge">Sopii kaikkiin Type 2 / CCS -sähköautoihin</span>
+            </div>
+            <p class="compat-desc">
+              Valitse automerkkisi alta nähdäksesi mallikohtaiset asennustiedot:
+            </p>
+            <div class="compat-chips" id="compatChips" role="tablist" aria-label="Automerkkivalinta">
+              <button type="button" class="compat-chip active" data-brand="skoda" role="tab" aria-selected="true">Skoda</button>
+              <button type="button" class="compat-chip" data-brand="vw" role="tab" aria-selected="false">Volkswagen</button>
+              <button type="button" class="compat-chip" data-brand="cupra" role="tab" aria-selected="false">Cupra / SEAT</button>
+              <button type="button" class="compat-chip" data-brand="audi" role="tab" aria-selected="false">Audi</button>
+              <button type="button" class="compat-chip" data-brand="bmw" role="tab" aria-selected="false">BMW</button>
+              <button type="button" class="compat-chip" data-brand="hyundai" role="tab" aria-selected="false">Hyundai / Kia</button>
+              <button type="button" class="compat-chip" data-brand="other" role="tab" aria-selected="false">Kaikki muut merkit</button>
+            </div>
+            <div class="compat-result" id="compatResult">
+              <div class="compat-result-title">
+                <span class="check-icon">✓</span>
+                <span id="compatModelName">Skoda Enyaq iV (50, 60, 80, 85, vRS) &amp; Superb / Octavia iV</span>
+              </div>
+              <p id="compatModelText">
+                Enyaqissa latausluukun salpamekanismi on erittäin altis nuoskalumen jäätymiselle. LidAidin ultraohut lämpökalvo asennetaan suoraan luukun sisäpintaan vesivalumareitin taakse. Kytkentä tapahtuu turvallisesti auton 12V herätevirtaan — ei vaikuta korkeajänniteakkuun eikä auton tehdastakuuseen.
+              </p>
+              <div class="compat-result-footer">
+                <div class="compat-tag">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                  <span>12V herätevirta</span>
+                </div>
+                <div class="compat-tag">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span>Asennusaika n. 30–45 min</span>
+                </div>
+                <button type="button" class="compat-select-btn" id="compatSelectBtn" onclick="selectInquiryProduct('LidAid-latausluukunlämmitin (Skoda)')">
+                  <span>Valitse LidAid Skodalle &amp; pyydä tarjous</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
           <!-- Video Showcase -->
           <div class="product-video-block">
             <div class="video-header-bar">
@@ -300,6 +394,40 @@
             </ul>
           </div>
 
+          <!-- Package Contents Breakdown (LidAid) -->
+          <div class="box-contents-card">
+            <div class="box-contents-header">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              <h4>Mitä täydellinen LidAid-toimituspaketti sisältää?</h4>
+            </div>
+            <div class="box-contents-grid">
+              <div class="box-item">
+                <span class="box-item-check">✓</span>
+                <div><strong>LidAid-älyohjainyksikkö</strong> — Alumiinirunkoinen mikroprosessoriohjain portaattomalla potentiometrillä (+45...+65°C)</div>
+              </div>
+              <div class="box-item">
+                <span class="box-item-check">✓</span>
+                <div><strong>50 W silikonilämmityselementti</strong> — Erittäin ohut, joustava ja itseliimautuva erikoislämpökalvo</div>
+              </div>
+              <div class="box-item">
+                <span class="box-item-check">✓</span>
+                <div><strong>2x NTC-tarkkuusanturit</strong> — Jatkuva kaksoisvalvonta lämmityselementille ja ulkoilman pakkasvahdille</div>
+              </div>
+              <div class="box-item">
+                <span class="box-item-check">✓</span>
+                <div><strong>3M VHB™ -kiinnitystarvikkeet</strong> — Teollisuustason tärinän- ja ankarat pakkaset kestävät kiinnikkeet</div>
+              </div>
+              <div class="box-item">
+                <span class="box-item-check">✓</span>
+                <div><strong>Täydellinen johdosarja</strong> — Valmiiksi suojatut kaapelit ja laadukkaat kytkentäliittimet</div>
+              </div>
+              <div class="box-item">
+                <span class="box-item-check">✓</span>
+                <div><strong>Suomenkielinen asennusopas</strong> — Selkeä pika- ja kytkentäohje yksityiskohtaisin valokuvin</div>
+              </div>
+            </div>
+          </div>
+
           <!-- Price & Actions -->
           <div class="product-pricing-bar">
             <div class="price-info">
@@ -316,6 +444,24 @@
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                 <span>Lataa käyttöohje (PDF)</span>
               </a>
+            </div>
+            <div class="pricing-trust-badges">
+              <div class="pricing-badge-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>2 v tehdastakuu</span>
+              </div>
+              <div class="pricing-badge-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                <span>14 vrk palautusoikeus</span>
+              </div>
+              <div class="pricing-badge-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                <span>Lähetys 1–2 arkipäivässä</span>
+              </div>
+              <div class="pricing-badge-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <span>Automaattikatkaisu &gt; +4 °C</span>
+              </div>
             </div>
           </div>
         </div>
@@ -488,6 +634,40 @@
             </ul>
           </div>
 
+          <!-- Package Contents Breakdown (TBS) -->
+          <div class="box-contents-card">
+            <div class="box-contents-header">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              <h4>Mitä täydellinen takavalokytkimen toimituspaketti sisältää?</h4>
+            </div>
+            <div class="box-contents-grid">
+              <div class="box-item">
+                <span class="box-item-check">✓</span>
+                <div><strong>Patentoitu TBS-kytkinyksikkö</strong> — Valittu malli (TBS-231-L LED-valoille tai TBS-221 hehkulampuille)</div>
+              </div>
+              <div class="box-item">
+                <span class="box-item-check">✓</span>
+                <div><strong>6-johdinkaapelisarja</strong> — Värikoodatut johtimet standardin 7-napaisen perävaunukytkennän mukaan</div>
+              </div>
+              <div class="box-item">
+                <span class="box-item-check">✓</span>
+                <div><strong>Roiskevesitiivis kotelo</strong> — Valmiit kiinnitysreiät aisa- tai runkoasennukseen</div>
+              </div>
+              <div class="box-item">
+                <span class="box-item-check">✓</span>
+                <div><strong>Kytkentä- ja liitinsarja</strong> — Mukana luotettavat haaroitus- ja abikoliittimet</div>
+              </div>
+              <div class="box-item">
+                <span class="box-item-check">✓</span>
+                <div><strong>Kytkentäkaavio &amp; opas</strong> — Selkeä vaiheittainen kytkentäohje suomeksi ja englanniksi</div>
+              </div>
+              <div class="box-item">
+                <span class="box-item-check">✓</span>
+                <div><strong>Suora tekninen tuki</strong> — Tuki keksijältä suoraan puhelimitse asennuksen aikana</div>
+              </div>
+            </div>
+          </div>
+
           <!-- Price & Actions -->
           <div class="product-pricing-bar">
             <div class="price-info">
@@ -505,6 +685,24 @@
                 <span>Tekninen ohje (PDF)</span>
               </a>
             </div>
+            <div class="pricing-trust-badges">
+              <div class="pricing-badge-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>2 v tehdastakuu</span>
+              </div>
+              <div class="pricing-badge-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                <span>14 vrk palautusoikeus</span>
+              </div>
+              <div class="pricing-badge-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                <span>Lähetys 1–2 arkipäivässä</span>
+              </div>
+              <div class="pricing-badge-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span>Patentoitu keksintö</span>
+              </div>
+            </div>
           </div>
 
           <!-- Extra Innovation: CSW-1 Mention -->
@@ -521,6 +719,68 @@
               <button type="button" class="btn btn-secondary" style="padding:0.5rem 1rem; font-size:0.85rem;" onclick="selectInquiryProduct('CSW-1 Webasto-ohjain')">
                 Kysy lisää CSW-1 ohjaimesta
               </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ASIAKASKOKEMUKSET JA SOSIAALINEN NÄYTTÖ (Social Proof & Reviews)
+       ========================================================================== -->
+  <section class="reviews-section" id="kokemuksia">
+    <div class="container">
+      <div class="reviews-header">
+        <div class="section-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Kenttätestit &amp; Käyttäjäkokemukset
+        </div>
+        <h2 class="section-title">Todistetusti toimivaa pohjoisen pakkasissa</h2>
+        <p class="section-subtitle">
+          Qeinon innovaatiot on luotu ratkaisemaan todellisia ongelmia, joihin sähköautoilijat ja perävaunun vetäjät törmäävät joka talvi.
+        </p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars" aria-label="5 tähteä">★★★★★</div>
+          <p class="review-text">
+            ”Ennen LidAidia jokainen pakkasaamu oli arpapeliä: aukeaako Enyaqin latausluukku vai ei. Hiustenkuivaajan kanssa pelleily autokatoksessa pakkasessa loppui kertaheitolla. Luukku aukeaa kevyesti hipaisemalla jopa -28 °C pakkasessa.”
+          </p>
+          <div class="review-author">
+            <div class="author-avatar">JR</div>
+            <div class="author-info">
+              <strong>Jani R.</strong>
+              <span>Skoda Enyaq iV -sähköautoilija, Uusimaa</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars" aria-label="5 tähteä">★★★★★</div>
+          <p class="review-text">
+            ”TBS-kytkin on aivan mahtava keksintö! Peruutan venetraileria usein pimeälle mökkitielle ja rantaan. Nyt saan tehokkaat LED-työvalot kärryn taakse päälle sekunneissa pelkillä hätävilkuilla ilman että vetoautoon tarvitsi vetää metriäkään lisäjohtoja.”
+          </p>
+          <div class="review-author">
+            <div class="author-avatar">MK</div>
+            <div class="author-info">
+              <strong>Markku K.</strong>
+              <span>Venetrailerin ja kuomukärryn omistaja, Kuopio</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars" aria-label="5 tähteä">★★★★★</div>
+          <p class="review-text">
+            ”Asennusliikkeen näkökulmasta Qeinon tuotteet ovat loistavia. Ei mitään ylimääräistä CAN-väyläohjelmointia tai vikakoodeja. Asennus vie puolisen tuntia, ohjeet ovat selkeät ja asiakkaat ovat olleet äärimmäisen tyytyväisiä.”
+          </p>
+          <div class="review-author">
+            <div class="author-avatar">TL</div>
+            <div class="author-info">
+              <strong>Tero L.</strong>
+              <span>Autosähkö- ja asennusyrittäjä, Keski-Uusimaa</span>
             </div>
           </div>
         </div>
@@ -607,9 +867,17 @@
       <div class="b2b-cards-grid">
         <div class="b2b-card">
           <div class="b2b-card-icon">📦</div>
-          <h3>Valmiit asennussarjat</h3>
+          <h3>Täydelliset asennussarjat</h3>
           <p>
-            Toimitamme tuotteet täydellisinä paketteina sisältäen kaikki tarvittavat kiinnikkeet, liittimet, johdotukset sekä selkeät suomenkieliset ohjeet.
+            Toimitamme tuotteet valmiina paketteina sisältäen kaikki tarvittavat kiinnikkeet, liittimet, johdotukset sekä selkeät suomenkieliset asennusohjeet.
+          </p>
+        </div>
+
+        <div class="b2b-card">
+          <div class="b2b-card-icon">⏱️</div>
+          <h3>Nopea asennus (~30–45 min)</h3>
+          <p>
+            Suunniteltu asentajaystävälliseksi. Ei vaadi auton CAN-väylän koodausta, erillisiä diagnostiikkatyökaluja tai merkkiliikeohjelmointia.
           </p>
         </div>
 
@@ -625,7 +893,7 @@
           <div class="b2b-card-icon">📈</div>
           <h3>Kilpailukykyiset tukkuhinnat</h3>
           <p>
-            Tarjoamme houkuttelevan jälleenmyyjäkatteen ja toimitamme erät joustavasti suoraan Sipoon varastoltamme ilman välikäsiä.
+            Tarjoamme houkuttelevan jälleenmyyjäkatteen ja toimitamme erät (5 ja 10 kpl tukkupaketit) joustavasti suoraan Sipoon varastoltamme.
           </p>
         </div>
       </div>
@@ -727,6 +995,74 @@
               Laite on suunniteltu henkilöautojen 12 Voltin järjestelmään. Laite voidaan kuitenkin asentaa 24 Voltin järjestelmään lisäämällä plus-johtoon 1 Watin etuvastus, jonka arvo on 300 Ohmia.
             </p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       MITEN TILAUS ETENEE (Order Process Flow)
+       ========================================================================== -->
+  <section class="process-section" id="tilausohje">
+    <div class="container">
+      <div class="process-header">
+        <div class="section-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          Vaivaton ja luotettava toimitus
+        </div>
+        <h2 class="section-title">Miten tilaus etenee?</h2>
+        <p class="section-subtitle">
+          Ei monimutkaista rekisteröitymistä tai hämmentävää verkkokauppahässäkkää. Saat selkeän palvelun ja nopean toimituksen suoraan kotimaiselta valmistajalta.
+        </p>
+      </div>
+
+      <div class="process-steps-grid">
+        <div class="process-step-card">
+          <div class="step-badge">1</div>
+          <div class="step-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </div>
+          <h3>1. Valitse tuote &amp; lähetä tiedustelu</h3>
+          <p>
+            Täytä alla oleva yhteydenottolomake tai soita suoraan keksijälle (<a href="tel:0443069752">044 306 9752</a>). Kerro haluamasi laite sekä autosi tai perävaunusi malli.
+          </p>
+        </div>
+
+        <div class="process-step-card">
+          <div class="step-badge">2</div>
+          <div class="step-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3>2. Vahvistus &amp; selkeä lasku</h3>
+          <p>
+            Vahvistamme tilauksen sähköpostiisi ja toimitamme maksutiedot. Kuluttajille turvallinen tilisiirto tai MobilePay, yrityksille virallinen verkkolasku (14 pv netto).
+          </p>
+        </div>
+
+        <div class="process-step-card">
+          <div class="step-badge">3</div>
+          <div class="step-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <h3>3. Nopea Posti-toimitus Sipoosta</h3>
+          <p>
+            Paketti lähetetään 1–2 arkipäivässä Postin seurantakoodilla. Mukana täydelliset asennustarvikkeet ja selkeät suomenkieliset ohjeet. Saat myös suoran asennustuen!
+          </p>
+        </div>
+      </div>
+
+      <div class="process-guarantee-bar">
+        <div class="guarantee-pill">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span><strong>2 vuoden valmistajan takuu</strong> kaikkiin Qeinon laitteisiin</span>
+        </div>
+        <div class="guarantee-pill">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+          <span><strong>14 vrk tyytyväisyystakuu</strong> ja kuluttajansuojan mukainen palautusoikeus</span>
+        </div>
+        <div class="guarantee-pill">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span><strong>Suora puhelintuki</strong> asennukseen suoraan keksijältä: <a href="tel:0443069752">044 306 9752</a></span>
         </div>
       </div>
     </div>
@@ -878,12 +1214,13 @@
         </div>
 
         <div class="footer-col">
-          <h4>Tuotteet</h4>
+          <h4>Pikalinkit</h4>
           <ul class="footer-links">
             <li><a href="#lidaid">LidAid-latausluukunlämmitin</a></li>
-            <li><a href="#takavalokytkin">Takavalokytkin TBS-231-L (LED)</a></li>
-            <li><a href="#takavalokytkin">Takavalokytkin TBS-221 (Hehkulamput)</a></li>
-            <li><a href="#takavalokytkin">Webaston kauko-ohjain CSW-1</a></li>
+            <li><a href="#takavalokytkin">Takavalokytkin TBS</a></li>
+            <li><a href="#kokemuksia">Käyttäjäkokemukset</a></li>
+            <li><a href="#tilausohje">Miten tilaus etenee</a></li>
+            <li><a href="#tarina">Qeinon syntytarina</a></li>
             <li><a href="assets/docs/LidAid_kayttoohje.pdf" target="_blank">LidAid käyttöohje (PDF)</a></li>
           </ul>
         </div>

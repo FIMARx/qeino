@@ -146,6 +146,21 @@ try {
     const isLightboxClosed = !(await b.ev(`document.getElementById('lightboxModal')?.classList.contains('open')`));
     check(`${d.id}: Lightbox closes via Escape key`, isLightboxClosed === true);
 
+    // 4b. LidAid Vehicle Compatibility Selector
+    console.log(`   ... Testing Vehicle Compatibility Selector ...`);
+    await click('.compat-chip[data-brand="vw"]');
+    await sleep(250);
+    const vwModel = await b.ev(`document.getElementById('compatModelName')?.textContent.trim()`);
+    check(`${d.id}: Compatibility selector switches to Volkswagen`, vwModel && vwModel.includes('Volkswagen ID'), vwModel);
+
+    await click('.compat-chip[data-brand="hyundai"]');
+    await sleep(250);
+    const hyundaiModel = await b.ev(`document.getElementById('compatModelName')?.textContent.trim()`);
+    check(`${d.id}: Compatibility selector switches to Hyundai/Kia`, hyundaiModel && hyundaiModel.includes('Hyundai Ioniq'), hyundaiModel);
+
+    await click('.compat-chip[data-brand="skoda"]');
+    await sleep(250);
+
     // 5. Scroll down to Takavalokytkin & TBS Model Selector
     console.log(`   ... Testing TBS Model Switcher & Schematics ...`);
     // Switch to TBS-221

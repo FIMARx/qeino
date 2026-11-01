@@ -9,7 +9,7 @@ export function auditPage(opts = {}) {
     issues.push(`${kind}: <${el.tagName.toLowerCase()}${cls ? ` class="${cls}"` : ""}> "${label}" ${extra}`.trim());
   };
 
-  const vw = window.innerWidth;
+  const vw = document.documentElement.clientWidth || window.innerWidth;
   const root = document.documentElement;
 
   // 1. Horizontal Page Scroll / Overflow
@@ -198,8 +198,8 @@ export function auditPage(opts = {}) {
     });
   }
 
-  // 8. Badges and prominent headings contrast
-  document.querySelectorAll(".section-label, .section-title, .status-pill, .product-badge, .tbs-badge").forEach(el => {
+  // 8. Badges, status pills and prominent headings contrast
+  document.querySelectorAll(".section-label, .section-title, .status-pill, .product-badge, .tbs-badge, .compat-chip, .model-tab, .step-badge, .guarantee-pill, .compat-tag, .wire-tag").forEach(el => {
     if (!visible(el)) return;
     const style = getComputedStyle(el);
     const textColor = parseColor(style.color);
@@ -208,8 +208,112 @@ export function auditPage(opts = {}) {
       const l1 = relLum(textColor);
       const l2 = relLum(bg);
       const cr = (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
-      if (cr < 3.0) {
-        add("LOW CONTRAST BADGE/TITLE", el, `ratio ${cr.toFixed(2)}:1 < 3.0:1 (color: ${style.color})`);
+      const isLarge = parseFloat(style.fontSize) >= 18 || (parseFloat(style.fontSize) >= 14 && Number(style.fontWeight) >= 700);
+      const reqRatio = isLarge ? 3.0 : 4.5;
+      if (cr < reqRatio) {
+        add("LOW CONTRAST BADGE/TITLE", el, `ratio ${cr.toFixed(2)}:1 < ${reqRatio}:1 (color: ${style.color}, bg: rgb(${Math.round(bg.r)},${Math.round(bg.g)},${Math.round(bg.b)}))`);
+      }
+    }
+  });
+
+  // 9. Image Frame & Zoom Badge Layout Integrity
+  document.querySelectorAll(".main-image-frame").forEach(frame => {
+    if (!visible(frame)) return;
+    const zh = frame.querySelector(".zoom-hint, .zoom-badge");
+    if (zh && visible(zh)) {
+      const cs = getComputedStyle(zh);
+      if (cs.position !== 'absolute') {
+        add("ZOOM BADGE NOT ABSOLUTE", zh, `position: ${cs.position} forces flex layout squeeze`);
+      }
+      const zr = zh.getBoundingClientRect();
+      if (zr.height > 38) {
+        add("ZOOM BADGE MULTILINE WRAP", zh, `height ${Math.round(zr.height)}px exceeds single line`);
+      }
+    }
+    const img = frame.querySelector("img");
+    if (img && visible(img)) {
+      const fr = frame.getBoundingClientRect();
+      const ir = img.getBoundingClientRect();
+      const widthRatio = ir.width / fr.width;
+      const heightRatio = ir.height / fr.height;
+      if (widthRatio < 0.50 && heightRatio < 0.60 && fr.width > 300) {
+        add("IMAGE SQUEEZED", img, `image ${Math.round(ir.width)}x${Math.round(ir.height)}px occupies only ${(widthRatio*100).toFixed(0)}% width and ${(heightRatio*100).toFixed(0)}% height of frame (${Math.round(fr.width)}x${Math.round(fr.height)}px)`);
+      }
+    }
+  });
+
+  // 10. Unstyled Component & Default Browser List Detection
+  document.querySelectorAll(".specs-list, ul.footer-links, ul.nav-links").forEach(ul => {
+    if (!visible(ul)) return;
+    const cs = getComputedStyle(ul);
+    if (cs.listStyleType === 'disc' || cs.listStyleType === 'circle' || cs.listStyleType === 'square') {
+      add("UNSTYLED DEFAULT BULLETS", ul, `list-style-type: ${cs.listStyleType} renders raw browser bullets`);
+    }
+  });
+
+  // 11. Multi-Column Desktop Grid Layout Verification
+  if (!opts.touch && vw >= 1024) {
+    const grids = [
+      { sel: '.process-steps-grid', minCols: 3, name: 'Process Steps' },
+      { sel: '.reviews-grid', minCols: 3, name: 'Reviews' },
+      { sel: '.b2b-cards-grid', minCols: 2, name: 'B2B Cards' },
+      { sel: '.trust-ribbon-grid', minCols: 2, name: 'Trust Ribbon' }
+    ];
+    grids.forEach(({ sel, minCols, name }) => {
+      const el = document.querySelector(sel);
+      if (el && visible(el)) {
+        const cs = getComputedStyle(el);
+        if (cs.display !== 'grid') {
+          add("COLLAPSED DESKTOP GRID", el, `${name} has display: ${cs.display} instead of grid`);
+        } else {
+          const cols = (cs.gridTemplateColumns || '').split(' ').filter(Boolean).length;
+          if (cols < minCols) {
+            add("TOO FEW DESKTOP GRID COLS", el, `${name} has only ${cols} cols (expected min ${minCols})`);
+          }
+        }
+      }
+    });
+  }
+
+  // 12. Form Select Custom Appearance
+  document.querySelectorAll(".form-select, select").forEach(sel => {
+    if (!visible(sel)) return;
+    const cs = getComputedStyle(sel);
+    if (cs.appearance === 'auto') {
+      add("UNSTYLED BROWSER SELECT", sel, `appearance: auto renders native OS dropdown`);
+    }
+    if (parseFloat(cs.paddingRight) < 24) {
+      add("SELECT INSUFFICIENT ARROW PADDING", sel, `paddingRight: ${cs.paddingRight} risks overlapping text with chevron`);
+    }
+  });
+
+  // 13. Button Text Wrapping & Height Harmony in Action Groups
+  document.querySelectorAll(".product-action-group, .price-actions").forEach(group => {
+    if (!visible(group)) return;
+    const cs = getComputedStyle(group);
+    if (cs.display !== 'flex' && cs.display !== 'grid') {
+      add("ACTION GROUP NOT FLEX", group, `display: ${cs.display} causes block stacking`);
+    }
+    const btns = [...group.querySelectorAll(".btn")].filter(b => visible(b));
+    if (btns.length >= 2) {
+      const heights = btns.map(b => b.offsetHeight);
+      const maxH = Math.max(...heights);
+      const minH = Math.min(...heights);
+      if (maxH - minH > 14) {
+        add("ACTION BUTTON HEIGHT MISMATCH", group, `button heights vary (${minH}px vs ${maxH}px)`);
+      }
+    }
+  });
+
+  // 14. Theme Harmony & Luminance Consistency
+  document.querySelectorAll(".contact-card-box, .company-meta-box, .inquiry-form-card").forEach(card => {
+    if (!visible(card)) return;
+    const cs = getComputedStyle(card);
+    const c = parseColor(cs.backgroundColor);
+    if (c && c.a > 0.5) {
+      const lum = relLum(c);
+      if (lum < 0.3) {
+        add("THEME INCONSISTENT DARK CARD", card, `card background ${cs.backgroundColor} (lum ${lum.toFixed(2)}) is black in light mode`);
       }
     }
   });

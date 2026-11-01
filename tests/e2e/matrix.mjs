@@ -147,7 +147,7 @@ try {
     check(`${d.id}: Lightbox closes via Escape key`, isLightboxClosed === true);
 
     // 4b. LidAid Vehicle Compatibility Selector
-    console.log(`   ... Testing Vehicle Compatibility Selector ...`);
+    console.log(`   ... Testing Vehicle Compatibility Selector & Live EV Search ...`);
     await click('.compat-chip[data-brand="vw"]');
     await sleep(250);
     const vwModel = await b.ev(`document.getElementById('compatModelName')?.textContent.trim()`);
@@ -161,8 +161,59 @@ try {
     await click('.compat-chip[data-brand="skoda"]');
     await sleep(250);
 
+    // Live EV Search Input Test
+    await b.ev(`(() => {
+      const input = document.getElementById('evSearchInput');
+      if (input) {
+        input.value = 'id.4';
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+    })()`);
+    await sleep(250);
+    const searchVwActive = await b.ev(`document.querySelector('.compat-chip[data-brand="vw"]')?.classList.contains('active')`);
+    check(`${d.id}: EV search 'id.4' activates Volkswagen`, searchVwActive === true);
+
+    await b.ev(`(() => {
+      const input = document.getElementById('evSearchInput');
+      if (input) {
+        input.value = 'enyaq';
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+    })()`);
+    await sleep(250);
+    const searchSkodaActive = await b.ev(`document.querySelector('.compat-chip[data-brand="skoda"]')?.classList.contains('active')`);
+    check(`${d.id}: EV search 'enyaq' activates Skoda`, searchSkodaActive === true);
+
     // 5. Scroll down to Takavalokytkin & TBS Model Selector
-    console.log(`   ... Testing TBS Model Switcher & Schematics ...`);
+    console.log(`   ... Testing TBS Model Switcher, Demonstration Video & Patent Seal ...`);
+    const lidaidVideoSrc = await b.ev(`document.querySelector('#lidaid .video-wrap video source')?.getAttribute('src')`);
+    const tbsVideoSrc = await b.ev(`document.querySelector('#takavalokytkin .video-wrap video source')?.getAttribute('src')`);
+    check(`${d.id}: LidAid demonstration video is embedded`, lidaidVideoSrc && lidaidVideoSrc.includes('lidaid-demo.mp4'), lidaidVideoSrc);
+    check(`${d.id}: TBS demonstration video is embedded`, tbsVideoSrc && tbsVideoSrc.includes('tbs-demo.mp4'), tbsVideoSrc);
+
+    const patentText = await b.ev(`document.querySelector('.patent-seal-card')?.textContent.trim()`);
+    check(`${d.id}: Patent seal badge is rendered`, patentText && patentText.includes('Patentoitu'), patentText);
+
+    // Schema.org structured data check
+    const jsonLdValid = await b.ev(`(() => {
+      const script = document.querySelector('script[type="application/ld+json"]');
+      if (!script) return false;
+      try {
+        const json = JSON.parse(script.textContent);
+        return json['@context'] === 'https://schema.org' && Array.isArray(json['@graph']);
+      } catch (e) {
+        return false;
+      }
+    })()`);
+    check(`${d.id}: Schema.org JSON-LD structured data is present & valid`, jsonLdValid === true);
+
+    // Mobile sticky bar responsive visibility check
+    const mobileBarDisplay = await b.ev(`getComputedStyle(document.getElementById('mobileStickyBar')).display`);
+    if (d.w <= 768) {
+      check(`${d.id}: Mobile quick-contact bar is visible on mobile`, mobileBarDisplay === 'flex', mobileBarDisplay);
+    } else {
+      check(`${d.id}: Mobile quick-contact bar is hidden on desktop`, mobileBarDisplay === 'none', mobileBarDisplay);
+    }
     // Switch to TBS-221
     await click('.tbs-model-tab[data-model="TBS-221"]');
     await sleep(350);

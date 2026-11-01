@@ -25,6 +25,107 @@
 
   <!-- Clean Archi Engineering Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Schema.org JSON-LD Structured Data for Google Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://qeino.fi/#organization",
+        "name": "Qeino Oy",
+        "url": "https://qeino.fi",
+        "logo": "https://qeino.fi/assets/img/logo-blue.svg",
+        "telephone": "+358443069752",
+        "email": "qeino.fi@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Pohjanniityntie 15",
+          "addressLocality": "Sipoo",
+          "postalCode": "04130",
+          "addressCountry": "FI"
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Hannu Alhovuori",
+          "jobTitle": "Sähköinsinööri & Keksijä"
+        },
+        "sameAs": [
+          "https://www.is.fi/autot/art-2000010071605.html"
+        ]
+      },
+      {
+        "@type": "Product",
+        "@id": "https://qeino.fi/#lidaid",
+        "name": "LidAid-latausluukunlämmitin",
+        "description": "Mikroprosessoriohjattu automaattilämmitin sähkö- ja hybridiautojen latausluukun jäätymisen estämiseen.",
+        "brand": { "@type": "Brand", "name": "Qeino" },
+        "manufacturer": { "@id": "https://qeino.fi/#organization" },
+        "image": "https://qeino.fi/assets/img/lidaid-device.webp",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "seller": { "@id": "https://qeino.fi/#organization" }
+        }
+      },
+      {
+        "@type": "Product",
+        "@id": "https://qeino.fi/#takavalokytkin",
+        "name": "Perävaunun takavalokytkin (TBS)",
+        "description": "Patentoitu suomalainen kytkinyksikkö perävaunun omille peruutusvaloille vilkkusignaaleilla.",
+        "brand": { "@type": "Brand", "name": "Qeino" },
+        "manufacturer": { "@id": "https://qeino.fi/#organization" },
+        "image": "https://qeino.fi/assets/img/tbs-device.webp",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "seller": { "@id": "https://qeino.fi/#organization" }
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://qeino.fi/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Purkaako LidAid auton akun, jos auto seisoo pakkasessa pitkään?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ei pura. LidAid kytketään auton 12V herätevirtaan, joten se toimii vain kun auto on 'hereillä' tai latauksessa. Lisäksi mikroprosessori katkaisee lämmityksen automaattisesti kun ympäristön lämpötila nousee yli +4 °C."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Miten valitsen oikean takavalokytkimen mallin (TBS-231-L vai TBS-221)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Valinta riippuu peräkärrysi takavaloista: Jos peräkärryssäsi on modernit LED-takavalot, valitse TBS-231-L. Jos peräkärryssäsi on perinteiset hehkulamput, valitse TBS-221."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Saako takavalokytkintä käyttää tavallisessa tieliikenteessä?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Takavalokytkintä ei ole hyväksytty yleiseen tieliikennekäyttöön. Laitteen voi laillisesti kytkeä päälle vasta kun olet yleisen tieliikenteen ulkopuolella, kuten mökkitiellä, työmaalla, puistoalueella tai omassa pihassa."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Toimiiko takavalokytkin 24 Voltin järjestelmässä?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Laite on suunniteltu henkilöautojen 12 Voltin järjestelmään. Laite voidaan kuitenkin asentaa 24 Voltin järjestelmään lisäämällä plus-johtoon 1 Watin etuvastus, jonka arvo on 300 Ohmia."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -334,7 +435,12 @@
               </div>
               <span class="compat-badge">Sopii kaikkiin Type 2 / CCS -autoihin</span>
             </div>
-            <p class="compat-desc">Valitse automerkkisi alta nähdäksesi asennustiedot:</p>
+            <div class="compat-search-row">
+              <div class="compat-search-box">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="evSearchInput" aria-label="Hae omaa automalliasi" placeholder="Hae omaa automalliasi (esim. Enyaq, ID.4, Born, Ioniq 5...)" autocomplete="off">
+              </div>
+            </div>
 
             <div class="compat-chips" id="compatChips" role="tablist" aria-label="Automerkkivalinta">
               <button type="button" class="compat-chip active" data-brand="skoda" role="tab" aria-selected="true">Skoda</button>
@@ -526,6 +632,32 @@
               <span><strong>Helppo asennus:</strong> Asennetaan auton peräkonttiin verhoilun taakse suoraan takavaloliittimiin mukana tulevilla tarvikkeilla.</span>
             </li>
           </ul>
+
+          <!-- TBS Video Demonstration -->
+          <div class="product-video-block">
+            <div class="video-header-bar">
+              <span class="video-title">Demonstraatiovideo: Takavalojen sytytys hätävilkuilla pimeässä</span>
+              <span class="video-badge">Aito kenttätesti</span>
+            </div>
+            <div class="video-wrap">
+              <video controls playsinline preload="metadata" poster="assets/img/tbs-device.webp">
+                <source src="assets/video/tbs-demo.mp4" type="video/mp4">
+                Selaimesi ei tue videotoistoa.
+              </video>
+            </div>
+          </div>
+
+          <!-- Patent Trust Seal -->
+          <div class="patent-seal-card">
+            <div class="patent-seal-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="11" r="3"/></svg>
+            </div>
+            <div class="patent-seal-content">
+              <div class="patent-tag">PRH • SUOMALAINEN KEKSINTÖ</div>
+              <h4>Patentoitu kytkinyksikköteknologia</h4>
+              <p>Suojattu suomalainen keksintö: Ohjaa peruutusvaloja suuntavilkkusignaaleilla ilman auton ohjelmistomuutoksia tai kalliita 13-napaisen johtosarjan vetotöitä.</p>
+            </div>
+          </div>
 
           <!-- Tech Specs Table -->
           <div class="tech-specs-card">
@@ -1073,6 +1205,18 @@
       </div>
     </div>
   </footer>
+
+  <!-- Mobile Floating Sticky Quick-Contact Bar -->
+  <aside class="mobile-sticky-bar" id="mobileStickyBar" aria-label="Pikayhteys">
+    <a href="tel:0443069752" class="mobile-bar-btn call-btn" aria-label="Soita keksijälle 044 306 9752">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>Soita keksijälle</span>
+    </a>
+    <a href="#yhteystiedot" class="mobile-bar-btn quote-btn" aria-label="Siirry yhteydenottolomakkeeseen">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <span>Pyydä tarjous</span>
+    </a>
+  </aside>
 
   <!-- Lightbox Modal for Full Image Inspection -->
   <div id="lightboxModal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Kuvan suurennos">

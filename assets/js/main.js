@@ -346,6 +346,43 @@ function initQeinoApp() {
       });
     });
   }
+
+  // 11. Live EV Model Search
+  const evSearchInput = document.getElementById('evSearchInput');
+  if (evSearchInput && compatChips.length) {
+    const searchMap = [
+      { brand: 'skoda', terms: ['skoda', 'enyaq', 'superb', 'octavia', 'iv', 'elroq', 'kodiaq'] },
+      { brand: 'vw', terms: ['vw', 'volkswagen', 'id.3', 'id.4', 'id.5', 'id.7', 'buzz', 'passat', 'golf', 'gte', 'id3', 'id4', 'id5', 'id7'] },
+      { brand: 'cupra', terms: ['cupra', 'born', 'tavascan', 'terramar', 'formentor', 'leon', 'seat'] },
+      { brand: 'audi', terms: ['audi', 'q4', 'q8', 'e-tron', 'etron', 'tfsi', 'gt'] },
+      { brand: 'bmw', terms: ['bmw', 'ix3', 'i4', 'ix', 'i5', 'i7', 'ix1', 'i3', '330e', '530e', '225xe'] },
+      { brand: 'hyundai', terms: ['hyundai', 'kia', 'ioniq', 'kona', 'ev6', 'ev9', 'niro', 'ev'] }
+    ];
+
+    evSearchInput.addEventListener('input', (e) => {
+      const q = e.target.value.trim().toLowerCase();
+      if (!q) return;
+
+      let matchedBrand = null;
+      for (const item of searchMap) {
+        if (item.terms.some(t => q.includes(t) || t.includes(q))) {
+          matchedBrand = item.brand;
+          break;
+        }
+      }
+
+      if (!matchedBrand && q.length >= 3) {
+        matchedBrand = 'other';
+      }
+
+      if (matchedBrand) {
+        const targetChip = Array.from(compatChips).find(c => c.getAttribute('data-brand') === matchedBrand);
+        if (targetChip && !targetChip.classList.contains('active')) {
+          targetChip.click();
+        }
+      }
+    });
+  }
 }
 
 if (document.readyState === 'loading') {

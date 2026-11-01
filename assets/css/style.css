@@ -1,12 +1,12 @@
 /* ==========================================================================
    QEINO OY — ARCHITECTURAL NORDIC ENGINEERING DESIGN SYSTEM
-   Inspired by Archi & Builty Luxury Industrial Design
-   Precision, Prestige, High Legibility, and Flawless Responsiveness
+   Full Ground-Up Rebuild Inspired by Archi & Builty Themes
+   Crisp Aesthetics, Flawless Layout, High Legibility, 100% Responsive
    ========================================================================== */
 
 :root {
-  /* Surface & Canvas Colors (Warm Architectural Titanium / Clean Slate) */
-  --bg-page: #F8FAFC;            /* Clean slate-50 canvas: soft on the eyes, rich contrast */
+  /* Surfaces & Canvas */
+  --bg-page: #F8FAFC;            /* Clean slate-50 canvas: soft on eyes, rich contrast */
   --bg-surface: #FFFFFF;         /* Pure white elevated cards */
   --bg-surface-alt: #F1F5F9;     /* Slate-100: Soft structural containers & wells */
   --bg-card: #FFFFFF;
@@ -24,39 +24,36 @@
   --brand-blue-hover: #1E40AF;   /* Blue-800 */
   --brand-blue-light: #EFF6FF;   /* Blue-50 */
   --brand-blue-border: #BFDBFE;  /* Blue-200 */
-  --brand-blue-glow: rgba(29, 78, 216, 0.18);
+  --brand-blue-glow: rgba(29, 78, 216, 0.16);
 
-  /* Archi Signature Titanium / Warm Bronze Accent */
+  /* Archi Signature Warm Titanium / Bronze Accent */
   --accent-gold: #B45309;        /* Warm Architectural Bronze: WCAG AA 5.9:1 on white */
   --accent-gold-hover: #92400E;
   --accent-gold-light: #FEF3C7;  /* Amber-100 */
   --accent-gold-border: #FDE68A;
-  --accent-gold-glow: rgba(180, 83, 9, 0.16);
 
-  /* Deep Slate Authority Text Hierarchy */
+  /* Text Hierarchy */
   --text-primary: #0F172A;       /* Slate-900: Authoritative, WCAG AAA 15.8:1 */
   --text-secondary: #334155;     /* Slate-700: Highly readable body copy (9.6:1) */
   --text-muted: #64748B;         /* Slate-500: Metadata and subheadings (4.6:1) */
   --text-dim: #94A3B8;
-  --text-white: #FFFFFF;
 
   /* Typography */
   --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'Space Mono', SFMono-Regular, Menlo, monospace;
 
-  /* Precision Radii */
+  /* Radii */
   --radius-xs: 4px;
   --radius-sm: 8px;
   --radius-md: 12px;
-  --radius-lg: 18px;
+  --radius-lg: 16px;
   --radius-full: 9999px;
 
-  /* Architectural Depth (Multi-layered ambient shadows) */
+  /* Depth & Shadows */
   --shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.03);
   --shadow-card: 0 4px 16px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
-  --shadow-hover: 0 20px 35px -8px rgba(15, 23, 42, 0.08), 0 8px 16px -4px rgba(15, 23, 42, 0.04);
-  --shadow-elevated: 0 25px 50px -12px rgba(15, 23, 42, 0.12);
+  --shadow-hover: 0 16px 32px -6px rgba(15, 23, 42, 0.08), 0 6px 12px -3px rgba(15, 23, 42, 0.04);
 
   --transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -106,13 +103,14 @@ a:hover {
 
 .container {
   width: 100%;
-  max-width: 1240px;
+  max-width: 1220px;
   margin: 0 auto;
   padding: 0 clamp(16px, 3.5vw, 28px);
+  box-sizing: border-box;
 }
 
 /* ==========================================================================
-   ARCHI SIGNATURE ARCHITECTURAL ELEMENTS (Kickers & Dividers)
+   ARCHI SIGNATURE KICKERS & HEADINGS
    ========================================================================== */
 
 .teaser {
@@ -123,7 +121,7 @@ a:hover {
   font-size: 11.5px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   color: var(--accent-gold);
   margin-bottom: 12px;
 }
@@ -131,10 +129,6 @@ a:hover {
 .teaser svg {
   stroke: var(--accent-gold);
   flex-shrink: 0;
-}
-
-.teaser.dark {
-  color: var(--accent-gold);
 }
 
 .small-border {
@@ -152,7 +146,7 @@ a:hover {
 
 .section-title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 3.6vw, 2.75rem);
+  font-size: clamp(2rem, 3.6vw, 2.7rem);
   font-weight: 800;
   letter-spacing: -0.028em;
   color: var(--text-primary);
@@ -160,19 +154,18 @@ a:hover {
 }
 
 .section-subtitle {
-  font-size: 1.08rem;
+  font-size: 1.05rem;
   color: var(--text-muted);
   max-width: 680px;
   line-height: 1.68;
 }
 
 /* ==========================================================================
-   BUTTONS (Archi / Builty Premium Industrial Buttons)
+   BUTTONS (Archi Precision Industrial Buttons)
    ========================================================================== */
 
 .btn,
-.btn-primary,
-.btn-custom {
+.btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -180,11 +173,11 @@ a:hover {
   background: var(--brand-blue);
   color: #FFFFFF;
   font-family: var(--font-heading);
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  padding: 13px 26px;
+  padding: 12px 24px;
   border: 1.5px solid var(--brand-blue);
   border-radius: var(--radius-sm);
   text-decoration: none;
@@ -194,28 +187,24 @@ a:hover {
   box-shadow: 0 4px 14px rgba(29, 78, 216, 0.22);
   text-align: center;
   white-space: nowrap;
+  box-sizing: border-box;
 }
 
 .btn:hover,
-.btn-primary:hover,
-.btn-custom:hover {
+.btn-primary:hover {
   background: var(--brand-blue-hover);
   border-color: var(--brand-blue-hover);
   color: #FFFFFF;
-  box-shadow: 0 8px 22px rgba(29, 78, 216, 0.32);
+  box-shadow: 0 6px 20px rgba(29, 78, 216, 0.32);
   transform: translateY(-1.5px);
 }
 
 .btn:active,
-.btn-primary:active,
-.btn-custom:active {
+.btn-primary:active {
   transform: translateY(0);
 }
 
-/* Outline Secondary Button (.btn-secondary / .btn-line / .btn-ghost-dark) */
-.btn-secondary,
-.btn-ghost-dark,
-.btn-line {
+.btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -223,11 +212,11 @@ a:hover {
   background: #FFFFFF;
   color: var(--text-primary);
   font-family: var(--font-heading);
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  padding: 13px 26px;
+  padding: 12px 24px;
   border: 1.5px solid var(--border-line);
   border-radius: var(--radius-sm);
   text-decoration: none;
@@ -237,32 +226,25 @@ a:hover {
   box-shadow: var(--shadow-sm);
   text-align: center;
   white-space: nowrap;
+  box-sizing: border-box;
 }
 
-.btn-secondary:hover,
-.btn-ghost-dark:hover,
-.btn-line:hover {
+.btn-secondary:hover {
   background: var(--bg-surface-alt);
   color: var(--brand-blue);
   border-color: var(--brand-blue);
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
   transform: translateY(-1.5px);
 }
 
-.btn-secondary svg,
-.btn-ghost-dark svg,
-.btn-line svg {
-  stroke: currentColor;
-}
-
 /* ==========================================================================
-   TOP INFO BAR (Archi Signature Architecture)
+   TOP INFO BAR
    ========================================================================== */
 
 .top-info-bar {
   background: #FFFFFF;
   border-bottom: 1px solid var(--border-subtle);
-  padding: 10px 0;
+  padding: 9px 0;
   font-size: 12.5px;
   color: var(--text-secondary);
 }
@@ -275,10 +257,11 @@ a:hover {
   gap: 16px;
 }
 
-.top-info-group {
+.top-info-left,
+.top-info-right {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
 }
 
 .top-info-item {
@@ -305,9 +288,9 @@ a:hover {
   background: var(--brand-blue-light);
   border: 1px solid var(--brand-blue-border);
   color: var(--brand-blue);
-  padding: 4px 10px;
+  padding: 3px 10px;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   font-size: 11px;
   text-transform: uppercase;
   border-radius: var(--radius-xs);
@@ -327,19 +310,18 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border-subtle);
-  box-shadow: 0 1px 4px 0 rgba(15, 23, 42, 0.04);
-  transition: var(--transition);
+  box-shadow: 0 1px 4px 0 rgba(15, 23, 42, 0.03);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 76px;
+  height: 74px;
   gap: 20px;
 }
 
@@ -374,15 +356,15 @@ a:hover {
 nav {
   display: flex;
   align-items: center;
-  flex: 1 1 auto;
   justify-content: center;
+  flex: 1 1 auto;
   min-width: 0;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  gap: clamp(6px, 1vw, 14px);
+  gap: clamp(6px, 1vw, 15px);
   align-items: center;
   margin: 0;
   flex-wrap: nowrap;
@@ -434,12 +416,9 @@ nav {
 }
 
 .header-cta .btn {
-  padding: 10px 20px;
+  padding: 10px 18px;
   font-size: 12px;
-  letter-spacing: 0.05em;
-  min-height: 42px;
-  white-space: nowrap;
-  flex-shrink: 0;
+  min-height: 40px;
 }
 
 .mobile-menu-btn {
@@ -478,11 +457,11 @@ nav {
   .nav-links {
     display: none;
     position: fixed;
-    top: 76px;
+    top: 74px;
     right: 0;
     width: 320px;
     max-width: 85vw;
-    height: calc(100vh - 76px);
+    height: calc(100vh - 74px);
     background: #FFFFFF;
     border-left: 1px solid var(--border-subtle);
     box-shadow: -10px 0 30px rgba(15, 23, 42, 0.08);
@@ -512,37 +491,37 @@ nav {
 }
 
 /* ==========================================================================
-   HERO SECTION (Archi Bold Architectural Stage)
+   HERO SECTION
    ========================================================================== */
 
 .hero-section {
   position: relative;
   background: #FFFFFF;
-  padding: clamp(60px, 8vw, 100px) 0 70px 0;
+  padding: clamp(60px, 7vw, 95px) 0 65px 0;
   border-bottom: 1px solid var(--border-subtle);
   overflow: hidden;
 }
 
-.hero-grid-pattern {
+.hero-bg-grid {
   position: absolute;
   inset: 0;
   background-image: radial-gradient(rgba(148, 163, 184, 0.22) 1px, transparent 1px);
   background-size: 24px 24px;
   pointer-events: none;
-  opacity: 0.6;
+  opacity: 0.65;
 }
 
 .hero-content {
   position: relative;
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 50px;
+  gap: 48px;
   align-items: center;
 }
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-size: clamp(2rem, 4.8vw, 3.5rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.14;
@@ -558,7 +537,7 @@ nav {
 }
 
 .hero-desc {
-  font-size: 1.12rem;
+  font-size: 1.1rem;
   color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: 32px;
@@ -569,16 +548,15 @@ nav {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  margin-bottom: 44px;
+  margin-bottom: 40px;
 }
 
-/* Hero Stats Ribbon */
 .hero-badges {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   border-top: 1px solid var(--border-subtle);
-  padding-top: 26px;
+  padding-top: 24px;
 }
 
 .hero-badge-item {
@@ -607,7 +585,7 @@ nav {
   line-height: 1.4;
 }
 
-/* Hero Visual Showcase Card */
+/* Hero Visual Card */
 .hero-visual {
   position: relative;
 }
@@ -616,7 +594,7 @@ nav {
   background: #FFFFFF;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 28px;
+  padding: 26px;
   box-shadow: var(--shadow-card);
   position: relative;
   transition: var(--transition);
@@ -631,7 +609,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--border-subtle);
 }
@@ -643,7 +621,7 @@ nav {
   font-family: var(--font-heading);
   text-transform: uppercase;
   font-size: 11px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   font-weight: 700;
   color: #065F46;
   background: #ECFDF5;
@@ -660,6 +638,13 @@ nav {
   box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
 }
 
+.hero-location-tag {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
 .hero-card-img-wrap {
   background: radial-gradient(circle at center, #FFFFFF 0%, #F1F5F9 100%);
   border: 1px solid var(--border-subtle);
@@ -668,31 +653,30 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 250px;
-  margin-bottom: 20px;
+  min-height: 240px;
+  margin-bottom: 18px;
 }
 
 .hero-card-img-wrap img {
-  max-height: 210px;
+  max-height: 200px;
   width: auto;
   object-fit: contain;
   border-radius: var(--radius-xs);
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
 }
 
 .hero-card-body h3 {
   font-family: var(--font-heading);
-  font-size: 1.28rem;
+  font-size: 1.25rem;
   letter-spacing: -0.015em;
   margin-bottom: 6px;
   color: var(--text-primary);
 }
 
 .hero-card-body p {
-  font-size: 0.94rem;
+  font-size: 0.93rem;
   line-height: 1.55;
   color: var(--text-secondary);
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .hero-card-footer {
@@ -702,7 +686,7 @@ nav {
   flex-wrap: wrap;
   gap: 16px;
   border-top: 1px solid var(--border-subtle);
-  padding-top: 16px;
+  padding-top: 14px;
 }
 
 .hero-specs-mini {
@@ -750,7 +734,7 @@ nav {
 .trust-ribbon {
   background: #FFFFFF;
   border-bottom: 1px solid var(--border-subtle);
-  padding: 34px 0;
+  padding: 32px 0;
 }
 
 .trust-ribbon-grid {
@@ -805,12 +789,11 @@ nav {
 }
 
 /* ==========================================================================
-   PRODUCT SECTIONS (LidAid & Takavalokytkin Showcase)
+   PRODUCT SECTIONS
    ========================================================================== */
 
 .product-section {
-  padding: clamp(60px, 8vw, 100px) 0;
-  position: relative;
+  padding: clamp(60px, 8vw, 95px) 0;
   background: var(--bg-page);
   border-bottom: 1px solid var(--border-subtle);
 }
@@ -820,23 +803,24 @@ nav {
 }
 
 .product-header-block {
-  margin-bottom: 48px;
+  margin-bottom: 44px;
 }
 
 .product-grid {
   display: grid;
-  grid-template-columns: 1fr 1.05fr;
-  gap: 50px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 48px;
   align-items: flex-start;
 }
 
-/* Left Column: Product Studio Showcase */
+/* Media Showcase Column */
 .product-media-column {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
   position: sticky;
-  top: 100px;
+  top: 96px;
+  min-width: 0;
 }
 
 .main-image-frame {
@@ -844,11 +828,11 @@ nav {
   background: radial-gradient(circle at center, #FFFFFF 0%, #F1F5F9 100%);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 30px;
+  padding: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 420px;
+  min-height: 400px;
   box-shadow: var(--shadow-card);
   cursor: pointer;
   overflow: hidden;
@@ -861,20 +845,18 @@ nav {
 }
 
 .main-image-frame img {
-  max-height: 360px;
+  max-height: 340px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
-  transition: opacity 0.25s ease, transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .main-image-frame:hover img {
   transform: scale(1.02);
 }
 
-/* Zoom Hint Badge */
-.zoom-hint,
-.zoom-badge {
+.zoom-hint {
   position: absolute;
   bottom: 14px;
   right: 14px;
@@ -898,14 +880,11 @@ nav {
   z-index: 5;
 }
 
-.zoom-hint svg,
-.zoom-badge svg {
+.zoom-hint svg {
   stroke: var(--brand-blue);
   flex-shrink: 0;
 }
 
-/* Gallery Thumbnails Strip */
-.product-thumbs-strip,
 .gallery-thumbs {
   display: flex;
   gap: 12px;
@@ -929,9 +908,11 @@ nav {
 }
 
 .thumb-btn img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-xs);
+  display: block;
 }
 
 .thumb-btn:hover {
@@ -944,27 +925,64 @@ nav {
   box-shadow: 0 0 0 3px var(--brand-blue-glow);
 }
 
-/* Right Column: Details & Technical Sheets */
+/* Media Press Callout */
+.media-mention-box {
+  background: #FFFFFF;
+  border-left: 3px solid var(--accent-gold);
+  border-top: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.media-quote-icon {
+  font-size: 22px;
+  line-height: 1;
+  color: var(--accent-gold);
+  margin-bottom: 6px;
+}
+
+.media-quote-text {
+  font-size: 13.5px;
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.media-article-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--brand-blue);
+}
+
+/* Details Column */
 .product-details-column {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 26px;
+  min-width: 0;
 }
 
 .product-lead-text {
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   color: var(--text-primary);
   font-weight: 600;
   line-height: 1.6;
 }
 
 .product-desc-body {
-  font-size: 1rem;
+  font-size: 0.98rem;
   color: var(--text-secondary);
   line-height: 1.68;
 }
 
-/* Feature Checkmark List */
 .product-benefits-list {
   display: flex;
   flex-direction: column;
@@ -976,7 +994,7 @@ nav {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: 0.98rem;
+  font-size: 0.96rem;
   color: var(--text-secondary);
 }
 
@@ -994,21 +1012,13 @@ nav {
   margin-top: 2px;
 }
 
-.benefit-icon svg {
-  stroke: var(--brand-blue);
-}
-
-/* ==========================================================================
-   INTERACTIVE VEHICLE COMPATIBILITY SELECTOR
-   ========================================================================== */
-
+/* Vehicle Compatibility Selector */
 .compat-card {
   background: #FFFFFF;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 24px;
   box-shadow: var(--shadow-sm);
-  margin-bottom: 24px;
 }
 
 .compat-header {
@@ -1025,7 +1035,7 @@ nav {
   align-items: center;
   gap: 8px;
   font-family: var(--font-heading);
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 700;
   color: var(--text-primary);
 }
@@ -1170,16 +1180,13 @@ nav {
   transform: translateY(-1px);
 }
 
-/* ==========================================================================
-   VIDEO SHOWCASE BLOCK
-   ========================================================================== */
-
+/* Video Showcase */
 .product-video-block {
   background: #FFFFFF;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-sm);
 }
 
 .video-header-bar {
@@ -1196,14 +1203,18 @@ nav {
   font-size: 13px;
   font-weight: 700;
   color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  gap: 8px;
+}
+
+.video-badge {
+  color: var(--accent-gold);
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
 }
 
 .video-wrap {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  padding-bottom: 56.25%;
   height: 0;
   background: #0F172A;
 }
@@ -1217,10 +1228,7 @@ nav {
   object-fit: contain;
 }
 
-/* ==========================================================================
-   TECHNICAL SPECIFICATIONS TABLE & LIST
-   ========================================================================== */
-
+/* Technical Specifications */
 .tech-specs-card {
   background: #FFFFFF;
   border: 1px solid var(--border-subtle);
@@ -1229,7 +1237,8 @@ nav {
   box-shadow: var(--shadow-sm);
 }
 
-.specs-title {
+.specs-title,
+.specs-title-row {
   font-family: var(--font-heading);
   font-size: 15px;
   font-weight: 700;
@@ -1237,7 +1246,16 @@ nav {
   margin-bottom: 16px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
+  flex-wrap: wrap;
+}
+
+.specs-heading {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
 }
 
 .specs-list {
@@ -1274,10 +1292,7 @@ nav {
   text-align: right;
 }
 
-/* ==========================================================================
-   PRICING & ORDER ACTION CARD
-   ========================================================================== */
-
+/* Pricing Action Box */
 .pricing-action-box {
   background: #FFFFFF;
   border: 1.5px solid var(--brand-blue-border);
@@ -1319,15 +1334,13 @@ nav {
   color: var(--text-muted);
 }
 
-.product-action-group,
-.price-actions {
+.product-action-group {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
 }
 
-.product-action-group .btn,
-.price-actions .btn {
+.product-action-group .btn {
   flex: 1 1 200px;
   min-height: 48px;
 }
@@ -1342,18 +1355,15 @@ nav {
   }
 }
 
-/* ==========================================================================
-   TAKAVALOKYTKIN SPECIFIC STYLING (Model Selector)
-   ========================================================================== */
-
+/* Model Selector */
 .model-selector-wrapper {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .model-selector {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 8px;
   background: var(--bg-surface-alt);
   padding: 6px;
   border-radius: var(--radius-sm);
@@ -1366,13 +1376,12 @@ nav {
   }
 }
 
-.model-tab,
 .tbs-model-tab {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 12px 16px;
+  padding: 10px 14px;
   background: transparent;
   border: 1px solid transparent;
   border-radius: var(--radius-xs);
@@ -1385,13 +1394,11 @@ nav {
   min-height: 42px;
 }
 
-.model-tab:hover,
 .tbs-model-tab:hover {
   background: #FFFFFF;
   color: var(--brand-blue);
 }
 
-.model-tab.active,
 .tbs-model-tab.active {
   background: #FFFFFF;
   border-color: var(--border-line);
@@ -1399,33 +1406,33 @@ nav {
   box-shadow: var(--shadow-sm);
 }
 
-.model-badge,
 .tbs-badge {
   display: inline-flex;
   align-items: center;
-  background: var(--brand-blue-light);
-  color: #1D4ED8;
-  border: 1px solid var(--brand-blue-border);
+  background: #0B1320;
+  color: #FFFFFF;
+  border: 1px solid #1E293B;
   padding: 4px 12px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-xs);
   font-family: var(--font-heading);
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 /* ==========================================================================
-   REVIEWS & TESTIMONIALS SECTION
+   REVIEWS SECTION
    ========================================================================== */
 
 .reviews-section {
-  padding: clamp(60px, 8vw, 100px) 0;
+  padding: clamp(60px, 8vw, 95px) 0;
   background: #FFFFFF;
   border-bottom: 1px solid var(--border-subtle);
 }
 
 .reviews-header {
-  margin-bottom: 48px;
+  margin-bottom: 44px;
 }
 
 .reviews-grid {
@@ -1457,10 +1464,11 @@ nav {
   gap: 4px;
   color: #F59E0B;
   margin-bottom: 14px;
+  font-size: 16px;
 }
 
 .review-quote {
-  font-size: 14.5px;
+  font-size: 14px;
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 20px;
@@ -1496,266 +1504,28 @@ nav {
 }
 
 /* ==========================================================================
-   QEINON SYNTYTARINA (Founder Story)
-   ========================================================================== */
-
-.story-section {
-  padding: clamp(60px, 8vw, 100px) 0;
-  background: var(--bg-page);
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.story-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 50px;
-  align-items: center;
-}
-
-.story-text h2 {
-  margin-bottom: 16px;
-}
-
-.story-text p {
-  font-size: 1.05rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 18px;
-}
-
-.story-quote-card {
-  background: #FFFFFF;
-  border-left: 4px solid var(--accent-gold);
-  border-top: 1px solid var(--border-subtle);
-  border-right: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  padding: 28px;
-  box-shadow: var(--shadow-card);
-}
-
-.story-quote-card blockquote {
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-
-.story-author-tag {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--accent-gold);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-@media (max-width: 900px) {
-  .story-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ==========================================================================
-   B2B & WHOLESALE RESELLERS
-   ========================================================================== */
-
-.b2b-section {
-  padding: clamp(60px, 8vw, 100px) 0;
-  background: #FFFFFF;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.b2b-header {
-  margin-bottom: 48px;
-}
-
-.b2b-cards-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-}
-
-.b2b-card {
-  background: var(--bg-page);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-}
-
-.b2b-card:hover {
-  border-color: var(--brand-blue-border);
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-2px);
-}
-
-.b2b-card h3 {
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  margin-bottom: 12px;
-}
-
-.b2b-card p {
-  font-size: 0.98rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
-  margin-bottom: 20px;
-}
-
-.b2b-perks-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 24px;
-}
-
-.b2b-perks-list li {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.b2b-perks-list li svg {
-  stroke: var(--brand-blue);
-  flex-shrink: 0;
-}
-
-@media (max-width: 768px) {
-  .b2b-cards-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ==========================================================================
-   USEIN KYSYTYT KYSYMYKSET (UKK / FAQ Accordion)
-   ========================================================================== */
-
-.faq-section {
-  padding: clamp(60px, 8vw, 100px) 0;
-  background: var(--bg-page);
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.faq-header {
-  margin-bottom: 48px;
-}
-
-.faq-accordion {
-  max-width: 860px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.faq-item {
-  background: #FFFFFF;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-}
-
-.faq-item:hover {
-  border-color: var(--border-line);
-}
-
-.faq-question {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 22px;
-  background: transparent;
-  border: none;
-  font-family: var(--font-heading);
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text-primary);
-  text-align: left;
-  cursor: pointer;
-  gap: 16px;
-  transition: var(--transition);
-}
-
-.faq-question:hover {
-  color: var(--brand-blue);
-}
-
-.faq-icon-arrow {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: var(--bg-surface-alt);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: transform 0.25s ease;
-  color: var(--text-secondary);
-}
-
-.faq-item.active .faq-icon-arrow {
-  transform: rotate(180deg);
-  background: var(--brand-blue-light);
-  color: var(--brand-blue);
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-  background: #FFFFFF;
-}
-
-.faq-item.active .faq-answer {
-  max-height: 500px;
-  padding: 0 22px 20px 22px;
-}
-
-.faq-answer p {
-  font-size: 14.5px;
-  color: var(--text-secondary);
-  line-height: 1.65;
-}
-
-/* ==========================================================================
-   ORDER PROCESS FLOW (3-Step Frictionless Delivery)
+   ORDER PROCESS
    ========================================================================== */
 
 .process-section {
-  padding: clamp(60px, 8vw, 100px) 0;
-  background: #FFFFFF;
+  padding: clamp(60px, 8vw, 95px) 0;
+  background: var(--bg-page);
   border-bottom: 1px solid var(--border-subtle);
 }
 
 .process-header {
-  margin-bottom: 48px;
+  margin-bottom: 44px;
 }
 
 .process-steps-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
-  margin-bottom: 40px;
+  margin-bottom: 38px;
 }
 
 .process-step-card {
-  background: var(--bg-page);
+  background: #FFFFFF;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 32px 26px;
@@ -1784,7 +1554,6 @@ nav {
   border: 1px solid #BFDBFE;
   padding: 3px 10px;
   border-radius: var(--radius-full);
-  letter-spacing: 0.05em;
 }
 
 .step-icon {
@@ -1847,13 +1616,265 @@ nav {
 }
 
 /* ==========================================================================
-   CONTACT SECTION & FORM
+   FOUNDER STORY
+   ========================================================================== */
+
+.story-section {
+  padding: clamp(60px, 8vw, 95px) 0;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 48px;
+  align-items: center;
+}
+
+.story-text h2 {
+  margin-bottom: 16px;
+}
+
+.story-text p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.story-quote-card {
+  background: var(--bg-page);
+  border-left: 4px solid var(--accent-gold);
+  border-top: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 30px;
+  box-shadow: var(--shadow-card);
+}
+
+.story-quote-mark {
+  font-size: 28px;
+  line-height: 1;
+  color: var(--accent-gold);
+  margin-bottom: 8px;
+}
+
+.story-quote-card blockquote {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.story-author-tag {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.story-author-tag strong {
+  color: var(--accent-gold);
+}
+
+@media (max-width: 900px) {
+  .story-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   B2B & WHOLESALE RESELLERS
+   ========================================================================== */
+
+.b2b-section {
+  padding: clamp(60px, 8vw, 95px) 0;
+  background: var(--bg-page);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.b2b-header {
+  margin-bottom: 44px;
+}
+
+.b2b-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.b2b-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.b2b-card:hover {
+  border-color: var(--brand-blue-border);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.b2b-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.b2b-card p {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.b2b-perks-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.b2b-perks-list li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.b2b-perks-list li svg {
+  stroke: var(--brand-blue);
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .b2b-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   USEIN KYSYTYT KYSYMYKSET (UKK / FAQ)
+   ========================================================================== */
+
+.faq-section {
+  padding: clamp(60px, 8vw, 95px) 0;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.faq-header {
+  margin-bottom: 44px;
+}
+
+.faq-accordion {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item {
+  background: var(--bg-page);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.faq-item:hover {
+  border-color: var(--border-line);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  background: transparent;
+  border: none;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  gap: 16px;
+  transition: var(--transition);
+}
+
+.faq-question:hover {
+  color: var(--brand-blue);
+}
+
+.faq-icon-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+  color: var(--text-secondary);
+}
+
+.faq-item.active .faq-icon-arrow {
+  transform: rotate(180deg);
+  background: var(--brand-blue-light);
+  border-color: var(--brand-blue-border);
+  color: var(--brand-blue);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  background: var(--bg-page);
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  padding: 0 22px 20px 22px;
+}
+
+.faq-answer p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   CLEAN EXECUTIVE CONTACT SECTION & INQUIRY FORM
    ========================================================================== */
 
 .contact-section {
-  padding: clamp(60px, 8vw, 100px) 0;
+  padding: clamp(60px, 8vw, 95px) 0;
   background: var(--bg-page);
   border-bottom: 1px solid var(--border-subtle);
+}
+
+.contact-header {
+  margin-bottom: 44px;
 }
 
 .contact-grid {
@@ -1877,7 +1898,7 @@ nav {
   background: #FFFFFF;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: clamp(20px, 4vw, 32px);
+  padding: clamp(22px, 4vw, 36px);
   box-shadow: var(--shadow-card);
   width: 100%;
   max-width: 100%;
@@ -1890,7 +1911,16 @@ nav {
   font-size: 1.35rem;
   font-weight: 800;
   color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.company-desc-text {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.55;
   margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .contact-list {
@@ -1907,13 +1937,11 @@ nav {
   gap: 14px;
   width: 100%;
   max-width: 100%;
-  overflow-wrap: break-word;
-  word-break: break-word;
 }
 
 .contact-item-icon {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   background: var(--brand-blue-light);
   border: 1px solid var(--brand-blue-border);
   border-radius: var(--radius-sm);
@@ -1949,19 +1977,9 @@ nav {
   word-break: break-word;
 }
 
-.company-meta-box {
-  background: #FFFFFF;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  padding: clamp(16px, 3.5vw, 20px);
-  font-size: 13px;
+.contact-item-text .subtext {
+  font-size: 12px;
   color: var(--text-muted);
-  line-height: 1.5;
-  box-shadow: var(--shadow-sm);
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
 }
 
 /* Inquiry Form Card */
@@ -1969,7 +1987,7 @@ nav {
   background: #FFFFFF;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: clamp(20px, 4vw, 36px);
+  padding: clamp(22px, 4vw, 36px);
   box-shadow: var(--shadow-card);
   width: 100%;
   max-width: 100%;
@@ -1988,7 +2006,7 @@ nav {
 .form-subtitle {
   font-size: 13.5px;
   color: var(--text-muted);
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
 /* Segmented Customer Type Switch */
@@ -2036,12 +2054,14 @@ nav {
 /* Form Controls */
 .form-group {
   margin-bottom: 18px;
+  width: 100%;
 }
 
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
+  width: 100%;
 }
 
 @media (max-width: 580px) {
@@ -2061,15 +2081,25 @@ nav {
 
 .form-control {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   padding: 12px 14px;
   background: #FFFFFF;
-  border: 1px solid var(--border-line);
+  border: 1.5px solid var(--border-line);
   border-radius: var(--radius-xs);
   font-family: var(--font-body);
   font-size: 14px;
   color: var(--text-primary);
   transition: var(--transition);
   min-height: 44px;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 110px;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-control:focus {
@@ -2080,11 +2110,13 @@ nav {
 
 .form-select {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   padding: 12px 42px 12px 14px;
   background: #FFFFFF url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23334155" stroke-width="2.5" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6"/></svg>') no-repeat right 14px center;
   appearance: none;
   -webkit-appearance: none;
-  border: 1px solid var(--border-line);
+  border: 1.5px solid var(--border-line);
   border-radius: var(--radius-xs);
   font-family: var(--font-body);
   font-size: 14px;
@@ -2100,35 +2132,24 @@ nav {
   box-shadow: 0 0 0 3px var(--brand-blue-glow);
 }
 
-.form-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 10px;
+.form-submit-btn {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 6px;
+  font-size: 14px;
 }
 
-.btn-copy-inquiry {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: transparent;
-  border: 1px solid var(--border-line);
+.form-success-banner {
+  background: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  color: #065F46;
+  padding: 14px 16px;
   border-radius: var(--radius-xs);
-  padding: 10px 16px;
-  font-family: var(--font-heading);
-  font-size: 12.5px;
+  font-size: 13.5px;
   font-weight: 600;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: var(--transition);
-  min-height: 42px;
-}
-
-.btn-copy-inquiry:hover {
-  background: var(--bg-surface-alt);
-  color: var(--text-primary);
-  border-color: var(--text-primary);
+  margin-top: 14px;
+  text-align: center;
+  line-height: 1.5;
 }
 
 @media (max-width: 900px) {
@@ -2144,7 +2165,7 @@ nav {
 .site-footer {
   background: #0B1320;
   color: #94A3B8;
-  padding: 70px 0 30px 0;
+  padding: 65px 0 28px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -2152,7 +2173,12 @@ nav {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr;
   gap: 40px;
-  margin-bottom: 50px;
+  margin-bottom: 48px;
+}
+
+.footer-logo {
+  height: 34px;
+  width: auto;
 }
 
 .footer-brand p {
@@ -2223,7 +2249,7 @@ nav {
   flex-wrap: wrap;
   gap: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 26px;
+  padding-top: 24px;
   font-size: 12.5px;
   color: #64748B;
 }
@@ -2244,7 +2270,7 @@ nav {
 }
 
 /* ==========================================================================
-   LIGHTBOX MODAL (Image Inspection)
+   LIGHTBOX MODAL
    ========================================================================== */
 
 .lightbox-modal {

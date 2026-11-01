@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1200px;
+    height: 900px;
+    background: radial-gradient(circle at 50% 45%, #FFFFFF 0%, #F1F5F9 70%, #E2E8F0 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Subtle engineering grid */
+  .grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .stage {
+    position: relative;
+    z-index: 10;
+    width: 1000px;
+    height: 720px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .badge-tag {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    padding: 10px 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .badge-tag .kicker {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: #B45309;
+  }
+
+  .badge-tag .title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0F172A;
+  }
+
+  .items-container {
+    width: 100%;
+    height: 580px;
+    position: relative;
+  }
+
+  .shadow {
+    filter: drop-shadow(0 25px 25px rgba(15, 23, 42, 0.18)) drop-shadow(0 8px 10px rgba(15, 23, 42, 0.12));
+  }
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<div class="stage">
+  <div class="badge-tag">
+    <div>
+      <div class="kicker">Qeino Oy • Alkuperäistarvikkeet</div>
+      <div class="title">LidAid™ &amp; TBS Täydellinen asennussarja</div>
+    </div>
+  </div>
+
+  <div class="items-container">
+    <svg class="shadow" width="1000" height="580" viewBox="0 0 1000 580" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Blue connector gradient -->
+        <linearGradient id="blueBody" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#3B82F6"/>
+          <stop offset="40%" stop-color="#2563EB"/>
+          <stop offset="100%" stop-color="#1D4ED8"/>
+        </linearGradient>
+        <linearGradient id="blueBodyDark" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#2563EB"/>
+          <stop offset="100%" stop-color="#1E40AF"/>
+        </linearGradient>
+        <linearGradient id="blueHinge" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#60A5FA"/>
+          <stop offset="50%" stop-color="#2563EB"/>
+          <stop offset="100%" stop-color="#1D4ED8"/>
+        </linearGradient>
+
+        <!-- Red terminal gradient (translucent vinyl look) -->
+        <linearGradient id="redVinyl" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#EF4444" stop-opacity="0.95"/>
+          <stop offset="40%" stop-color="#DC2626" stop-opacity="0.92"/>
+          <stop offset="100%" stop-color="#991B1B" stop-opacity="0.98"/>
+        </linearGradient>
+
+        <!-- Metal brass/tin plating -->
+        <linearGradient id="metalSilver" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FFFFFF"/>
+          <stop offset="25%" stop-color="#CBD5E1"/>
+          <stop offset="50%" stop-color="#94A3B8"/>
+          <stop offset="75%" stop-color="#E2E8F0"/>
+          <stop offset="100%" stop-color="#64748B"/>
+        </linearGradient>
+
+        <!-- Brass accent -->
+        <linearGradient id="brassGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#FEF08A"/>
+          <stop offset="50%" stop-color="#F59E0B"/>
+          <stop offset="100%" stop-color="#B45309"/>
+        </linearGradient>
+
+        <!-- Black heat shrink / rubber -->
+        <linearGradient id="blackRubber" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#334155"/>
+          <stop offset="50%" stop-color="#1E293B"/>
+          <stop offset="100%" stop-color="#0F172A"/>
+        </linearGradient>
+      </defs>
+
+      <!-- 1. Scotchlok Quick-Splice Connectors (Blue) - Neatly grouped -->
+      <!-- Connector 1 (Main Hero Connector, 3D angled) -->
+      <g transform="translate(140, 160) rotate(-12)">
+        <!-- Lower body -->
+        <rect x="0" y="30" width="130" height="90" rx="8" fill="url(#blueBodyDark)"/>
+        <!-- Upper folding clip -->
+        <rect x="5" y="10" width="120" height="85" rx="6" fill="url(#blueBody)"/>
+        <!-- Central latch channel -->
+        <rect x="45" y="0" width="40" height="120" rx="4" fill="url(#blueHinge)"/>
+        <!-- Metal insulation displacement blade inside slot -->
+        <rect x="55" y="25" width="20" height="40" rx="2" fill="url(#metalSilver)"/>
+        <line x1="65" y1="28" x2="65" y2="60" stroke="#0F172A" stroke-width="2"/>
+        <!-- Cable channel grooves -->
+        <rect x="15" y="35" width="100" height="12" rx="3" fill="#1E40AF" opacity="0.6"/>
+        <rect x="15" y="65" width="100" height="12" rx="3" fill="#1E40AF" opacity="0.6"/>
+        <!-- Highlight glare -->
+        <path d="M 10 15 L 115 15" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+      </g>
+
+      <!-- Connector 2 -->
+      <g transform="translate(260, 260) rotate(8)">
+        <rect x="0" y="30" width="130" height="90" rx="8" fill="url(#blueBodyDark)"/>
+        <rect x="5" y="10" width="120" height="85" rx="6" fill="url(#blueBody)"/>
+        <rect x="45" y="0" width="40" height="120" rx="4" fill="url(#blueHinge)"/>
+        <rect x="55" y="25" width="20" height="40" rx="2" fill="url(#metalSilver)"/>
+        <line x1="65" y1="28" x2="65" y2="60" stroke="#0F172A" stroke-width="2"/>
+        <rect x="15" y="35" width="100" height="12" rx="3" fill="#1E40AF" opacity="0.6"/>
+        <rect x="15" y="65" width="100" height="12" rx="3" fill="#1E40AF" opacity="0.6"/>
+        <path d="M 10 15 L 115 15" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+      </g>
+
+      <!-- Connector 3 -->
+      <g transform="translate(160, 360) rotate(-5)">
+        <rect x="0" y="30" width="130" height="90" rx="8" fill="url(#blueBodyDark)"/>
+        <rect x="5" y="10" width="120" height="85" rx="6" fill="url(#blueBody)"/>
+        <rect x="45" y="0" width="40" height="120" rx="4" fill="url(#blueHinge)"/>
+        <rect x="55" y="25" width="20" height="40" rx="2" fill="url(#metalSilver)"/>
+        <line x1="65" y1="28" x2="65" y2="60" stroke="#0F172A" stroke-width="2"/>
+        <path d="M 10 15 L 115 15" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+      </g>
+
+      <!-- 2. Abiko Insulated Red Spade Terminals -->
+      <!-- Terminal 1 -->
+      <g transform="translate(460, 180) rotate(25)">
+        <!-- Metal spade blade -->
+        <path d="M 20 0 L 50 0 L 50 45 L 42 45 L 42 70 L 28 70 L 28 45 L 20 45 Z" fill="url(#metalSilver)"/>
+        <!-- Detent hole -->
+        <circle cx="35" cy="22" r="5" fill="#334155"/>
+        <!-- Red insulated barrel -->
+        <rect x="15" y="65" width="40" height="75" rx="6" fill="url(#redVinyl)"/>
+        <!-- Inner crimp flare -->
+        <ellipse cx="35" cy="140" rx="16" ry="6" fill="#7F1D1D"/>
+        <!-- Glare -->
+        <line x1="20" y1="72" x2="20" y2="130" stroke="white" stroke-width="2.5" opacity="0.4"/>
+      </g>
+
+      <!-- Terminal 2 -->
+      <g transform="translate(540, 250) rotate(15)">
+        <path d="M 20 0 L 50 0 L 50 45 L 42 45 L 42 70 L 28 70 L 28 45 L 20 45 Z" fill="url(#metalSilver)"/>
+        <circle cx="35" cy="22" r="5" fill="#334155"/>
+        <rect x="15" y="65" width="40" height="75" rx="6" fill="url(#redVinyl)"/>
+        <ellipse cx="35" cy="140" rx="16" ry="6" fill="#7F1D1D"/>
+        <line x1="20" y1="72" x2="20" y2="130" stroke="white" stroke-width="2.5" opacity="0.4"/>
+      </g>
+
+      <!-- Terminal 3 (Flat female connector) -->
+      <g transform="translate(480, 350) rotate(-10)">
+        <rect x="15" y="10" width="40" height="55" rx="4" fill="url(#metalSilver)"/>
+        <rect x="22" y="15" width="26" height="40" rx="2" fill="#475569"/>
+        <rect x="12" y="60" width="46" height="80" rx="6" fill="url(#redVinyl)"/>
+        <line x1="18" y1="68" x2="18" y2="130" stroke="white" stroke-width="2" opacity="0.4"/>
+      </g>
+
+      <!-- 3. Heat Shrink Tubing (Black sleeves) -->
+      <g transform="translate(680, 160) rotate(-35)">
+        <rect x="0" y="0" width="35" height="180" rx="6" fill="url(#blackRubber)"/>
+        <line x1="5" y1="10" x2="5" y2="170" stroke="#64748B" stroke-width="2" opacity="0.5"/>
+        <ellipse cx="17.5" cy="5" rx="15" ry="5" fill="#475569"/>
+        <ellipse cx="17.5" cy="175" rx="15" ry="5" fill="#0F172A"/>
+      </g>
+      <g transform="translate(740, 200) rotate(-30)">
+        <rect x="0" y="0" width="30" height="150" rx="5" fill="url(#blackRubber)"/>
+        <line x1="5" y1="8" x2="5" y2="142" stroke="#64748B" stroke-width="1.8" opacity="0.5"/>
+      </g>
+
+      <!-- 4. Black Nylon Cable Ties (Johdinsiteet) -->
+      <g transform="translate(720, 330) rotate(18)">
+        <!-- Tie 1 -->
+        <rect x="0" y="0" width="200" height="7" rx="3.5" fill="#1E293B"/>
+        <rect x="0" y="-3" width="14" height="13" rx="2" fill="#0F172A"/>
+        <!-- Serrations -->
+        <path d="M 25 2 h 150" stroke="#334155" stroke-width="2" stroke-dasharray="3,3"/>
+      </g>
+      <g transform="translate(710, 360) rotate(14)">
+        <rect x="0" y="0" width="210" height="7" rx="3.5" fill="#1E293B"/>
+        <rect x="0" y="-3" width="14" height="13" rx="2" fill="#0F172A"/>
+        <path d="M 25 2 h 160" stroke="#334155" stroke-width="2" stroke-dasharray="3,3"/>
+      </g>
+      <g transform="translate(705, 390) rotate(10)">
+        <rect x="0" y="0" width="210" height="7" rx="3.5" fill="#1E293B"/>
+        <rect x="0" y="-3" width="14" height="13" rx="2" fill="#0F172A"/>
+        <path d="M 25 2 h 160" stroke="#334155" stroke-width="2" stroke-dasharray="3,3"/>
+      </g>
+
+      <!-- Rubber grommet / läpivientikumi -->
+      <g transform="translate(630, 360)">
+        <ellipse cx="40" cy="40" rx="38" ry="30" fill="url(#blackRubber)"/>
+        <ellipse cx="40" cy="40" rx="26" ry="18" fill="#0F172A"/>
+        <ellipse cx="40" cy="40" rx="15" ry="10" fill="#334155"/>
+        <ellipse cx="38" cy="38" rx="35" ry="26" fill="none" stroke="white" opacity="0.15" stroke-width="2"/>
+      </g>
+
+      <!-- Labels on bottom -->
+      <g transform="translate(80, 520)">
+        <text x="70" y="0" fill="#475569" font-size="13" font-family="-apple-system, sans-serif" font-weight="600">
+          • 4× Scotchlok™-pikahaaroittimet
+        </text>
+        <text x="360" y="0" fill="#475569" font-size="13" font-family="-apple-system, sans-serif" font-weight="600">
+          • 4× Abiko-lattaliittimet &amp; eristeet
+        </text>
+        <text x="660" y="0" fill="#475569" font-size="13" font-family="-apple-system, sans-serif" font-weight="600">
+          • Kutistesukat, läpivienti &amp; johdinsiteet
+        </text>
+      </g>
+    </svg>
+  </div>
+</div>
+</body>
+</html>

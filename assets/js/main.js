@@ -175,10 +175,7 @@ function initQeinoApp() {
     }
   };
 
-  // 7. Form Submission (Mailto Generator) & Clipboard Copy
-  const inquiryForm = document.getElementById('inquiryForm');
-  const copyBtn = document.getElementById('copyInquiryBtn');
-
+  // 7. Form Submission (Mailto Generator)
   function buildInquiryData() {
     const activeTypeBtn = document.querySelector('.type-btn.active');
     const clientType = activeTypeBtn ? activeTypeBtn.textContent.trim() : 'Kuluttaja';
@@ -207,33 +204,32 @@ function initQeinoApp() {
     return { subject, body, name, email };
   }
 
+  window.handleInquirySubmit = function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const data = buildInquiryData();
+    
+    if (!data.name || !data.email) {
+      showToast('Ole hyvä ja täytä vähintään nimi ja sähköpostiosoite.');
+      return false;
+    }
+
+    const mailtoUrl = `mailto:qeino.fi@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(data.body)}`;
+    window.location.href = mailtoUrl;
+    
+    const successBanner = document.getElementById('inquirySuccess');
+    if (successBanner) {
+      successBanner.style.display = 'block';
+      setTimeout(() => {
+        successBanner.style.display = 'none';
+      }, 7000);
+    }
+    showToast('Sähköpostiohjelma avautuu!');
+    return false;
+  };
+
+  const inquiryForm = document.getElementById('inquiryForm');
   if (inquiryForm) {
-    inquiryForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const data = buildInquiryData();
-      
-      if (!data.name || !data.email) {
-        showToast('Ole hyvä ja täytä vähintään nimi ja sähköpostiosoite.');
-        return;
-      }
-
-      const mailtoUrl = `mailto:qeino.fi@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(data.body)}`;
-      window.location.href = mailtoUrl;
-      showToast('Sähköpostiohjelma avautuu viestiluonnoksella!');
-    });
-  }
-
-  if (copyBtn) {
-    copyBtn.addEventListener('click', () => {
-      const data = buildInquiryData();
-      const fullText = `Vastaanottaja: qeino.fi@gmail.com\nAihe: ${data.subject}\n\n${data.body}`;
-      
-      navigator.clipboard.writeText(fullText).then(() => {
-        showToast('Viestiluonnos kopioitu leikepöydälle!');
-      }).catch(() => {
-        showToast('Kopiointi epäonnistui, voit lähettää viestin suoraan sähköpostilla.');
-      });
-    });
+    inquiryForm.addEventListener('submit', window.handleInquirySubmit);
   }
 
   // 8. Toast Helper

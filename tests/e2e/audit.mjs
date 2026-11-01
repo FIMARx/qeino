@@ -146,7 +146,7 @@ export function auditPage(opts = {}) {
     }
   }
 
-  // 7. Overlapping sibling controls
+  // 7. Overlapping sibling controls (within same container or header)
   const boxes = checked.map(el => [el, el.getBoundingClientRect()]);
   for (let i = 0; i < boxes.length; i++) {
     for (let j = i + 1; j < boxes.length; j++) {
@@ -154,14 +154,45 @@ export function auditPage(opts = {}) {
       const [b, rb] = boxes[j];
       if (a.contains(b) || b.contains(a)) continue;
       if (getComputedStyle(a).display === "inline" || getComputedStyle(b).display === "inline") continue;
-      if (a.parentElement === b.parentElement) {
+      // Check elements in same parent or both inside .header-inner
+      const sameContainer = a.parentElement === b.parentElement || (a.closest('.header-inner') && b.closest('.header-inner'));
+      if (sameContainer) {
         const w = Math.min(ra.right, rb.right) - Math.max(ra.left, rb.left);
         const h = Math.min(ra.bottom, rb.bottom) - Math.max(ra.top, rb.top);
         if (w > 4 && h > 4 && w * h > 40) {
-          add("OVERLAP", a, `with "${(b.textContent || b.getAttribute("aria-label") || "").trim().slice(0, 18)}"`);
+          add("OVERLAP", a, `with "${(b.textContent || b.getAttribute("aria-label") || "").trim().slice(0, 18)}" (${Math.round(w)}x${Math.round(h)}px)`);
         }
       }
     }
+  }
+
+  // 7b. Header Sibling Collision & Nav Multi-Line Wrap Check
+  const logo = document.querySelector('.logo-link');
+  const nav = document.querySelector('nav');
+  const cta = document.querySelector('.header-cta');
+  if (logo && nav && visible(logo) && visible(nav) && vw > 1140) {
+    const lr = logo.getBoundingClientRect();
+    const nr = nav.getBoundingClientRect();
+    if (lr.right > nr.left + 4) {
+      add("HEADER OVERLAP", logo, `overlaps nav by ${Math.round(lr.right - nr.left)}px`);
+    }
+  }
+  if (nav && cta && visible(nav) && visible(cta) && vw > 1140) {
+    const nr = nav.getBoundingClientRect();
+    const cr = cta.getBoundingClientRect();
+    if (nr.right > cr.left + 4) {
+      add("HEADER OVERLAP", nav, `overlaps cta by ${Math.round(nr.right - cr.left)}px`);
+    }
+  }
+  if (vw > 1140) {
+    document.querySelectorAll('.nav-links li a').forEach(a => {
+      if (visible(a)) {
+        const r = a.getBoundingClientRect();
+        if (r.height > 44) {
+          add("NAV MULTILINE WRAP", a, `height ${Math.round(r.height)}px exceeds single line`);
+        }
+      }
+    });
   }
 
   // 8. Badges and prominent headings contrast

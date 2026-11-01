@@ -1,0 +1,21 @@
+{
+  "name": "qeino-oy-website",
+  "version": "1.0.0",
+  "description": "Qeino Oy:n virallinen sähköinen tuote-esitesivusto (LidAid & TBS)",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/e2e/matrix.mjs",
+    "test:full": "node tests/e2e/matrix.mjs --full",
+    "test:shots": "node tests/e2e/matrix.mjs --full --shots",
+    "serve": "python -m http.server 8080"
+  },
+  "keywords": [
+    "qeino",
+    "lidaid",
+    "tbs",
+    "autosahko",
+    "finland"
+  ],
+  "author": "Qeino Oy",
+  "license": "UNLICENSED"
+}

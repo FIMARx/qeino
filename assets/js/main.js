@@ -26,23 +26,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Interactive Product Image Galleries
-  initGallery('lidaidGallery', 'lidaidMainImg');
-  initGallery('tbsGallery', 'tbsMainImg');
+  // 2. Interactive Product Image Galleries & Lightbox
+  initGallery('lidaidGallery', 'lidaidMainImg', 'lidaidMainFrame');
+  initGallery('tbsGallery', 'tbsMainImg', 'tbsMainFrame');
 
-  function initGallery(galleryId, mainImgId) {
+  const lightbox = document.getElementById('lightboxModal');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  function openLightbox(src, alt) {
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || 'Suurennettu kuva';
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  if (lightboxClose) {
+    lightboxClose.addEventListener('click', closeLightbox);
+  }
+  if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox && lightbox.classList.contains('open')) {
+      closeLightbox();
+    }
+  });
+
+  function initGallery(galleryId, mainImgId, mainFrameId) {
     const gallery = document.getElementById(galleryId);
     const mainImg = document.getElementById(mainImgId);
+    const mainFrame = document.getElementById(mainFrameId);
     if (!gallery || !mainImg) return;
+
+    if (mainFrame) {
+      mainFrame.addEventListener('click', () => {
+        openLightbox(mainImg.src, mainImg.alt);
+      });
+    }
 
     const thumbs = gallery.querySelectorAll('.thumb-btn');
     thumbs.forEach(btn => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
         thumbs.forEach(t => t.classList.remove('active'));
         btn.classList.add('active');
         const targetSrc = btn.getAttribute('data-full');
         if (targetSrc) {
-          mainImg.style.opacity = '0.5';
+          mainImg.style.opacity = '0.3';
           mainImg.src = targetSrc;
           mainImg.onload = () => {
             mainImg.style.opacity = '1';

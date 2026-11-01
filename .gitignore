@@ -19,3 +19,4 @@ test_*.py
 update_*.py
 apply_*.py
 generate_*.py
+tests/e2e/out/

@@ -373,7 +373,7 @@
 
             <!-- Interactive Anatomy Hotspots -->
             <div class="hotspot-layer" id="lidaidHotspots" aria-label="Laitteen tekniset rakenneosat">
-              <button type="button" class="hotspot-pin" style="top: 40%; left: 32%;" aria-label="Rakenneosa: Päävirtakytkin" data-title="Päävirtakytkin" data-desc="ON / OFF -kytkin virrankatkaisuun ja manuaaliseen ohitukseen.">
+              <button type="button" class="hotspot-pin" style="top: 26%; left: 25%;" aria-label="Rakenneosa: Päävirtakytkin" data-title="Päävirtakytkin" data-desc="ON / OFF -kytkin virrankatkaisuun ja manuaaliseen ohitukseen.">
                 <span class="hotspot-pulse" aria-hidden="true"></span>
                 <span class="hotspot-icon" aria-hidden="true">+</span>
                 <span class="hotspot-tooltip">
@@ -382,7 +382,7 @@
                 </span>
               </button>
 
-              <button type="button" class="hotspot-pin" style="top: 26%; left: 52%;" aria-label="Rakenneosa: LED-merkkivalot" data-title="LED-merkkivalot" data-desc="Kaksiväriset LEDit osoittavat valmiustilan ja aktiivisen lämmityksen.">
+              <button type="button" class="hotspot-pin" style="top: 17%; left: 38%;" aria-label="Rakenneosa: LED-merkkivalot" data-title="LED-merkkivalot" data-desc="Kaksiväriset LEDit osoittavat valmiustilan ja aktiivisen lämmityksen.">
                 <span class="hotspot-pulse" aria-hidden="true"></span>
                 <span class="hotspot-icon" aria-hidden="true">+</span>
                 <span class="hotspot-tooltip">
@@ -391,7 +391,7 @@
                 </span>
               </button>
 
-              <button type="button" class="hotspot-pin" style="top: 40%; left: 72%;" aria-label="Rakenneosa: Lämpötilansäädin" data-title="Lämpötilansäädin" data-desc="Portaaton säätöalue +45 °C ... +65 °C olosuhteiden mukaan.">
+              <button type="button" class="hotspot-pin" style="top: 26%; left: 50%;" aria-label="Rakenneosa: Lämpötilansäädin" data-title="Lämpötilansäädin" data-desc="Portaaton säätöalue +45 °C ... +65 °C olosuhteiden mukaan.">
                 <span class="hotspot-pulse" aria-hidden="true"></span>
                 <span class="hotspot-icon" aria-hidden="true">+</span>
                 <span class="hotspot-tooltip">
@@ -400,7 +400,7 @@
                 </span>
               </button>
 
-              <button type="button" class="hotspot-pin" style="top: 76%; left: 68%;" aria-label="Rakenneosa: Johtosarja ja NTC-anturi" data-title="Johtosarja & Anturi" data-desc="12V herätejohto ja tarkka NTC-anturi auton luukun sisään.">
+              <button type="button" class="hotspot-pin" style="top: 68%; left: 62%;" aria-label="Rakenneosa: Johtosarja ja NTC-anturi" data-title="Johtosarja & Anturi" data-desc="12V herätejohto ja tarkka NTC-anturi auton luukun sisään.">
                 <span class="hotspot-pulse" aria-hidden="true"></span>
                 <span class="hotspot-icon" aria-hidden="true">+</span>
                 <span class="hotspot-tooltip">
@@ -575,8 +575,14 @@
           <!-- Video Showcase -->
           <div class="product-video-block">
             <div class="video-header-bar">
-              <span class="video-title">Testivideo: Luukku kasteltuna yöllä -15 °C pakkasessa</span>
-              <span class="video-badge">Aito kenttätesti</span>
+              <div class="video-header-info">
+                <span class="video-title">Testivideo: Luukku kasteltuna yöllä -15 °C pakkasessa</span>
+                <span class="video-badge">Aito kenttätesti</span>
+              </div>
+              <a href="https://youtu.be/E0voDAD9VuM" target="_blank" rel="noopener noreferrer" class="video-yt-link" title="Avaa virallinen testivideo YouTubessa">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                <span>Katso YouTubessa ↗</span>
+              </a>
             </div>
             <div class="video-wrap">
               <video controls playsinline preload="metadata" poster="assets/img/lidaid-device.webp">
@@ -671,6 +677,19 @@
                 <span>Lataa käyttöohje (PDF)</span>
               </a>
             </div>
+            <div class="manual-downloads-group">
+              <span class="manual-group-label">Viralliset asennus- ja käyttöohjeet:</span>
+              <div class="manual-pills">
+                <a href="assets/docs/LidAid_kayttoohje.pdf" target="_blank" rel="noopener noreferrer" class="manual-pill">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                  <span>Suomi (PDF)</span>
+                </a>
+                <a href="assets/docs/LidAid_manual_en.pdf" target="_blank" rel="noopener noreferrer" class="manual-pill">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                  <span>English (PDF)</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -719,7 +738,7 @@
 
             <!-- Interactive Anatomy Hotspots -->
             <div class="hotspot-layer" id="tbsHotspots" aria-label="Takavalokytkimen rakenneosat">
-              <button type="button" class="hotspot-pin" style="top: 25%; left: 35%;" aria-label="Rakenneosa: ON / OFF -kytkin" data-title="Pääkytkin" data-desc="Tieliikennevarmistettu ON/OFF-kytkin peruutusvalotoiminnolle.">
+              <button type="button" class="hotspot-pin" style="top: 25%; left: 47%;" aria-label="Rakenneosa: ON / OFF -kytkin" data-title="Pääkytkin" data-desc="Tieliikennevarmistettu ON/OFF-kytkin peruutusvalotoiminnolle.">
                 <span class="hotspot-pulse" aria-hidden="true"></span>
                 <span class="hotspot-icon" aria-hidden="true">+</span>
                 <span class="hotspot-tooltip">
@@ -728,16 +747,25 @@
                 </span>
               </button>
 
-              <button type="button" class="hotspot-pin" style="top: 52%; left: 52%;" aria-label="Rakenneosa: Patentoitu mikropiirilogiikka" data-title="Patentoitu Logiikka" data-desc="Tunnistaa vilkkusignaalin ja sytyttää vain kärryn valot.">
+              <button type="button" class="hotspot-pin" style="top: 48%; left: 45%;" aria-label="Rakenneosa: Kansikytkentäohje" data-title="Kansikytkentäohje" data-desc="Laitteen kanteen painetut selkeät johtovärit: maa, vilkut, 12V ja kosketin.">
                 <span class="hotspot-pulse" aria-hidden="true"></span>
                 <span class="hotspot-icon" aria-hidden="true">+</span>
                 <span class="hotspot-tooltip">
-                  <strong>Patentoitu logiikkapiiri</strong>
-                  <em>Tunnistaa hätävilkut ilman auton sumuvaloa</em>
+                  <strong>Kansikytkentäohje</strong>
+                  <em>Värikoodatut liitännät suoraan laitteen kannessa</em>
                 </span>
               </button>
 
-              <button type="button" class="hotspot-pin" style="top: 80%; left: 30%;" aria-label="Rakenneosa: Takavalojen johtimet" data-title="12V Johtosarja" data-desc="Liitetään suoraan takavaloihin mukana tulevilla rosvoliittimillä.">
+              <button type="button" class="hotspot-pin" style="top: 58%; left: 63%;" aria-label="Rakenneosa: QC PASSED -sinetti" data-title="QC PASSED -tarkastus" data-desc="Jokainen valmistettu yksikkö testataan ja laadunvarmistetaan tehtaalla.">
+                <span class="hotspot-pulse" aria-hidden="true"></span>
+                <span class="hotspot-icon" aria-hidden="true">+</span>
+                <span class="hotspot-tooltip">
+                  <strong>QC PASSED -sinetti</strong>
+                  <em>100 % tehtaalla sähköisesti testattu yksilö</em>
+                </span>
+              </button>
+
+              <button type="button" class="hotspot-pin" style="top: 86%; left: 45%;" aria-label="Rakenneosa: Takavalojen johtimet" data-title="12V Johtosarja" data-desc="Liitetään suoraan takavaloihin mukana tulevilla rosvoliittimillä.">
                 <span class="hotspot-pulse" aria-hidden="true"></span>
                 <span class="hotspot-icon" aria-hidden="true">+</span>
                 <span class="hotspot-tooltip">
@@ -898,10 +926,27 @@
                 <span>Tilaa / Pyydä tarjous</span>
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
-              <a href="assets/docs/kytkenta.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <a href="assets/docs/TBS-231-L_Fin.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="tbsManualBtn">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                <span>Lataa kytkentäohje (PDF)</span>
+                <span id="tbsManualBtnText">Lataa asennusohje (PDF)</span>
               </a>
+            </div>
+            <div class="manual-downloads-group">
+              <span class="manual-group-label">Viralliset asennus- ja käyttöohjeet:</span>
+              <div class="manual-pills">
+                <a href="assets/docs/TBS-231-L_Fin.pdf" target="_blank" rel="noopener noreferrer" class="manual-pill" id="tbsManualFin">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                  <span>Suomi (PDF)</span>
+                </a>
+                <a href="assets/docs/TBS-231-L_Swe.pdf" target="_blank" rel="noopener noreferrer" class="manual-pill" id="tbsManualSwe">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                  <span>Svenska (PDF)</span>
+                </a>
+                <a href="assets/docs/TBS-231-L_eng.pdf" target="_blank" rel="noopener noreferrer" class="manual-pill" id="tbsManualEng">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                  <span>English (PDF)</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -1119,6 +1164,14 @@
           <p>
             Emme valmista kertakäyttöistä massatuotantoa – laitteemme ovat korjattavia, kestäviä ja järkevästi rakennettuja sähköinnovaatioita.
           </p>
+
+          <div class="csw-innovation-box">
+            <span class="csw-badge">Saatavilla myös</span>
+            <div class="csw-content">
+              <strong>Webaston &amp; Eberspächerin kauko-ohjain (CSW-1):</strong>
+              <span>Ohjaa autosi lisälämmitintä suoraan auton omalla alkuperäisavaimella ilman kalliita erillislaitteita. Valmistettu ja testattu Sipoossa.</span>
+            </div>
+          </div>
         </div>
 
         <div class="story-quote-card">
@@ -1372,6 +1425,7 @@
                 <option value="LidAid-latausluukunlämmitin">LidAid-latausluukunlämmitin</option>
                 <option value="TBS-231-L (LED-malli)">Takavalokytkin TBS-231-L (LED-takavaloille)</option>
                 <option value="TBS-221 (Hehkulamppumalli)">Takavalokytkin TBS-221 (Hehkulampuille)</option>
+                <option value="Webaston kauko-ohjain CSW-1">Webaston kauko-ohjain CSW-1 (Webasto / Eber)</option>
                 <option value="Jälleenmyynti & tukkuhinnasto">Jälleenmyynti &amp; tukkuhinnasto</option>
                 <option value="Yleinen tiedustelu">Muu kysymys tai asennustuki</option>
               </select>

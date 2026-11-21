@@ -99,6 +99,12 @@ function initQeinoApp() {
   const tbsTargetInfo = document.getElementById('tbsTargetInfo');
   const tbsLoadInfo = document.getElementById('tbsLoadInfo');
   const tbsProductSelect = document.getElementById('inquiryProduct');
+  const tbsMainImg = document.getElementById('tbsMainImg');
+  const tbsManualBtn = document.getElementById('tbsManualBtn');
+  const tbsManualFin = document.getElementById('tbsManualFin');
+  const tbsManualSwe = document.getElementById('tbsManualSwe');
+  const tbsManualEng = document.getElementById('tbsManualEng');
+  const tbsFirstThumb = document.querySelector('#tbsGallery .thumb-btn:first-child');
 
   if (tbsTabs.length) {
     tbsTabs.forEach(tab => {
@@ -112,11 +118,37 @@ function initQeinoApp() {
           if (tbsTargetInfo) tbsTargetInfo.textContent = 'Suositellaan moderneille peräkärryille ja trailereille, joissa on LED-takavalot.';
           if (tbsLoadInfo) tbsLoadInfo.textContent = 'Maks. 5 A (jopa 60W LED-valotehoa)';
           if (tbsProductSelect) tbsProductSelect.value = 'TBS-231-L (LED-malli)';
+          if (tbsMainImg) {
+            tbsMainImg.src = 'assets/img/tbs-device.webp';
+            tbsMainImg.alt = 'Takavalokytkin TBS-231-L (LED-malli)';
+          }
+          if (tbsFirstThumb) {
+            tbsFirstThumb.setAttribute('data-full', 'assets/img/tbs-device.webp');
+            const thumbImg = tbsFirstThumb.querySelector('img');
+            if (thumbImg) thumbImg.src = 'assets/img/tbs-device.webp';
+          }
+          if (tbsManualBtn) tbsManualBtn.href = 'assets/docs/TBS-231-L_Fin.pdf';
+          if (tbsManualFin) tbsManualFin.href = 'assets/docs/TBS-231-L_Fin.pdf';
+          if (tbsManualSwe) tbsManualSwe.href = 'assets/docs/TBS-231-L_Swe.pdf';
+          if (tbsManualEng) tbsManualEng.href = 'assets/docs/TBS-231-L_eng.pdf';
         } else {
           if (tbsModelBadge) tbsModelBadge.textContent = 'Malli: TBS-221 (Hehkulamput)';
           if (tbsTargetInfo) tbsTargetInfo.textContent = 'Suunniteltu perinteisille perävaunuille, joissa on tavalliset 12V hehkupolttimot.';
           if (tbsLoadInfo) tbsLoadInfo.textContent = 'Maks. 5 A kuormitus';
           if (tbsProductSelect) tbsProductSelect.value = 'TBS-221 (Hehkulamppumalli)';
+          if (tbsMainImg) {
+            tbsMainImg.src = 'assets/img/tbs-221.webp';
+            tbsMainImg.alt = 'Takavalokytkin TBS-221 (Hehkulamppumalli)';
+          }
+          if (tbsFirstThumb) {
+            tbsFirstThumb.setAttribute('data-full', 'assets/img/tbs-221.webp');
+            const thumbImg = tbsFirstThumb.querySelector('img');
+            if (thumbImg) thumbImg.src = 'assets/img/tbs-221.webp';
+          }
+          if (tbsManualBtn) tbsManualBtn.href = 'assets/docs/TBS-221_Fin.pdf';
+          if (tbsManualFin) tbsManualFin.href = 'assets/docs/TBS-221_Fin.pdf';
+          if (tbsManualSwe) tbsManualSwe.href = 'assets/docs/TBS-221_Swe.pdf';
+          if (tbsManualEng) tbsManualEng.href = 'assets/docs/TBS-221_eng.pdf';
         }
       });
     });

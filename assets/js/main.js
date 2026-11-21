@@ -283,13 +283,57 @@ function initQeinoApp() {
     const successBanner = document.getElementById('inquirySuccess');
     if (successBanner) {
       successBanner.style.display = 'block';
+      successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       setTimeout(() => {
         successBanner.style.display = 'none';
-      }, 7000);
+      }, 10000);
     }
-    showToast('Sähköpostiohjelma avautuu!');
+    showToast('Sähköpostiohjelma avautuu valmiilla viestillä!');
     return false;
   };
+
+  window.copyInquiryMessage = function() {
+    const data = buildInquiryData();
+    const formatted = `Aihe: ${data.subject}\n\n${data.body}\n\nVastaanottaja: qeino.fi@gmail.com`;
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(formatted).then(() => {
+        handleCopySuccess();
+      }).catch(() => {
+        fallbackCopyText(formatted);
+      });
+    } else {
+      fallbackCopyText(formatted);
+    }
+  };
+
+  function fallbackCopyText(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand('copy');
+      handleCopySuccess();
+    } catch (err) {
+      showToast('Kopiointi leikepöydälle ei onnistunut.');
+    }
+    document.body.removeChild(ta);
+  }
+
+  function handleCopySuccess() {
+    const copyBtnText = document.getElementById('copyBtnText');
+    if (copyBtnText) {
+      const original = copyBtnText.textContent;
+      copyBtnText.textContent = '✓ Viesti kopioitu leikepöydälle!';
+      setTimeout(() => {
+        copyBtnText.textContent = original;
+      }, 3500);
+    }
+    showToast('Viesti kopioitu leikepöydälle! Voit nyt liittää sen sähköpostiisi.');
+  }
 
   const inquiryForm = document.getElementById('inquiryForm');
   if (inquiryForm) {

@@ -28,8 +28,8 @@ function initQeinoApp() {
   }
 
   // 2. Interactive Product Image Galleries & Lightbox
-  initGallery('lidaidGallery', 'lidaidMainImg', 'lidaidMainFrame');
-  initGallery('tbsGallery', 'tbsMainImg', 'tbsMainFrame');
+  initGallery('lidaidGallery', 'lidaidMainImg', 'lidaidMainFrame', 'lidaidHotspots');
+  initGallery('tbsGallery', 'tbsMainImg', 'tbsMainFrame', 'tbsHotspots');
 
   const lightbox = document.getElementById('lightboxModal');
   const lightboxImg = document.getElementById('lightboxImg');
@@ -63,20 +63,22 @@ function initQeinoApp() {
     }
   });
 
-  function initGallery(galleryId, mainImgId, mainFrameId) {
+  function initGallery(galleryId, mainImgId, mainFrameId, hotspotLayerId) {
     const gallery = document.getElementById(galleryId);
     const mainImg = document.getElementById(mainImgId);
     const mainFrame = document.getElementById(mainFrameId);
+    const hotspotLayer = hotspotLayerId ? document.getElementById(hotspotLayerId) : null;
     if (!gallery || !mainImg) return;
 
     if (mainFrame) {
-      mainFrame.addEventListener('click', () => {
+      mainFrame.addEventListener('click', (e) => {
+        if (e.target.closest('.hotspot-pin')) return;
         openLightbox(mainImg.src, mainImg.alt);
       });
     }
 
     const thumbs = gallery.querySelectorAll('.thumb-btn');
-    thumbs.forEach(btn => {
+    thumbs.forEach((btn, index) => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         thumbs.forEach(t => t.classList.remove('active'));
@@ -88,6 +90,22 @@ function initQeinoApp() {
           mainImg.onload = () => {
             mainImg.style.opacity = '1';
           };
+        }
+
+        // Show hotspot pins ONLY on the main product view (first thumbnail)
+        if (hotspotLayer) {
+          // Close all open tooltips
+          hotspotLayer.querySelectorAll('.hotspot-pin').forEach(p => p.classList.remove('active'));
+          
+          if (index === 0) {
+            hotspotLayer.classList.remove('is-hidden');
+            hotspotLayer.removeAttribute('hidden');
+            hotspotLayer.removeAttribute('aria-hidden');
+          } else {
+            hotspotLayer.classList.add('is-hidden');
+            hotspotLayer.setAttribute('hidden', '');
+            hotspotLayer.setAttribute('aria-hidden', 'true');
+          }
         }
       });
     });
@@ -149,6 +167,20 @@ function initQeinoApp() {
           if (tbsManualFin) tbsManualFin.href = 'assets/docs/TBS-221_Fin.pdf';
           if (tbsManualSwe) tbsManualSwe.href = 'assets/docs/TBS-221_Swe.pdf';
           if (tbsManualEng) tbsManualEng.href = 'assets/docs/TBS-221_eng.pdf';
+        }
+
+        // Reset thumbnail selection to the primary device photo and show hotspot pins
+        const tbsThumbs = document.querySelectorAll('#tbsGallery .thumb-btn');
+        tbsThumbs.forEach((t, i) => {
+          if (i === 0) t.classList.add('active');
+          else t.classList.remove('active');
+        });
+        const tbsHotspots = document.getElementById('tbsHotspots');
+        if (tbsHotspots) {
+          tbsHotspots.classList.remove('is-hidden');
+          tbsHotspots.removeAttribute('hidden');
+          tbsHotspots.removeAttribute('aria-hidden');
+          tbsHotspots.querySelectorAll('.hotspot-pin').forEach(p => p.classList.remove('active'));
         }
       });
     });

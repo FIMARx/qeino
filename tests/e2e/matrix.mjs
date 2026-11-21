@@ -118,18 +118,33 @@ try {
     await sleep(350);
     const lidSrc2 = await b.ev(`document.getElementById('lidaidMainImg')?.getAttribute('src')`);
     check(`${d.id}: LidAid switches to angle image`, lidSrc2 && lidSrc2.includes('lidaid-angle.webp'), lidSrc2);
+    const lidHotspotsHidden2 = await b.ev(`(() => {
+      const el = document.getElementById('lidaidHotspots');
+      return el && (el.classList.contains('is-hidden') || window.getComputedStyle(el).display === 'none');
+    })()`);
+    check(`${d.id}: LidAid hotspots hidden on angle thumbnail`, lidHotspotsHidden2 === true);
 
     // Click 3rd thumbnail (liittimet)
     await click('#lidaidGallery .thumb-btn:nth-child(3)');
     await sleep(350);
     const lidSrc3 = await b.ev(`document.getElementById('lidaidMainImg')?.getAttribute('src')`);
     check(`${d.id}: LidAid switches to liittimet image`, lidSrc3 && lidSrc3.includes('liittimet.webp'), lidSrc3);
+    const lidHotspotsHidden3 = await b.ev(`(() => {
+      const el = document.getElementById('lidaidHotspots');
+      return el && (el.classList.contains('is-hidden') || window.getComputedStyle(el).display === 'none');
+    })()`);
+    check(`${d.id}: LidAid hotspots hidden on accessories thumbnail`, lidHotspotsHidden3 === true);
 
     // Click 1st thumbnail (lidaid-device)
     await click('#lidaidGallery .thumb-btn:nth-child(1)');
     await sleep(350);
     const lidSrc1 = await b.ev(`document.getElementById('lidaidMainImg')?.getAttribute('src')`);
     check(`${d.id}: LidAid switches back to device image`, lidSrc1 && lidSrc1.includes('lidaid-device.webp'), lidSrc1);
+    const lidHotspotsVisible1 = await b.ev(`(() => {
+      const el = document.getElementById('lidaidHotspots');
+      return el && (!el.classList.contains('is-hidden') && window.getComputedStyle(el).display !== 'none');
+    })()`);
+    check(`${d.id}: LidAid hotspots restored on main thumbnail`, lidHotspotsVisible1 === true);
 
     // 4. Lightbox Modal Inspection
     console.log(`   ... Testing Lightbox Modal Zoom ...`);
@@ -273,16 +288,31 @@ try {
     await sleep(350);
     const tbsSrc2 = await b.ev(`document.getElementById('tbsMainImg')?.getAttribute('src')`);
     check(`${d.id}: TBS gallery switches to PCB image`, tbsSrc2 && tbsSrc2.includes('tbs-pcb.webp'), tbsSrc2);
+    const tbsHotspotsHidden2 = await b.ev(`(() => {
+      const el = document.getElementById('tbsHotspots');
+      return el && (el.classList.contains('is-hidden') || window.getComputedStyle(el).display === 'none');
+    })()`);
+    check(`${d.id}: TBS hotspots hidden on PCB thumbnail`, tbsHotspotsHidden2 === true);
 
     await click('#tbsGallery .thumb-btn:nth-child(3)');
     await sleep(350);
     const tbsSrc3 = await b.ev(`document.getElementById('tbsMainImg')?.getAttribute('src')`);
     check(`${d.id}: TBS gallery switches to kytkentäkaavio schematic`, tbsSrc3 && tbsSrc3.includes('tbs-kytkenta.webp'), tbsSrc3);
+    const tbsHotspotsHidden3 = await b.ev(`(() => {
+      const el = document.getElementById('tbsHotspots');
+      return el && (el.classList.contains('is-hidden') || window.getComputedStyle(el).display === 'none');
+    })()`);
+    check(`${d.id}: TBS hotspots hidden on schematic thumbnail`, tbsHotspotsHidden3 === true);
 
     await click('#tbsGallery .thumb-btn:nth-child(1)');
     await sleep(350);
     const tbsSrc1 = await b.ev(`document.getElementById('tbsMainImg')?.getAttribute('src')`);
     check(`${d.id}: TBS gallery switches back to device image`, tbsSrc1 && tbsSrc1.includes('tbs-device.webp'), tbsSrc1);
+    const tbsHotspotsVisible1 = await b.ev(`(() => {
+      const el = document.getElementById('tbsHotspots');
+      return el && (!el.classList.contains('is-hidden') && window.getComputedStyle(el).display !== 'none');
+    })()`);
+    check(`${d.id}: TBS hotspots restored on main thumbnail`, tbsHotspotsVisible1 === true);
 
     // 6. FAQ Accordion Toggle (Click item 2 which is collapsed by default)
     console.log(`   ... Testing FAQ Accordion ...`);

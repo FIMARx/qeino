@@ -835,7 +835,7 @@ nav {
   min-height: 400px;
   box-shadow: var(--shadow-card);
   cursor: pointer;
-  overflow: hidden;
+  overflow: visible;
   transition: var(--transition);
 }
 
@@ -910,6 +910,15 @@ nav {
   inset: 0;
   pointer-events: none;
   z-index: 4;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.hotspot-layer.is-hidden,
+.hotspot-layer[hidden] {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
 .hotspot-pin {
@@ -1008,6 +1017,21 @@ nav {
 .hotspot-pin:hover .hotspot-tooltip,
 .hotspot-pin:focus .hotspot-tooltip,
 .hotspot-pin.active .hotspot-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Downward tooltips for top-positioned pins */
+.hotspot-pin.tooltip-bottom .hotspot-tooltip {
+  bottom: auto;
+  top: calc(100% + 8px);
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.hotspot-pin.tooltip-bottom:hover .hotspot-tooltip,
+.hotspot-pin.tooltip-bottom:focus .hotspot-tooltip,
+.hotspot-pin.tooltip-bottom.active .hotspot-tooltip {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);

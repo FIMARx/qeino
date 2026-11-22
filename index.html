@@ -128,6 +128,7 @@
   </script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Siirry pääsisältöön</a>
 
   <!-- ==========================================================================
        TOP INFO BAR (Archi Signature Architecture)
@@ -136,17 +137,17 @@
     <div class="container top-info-inner">
       <div class="top-info-left">
         <span class="top-info-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           Pohjanniityntie 15, 04130 Sipoo
         </span>
         <span class="top-info-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <a href="tel:0443069752"><strong>044 306 9752</strong> (Hannu Alhovuori)</a>
         </span>
       </div>
       <div class="top-info-right hide-mobile">
         <span class="top-info-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           <a href="mailto:qeino.fi@gmail.com">qeino.fi@gmail.com</a>
         </span>
         <span class="top-info-badge">Suomalaista insinööriosaamista</span>
@@ -180,16 +181,17 @@
       <div class="header-cta">
         <a href="#yhteystiedot" class="btn btn-primary" onclick="selectInquiryProduct('Yleinen tiedustelu')">
           <span>Ota yhteyttä</span>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
 
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Avaa valikko" aria-expanded="false">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Avaa valikko" aria-expanded="false" aria-controls="navLinks">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
     </div>
   </header>
 
+  <main id="main-content">
   <!-- ==========================================================================
        HERO SECTION (Archi Grand Architectural Stage)
        ========================================================================== -->
@@ -198,7 +200,7 @@
     <div class="container hero-content">
       <div class="hero-text-block">
         <div class="teaser">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           01 / Suomalaista autosähköinnovaatiota
         </div>
         <h1 class="hero-title">
@@ -212,18 +214,18 @@
         <div class="hero-actions">
           <a href="#lidaid" class="btn btn-primary">
             <span>Tutustu LidAidiin</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M19 9l-7 7-7-7"/></svg>
           </a>
           <a href="#takavalokytkin" class="btn btn-secondary">
             <span>Perävaunun takavalokytkin</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
 
         <div class="hero-badges">
           <div class="hero-badge-item">
             <div class="hero-badge-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
             <div class="hero-badge-text">
               100 % Suomessa<br>suunniteltu &amp; testattu
@@ -231,7 +233,7 @@
           </div>
           <div class="hero-badge-item">
             <div class="hero-badge-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
             </div>
             <div class="hero-badge-text">
               Kestää ankarat<br>pakkaset (-40 °C)
@@ -239,7 +241,7 @@
           </div>
           <div class="hero-badge-item">
             <div class="hero-badge-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
             <div class="hero-badge-text">
               Turvallinen &amp; helppo<br>12V järjestelmään
@@ -264,7 +266,7 @@
           </div>
 
           <div class="hero-card-body">
-            <h3>LidAid-latausluukunlämmitin</h3>
+            <h2>LidAid-latausluukunlämmitin</h2>
             <p>
               Mikroprosessoriohjattu automaattilämmitin pitää sähköauton ja hybridin latausluukun ja pistokkeen sulana kovissakin pakkasissa.
             </p>
@@ -302,7 +304,7 @@
       <div class="trust-ribbon-grid">
         <div class="trust-item">
           <div class="trust-item-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <div class="trust-item-content">
             <h3>2 vuoden tehdastakuu</h3>
@@ -312,7 +314,7 @@
 
         <div class="trust-item">
           <div class="trust-item-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
           </div>
           <div class="trust-item-content">
             <h3>14 vrk tyytyväisyystakuu</h3>
@@ -322,7 +324,7 @@
 
         <div class="trust-item">
           <div class="trust-item-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
           </div>
           <div class="trust-item-content">
             <h3>Varastossa Sipoossa</h3>
@@ -332,7 +334,7 @@
 
         <div class="trust-item">
           <div class="trust-item-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           </div>
           <div class="trust-item-content">
             <h3>Turvallinen 12V akulle</h3>
@@ -350,7 +352,7 @@
     <div class="container">
       <div class="product-header-block">
         <div class="teaser">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           02 / Sähköautoilun talviratkaisu
         </div>
         <h2 class="section-title">LidAid-latausluukunlämmitin</h2>
@@ -372,45 +374,53 @@
             <img id="lidaidMainImg" src="assets/img/lidaid-device.webp" alt="LidAid-latausluukunlämmitin laitekotelo">
 
             <!-- Interactive Anatomy Hotspots -->
-            <div class="hotspot-layer" id="lidaidHotspots" aria-label="Laitteen tekniset rakenneosat">
-              <button type="button" class="hotspot-pin tooltip-bottom" style="top: 26%; left: 25%;" aria-label="Rakenneosa: Päävirtakytkin" data-title="Päävirtakytkin" data-desc="ON / OFF -kytkin virrankatkaisuun ja manuaaliseen ohitukseen.">
+            <div class="hotspot-layer" id="lidaidHotspots" role="group" aria-label="Laitteen tekniset rakenneosat">
+              <button type="button" class="hotspot-pin tooltip-bottom" style="top: 26%; left: 25%;" aria-label="Rakenneosa: Päävirtakytkin" aria-expanded="false" data-title="Päävirtakytkin" data-desc="ON / OFF -kytkin virrankatkaisuun ja manuaaliseen ohitukseen.">
                 <span class="hotspot-pulse" aria-hidden="true"></span>
-                <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                  <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
-                </svg>
+                <span class="hotspot-circle" aria-hidden="true">
+                  <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+                  </svg>
+                </span>
                 <span class="hotspot-tooltip">
                   <strong>Pääkytkin (ON / OFF)</strong>
                   <em>Manuaalinen ohitus ja virrankatkaisu</em>
                 </span>
               </button>
 
-              <button type="button" class="hotspot-pin tooltip-bottom" style="top: 17%; left: 38%;" aria-label="Rakenneosa: LED-merkkivalot" data-title="LED-merkkivalot" data-desc="Kaksiväriset LEDit osoittavat valmiustilan ja aktiivisen lämmityksen.">
+              <button type="button" class="hotspot-pin tooltip-bottom" style="top: 17%; left: 38%;" aria-label="Rakenneosa: LED-merkkivalot" aria-expanded="false" data-title="LED-merkkivalot" data-desc="Kaksiväriset LEDit osoittavat valmiustilan ja aktiivisen lämmityksen.">
                 <span class="hotspot-pulse" aria-hidden="true"></span>
-                <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                  <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
-                </svg>
+                <span class="hotspot-circle" aria-hidden="true">
+                  <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+                  </svg>
+                </span>
                 <span class="hotspot-tooltip">
                   <strong>LED-merkkivalot</strong>
                   <em>Osoittaa valmiustilan ja aktiivisen lämmityksen</em>
                 </span>
               </button>
 
-              <button type="button" class="hotspot-pin tooltip-bottom" style="top: 26%; left: 50%;" aria-label="Rakenneosa: Lämpötilansäädin" data-title="Lämpötilansäädin" data-desc="Portaaton säätöalue +45 °C ... +65 °C olosuhteiden mukaan.">
+              <button type="button" class="hotspot-pin tooltip-bottom" style="top: 26%; left: 50%;" aria-label="Rakenneosa: Lämpötilansäädin" aria-expanded="false" data-title="Lämpötilansäädin" data-desc="Portaaton säätöalue +45 °C ... +65 °C olosuhteiden mukaan.">
                 <span class="hotspot-pulse" aria-hidden="true"></span>
-                <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                  <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
-                </svg>
+                <span class="hotspot-circle" aria-hidden="true">
+                  <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+                  </svg>
+                </span>
                 <span class="hotspot-tooltip">
                   <strong>Lämpötilansäädin</strong>
                   <em>Portaaton säätö +45 ... +65 °C</em>
                 </span>
               </button>
 
-              <button type="button" class="hotspot-pin" style="top: 68%; left: 62%;" aria-label="Rakenneosa: Johtosarja ja NTC-anturi" data-title="Johtosarja & Anturi" data-desc="12V herätejohto ja tarkka NTC-anturi auton luukun sisään.">
+              <button type="button" class="hotspot-pin" style="top: 68%; left: 62%;" aria-label="Rakenneosa: Johtosarja ja NTC-anturi" aria-expanded="false" data-title="Johtosarja & Anturi" data-desc="12V herätejohto ja tarkka NTC-anturi auton luukun sisään.">
                 <span class="hotspot-pulse" aria-hidden="true"></span>
-                <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                  <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
-                </svg>
+                <span class="hotspot-circle" aria-hidden="true">
+                  <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+                  </svg>
+                </span>
                 <span class="hotspot-tooltip">
                   <strong>Johtosarja &amp; NTC-anturi</strong>
                   <em>12V herätekytkentä ja tarkka lämpöanturi</em>
@@ -418,10 +428,10 @@
               </button>
             </div>
 
-            <div class="zoom-hint" id="zoomBadge">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <button type="button" class="zoom-hint" id="zoomBadge" aria-label="Suurenna LidAid-tuotekuva">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               <span>Suurenna kuva</span>
-            </div>
+            </button>
           </div>
 
           <div class="gallery-thumbs" id="lidaidGallery">
@@ -444,7 +454,7 @@
             </p>
             <a href="https://www.is.fi/autot/art-2000010071605.html" target="_blank" rel="noopener noreferrer" class="media-article-link">
               <span>Lue koko artikkeli Ilta-Sanomista</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
             </a>
           </div>
         </div>
@@ -461,19 +471,19 @@
           <ul class="product-benefits-list">
             <li class="benefit-item">
               <div class="benefit-icon">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <span><strong>Täysin automaattinen:</strong> Kytkeytyy pois päältä kun lämpötila ylittää +4 °C.</span>
             </li>
             <li class="benefit-item">
               <div class="benefit-icon">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <span><strong>Turvallinen 12V järjestelmä:</strong> Ei vaikuta korkeajänniteakkuun eikä auton tehdastakuuseen.</span>
             </li>
             <li class="benefit-item">
               <div class="benefit-icon">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <span><strong>Säädettävä lämpötila:</strong> Portaaton säätö +45 °C ... +65 °C käyttökohteen mukaan.</span>
             </li>
@@ -483,7 +493,7 @@
           <div class="compat-card" id="compatCard">
             <div class="compat-header">
               <div class="compat-header-title">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
                 <span>Yhteensopivuus eri automerkkeihin</span>
               </div>
               <span class="compat-badge">Sopii kaikkiin Type 2 / CCS -autoihin</span>
@@ -515,16 +525,16 @@
               </p>
               <div class="compat-result-footer">
                 <div class="compat-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                   <span>12V herätevirta</span>
                 </div>
                 <div class="compat-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                   <span>Asennusaika n. 30–45 min</span>
                 </div>
                 <button type="button" class="compat-select-btn" id="compatSelectBtn" onclick="selectInquiryProduct('LidAid-latausluukunlämmitin (Skoda)')">
                   <span>Valitse LidAid Skodalle &amp; pyydä tarjous</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>
               </div>
             </div>
@@ -534,7 +544,7 @@
           <div class="winter-sim-card" id="winterSimCard">
             <div class="sim-header">
               <div class="sim-header-title">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
                 <span>Talvisää- &amp; termostaattisimulaattori</span>
               </div>
               <span class="sim-badge">Interaktiivinen testi</span>
@@ -593,7 +603,7 @@
               </a>
             </div>
             <div class="video-wrap">
-              <video controls playsinline preload="metadata" poster="assets/img/lidaid-device.webp">
+              <video controls playsinline preload="metadata" poster="assets/img/lidaid-device.webp" aria-label="LidAid-latausluukunlämmittimen kenttätestivideo -15 asteen pakkasessa">
                 <source src="assets/video/lidaid-demo.mp4" type="video/mp4">
                 Selaimesi ei tue videotoistoa.
               </video>
@@ -606,7 +616,7 @@
             <span class="corner-crosshair top-right" aria-hidden="true">+</span>
             <div class="specs-title">
               <span>Tekniset tiedot (LidAid)</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
             </div>
             <ul class="specs-list">
               <li>
@@ -639,8 +649,8 @@
           <!-- In-The-Box Contents -->
           <div class="package-contents-card">
             <div class="package-header">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-              <h4>Pakkauksen toimitussisältö (Plug-and-play)</h4>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              <h3>Pakkauksen toimitussisältö (Plug-and-play)</h3>
             </div>
             <div class="package-grid">
               <div class="package-item">
@@ -678,10 +688,10 @@
             <div class="product-action-group">
               <a href="#yhteystiedot" class="btn btn-primary" onclick="selectInquiryProduct('LidAid-latausluukunlämmitin')">
                 <span>Tilaa / Pyydä tarjous</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
               <a href="assets/docs/LidAid_kayttoohje.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 <span>Lataa käyttöohje (PDF)</span>
               </a>
             </div>
@@ -689,11 +699,11 @@
               <span class="manual-group-label">Viralliset asennus- ja käyttöohjeet:</span>
               <div class="manual-pills">
                 <a href="assets/docs/LidAid_kayttoohje.pdf" target="_blank" rel="noopener noreferrer" class="manual-pill">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
                   <span>Suomi (PDF)</span>
                 </a>
                 <a href="assets/docs/LidAid_manual_en.pdf" target="_blank" rel="noopener noreferrer" class="manual-pill">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
                   <span>English (PDF)</span>
                 </a>
               </div>
@@ -711,7 +721,7 @@
     <div class="container">
       <div class="product-header-block">
         <div class="teaser">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
           03 / Patentoitu autosähköinnovaatio
         </div>
         <h2 class="section-title">Perävaunun takavalokytkin (TBS)</h2>
@@ -745,45 +755,53 @@
             <img id="tbsMainImg" src="assets/img/tbs-device.webp" alt="Perävaunun takavalokytkin TBS-231-L laiteyksikkö">
 
             <!-- Interactive Anatomy Hotspots -->
-            <div class="hotspot-layer" id="tbsHotspots" aria-label="Takavalokytkimen rakenneosat">
-              <button type="button" class="hotspot-pin tooltip-bottom" style="top: 25%; left: 47%;" aria-label="Rakenneosa: ON / OFF -kytkin" data-title="Pääkytkin" data-desc="Tieliikennevarmistettu ON/OFF-kytkin peruutusvalotoiminnolle.">
+            <div class="hotspot-layer" id="tbsHotspots" role="group" aria-label="Takavalokytkimen rakenneosat">
+              <button type="button" class="hotspot-pin tooltip-bottom" style="top: 25%; left: 47%;" aria-label="Rakenneosa: ON / OFF -kytkin" aria-expanded="false" data-title="Pääkytkin" data-desc="Tieliikennevarmistettu ON/OFF-kytkin peruutusvalotoiminnolle.">
                 <span class="hotspot-pulse" aria-hidden="true"></span>
-                <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                  <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
-                </svg>
+                <span class="hotspot-circle" aria-hidden="true">
+                  <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+                  </svg>
+                </span>
                 <span class="hotspot-tooltip">
                   <strong>Pääkytkin (ON / OFF)</strong>
                   <em>Tieliikennevarmistettu käyttökytkin</em>
                 </span>
               </button>
 
-              <button type="button" class="hotspot-pin" style="top: 48%; left: 45%;" aria-label="Rakenneosa: Kansikytkentäohje" data-title="Kansikytkentäohje" data-desc="Laitteen kanteen painetut selkeät johtovärit: maa, vilkut, 12V ja kosketin.">
+              <button type="button" class="hotspot-pin" style="top: 48%; left: 45%;" aria-label="Rakenneosa: Kansikytkentäohje" aria-expanded="false" data-title="Kansikytkentäohje" data-desc="Laitteen kanteen painetut selkeät johtovärit: maa, vilkut, 12V ja kosketin.">
                 <span class="hotspot-pulse" aria-hidden="true"></span>
-                <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                  <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
-                </svg>
+                <span class="hotspot-circle" aria-hidden="true">
+                  <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+                  </svg>
+                </span>
                 <span class="hotspot-tooltip">
                   <strong>Kansikytkentäohje</strong>
                   <em>Värikoodatut liitännät suoraan laitteen kannessa</em>
                 </span>
               </button>
 
-              <button type="button" class="hotspot-pin" style="top: 58%; left: 63%;" aria-label="Rakenneosa: QC PASSED -sinetti" data-title="QC PASSED -tarkastus" data-desc="Jokainen valmistettu yksikkö testataan ja laadunvarmistetaan tehtaalla.">
+              <button type="button" class="hotspot-pin" style="top: 58%; left: 63%;" aria-label="Rakenneosa: QC PASSED -sinetti" aria-expanded="false" data-title="QC PASSED -tarkastus" data-desc="Jokainen valmistettu yksikkö testataan ja laadunvarmistetaan tehtaalla.">
                 <span class="hotspot-pulse" aria-hidden="true"></span>
-                <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                  <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
-                </svg>
+                <span class="hotspot-circle" aria-hidden="true">
+                  <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+                  </svg>
+                </span>
                 <span class="hotspot-tooltip">
                   <strong>QC PASSED -sinetti</strong>
                   <em>100 % tehtaalla sähköisesti testattu yksilö</em>
                 </span>
               </button>
 
-              <button type="button" class="hotspot-pin" style="top: 86%; left: 45%;" aria-label="Rakenneosa: Takavalojen johtimet" data-title="12V Johtosarja" data-desc="Liitetään suoraan takavaloihin mukana tulevilla rosvoliittimillä.">
+              <button type="button" class="hotspot-pin" style="top: 86%; left: 45%;" aria-label="Rakenneosa: Takavalojen johtimet" aria-expanded="false" data-title="12V Johtosarja" data-desc="Liitetään suoraan takavaloihin mukana tulevilla rosvoliittimillä.">
                 <span class="hotspot-pulse" aria-hidden="true"></span>
-                <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                  <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
-                </svg>
+                <span class="hotspot-circle" aria-hidden="true">
+                  <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+                  </svg>
+                </span>
                 <span class="hotspot-tooltip">
                   <strong>Kytkentäjohtosarja</strong>
                   <em>12V kytkentä ilman 13-napapistorasiaa</em>
@@ -791,10 +809,10 @@
               </button>
             </div>
 
-            <div class="zoom-hint">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <button type="button" class="zoom-hint" aria-label="Suurenna TBS-takavalokytkimen tuotekuva">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               <span>Suurenna kuva</span>
-            </div>
+            </button>
           </div>
 
           <div class="gallery-thumbs" id="tbsGallery">
@@ -822,19 +840,19 @@
           <ul class="product-benefits-list">
             <li class="benefit-item">
               <div class="benefit-icon">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <span><strong>Patentoitu tekniikka:</strong> Estää auton oman takasumuvalon syttymisen ja kuskin häikäistymisen peileistä.</span>
             </li>
             <li class="benefit-item">
               <div class="benefit-icon">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <span><strong>Kaksi mallivaihtoehtoa:</strong> Optimoitu erikseen LED-valoille (TBS-231-L) ja perinteisille hehkulampuille (TBS-221).</span>
             </li>
             <li class="benefit-item">
               <div class="benefit-icon">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <span><strong>Helppo asennus:</strong> Asennetaan auton peräkonttiin verhoilun taakse suoraan takavaloliittimiin mukana tulevilla tarvikkeilla.</span>
             </li>
@@ -847,7 +865,7 @@
               <span class="video-badge">Aito kenttätesti</span>
             </div>
             <div class="video-wrap">
-              <video controls playsinline preload="metadata" poster="assets/img/tbs-device.webp">
+              <video controls playsinline preload="metadata" poster="assets/img/tbs-device.webp" aria-label="Perävaunun takavalokytkimen toimintademonstraatio pimeässä">
                 <source src="assets/video/tbs-demo.mp4" type="video/mp4">
                 Selaimesi ei tue videotoistoa.
               </video>
@@ -857,11 +875,11 @@
           <!-- Patent Trust Seal -->
           <div class="patent-seal-card">
             <div class="patent-seal-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="11" r="3"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="11" r="3"/></svg>
             </div>
             <div class="patent-seal-content">
               <div class="patent-tag">PRH • SUOMALAINEN KEKSINTÖ</div>
-              <h4>Patentoitu kytkinyksikköteknologia</h4>
+              <h3>Patentoitu kytkinyksikköteknologia</h3>
               <p>Suojattu suomalainen keksintö: Ohjaa peruutusvaloja suuntavilkkusignaaleilla ilman auton ohjelmistomuutoksia tai kalliita 13-napaisen johtosarjan vetotöitä.</p>
             </div>
           </div>
@@ -901,8 +919,8 @@
           <!-- In-The-Box Contents -->
           <div class="package-contents-card">
             <div class="package-header">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-              <h4>Pakkauksen toimitussisältö (Plug-and-play)</h4>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              <h3>Pakkauksen toimitussisältö (Plug-and-play)</h3>
             </div>
             <div class="package-grid">
               <div class="package-item">
@@ -940,10 +958,10 @@
             <div class="product-action-group">
               <a href="#yhteystiedot" class="btn btn-primary" onclick="selectInquiryProduct('TBS-231-L (LED-malli)')">
                 <span>Tilaa / Pyydä tarjous</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
               <a href="assets/docs/TBS-231-L_Fin.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="tbsManualBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 <span id="tbsManualBtnText">Lataa asennusohje (PDF)</span>
               </a>
             </div>
@@ -951,15 +969,15 @@
               <span class="manual-group-label">Viralliset asennus- ja käyttöohjeet:</span>
               <div class="manual-pills">
                 <a href="assets/docs/TBS-231-L_Fin.pdf" target="_blank" rel="noopener noreferrer" class="manual-pill" id="tbsManualFin">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
                   <span>Suomi (PDF)</span>
                 </a>
                 <a href="assets/docs/TBS-231-L_Swe.pdf" target="_blank" rel="noopener noreferrer" class="manual-pill" id="tbsManualSwe">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
                   <span>Svenska (PDF)</span>
                 </a>
                 <a href="assets/docs/TBS-231-L_eng.pdf" target="_blank" rel="noopener noreferrer" class="manual-pill" id="tbsManualEng">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
                   <span>English (PDF)</span>
                 </a>
               </div>
@@ -977,7 +995,7 @@
     <div class="container">
       <div class="reviews-header">
         <div class="teaser">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           04 / Aitoja käyttäjäkokemuksia
         </div>
         <h2 class="section-title">Testattu Suomen talviolosuhteissa</h2>
@@ -1001,7 +1019,7 @@
             <span class="press-author">Toimittaja Tommi Lempinen, Ilta-Sanomat</span>
             <a href="https://www.is.fi/autot/art-2000010071605.html" target="_blank" rel="noopener noreferrer" class="press-link" aria-label="Lue koko artikkeli Ilta-Sanomista">
               <span>Lue koko artikkeli IS.fi:stä</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
             </a>
           </div>
         </div>
@@ -1096,7 +1114,7 @@
     <div class="container">
       <div class="process-header">
         <div class="teaser">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
           05 / Vaivaton toimitus
         </div>
         <h2 class="section-title">Miten tilaus etenee?</h2>
@@ -1110,7 +1128,7 @@
         <div class="process-step-card">
           <div class="step-badge">01</div>
           <div class="step-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
           </div>
           <h3>1. Valitse tuote &amp; ota yhteyttä</h3>
           <p>
@@ -1121,7 +1139,7 @@
         <div class="process-step-card">
           <div class="step-badge">02</div>
           <div class="step-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           </div>
           <h3>2. Vahvistus &amp; selkeä lasku</h3>
           <p>
@@ -1132,7 +1150,7 @@
         <div class="process-step-card">
           <div class="step-badge">03</div>
           <div class="step-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
           </div>
           <h3>3. Nopea Posti-toimitus Sipoosta</h3>
           <p>
@@ -1143,15 +1161,15 @@
 
       <div class="process-guarantee-bar">
         <div class="guarantee-pill">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           <span><strong>2 vuoden valmistajan takuu</strong> kaikkiin laitteisiin</span>
         </div>
         <div class="guarantee-pill">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
           <span><strong>14 vrk tyytyväisyystakuu</strong> ja täysi palautusoikeus</span>
         </div>
         <div class="guarantee-pill">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span><strong>Suora asennustuki keksijältä:</strong> <a href="tel:0443069752">044 306 9752</a></span>
         </div>
       </div>
@@ -1166,7 +1184,7 @@
       <div class="story-grid">
         <div class="story-text">
           <div class="teaser">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             06 / Kotimaista keksintöä
           </div>
           <h2 class="section-title">Qeinon syntytarina</h2>
@@ -1210,7 +1228,7 @@
     <div class="container">
       <div class="b2b-header">
         <div class="teaser">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
           07 / B2B &amp; Jälleenmyynti
         </div>
         <h2 class="section-title">Palvelemme myös autoliikkeitä ja asennuspisteitä</h2>
@@ -1226,15 +1244,15 @@
           <p>Tarjoa sähköautoilijoille ratkaisu, joka todella toimii. Nopea 30–45 minuutin asennus tuo erinomaista lisälaskutusta ja tyytyväisiä asiakkaita.</p>
           <ul class="b2b-perks-list">
             <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               <span>Hyvä jälleenmyyntikate ja määräalennukset</span>
             </li>
             <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               <span>Valmiit johtosarjat ja automallikohtaiset asennusohjeet</span>
             </li>
             <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               <span>Suora puhelintuki keksijältä ongelmatilanteissa</span>
             </li>
           </ul>
@@ -1248,15 +1266,15 @@
           <p>Varusta uudet ja käytetyt perävaunut patentoitulla takavalokytkimellä. Loistava myyntivaltti turvallisuudesta ja pimeässä peruuttamisen helppoudesta kiinnostuneille.</p>
           <ul class="b2b-perks-list">
             <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               <span>Patentoitu kotimainen keksintö — ei halpakopioita</span>
             </li>
             <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               <span>Nopea toimitus suoraan varastosta Sipoosta</span>
             </li>
             <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               <span>Valmiit markkinointimateriaalit ja esitteet myymälään</span>
             </li>
           </ul>
@@ -1275,7 +1293,7 @@
     <div class="container">
       <div class="faq-header">
         <div class="teaser">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
           08 / Usein kysyttyä
         </div>
         <h2 class="section-title">Kysymyksiä ja vastauksia</h2>
@@ -1287,13 +1305,13 @@
 
       <div class="faq-accordion">
         <div class="faq-item">
-          <button class="faq-question">
+          <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer1">
             <span>Purkaako LidAid auton akun, jos auto seisoo pakkasessa pitkään?</span>
-            <div class="faq-icon-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
+            <span class="faq-icon-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faqAnswer1">
             <p>
               Ei pura. LidAid kytketään auton 12V herätevirtaan, joten se toimii vain kun auto on 'hereillä' tai latauksessa. Lisäksi mikroprosessori katkaisee lämmityksen automaattisesti kun ympäristön lämpötila nousee yli +4 °C.
             </p>
@@ -1301,13 +1319,13 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
+          <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer2">
             <span>Miten valitsen oikean takavalokytkimen mallin (TBS-231-L vai TBS-221)?</span>
-            <div class="faq-icon-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
+            <span class="faq-icon-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faqAnswer2">
             <p>
               Valinta riippuu peräkärrysi takavaloista: Jos peräkärryssäsi on modernit <strong>LED-takavalot</strong>, valitse <strong>TBS-231-L</strong>. Jos peräkärryssäsi on perinteiset <strong>hehkulamput</strong>, valitse <strong>TBS-221</strong>.
             </p>
@@ -1315,13 +1333,13 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
+          <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer3">
             <span>Saako takavalokytkintä käyttää tavallisessa tieliikenteessä?</span>
-            <div class="faq-icon-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
+            <span class="faq-icon-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faqAnswer3">
             <p>
               Takavalokytkintä ei ole hyväksytty yleiseen tieliikennekäyttöön. Laitteen voi laillisesti kytkeä päälle vasta kun olet yleisen tieliikenteen ulkopuolella, kuten mökkitiellä, työmaalla, puistoalueella tai omassa pihassa. Maantiellä ajettaessa laite pidetään kytkettynä pois.
             </p>
@@ -1329,13 +1347,13 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
+          <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer4">
             <span>Toimiiko takavalokytkin 24 Voltin järjestelmässä?</span>
-            <div class="faq-icon-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
+            <span class="faq-icon-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faqAnswer4">
             <p>
               Laite on suunniteltu henkilöautojen 12 Voltin järjestelmään. Laite voidaan kuitenkin asentaa 24 Voltin järjestelmään lisäämällä plus-johtoon 1 Watin etuvastus, jonka arvo on 300 Ohmia.
             </p>
@@ -1352,7 +1370,7 @@
     <div class="container">
       <div class="contact-header">
         <div class="teaser">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           09 / Ota yhteyttä
         </div>
         <h2 class="section-title">Yhteystiedot ja tilaustiedustelut</h2>
@@ -1374,7 +1392,7 @@
             <div class="contact-list">
               <div class="contact-item">
                 <div class="contact-item-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 </div>
                 <div class="contact-item-text">
                   <span class="title">Käynti- ja postiosoite</span>
@@ -1386,7 +1404,7 @@
 
               <div class="contact-item">
                 <div class="contact-item-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 </div>
                 <div class="contact-item-text">
                   <span class="title">Puhelin &amp; WhatsApp</span>
@@ -1397,7 +1415,7 @@
 
               <div class="contact-item">
                 <div class="contact-item-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 </div>
                 <div class="contact-item-text">
                   <span class="title">Sähköposti</span>
@@ -1407,7 +1425,7 @@
 
               <div class="contact-item">
                 <div class="contact-item-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 </div>
                 <div class="contact-item-text">
                   <span class="title">Palveluajat</span>
@@ -1537,7 +1555,7 @@
               </div>
             </div>
 
-            <div id="inquirySuccess" class="form-success-banner" style="display:none;">
+            <div id="inquirySuccess" class="form-success-banner" role="status" aria-live="polite" style="display:none;">
               <div class="success-banner-header">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                 <strong>Sähköpostiohjelmasi avautuu valmiilla viestipohjalla!</strong>
@@ -1549,6 +1567,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- ==========================================================================
        SITE FOOTER
@@ -1564,25 +1583,25 @@
           <div style="margin-top: 1.5rem;">
             <a href="https://www.is.fi/autot/art-2000010071605.html" target="_blank" rel="noopener noreferrer" class="footer-is-link">
               <span>Lue LidAidin esittely Ilta-Sanomista</span>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
             </a>
           </div>
         </div>
 
         <div class="footer-col">
-          <h4>Pikalinkit</h4>
+          <h2>Pikalinkit</h2>
           <ul class="footer-links">
             <li><a href="#lidaid">LidAid-latausluukunlämmitin</a></li>
             <li><a href="#takavalokytkin">Takavalokytkin TBS</a></li>
             <li><a href="#kokemuksia">Käyttäjäkokemukset</a></li>
             <li><a href="#tilausohje">Miten tilaus etenee</a></li>
             <li><a href="#tarina">Qeinon syntytarina</a></li>
-            <li><a href="assets/docs/LidAid_kayttoohje.pdf" target="_blank">LidAid käyttöohje (PDF)</a></li>
+            <li><a href="assets/docs/LidAid_kayttoohje.pdf" target="_blank" rel="noopener noreferrer">LidAid käyttöohje (PDF)</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Yhteystiedot</h4>
+          <h2>Yhteystiedot</h2>
           <ul class="footer-links">
             <li>Qeino Oy</li>
             <li>Pohjanniityntie 15, 04130 Sipoo</li>
@@ -1607,11 +1626,11 @@
   <!-- Mobile Floating Sticky Quick-Contact Bar -->
   <aside class="mobile-sticky-bar" id="mobileStickyBar" aria-label="Pikayhteys">
     <a href="tel:0443069752" class="mobile-bar-btn call-btn" aria-label="Soita keksijälle 044 306 9752">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       <span>Soita keksijälle</span>
     </a>
     <a href="#yhteystiedot" class="mobile-bar-btn quote-btn" aria-label="Siirry yhteydenottolomakkeeseen">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       <span>Pyydä tarjous</span>
     </a>
   </aside>

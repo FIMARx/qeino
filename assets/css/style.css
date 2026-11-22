@@ -101,6 +101,50 @@ a:hover {
   color: var(--brand-blue-hover);
 }
 
+/* ==========================================================================
+   ACCESSIBILITY: SKIP LINK, SCREEN READER ONLY & FOCUS-VISIBLE RINGS
+   ========================================================================== */
+
+.skip-link {
+  position: fixed;
+  top: -120px;
+  left: 16px;
+  z-index: 10000;
+  background: var(--brand-blue);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.3);
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 16px;
+  color: #FFFFFF;
+  outline: 3px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--brand-blue);
+  outline-offset: 2px;
+}
+
 .container {
   width: 100%;
   max-width: 1220px;
@@ -664,6 +708,7 @@ nav {
   border-radius: var(--radius-xs);
 }
 
+.hero-card-body h2,
 .hero-card-body h3 {
   font-family: var(--font-heading);
   font-size: 1.25rem;
@@ -852,8 +897,8 @@ nav {
   transition: transform 0.3s ease;
 }
 
-.main-image-frame:hover img {
-  transform: scale(1.02);
+.main-image-frame:hover:not(:has(.hotspot-pin:hover)) img {
+  transform: scale(1.015);
 }
 
 .zoom-hint {
@@ -863,7 +908,7 @@ nav {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--border-line);
@@ -875,9 +920,17 @@ nav {
   color: var(--text-primary);
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
   white-space: nowrap;
-  pointer-events: none;
-  height: 32px;
-  z-index: 5;
+  pointer-events: auto;
+  cursor: pointer;
+  min-height: 36px;
+  transition: var(--transition);
+  z-index: 6;
+}
+
+.zoom-hint:hover {
+  border-color: var(--brand-blue);
+  color: var(--brand-blue);
+  box-shadow: 0 6px 16px rgba(29, 78, 216, 0.14);
 }
 
 .zoom-hint svg {
@@ -921,13 +974,50 @@ nav {
   pointer-events: none !important;
 }
 
+/* Stationary hit target: never scales or shifts on hover -> zero edge flicker & crisp unscaled tooltips */
 .hotspot-pin {
   pointer-events: auto;
   position: absolute;
-  width: 38px;
-  height: 38px;
-  min-width: 38px;
-  min-height: 38px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  transition: z-index 0s linear 0.22s;
+}
+
+.hotspot-pin:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.hotspot-pin.active {
+  z-index: 50 !important;
+  transition: z-index 0s linear 0s;
+}
+
+.hotspot-pin:hover,
+.hotspot-pin:focus-visible {
+  z-index: 60 !important;
+  transition: z-index 0s linear 0s;
+}
+
+.hotspot-pin.active:hover {
+  z-index: 65 !important;
+}
+
+/* Visual circle inside the stationary hit target */
+.hotspot-circle {
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: rgba(11, 19, 32, 0.92);
   border: 2px solid #FFFFFF;
@@ -935,48 +1025,52 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
-  z-index: 5;
-  padding: 0;
+  pointer-events: none;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hotspot-pin:hover .hotspot-circle,
+.hotspot-pin:focus-visible .hotspot-circle {
+  background: var(--brand-blue);
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(29, 78, 216, 0.45);
+}
+
+.hotspot-pin.active .hotspot-circle {
+  background: var(--brand-blue);
+  transform: scale(1.08);
+  box-shadow: 0 8px 22px rgba(29, 78, 216, 0.5);
+}
+
+.hotspot-pin:focus-visible {
   outline: none;
-  transform: translate(-50%, -50%);
 }
 
-.hotspot-pin:hover,
-.hotspot-pin:focus {
-  z-index: 45 !important;
-  background: var(--brand-blue);
-  border-color: #FFFFFF;
-  transform: translate(-50%, -50%) scale(1.12);
-  box-shadow: 0 6px 20px rgba(29, 78, 216, 0.45);
-}
-
-.hotspot-pin.active {
-  z-index: 50 !important;
-  background: var(--brand-blue);
-  border-color: #FFFFFF;
-  transform: translate(-50%, -50%) scale(1.15);
-  box-shadow: 0 8px 24px rgba(29, 78, 216, 0.55);
-}
-
-.hotspot-pin.active:hover {
-  z-index: 55 !important;
+.hotspot-pin:focus-visible .hotspot-circle {
+  box-shadow: 0 0 0 3px #FFFFFF, 0 0 0 6px var(--brand-blue);
 }
 
 .hotspot-pulse {
   position: absolute;
-  inset: -6px;
+  inset: -4px;
   border-radius: 50%;
-  border: 1.5px solid rgba(29, 78, 216, 0.7);
+  border: 1.5px solid rgba(29, 78, 216, 0.65);
   animation: pulse-ring 2.4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
   pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+
+.hotspot-pin:hover .hotspot-pulse,
+.hotspot-pin:focus-visible .hotspot-pulse,
+.hotspot-pin.active .hotspot-pulse {
+  opacity: 0;
+  animation-play-state: paused;
 }
 
 @keyframes pulse-ring {
-  0% { transform: scale(0.9); opacity: 0.8; }
-  50% { transform: scale(1.3); opacity: 0.2; }
-  100% { transform: scale(1.5); opacity: 0; }
+  0% { transform: scale(0.9); opacity: 0.75; }
+  50% { transform: scale(1.25); opacity: 0.2; }
+  100% { transform: scale(1.45); opacity: 0; }
 }
 
 .hotspot-icon {
@@ -987,7 +1081,7 @@ nav {
   pointer-events: none;
   margin: 0;
   padding: 0;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hotspot-icon path {
@@ -1015,8 +1109,8 @@ nav {
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.18);
   z-index: 100;
 }
@@ -1033,16 +1127,23 @@ nav {
   display: block;
   font-style: normal;
   font-size: 11px;
-  color: #94A3B8;
+  color: #CBD5E1;
   line-height: 1.35;
 }
 
 .hotspot-pin:hover .hotspot-tooltip,
-.hotspot-pin:focus .hotspot-tooltip,
+.hotspot-pin:focus-visible .hotspot-tooltip,
 .hotspot-pin.active .hotspot-tooltip {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0s;
+}
+
+/* Prevent overlapping tooltips when hovering a different pin while one is active */
+.hotspot-layer:has(.hotspot-pin:hover) .hotspot-pin.active:not(:hover) .hotspot-tooltip {
+  opacity: 0;
+  visibility: hidden;
 }
 
 /* Downward tooltips for top-positioned pins */
@@ -1053,11 +1154,12 @@ nav {
 }
 
 .hotspot-pin.tooltip-bottom:hover .hotspot-tooltip,
-.hotspot-pin.tooltip-bottom:focus .hotspot-tooltip,
+.hotspot-pin.tooltip-bottom:focus-visible .hotspot-tooltip,
 .hotspot-pin.tooltip-bottom.active .hotspot-tooltip {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0s;
 }
 
 .gallery-thumbs {
@@ -1258,7 +1360,7 @@ nav {
   font-family: inherit;
   font-size: 13.5px;
   color: var(--text-primary);
-  outline: none;
+  outline: 2px solid transparent;
   min-height: 28px;
 }
 
@@ -1771,6 +1873,7 @@ nav {
   margin-bottom: 4px;
 }
 
+.patent-seal-content h3,
 .patent-seal-content h4 {
   font-family: var(--font-heading);
   font-size: 15px;
@@ -1868,6 +1971,7 @@ nav {
   color: var(--brand-blue);
 }
 
+.package-header h3,
 .package-header h4 {
   font-family: var(--font-heading);
   font-size: 14.5px;
@@ -2953,7 +3057,7 @@ textarea.form-control {
 }
 
 .form-control:focus {
-  outline: none;
+  outline: 2px solid transparent;
   border-color: var(--brand-blue);
   box-shadow: 0 0 0 3px var(--brand-blue-glow);
 }
@@ -2981,7 +3085,7 @@ textarea.form-control {
 }
 
 .form-select:focus {
-  outline: none;
+  outline: 2px solid transparent;
   border-color: var(--brand-blue);
   box-shadow: 0 0 0 3px var(--brand-blue-glow);
 }
@@ -3181,6 +3285,7 @@ textarea.form-control {
   color: #60A5FA;
 }
 
+.footer-col h2,
 .footer-col h4 {
   font-family: var(--font-heading);
   font-size: 13.5px;
@@ -3408,5 +3513,28 @@ textarea.form-control {
   a[href^="#"]::after,
   a[href^="javascript:"]::after {
     content: "";
+  }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY: REDUCED MOTION PREFERENCE (WCAG 2.3.3)
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hotspot-pulse,
+  .status-pulse-dot {
+    animation: none !important;
   }
 }

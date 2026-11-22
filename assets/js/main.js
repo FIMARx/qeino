@@ -34,19 +34,28 @@ function initQeinoApp() {
   const lightbox = document.getElementById('lightboxModal');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxClose = document.getElementById('lightboxClose');
+  let lastFocusedBeforeLightbox = null;
 
   function openLightbox(src, alt) {
     if (!lightbox || !lightboxImg) return;
+    lastFocusedBeforeLightbox = document.activeElement;
     lightboxImg.src = src;
     lightboxImg.alt = alt || 'Suurennettu kuva';
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
+    if (lightboxClose) {
+      setTimeout(() => lightboxClose.focus(), 50);
+    }
   }
 
   function closeLightbox() {
     if (!lightbox) return;
     lightbox.classList.remove('open');
     document.body.style.overflow = '';
+    if (lastFocusedBeforeLightbox && typeof lastFocusedBeforeLightbox.focus === 'function') {
+      lastFocusedBeforeLightbox.focus();
+      lastFocusedBeforeLightbox = null;
+    }
   }
 
   if (lightboxClose) {
@@ -193,9 +202,14 @@ function initQeinoApp() {
     if (question) {
       question.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
-        faqItems.forEach(i => i.classList.remove('active'));
+        faqItems.forEach(i => {
+          i.classList.remove('active');
+          const q = i.querySelector('.faq-question');
+          if (q) q.setAttribute('aria-expanded', 'false');
+        });
         if (!isActive) {
           item.classList.add('active');
+          question.setAttribute('aria-expanded', 'true');
         }
       });
     }
@@ -207,8 +221,12 @@ function initQeinoApp() {
 
   typeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      typeBtns.forEach(b => b.classList.remove('active'));
+      typeBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       const type = btn.getAttribute('data-type');
       if (companyField) {
         if (type === 'b2b') {
@@ -347,9 +365,11 @@ function initQeinoApp() {
       toast = document.createElement('div');
       toast.id = 'toastNotice';
       toast.className = 'toast-notice';
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
       document.body.appendChild(toast);
     }
-    toast.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <span>${message}</span>`;
+    toast.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> <span>${message}</span>`;
     toast.classList.add('show');
     setTimeout(() => {
       toast.classList.remove('show');
@@ -512,15 +532,31 @@ function initQeinoApp() {
     pin.addEventListener('click', (e) => {
       e.stopPropagation(); // Do not trigger lightbox modal click
       const wasActive = pin.classList.contains('active');
-      hotspotPins.forEach(p => p.classList.remove('active'));
+      hotspotPins.forEach(p => {
+        p.classList.remove('active');
+        p.setAttribute('aria-expanded', 'false');
+      });
       if (!wasActive) {
         pin.classList.add('active');
+        pin.setAttribute('aria-expanded', 'true');
       }
     });
   });
 
   document.addEventListener('click', () => {
-    hotspotPins.forEach(p => p.classList.remove('active'));
+    hotspotPins.forEach(p => {
+      p.classList.remove('active');
+      p.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      hotspotPins.forEach(p => {
+        p.classList.remove('active');
+        p.setAttribute('aria-expanded', 'false');
+      });
+    }
   });
 }
 

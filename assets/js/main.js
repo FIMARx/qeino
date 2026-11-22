@@ -194,8 +194,12 @@ function initQeinoApp() {
   if (tbsTabs.length) {
     tbsTabs.forEach(tab => {
       tab.addEventListener('click', () => {
-        tbsTabs.forEach(t => t.classList.remove('active'));
+        tbsTabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-pressed', 'false');
+        });
         tab.classList.add('active');
+        tab.setAttribute('aria-pressed', 'true');
         const model = tab.getAttribute('data-model');
         
         if (model === 'TBS-231-L') {
@@ -494,32 +498,63 @@ function initQeinoApp() {
     }, 4000);
   }
 
-  // 9. Interactive Temperature Simulator for LidAid
+  // 9. Interactive Thermally Reactive Temperature Simulator for LidAid
   const tempSlider = document.getElementById('tempSlider');
   const tempDisplay = document.getElementById('tempDisplay');
   const tempStatus = document.getElementById('tempStatus');
   const tempElementState = document.getElementById('tempElementState');
   const simElementTemp = document.getElementById('simElementTemp');
   const simPowerUsage = document.getElementById('simPowerUsage');
+  const winterSimCard = document.getElementById('winterSimCard');
+  const simPowerFill = document.getElementById('simPowerFill');
+  const simPowerPercent = document.getElementById('simPowerPercent');
+  const simPresetBtns = document.querySelectorAll('.sim-preset-btn');
 
   if (tempSlider && tempDisplay) {
     const updateSim = (val) => {
       tempDisplay.textContent = `${val > 0 ? '+' : ''}${val} °C`;
-      
+
+      simPresetBtns.forEach(btn => {
+        const presetVal = parseInt(btn.getAttribute('data-temp'), 10);
+        btn.classList.toggle('active', presetVal === val);
+      });
+
+      if (winterSimCard) {
+        winterSimCard.classList.remove('sim-state-frost', 'sim-state-slush', 'sim-state-standby');
+      }
+
       if (val > 4) {
         tempDisplay.style.color = '#059669';
+        if (winterSimCard) winterSimCard.classList.add('sim-state-standby');
+        if (simPowerFill) {
+          simPowerFill.style.width = '0%';
+          simPowerFill.style.background = '#10B981';
+        }
+        if (simPowerPercent) simPowerPercent.textContent = '0 % (Lepotila • Akku suojattu)';
         if (tempStatus) tempStatus.innerHTML = '<span class="status-dot-pulse" style="background:#10B981; box-shadow:0 0 8px #10B981;"></span><span>Lauha / Kesätila: Virta katkaistu (0 W)</span>';
         if (simElementTemp) simElementTemp.textContent = 'Lepotilassa (0 W)';
         if (simPowerUsage) simPowerUsage.textContent = '0 W (Ei kuormita akkua lainkaan)';
         if (tempElementState) tempElementState.innerHTML = '<strong>Automaattinen virransäästö:</strong> Kun ulkolämpötila nousee yli +4 °C, mikroprosessori katkaisee elementin virransyötön kokonaan. Akkua ei pureta koskaan turhaan.';
       } else if (val >= -4) {
         tempDisplay.style.color = '#0284C7';
+        if (winterSimCard) winterSimCard.classList.add('sim-state-slush');
+        if (simPowerFill) {
+          simPowerFill.style.width = '68%';
+          simPowerFill.style.background = 'linear-gradient(90deg, #0284C7 0%, #38BDF8 100%)';
+        }
+        if (simPowerPercent) simPowerPercent.textContent = '68 % (Ylläpitolämpö)';
         if (tempStatus) tempStatus.innerHTML = '<span class="status-dot-pulse" style="background:#0284C7; box-shadow:0 0 8px #0284C7;"></span><span>Pikkupakkanen / kostea sohjokeli</span>';
         if (simElementTemp) simElementTemp.textContent = '+45 °C (Ylläpitolämpö)';
         if (simPowerUsage) simPowerUsage.textContent = '~15 W (Vain auton ollessa hereillä)';
         if (tempElementState) tempElementState.innerHTML = '<strong>Sohjo- ja nollakeli:</strong> Elementti tuottaa tasaisen ylläpitolämmön (+45 °C), joka pitää luukun reunan, tiivisteen ja lukitustapin täysin vapaana sohjosta ja alijäähtyneestä vedestä.';
       } else {
         tempDisplay.style.color = '#1D4ED8';
+        if (winterSimCard) winterSimCard.classList.add('sim-state-frost');
+        if (simPowerFill) {
+          simPowerFill.style.width = '100%';
+          simPowerFill.style.background = 'linear-gradient(90deg, #1D4ED8 0%, #3B82F6 60%, #F59E0B 100%)';
+        }
+        if (simPowerPercent) simPowerPercent.textContent = '100 % (Täysteho sulatus)';
         if (tempStatus) tempStatus.innerHTML = '<span class="status-dot-pulse" style="background:#3B82F6; box-shadow:0 0 8px #3B82F6;"></span><span>Kova pakkanen: Täysteholämmitys</span>';
         if (simElementTemp) simElementTemp.textContent = '+65 °C (Täysteho sulatus)';
         if (simPowerUsage) simPowerUsage.textContent = '~20 W (Vain auton ollessa hereillä)';
@@ -530,7 +565,97 @@ function initQeinoApp() {
     tempSlider.addEventListener('input', (e) => {
       updateSim(parseInt(e.target.value, 10));
     });
+
+    simPresetBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = parseInt(btn.getAttribute('data-temp'), 10);
+        tempSlider.value = String(val);
+        updateSim(val);
+      });
+    });
   }
+
+  // 9b. Hero Dual-Product Preview Switcher (LidAid / Takavalokytkin TBS)
+  const heroSwitchBtns = document.querySelectorAll('.hero-switch-btn');
+  const heroCatalog = {
+    lidaid: {
+      img: 'assets/img/lidaid-device.webp',
+      alt: 'LidAid-latausluukunlämmitin ohjainlaite',
+      tag: '−40 °C testattu',
+      title: 'LidAid-latausluukunlämmitin',
+      desc: 'Mikroprosessoriohjattu automaattilämmitin pitää sähköauton ja hybridin latausluukun ja pistokkeen sulana kovissakin pakkasissa.',
+      s1l: 'Virrankulutus', s1v: '~20 W',
+      s2l: 'Säätöalue', s2v: '+45...+65°C',
+      s3l: 'Katkaisu', s3v: '> +4°C autom.',
+      href: '#lidaid',
+      cta: 'Tutustu LidAidiin tarkemmin'
+    },
+    tbs: {
+      img: 'assets/img/tbs-device.webp',
+      alt: 'Perävaunun takavalokytkin TBS-231-L ohjainyksikkö',
+      tag: 'PRH-patentoitu',
+      title: 'Perävaunun takavalokytkin (TBS)',
+      desc: 'Patentoitu kytkinlaite muuttaa perävaunun omat takavalot tehokkaiksi peruutusvaloiksi ilman häikäisevää takasumuvaloa.',
+      s1l: 'Käyttöjännite', s1v: '12 VDC',
+      s2l: 'Kuormitus', s2v: 'Maks. 5 A',
+      s3l: 'Mallit', s3v: 'LED & Hehku',
+      href: '#takavalokytkin',
+      cta: 'Tutustu takavalokytkimeen'
+    }
+  };
+
+  if (heroSwitchBtns.length) {
+    heroSwitchBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.getAttribute('data-hero-product');
+        const item = heroCatalog[key];
+        if (!item) return;
+
+        heroSwitchBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+
+        const imgEl = document.getElementById('heroPreviewImg');
+        if (imgEl) {
+          imgEl.src = item.img;
+          imgEl.alt = item.alt;
+        }
+        const tagSpan = document.querySelector('#heroPreviewTag span');
+        if (tagSpan) tagSpan.textContent = item.tag;
+        const titleEl = document.getElementById('heroPreviewTitle');
+        if (titleEl) titleEl.textContent = item.title;
+        const descEl = document.getElementById('heroPreviewDesc');
+        if (descEl) descEl.textContent = item.desc;
+        const setTxt = (id, txt) => { const el = document.getElementById(id); if (el) el.textContent = txt; };
+        setTxt('heroSpec1Label', item.s1l);
+        setTxt('heroSpec1Val', item.s1v);
+        setTxt('heroSpec2Label', item.s2l);
+        setTxt('heroSpec2Val', item.s2v);
+        setTxt('heroSpec3Label', item.s3l);
+        setTxt('heroSpec3Val', item.s3v);
+        setTxt('heroPreviewCtaText', item.cta);
+        const ctaEl = document.getElementById('heroPreviewCta');
+        if (ctaEl) ctaEl.setAttribute('href', item.href);
+      });
+    });
+  }
+
+  // 9c. 1-Click Copy Email Helper (Footer)
+  window.copyEmailAddress = function() {
+    const email = 'qeino.fi@gmail.com';
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).then(() => {
+        showToast('Sähköpostiosoite qeino.fi@gmail.com kopioitu!');
+      }).catch(() => {
+        fallbackCopyText(email);
+      });
+    } else {
+      fallbackCopyText(email);
+    }
+  };
 
   // 10. Vehicle Compatibility Selector for LidAid
   const compatData = {

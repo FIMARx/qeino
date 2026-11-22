@@ -261,18 +261,28 @@
             </span>
             <span class="hero-location-tag">Sipoo, Finland</span>
           </div>
+
+          <!-- Dual-Product Hero Preview Switcher -->
+          <div class="hero-product-switch" role="group" aria-label="Esikatsele päätuotteita">
+            <button type="button" class="hero-switch-btn active" data-hero-product="lidaid" aria-pressed="true">
+              LidAid-lämmitin
+            </button>
+            <button type="button" class="hero-switch-btn" data-hero-product="tbs" aria-pressed="false">
+              Takavalokytkin TBS
+            </button>
+          </div>
           
           <div class="hero-card-img-wrap">
-            <img src="assets/img/lidaid-device.webp" alt="LidAid-latausluukunlämmitin ohjainlaite" loading="eager">
-            <span class="hero-studio-tag" aria-hidden="true">
+            <img id="heroPreviewImg" src="assets/img/lidaid-device.webp" alt="LidAid-latausluukunlämmitin ohjainlaite" loading="eager">
+            <span class="hero-studio-tag" id="heroPreviewTag" aria-hidden="true">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg>
-              −40 °C testattu
+              <span>−40 °C testattu</span>
             </span>
           </div>
 
           <div class="hero-card-body">
-            <h2>LidAid-latausluukunlämmitin</h2>
-            <p>
+            <h2 id="heroPreviewTitle">LidAid-latausluukunlämmitin</h2>
+            <p id="heroPreviewDesc">
               Mikroprosessoriohjattu automaattilämmitin pitää sähköauton ja hybridin latausluukun ja pistokkeen sulana kovissakin pakkasissa.
             </p>
           </div>
@@ -280,20 +290,21 @@
           <div class="hero-card-footer">
             <div class="hero-specs-mini">
               <div class="mini-spec">
-                <span class="label">Virrankulutus</span>
-                <span class="val">~20 W</span>
+                <span class="label" id="heroSpec1Label">Virrankulutus</span>
+                <span class="val" id="heroSpec1Val">~20 W</span>
               </div>
               <div class="mini-spec">
-                <span class="label">Säätöalue</span>
-                <span class="val">+45...+65°C</span>
+                <span class="label" id="heroSpec2Label">Säätöalue</span>
+                <span class="val" id="heroSpec2Val">+45...+65°C</span>
               </div>
               <div class="mini-spec">
-                <span class="label">Katkaisu</span>
-                <span class="val">&gt; +4°C autom.</span>
+                <span class="label" id="heroSpec3Label">Katkaisu</span>
+                <span class="val" id="heroSpec3Val">&gt; +4°C autom.</span>
               </div>
             </div>
-            <a href="#lidaid" class="btn btn-secondary" style="padding: 8px 16px; font-size: 12px; min-height: 38px;">
-              Katso tuote
+            <a href="#lidaid" id="heroPreviewCta" class="hero-card-cta-bar">
+              <span id="heroPreviewCtaText">Tutustu LidAidiin tarkemmin</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
           </div>
         </div>
@@ -548,7 +559,7 @@
           </div>
 
           <!-- Interactive Winter Condition & Thermostat Simulator -->
-          <div class="winter-sim-card" id="winterSimCard">
+          <div class="winter-sim-card sim-state-frost" id="winterSimCard">
             <div class="sim-header">
               <div class="sim-header-title">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
@@ -558,14 +569,22 @@
             </div>
 
             <p class="sim-desc">
-              Testaa liukusäätimellä, miten mikroprosessori ohjaa lämmitystehoa ja suojaa akkua eri pakkasasteissa:
+              Testaa liukusäätimellä tai pikavalinnoilla, miten mikroprosessori ohjaa lämmitystehoa ja suojaa akkua:
             </p>
+
+            <!-- 1-Click Weather Scenario Presets -->
+            <div class="sim-presets" role="group" aria-label="Säätilanteen pikavalinnat">
+              <button type="button" class="sim-preset-btn" data-temp="-25">−25 °C Lappi</button>
+              <button type="button" class="sim-preset-btn active" data-temp="-15">−15 °C Pakkanen</button>
+              <button type="button" class="sim-preset-btn" data-temp="-2">−2 °C Nuoskalumi</button>
+              <button type="button" class="sim-preset-btn" data-temp="10">+10 °C Kevät</button>
+            </div>
 
             <div class="sim-control-panel">
               <div class="sim-temp-display-wrap">
                 <div class="sim-temp-meta">Simuloitu ulkolämpötila</div>
                 <div class="sim-temp-val" id="tempDisplay">-15 °C</div>
-                <div class="sim-status-pill" id="tempStatus">
+                <div class="sim-status-pill" id="tempStatus" role="status" aria-live="polite">
                   <span class="status-dot-pulse"></span>
                   <span>Aktiivinen lämmitys käynnissä</span>
                 </div>
@@ -577,6 +596,17 @@
                   <input type="range" id="tempSlider" min="-30" max="15" value="-15" step="1" aria-label="Säädä simulaattorin ulkolämpötilaa">
                 </div>
                 <span class="slider-bound">+15 °C</span>
+              </div>
+
+              <!-- Live Heating Power Gauge -->
+              <div class="sim-gauge-wrap">
+                <div class="sim-gauge-head">
+                  <span>Lämmityselementin teho</span>
+                  <span id="simPowerPercent">100 % (Täysteho)</span>
+                </div>
+                <div class="sim-gauge-track">
+                  <div class="sim-gauge-fill" id="simPowerFill" style="width: 100%;"></div>
+                </div>
               </div>
             </div>
 
@@ -747,14 +777,23 @@
       <div class="product-grid">
         <!-- Media Showcase Column -->
         <div class="product-media-column">
-          <!-- Model Selector Tabs -->
+          <!-- Visual Side-by-Side TBS Model Picker -->
           <div class="model-selector-wrapper">
-            <div class="model-selector">
-              <button type="button" class="tbs-model-tab active" data-model="TBS-231-L">
-                TBS-231-L (LED-takavalot)
+            <div class="model-selector-label">Valitse perävaunusi valotyyppi:</div>
+            <div class="model-selector" role="group" aria-label="Valitse takavalokytkimen malli">
+              <button type="button" class="tbs-model-tab active" data-model="TBS-231-L" aria-pressed="true">
+                <span class="tbs-tab-top">
+                  <span class="tbs-tab-name">TBS-231-L</span>
+                  <span class="tbs-tab-check" aria-hidden="true">✓</span>
+                </span>
+                <span class="tbs-tab-sub">LED-takavaloille • Maks. 5 A</span>
               </button>
-              <button type="button" class="tbs-model-tab" data-model="TBS-221">
-                TBS-221 (Hehkulamput)
+              <button type="button" class="tbs-model-tab" data-model="TBS-221" aria-pressed="false">
+                <span class="tbs-tab-top">
+                  <span class="tbs-tab-name">TBS-221</span>
+                  <span class="tbs-tab-check" aria-hidden="true">✓</span>
+                </span>
+                <span class="tbs-tab-sub">Hehkulampuille • Maks. 5 A</span>
               </button>
             </div>
           </div>
@@ -1261,46 +1300,54 @@
 
       <div class="b2b-cards-grid">
         <div class="b2b-card">
-          <h3>Autohuollot &amp; Asennusliikkeet</h3>
-          <p>Tarjoa sähköautoilijoille ratkaisu, joka todella toimii. Nopea 30–45 minuutin asennus tuo erinomaista lisälaskutusta ja tyytyväisiä asiakkaita.</p>
-          <ul class="b2b-perks-list">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Hyvä jälleenmyyntikate ja määräalennukset</span>
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Valmiit johtosarjat ja automallikohtaiset asennusohjeet</span>
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Suora puhelintuki keksijältä ongelmatilanteissa</span>
-            </li>
-          </ul>
-          <a href="#yhteystiedot" class="btn btn-secondary" onclick="selectInquiryProduct('Jälleenmyynti & tukkuhinnasto')">
-            Pyydä tukkuhinnasto
+          <div>
+            <span class="b2b-partner-tag">Asennuspisteet &amp; Huollot</span>
+            <h3>Autohuollot &amp; Asennusliikkeet</h3>
+            <p>Tarjoa sähköautoilijoille ratkaisu, joka todella toimii. Nopea 30–45 minuutin asennus tuo erinomaista lisälaskutusta ja tyytyväisiä asiakkaita.</p>
+            <ul class="b2b-perks-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Hyvä jälleenmyyntikate ja määräalennukset</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Valmiit johtosarjat ja automallikohtaiset asennusohjeet</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Suora puhelintuki keksijältä ongelmatilanteissa</span>
+              </li>
+            </ul>
+          </div>
+          <a href="#yhteystiedot" class="btn btn-secondary" onclick="selectInquiryProduct('Jälleenmyynti & tukkuhinnasto', true)">
+            <span>Pyydä tukkuhinnasto</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
 
         <div class="b2b-card">
-          <h3>Perävaunukauppiaat &amp; Valmistajat</h3>
-          <p>Varusta uudet ja käytetyt perävaunut patentoitulla takavalokytkimellä. Loistava myyntivaltti turvallisuudesta ja pimeässä peruuttamisen helppoudesta kiinnostuneille.</p>
-          <ul class="b2b-perks-list">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Patentoitu kotimainen keksintö — ei halpakopioita</span>
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Nopea toimitus suoraan varastosta Sipoosta</span>
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Valmiit markkinointimateriaalit ja esitteet myymälään</span>
-            </li>
-          </ul>
-          <a href="#yhteystiedot" class="btn btn-secondary" onclick="selectInquiryProduct('Jälleenmyynti & tukkuhinnasto')">
-            Aloita jälleenmyynti
+          <div>
+            <span class="b2b-partner-tag">Perävaunut &amp; Jälleenmyyjät</span>
+            <h3>Perävaunukauppiaat &amp; Valmistajat</h3>
+            <p>Varusta uudet ja käytetyt perävaunut patentoitulla takavalokytkimellä. Loistava myyntivaltti turvallisuudesta ja pimeässä peruuttamisen helppoudesta kiinnostuneille.</p>
+            <ul class="b2b-perks-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Patentoitu kotimainen keksintö — ei halpakopioita</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Nopea toimitus suoraan varastosta Sipoosta</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Valmiit markkinointimateriaalit ja esitteet myymälään</span>
+              </li>
+            </ul>
+          </div>
+          <a href="#yhteystiedot" class="btn btn-secondary" onclick="selectInquiryProduct('Jälleenmyynti & tukkuhinnasto', true)">
+            <span>Aloita jälleenmyynti</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
       </div>
@@ -1656,6 +1703,12 @@
             <li>Pohjanniityntie 15, 04130 Sipoo</li>
             <li>Puh: <a href="tel:0443069752">044 306 9752</a></li>
             <li>S-posti: <a href="mailto:qeino.fi@gmail.com">qeino.fi@gmail.com</a></li>
+            <li>
+              <button type="button" class="footer-copy-email-btn" onclick="copyEmailAddress()">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Kopioi sähköpostiosoite</span>
+              </button>
+            </li>
             <li><a href="#jalleenmyyjat">Jälleenmyyjäyhteistyö</a></li>
           </ul>
         </div>

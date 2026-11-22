@@ -944,18 +944,29 @@ nav {
   border-color: var(--border-line);
 }
 
+.image-stage {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  line-height: 0;
+  transition: transform 0.3s ease;
+}
+
 .main-image-frame img {
+  display: block;
   max-height: 344px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
   border-radius: 10px;
   box-shadow: 0 16px 36px -12px rgba(15, 23, 42, 0.18), 0 0 0 1px rgba(15, 23, 42, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
 }
 
-.main-image-frame:hover:not(:has(.hotspot-pin:hover)) img {
-  transform: scale(1.015);
+.main-image-frame:hover:not(:has(.hotspot-pin:hover)) .image-stage {
+  transform: scale(1.012);
 }
 
 .zoom-hint {
@@ -1035,10 +1046,10 @@ nav {
 .hotspot-pin {
   pointer-events: auto;
   position: absolute;
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  min-height: 40px;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
   border-radius: 50%;
   background: transparent;
   border: none;
@@ -1071,32 +1082,36 @@ nav {
   z-index: 65 !important;
 }
 
-/* Visual circle inside the stationary hit target */
+/* Sleek translucent frosted-glass optical beacon inside the 40x40 stationary hit target */
 .hotspot-circle {
-  width: 36px;
-  height: 36px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  background: rgba(11, 19, 32, 0.92);
-  border: 2px solid #FFFFFF;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  background: rgba(11, 19, 32, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1.5px solid rgba(255, 255, 255, 0.94);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35), 0 0 0 3px rgba(255, 255, 255, 0.22);
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .hotspot-pin:hover .hotspot-circle,
 .hotspot-pin:focus-visible .hotspot-circle {
   background: var(--brand-blue);
-  transform: scale(1.08);
-  box-shadow: 0 6px 18px rgba(29, 78, 216, 0.45);
+  border-color: #FFFFFF;
+  transform: scale(1.16);
+  box-shadow: 0 6px 18px rgba(29, 78, 216, 0.5), 0 0 0 4px rgba(29, 78, 216, 0.22);
 }
 
 .hotspot-pin.active .hotspot-circle {
   background: var(--brand-blue);
-  transform: scale(1.08);
-  box-shadow: 0 8px 22px rgba(29, 78, 216, 0.5);
+  border-color: #FFFFFF;
+  transform: scale(1.16);
+  box-shadow: 0 8px 22px rgba(29, 78, 216, 0.55), 0 0 0 4px rgba(29, 78, 216, 0.26);
 }
 
 .hotspot-pin:focus-visible {
@@ -1109,10 +1124,11 @@ nav {
 
 .hotspot-pulse {
   position: absolute;
-  inset: -4px;
+  inset: 3px;
   border-radius: 50%;
-  border: 1.5px solid rgba(29, 78, 216, 0.65);
-  animation: pulse-ring 2.4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 0 1px rgba(29, 78, 216, 0.35);
+  animation: pulse-ring 2.6s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
   pointer-events: none;
   transition: opacity 0.18s ease;
 }
@@ -1125,15 +1141,15 @@ nav {
 }
 
 @keyframes pulse-ring {
-  0% { transform: scale(0.9); opacity: 0.75; }
-  50% { transform: scale(1.25); opacity: 0.2; }
-  100% { transform: scale(1.45); opacity: 0; }
+  0% { transform: scale(0.95); opacity: 0.7; }
+  60% { transform: scale(1.45); opacity: 0.15; }
+  100% { transform: scale(1.65); opacity: 0; }
 }
 
 .hotspot-icon {
   display: block;
-  width: 14px;
-  height: 14px;
+  width: 11px;
+  height: 11px;
   flex-shrink: 0;
   pointer-events: none;
   margin: 0;
@@ -1151,25 +1167,40 @@ nav {
 
 .hotspot-tooltip {
   position: absolute;
-  bottom: calc(100% + 10px);
+  bottom: calc(100% + 6px);
   left: 50%;
   transform: translateX(-50%) translateY(4px);
-  background: #0B1320;
+  background: rgba(11, 19, 32, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: #FFFFFF;
   padding: 10px 14px;
-  border-radius: var(--radius-sm);
+  border-radius: 10px;
   font-size: 12px;
+  line-height: 1.4;
   width: max-content;
-  max-width: 220px;
+  max-width: min(220px, 68vw);
   white-space: normal;
   text-align: left;
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.48), 0 2px 6px rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.18);
   z-index: 100;
+}
+
+/* Directional caret arrow pointing directly to the hardware beacon */
+.hotspot-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: rgba(11, 19, 32, 0.96) transparent transparent transparent;
 }
 
 .hotspot-tooltip strong {
@@ -1206,8 +1237,15 @@ nav {
 /* Downward tooltips for top-positioned pins */
 .hotspot-pin.tooltip-bottom .hotspot-tooltip {
   bottom: auto;
-  top: calc(100% + 10px);
+  top: calc(100% + 6px);
   transform: translateX(-50%) translateY(-4px);
+}
+
+.hotspot-pin.tooltip-bottom .hotspot-tooltip::after {
+  top: auto;
+  bottom: 100%;
+  border-width: 0 6px 6px 6px;
+  border-color: transparent transparent rgba(11, 19, 32, 0.96) transparent;
 }
 
 .hotspot-pin.tooltip-bottom:hover .hotspot-tooltip,

@@ -376,61 +376,63 @@
             <span class="corner-crosshair bottom-left" aria-hidden="true">+</span>
             <span class="corner-crosshair bottom-right" aria-hidden="true">+</span>
 
-            <img id="lidaidMainImg" src="assets/img/lidaid-device.webp" alt="LidAid-latausluukunlämmitin laitekotelo">
+            <div class="image-stage">
+              <img id="lidaidMainImg" src="assets/img/lidaid-device.webp" alt="LidAid-latausluukunlämmitin laitekotelo">
 
-            <!-- Interactive Anatomy Hotspots -->
-            <div class="hotspot-layer" id="lidaidHotspots" role="group" aria-label="Laitteen tekniset rakenneosat">
-              <button type="button" class="hotspot-pin tooltip-bottom" style="top: 26%; left: 25%;" aria-label="Rakenneosa: Päävirtakytkin" aria-expanded="false" data-title="Päävirtakytkin" data-desc="ON / OFF -kytkin virrankatkaisuun ja manuaaliseen ohitukseen.">
-                <span class="hotspot-pulse" aria-hidden="true"></span>
-                <span class="hotspot-circle" aria-hidden="true">
-                  <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                    <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
-                  </svg>
-                </span>
-                <span class="hotspot-tooltip">
-                  <strong>Pääkytkin (ON / OFF)</strong>
-                  <em>Manuaalinen ohitus ja virrankatkaisu</em>
-                </span>
-              </button>
+              <!-- Interactive Anatomy Hotspots (anchored 1:1 to image dimensions) -->
+              <div class="hotspot-layer" id="lidaidHotspots" role="group" aria-label="Laitteen tekniset rakenneosat">
+                <button type="button" class="hotspot-pin tooltip-bottom" style="top: 32%; left: 26%;" aria-label="Rakenneosa: Päävirtakytkin" aria-expanded="false" data-title="Päävirtakytkin" data-desc="ON / OFF -kytkin virrankatkaisuun ja manuaaliseen ohitukseen.">
+                  <span class="hotspot-pulse" aria-hidden="true"></span>
+                  <span class="hotspot-circle" aria-hidden="true">
+                    <svg class="hotspot-icon" width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                  <span class="hotspot-tooltip">
+                    <strong>Pääkytkin (ON / OFF)</strong>
+                    <em>Manuaalinen ohitus ja virrankatkaisu</em>
+                  </span>
+                </button>
 
-              <button type="button" class="hotspot-pin tooltip-bottom" style="top: 17%; left: 38%;" aria-label="Rakenneosa: LED-merkkivalot" aria-expanded="false" data-title="LED-merkkivalot" data-desc="Kaksiväriset LEDit osoittavat valmiustilan ja aktiivisen lämmityksen.">
-                <span class="hotspot-pulse" aria-hidden="true"></span>
-                <span class="hotspot-circle" aria-hidden="true">
-                  <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                    <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
-                  </svg>
-                </span>
-                <span class="hotspot-tooltip">
-                  <strong>LED-merkkivalot</strong>
-                  <em>Osoittaa valmiustilan ja aktiivisen lämmityksen</em>
-                </span>
-              </button>
+                <button type="button" class="hotspot-pin tooltip-bottom" style="top: 15.5%; left: 37%;" aria-label="Rakenneosa: LED-merkkivalot" aria-expanded="false" data-title="LED-merkkivalot" data-desc="Kaksiväriset LEDit osoittavat valmiustilan ja aktiivisen lämmityksen.">
+                  <span class="hotspot-pulse" aria-hidden="true"></span>
+                  <span class="hotspot-circle" aria-hidden="true">
+                    <svg class="hotspot-icon" width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                  <span class="hotspot-tooltip">
+                    <strong>LED-merkkivalot</strong>
+                    <em>Osoittaa valmiustilan ja aktiivisen lämmityksen</em>
+                  </span>
+                </button>
 
-              <button type="button" class="hotspot-pin tooltip-bottom" style="top: 26%; left: 50%;" aria-label="Rakenneosa: Lämpötilansäädin" aria-expanded="false" data-title="Lämpötilansäädin" data-desc="Portaaton säätöalue +45 °C ... +65 °C olosuhteiden mukaan.">
-                <span class="hotspot-pulse" aria-hidden="true"></span>
-                <span class="hotspot-circle" aria-hidden="true">
-                  <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                    <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
-                  </svg>
-                </span>
-                <span class="hotspot-tooltip">
-                  <strong>Lämpötilansäädin</strong>
-                  <em>Portaaton säätö +45 ... +65 °C</em>
-                </span>
-              </button>
+                <button type="button" class="hotspot-pin tooltip-bottom" style="top: 30%; left: 50.5%;" aria-label="Rakenneosa: Lämpötilansäädin" aria-expanded="false" data-title="Lämpötilansäädin" data-desc="Portaaton säätöalue +45 °C ... +65 °C olosuhteiden mukaan.">
+                  <span class="hotspot-pulse" aria-hidden="true"></span>
+                  <span class="hotspot-circle" aria-hidden="true">
+                    <svg class="hotspot-icon" width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                  <span class="hotspot-tooltip">
+                    <strong>Lämpötilansäädin</strong>
+                    <em>Portaaton säätö +45 ... +65 °C</em>
+                  </span>
+                </button>
 
-              <button type="button" class="hotspot-pin" style="top: 68%; left: 62%;" aria-label="Rakenneosa: Johtosarja ja NTC-anturi" aria-expanded="false" data-title="Johtosarja & Anturi" data-desc="12V herätejohto ja tarkka NTC-anturi auton luukun sisään.">
-                <span class="hotspot-pulse" aria-hidden="true"></span>
-                <span class="hotspot-circle" aria-hidden="true">
-                  <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                    <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
-                  </svg>
-                </span>
-                <span class="hotspot-tooltip">
-                  <strong>Johtosarja &amp; NTC-anturi</strong>
-                  <em>12V herätekytkentä ja tarkka lämpöanturi</em>
-                </span>
-              </button>
+                <button type="button" class="hotspot-pin" style="top: 89%; left: 69%;" aria-label="Rakenneosa: Johtosarja ja NTC-anturi" aria-expanded="false" data-title="Johtosarja & Anturi" data-desc="12V herätejohto ja tarkka NTC-anturi auton luukun sisään.">
+                  <span class="hotspot-pulse" aria-hidden="true"></span>
+                  <span class="hotspot-circle" aria-hidden="true">
+                    <svg class="hotspot-icon" width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                  <span class="hotspot-tooltip">
+                    <strong>Johtosarja &amp; NTC-anturi</strong>
+                    <em>12V herätekytkentä ja tarkka lämpöanturi</em>
+                  </span>
+                </button>
+              </div>
             </div>
 
             <button type="button" class="zoom-hint" id="zoomBadge" aria-label="Suurenna LidAid-tuotekuva">
@@ -763,61 +765,63 @@
             <span class="corner-crosshair bottom-left" aria-hidden="true">+</span>
             <span class="corner-crosshair bottom-right" aria-hidden="true">+</span>
 
-            <img id="tbsMainImg" src="assets/img/tbs-device.webp" alt="Perävaunun takavalokytkin TBS-231-L laiteyksikkö">
+            <div class="image-stage">
+              <img id="tbsMainImg" src="assets/img/tbs-device.webp" alt="Perävaunun takavalokytkin TBS-231-L laiteyksikkö">
 
-            <!-- Interactive Anatomy Hotspots -->
-            <div class="hotspot-layer" id="tbsHotspots" role="group" aria-label="Takavalokytkimen rakenneosat">
-              <button type="button" class="hotspot-pin tooltip-bottom" style="top: 25%; left: 47%;" aria-label="Rakenneosa: ON / OFF -kytkin" aria-expanded="false" data-title="Pääkytkin" data-desc="Tieliikennevarmistettu ON/OFF-kytkin peruutusvalotoiminnolle.">
-                <span class="hotspot-pulse" aria-hidden="true"></span>
-                <span class="hotspot-circle" aria-hidden="true">
-                  <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                    <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
-                  </svg>
-                </span>
-                <span class="hotspot-tooltip">
-                  <strong>Pääkytkin (ON / OFF)</strong>
-                  <em>Tieliikennevarmistettu käyttökytkin</em>
-                </span>
-              </button>
+              <!-- Interactive Anatomy Hotspots (anchored 1:1 to image dimensions) -->
+              <div class="hotspot-layer" id="tbsHotspots" role="group" aria-label="Takavalokytkimen rakenneosat">
+                <button type="button" class="hotspot-pin tooltip-bottom" style="top: 26.2%; left: 47.2%;" aria-label="Rakenneosa: ON / OFF -kytkin" aria-expanded="false" data-title="Pääkytkin" data-desc="Tieliikennevarmistettu ON/OFF-kytkin peruutusvalotoiminnolle.">
+                  <span class="hotspot-pulse" aria-hidden="true"></span>
+                  <span class="hotspot-circle" aria-hidden="true">
+                    <svg class="hotspot-icon" width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                  <span class="hotspot-tooltip">
+                    <strong>Pääkytkin (ON / OFF)</strong>
+                    <em>Tieliikennevarmistettu käyttökytkin</em>
+                  </span>
+                </button>
 
-              <button type="button" class="hotspot-pin" style="top: 48%; left: 45%;" aria-label="Rakenneosa: Kansikytkentäohje" aria-expanded="false" data-title="Kansikytkentäohje" data-desc="Laitteen kanteen painetut selkeät johtovärit: maa, vilkut, 12V ja kosketin.">
-                <span class="hotspot-pulse" aria-hidden="true"></span>
-                <span class="hotspot-circle" aria-hidden="true">
-                  <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                    <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
-                  </svg>
-                </span>
-                <span class="hotspot-tooltip">
-                  <strong>Kansikytkentäohje</strong>
-                  <em>Värikoodatut liitännät suoraan laitteen kannessa</em>
-                </span>
-              </button>
+                <button type="button" class="hotspot-pin" style="top: 44%; left: 66%;" aria-label="Rakenneosa: Kansikytkentäohje" aria-expanded="false" data-title="Kansikytkentäohje" data-desc="Laitteen kanteen painetut selkeät johtovärit: maa, vilkut, 12V ja kosketin.">
+                  <span class="hotspot-pulse" aria-hidden="true"></span>
+                  <span class="hotspot-circle" aria-hidden="true">
+                    <svg class="hotspot-icon" width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                  <span class="hotspot-tooltip">
+                    <strong>Kansikytkentäohje</strong>
+                    <em>Värikoodatut liitännät suoraan laitteen kannessa</em>
+                  </span>
+                </button>
 
-              <button type="button" class="hotspot-pin" style="top: 58%; left: 63%;" aria-label="Rakenneosa: QC PASSED -sinetti" aria-expanded="false" data-title="QC PASSED -tarkastus" data-desc="Jokainen valmistettu yksikkö testataan ja laadunvarmistetaan tehtaalla.">
-                <span class="hotspot-pulse" aria-hidden="true"></span>
-                <span class="hotspot-circle" aria-hidden="true">
-                  <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                    <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
-                  </svg>
-                </span>
-                <span class="hotspot-tooltip">
-                  <strong>QC PASSED -sinetti</strong>
-                  <em>100 % tehtaalla sähköisesti testattu yksilö</em>
-                </span>
-              </button>
+                <button type="button" class="hotspot-pin" style="top: 60%; left: 63.2%;" aria-label="Rakenneosa: QC PASSED -sinetti" aria-expanded="false" data-title="QC PASSED -tarkastus" data-desc="Jokainen valmistettu yksikkö testataan ja laadunvarmistetaan tehtaalla.">
+                  <span class="hotspot-pulse" aria-hidden="true"></span>
+                  <span class="hotspot-circle" aria-hidden="true">
+                    <svg class="hotspot-icon" width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                  <span class="hotspot-tooltip">
+                    <strong>QC PASSED -sinetti</strong>
+                    <em>100 % tehtaalla sähköisesti testattu yksilö</em>
+                  </span>
+                </button>
 
-              <button type="button" class="hotspot-pin" style="top: 86%; left: 45%;" aria-label="Rakenneosa: Takavalojen johtimet" aria-expanded="false" data-title="12V Johtosarja" data-desc="Liitetään suoraan takavaloihin mukana tulevilla rosvoliittimillä.">
-                <span class="hotspot-pulse" aria-hidden="true"></span>
-                <span class="hotspot-circle" aria-hidden="true">
-                  <svg class="hotspot-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                    <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
-                  </svg>
-                </span>
-                <span class="hotspot-tooltip">
-                  <strong>Kytkentäjohtosarja</strong>
-                  <em>12V kytkentä ilman 13-napapistorasiaa</em>
-                </span>
-              </button>
+                <button type="button" class="hotspot-pin" style="top: 84%; left: 46.5%;" aria-label="Rakenneosa: Takavalojen johtimet" aria-expanded="false" data-title="12V Johtosarja" data-desc="Liitetään suoraan takavaloihin mukana tulevilla rosvoliittimillä.">
+                  <span class="hotspot-pulse" aria-hidden="true"></span>
+                  <span class="hotspot-circle" aria-hidden="true">
+                    <svg class="hotspot-icon" width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <path d="M7 1.75v10.5M1.75 7h10.5" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                  <span class="hotspot-tooltip">
+                    <strong>Kytkentäjohtosarja</strong>
+                    <em>12V kytkentä ilman 13-napapistorasiaa</em>
+                  </span>
+                </button>
+              </div>
             </div>
 
             <button type="button" class="zoom-hint" aria-label="Suurenna TBS-takavalokytkimen tuotekuva">

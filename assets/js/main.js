@@ -251,7 +251,28 @@ function initQeinoApp() {
           tbsHotspots.classList.remove('is-hidden');
           tbsHotspots.removeAttribute('hidden');
           tbsHotspots.removeAttribute('aria-hidden');
-          tbsHotspots.querySelectorAll('.hotspot-pin').forEach(p => p.classList.remove('active'));
+          const pins = tbsHotspots.querySelectorAll('.hotspot-pin');
+          const coords = model === 'TBS-231-L'
+            ? [
+                { top: '26.2%', left: '47.2%' },
+                { top: '44%', left: '66%' },
+                { top: '60%', left: '63.2%' },
+                { top: '84%', left: '46.5%' }
+              ]
+            : [
+                { top: '33.5%', left: '44.5%' },
+                { top: '49%', left: '60.5%' },
+                { top: '62.5%', left: '57.5%' },
+                { top: '85%', left: '40%' }
+              ];
+          pins.forEach((p, idx) => {
+            p.classList.remove('active');
+            p.setAttribute('aria-expanded', 'false');
+            if (coords[idx]) {
+              p.style.top = coords[idx].top;
+              p.style.left = coords[idx].left;
+            }
+          });
         }
       });
     });

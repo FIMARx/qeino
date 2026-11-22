@@ -1303,28 +1303,56 @@
     });
   }
 
+  function detectBrowserLang() {
+    try {
+      const langs = Array.isArray(navigator.languages) && navigator.languages.length
+        ? navigator.languages
+        : (navigator.language ? [navigator.language] : []);
+
+      if (!langs.length) return 'fi';
+
+      for (const raw of langs) {
+        if (!raw) continue;
+        const base = String(raw).toLowerCase().split(/[-_]/)[0];
+        if (SUPPORTED.includes(base)) {
+          return base;
+        }
+      }
+
+      // Non-Finnish / non-Swedish international browser -> default to English
+      return 'en';
+    } catch (_) {
+      return 'fi';
+    }
+  }
+
   function detectInitialLang() {
+    // 1. Explicit URL parameter (?lang=fi|sv|en) always wins
     try {
       const params = new URLSearchParams(window.location.search);
       const qLang = (params.get('lang') || '').toLowerCase();
       if (SUPPORTED.includes(qLang)) return qLang;
     } catch (_) {}
 
+    // 2. Saved manual user preference
     try {
       const saved = (localStorage.getItem(STORAGE_KEY) || '').toLowerCase();
       if (SUPPORTED.includes(saved)) return saved;
     } catch (_) {}
 
-    return 'fi';
+    // 3. Smart browser/OS language auto-detection
+    return detectBrowserLang();
   }
 
   function setLang(lang, options = {}) {
     const normalized = SUPPORTED.includes(lang) ? lang : 'fi';
     currentLang = normalized;
 
-    try {
-      localStorage.setItem(STORAGE_KEY, normalized);
-    } catch (_) {}
+    if (options.persist !== false) {
+      try {
+        localStorage.setItem(STORAGE_KEY, normalized);
+      } catch (_) {}
+    }
 
     if (options.updateUrl !== false && window.history && window.history.replaceState) {
       try {
@@ -1361,14 +1389,15 @@
       btn.addEventListener('click', () => {
         const targetLang = btn.getAttribute('data-lang');
         if (targetLang && targetLang !== currentLang) {
-          setLang(targetLang, { updateUrl: true });
+          setLang(targetLang, { updateUrl: true, persist: true });
         }
       });
     });
 
     const initial = detectInitialLang();
     if (initial !== 'fi') {
-      setLang(initial, { updateUrl: false });
+      // Auto-detected or URL-specified: do not overwrite saved manual preference
+      setLang(initial, { updateUrl: false, persist: false });
     } else {
       // Ensure buttons reflect FI state cleanly
       document.querySelectorAll('.lang-btn').forEach(btn => {

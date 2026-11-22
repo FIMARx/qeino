@@ -240,7 +240,7 @@ try {
     check(`${d.id}: TBS demonstration video is embedded`, tbsVideoSrc && tbsVideoSrc.includes('tbs-demo.mp4'), tbsVideoSrc);
 
     const patentText = await b.ev(`document.querySelector('.patent-seal-card')?.textContent.trim()`);
-    check(`${d.id}: Patent seal badge is rendered`, patentText && patentText.includes('Patentoitu'), patentText);
+    check(`${d.id}: Patent seal badge is rendered`, patentText && /Patentoitu|Patenterad|Patented/i.test(patentText), patentText);
 
     const packageCards = await b.ev(`document.querySelectorAll('.package-contents-card').length`);
     check(`${d.id}: In-The-Box package cards rendered for both products`, packageCards >= 2, String(packageCards));

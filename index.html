@@ -136,21 +136,26 @@
   <div class="top-info-bar">
     <div class="container top-info-inner">
       <div class="top-info-left">
-        <span class="top-info-item">
+        <span class="top-info-item hide-mobile">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Pohjanniityntie 15, 04130 Sipoo
+          <span class="top-info-address">Pohjanniityntie 15, 04130 Sipoo</span>
         </span>
         <span class="top-info-item">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <a href="tel:0443069752"><strong>044 306 9752</strong> (Hannu Alhovuori)</a>
+          <a href="tel:+358443069752"><strong class="top-phone-num">044 306 9752</strong> <span class="hide-mobile">(Hannu Alhovuori)</span></a>
         </span>
       </div>
-      <div class="top-info-right hide-mobile">
-        <span class="top-info-item">
+      <div class="top-info-right">
+        <span class="top-info-item hide-mobile">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           <a href="mailto:qeino.fi@gmail.com">qeino.fi@gmail.com</a>
         </span>
-        <span class="top-info-badge">Suomalaista insinööriosaamista</span>
+        <span class="top-info-badge hide-mobile">Suomalaista insinööriosaamista</span>
+        <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Valitse kieli / Välj språk / Choose language">
+          <button type="button" class="lang-btn active" data-lang="fi" lang="fi" aria-label="Suomi" aria-pressed="true">FI</button>
+          <button type="button" class="lang-btn" data-lang="sv" lang="sv" aria-label="Svenska" aria-pressed="false">SV</button>
+          <button type="button" class="lang-btn" data-lang="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
+        </div>
       </div>
     </div>
   </div>
@@ -733,7 +738,7 @@
                 <span>Tilaa / Pyydä tarjous</span>
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
-              <a href="assets/docs/LidAid_kayttoohje.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <a href="assets/docs/LidAid_kayttoohje.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="lidaidManualBtn">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 <span>Lataa käyttöohje (PDF)</span>
               </a>
@@ -1692,7 +1697,7 @@
             <li><a href="#kokemuksia">Käyttäjäkokemukset</a></li>
             <li><a href="#tilausohje">Miten tilaus etenee</a></li>
             <li><a href="#tarina">Qeinon syntytarina</a></li>
-            <li><a href="assets/docs/LidAid_kayttoohje.pdf" target="_blank" rel="noopener noreferrer">LidAid käyttöohje (PDF)</a></li>
+            <li><a href="assets/docs/LidAid_kayttoohje.pdf" target="_blank" rel="noopener noreferrer" id="footerLidAidManual">LidAid käyttöohje (PDF)</a></li>
           </ul>
         </div>
 
@@ -1760,6 +1765,7 @@
   </div>
 
   <!-- Scripts -->
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -4,6 +4,8 @@
 
 function initQeinoApp() {
   console.log("QEINO APP INITIALIZED", !!document.getElementById('mobileMenuBtn'), !!document.getElementById('navLinks'));
+  const getI18nData = () => (window.qeinoI18n ? window.qeinoI18n.getData() : null);
+
   // 1. Mobile Menu Toggle
   const mobileBtn = document.getElementById('mobileMenuBtn');
   const navLinks = document.getElementById('navLinks');
@@ -44,10 +46,11 @@ function initQeinoApp() {
   function renderLightboxSlide() {
     if (!lightboxImg || !lightboxItems.length) return;
     const item = lightboxItems[lightboxIndex];
+    const ui = getI18nData()?.ui;
     lightboxImg.src = item.src;
-    lightboxImg.alt = item.alt || 'Suurennettu kuva';
+    lightboxImg.alt = item.alt || ui?.lightboxFallbackAlt || 'Suurennettu kuva';
     if (lightboxCaption) {
-      const label = item.alt || 'Tuotekuva';
+      const label = item.alt || ui?.lightboxFallbackCaption || 'Tuotekuva';
       lightboxCaption.textContent = lightboxItems.length > 1
         ? `${lightboxIndex + 1} / ${lightboxItems.length} — ${label}`
         : label;
@@ -190,6 +193,91 @@ function initQeinoApp() {
   const tbsManualSwe = document.getElementById('tbsManualSwe');
   const tbsManualEng = document.getElementById('tbsManualEng');
   const tbsFirstThumb = document.querySelector('#tbsGallery .thumb-btn:first-child');
+  let activeTbsModel = 'TBS-231-L';
+
+  function renderTbsModel(model, resetGallery = true) {
+    activeTbsModel = model === 'TBS-221' ? 'TBS-221' : 'TBS-231-L';
+    const data = getI18nData()?.tbsModels?.[activeTbsModel];
+
+    if (activeTbsModel === 'TBS-231-L') {
+      if (tbsModelBadge) tbsModelBadge.textContent = data?.badge || 'Malli: TBS-231-L (LED-takavalot)';
+      if (tbsTargetInfo) tbsTargetInfo.textContent = data?.target || 'Suositellaan moderneille peräkärryille ja trailereille, joissa on LED-takavalot.';
+      if (tbsLoadInfo) tbsLoadInfo.textContent = data?.load || 'Maks. 5 A (jopa 60W LED-valotehoa)';
+      if (tbsManualBtn) tbsManualBtn.href = data?.manual || 'assets/docs/TBS-231-L_Fin.pdf';
+      if (tbsManualFin) tbsManualFin.href = 'assets/docs/TBS-231-L_Fin.pdf';
+      if (tbsManualSwe) tbsManualSwe.href = 'assets/docs/TBS-231-L_Swe.pdf';
+      if (tbsManualEng) tbsManualEng.href = 'assets/docs/TBS-231-L_eng.pdf';
+      if (tbsMainImg) tbsMainImg.alt = data?.alt || 'Takavalokytkin TBS-231-L (LED-malli)';
+      if (resetGallery) {
+        if (tbsProductSelect) tbsProductSelect.value = 'TBS-231-L (LED-malli)';
+        if (tbsMainImg) tbsMainImg.src = 'assets/img/tbs-device.webp';
+        if (tbsFirstThumb) {
+          tbsFirstThumb.setAttribute('data-full', 'assets/img/tbs-device.webp');
+          const thumbImg = tbsFirstThumb.querySelector('img');
+          if (thumbImg) thumbImg.src = 'assets/img/tbs-device.webp';
+        }
+      }
+    } else {
+      if (tbsModelBadge) tbsModelBadge.textContent = data?.badge || 'Malli: TBS-221 (Hehkulamput)';
+      if (tbsTargetInfo) tbsTargetInfo.textContent = data?.target || 'Suunniteltu perinteisille perävaunuille, joissa on tavalliset 12V hehkupolttimot.';
+      if (tbsLoadInfo) tbsLoadInfo.textContent = data?.load || 'Maks. 5 A kuormitus';
+      if (tbsManualBtn) tbsManualBtn.href = data?.manual || 'assets/docs/TBS-221_Fin.pdf';
+      if (tbsManualFin) tbsManualFin.href = 'assets/docs/TBS-221_Fin.pdf';
+      if (tbsManualSwe) tbsManualSwe.href = 'assets/docs/TBS-221_Swe.pdf';
+      if (tbsManualEng) tbsManualEng.href = 'assets/docs/TBS-221_eng.pdf';
+      if (tbsMainImg) tbsMainImg.alt = data?.alt || 'Takavalokytkin TBS-221 (Hehkulamppumalli)';
+      if (resetGallery) {
+        if (tbsProductSelect) tbsProductSelect.value = 'TBS-221 (Hehkulamppumalli)';
+        if (tbsMainImg) tbsMainImg.src = 'assets/img/tbs-221.webp';
+        if (tbsFirstThumb) {
+          tbsFirstThumb.setAttribute('data-full', 'assets/img/tbs-221.webp');
+          const thumbImg = tbsFirstThumb.querySelector('img');
+          if (thumbImg) thumbImg.src = 'assets/img/tbs-221.webp';
+        }
+      }
+    }
+
+    if (resetGallery) {
+      if (tbsProductSelect) {
+        tbsProductSelect.dispatchEvent(new Event('change'));
+      }
+
+      // Reset thumbnail selection to the primary device photo and show hotspot pins
+      const tbsThumbs = document.querySelectorAll('#tbsGallery .thumb-btn');
+      tbsThumbs.forEach((t, i) => {
+        if (i === 0) t.classList.add('active');
+        else t.classList.remove('active');
+      });
+      const tbsHotspots = document.getElementById('tbsHotspots');
+      if (tbsHotspots) {
+        tbsHotspots.classList.remove('is-hidden');
+        tbsHotspots.removeAttribute('hidden');
+        tbsHotspots.removeAttribute('aria-hidden');
+        const pins = tbsHotspots.querySelectorAll('.hotspot-pin');
+        const coords = activeTbsModel === 'TBS-231-L'
+          ? [
+              { top: '26.2%', left: '47.2%' },
+              { top: '44%', left: '66%' },
+              { top: '60%', left: '63.2%' },
+              { top: '84%', left: '46.5%' }
+            ]
+          : [
+              { top: '33.5%', left: '44.5%' },
+              { top: '49%', left: '60.5%' },
+              { top: '62.5%', left: '57.5%' },
+              { top: '85%', left: '40%' }
+            ];
+        pins.forEach((p, idx) => {
+          p.classList.remove('active');
+          p.setAttribute('aria-expanded', 'false');
+          if (coords[idx]) {
+            p.style.top = coords[idx].top;
+            p.style.left = coords[idx].left;
+          }
+        });
+      }
+    }
+  }
 
   if (tbsTabs.length) {
     tbsTabs.forEach(tab => {
@@ -200,84 +288,7 @@ function initQeinoApp() {
         });
         tab.classList.add('active');
         tab.setAttribute('aria-pressed', 'true');
-        const model = tab.getAttribute('data-model');
-        
-        if (model === 'TBS-231-L') {
-          if (tbsModelBadge) tbsModelBadge.textContent = 'Malli: TBS-231-L (LED-takavalot)';
-          if (tbsTargetInfo) tbsTargetInfo.textContent = 'Suositellaan moderneille peräkärryille ja trailereille, joissa on LED-takavalot.';
-          if (tbsLoadInfo) tbsLoadInfo.textContent = 'Maks. 5 A (jopa 60W LED-valotehoa)';
-          if (tbsProductSelect) tbsProductSelect.value = 'TBS-231-L (LED-malli)';
-          if (tbsMainImg) {
-            tbsMainImg.src = 'assets/img/tbs-device.webp';
-            tbsMainImg.alt = 'Takavalokytkin TBS-231-L (LED-malli)';
-          }
-          if (tbsFirstThumb) {
-            tbsFirstThumb.setAttribute('data-full', 'assets/img/tbs-device.webp');
-            const thumbImg = tbsFirstThumb.querySelector('img');
-            if (thumbImg) thumbImg.src = 'assets/img/tbs-device.webp';
-          }
-          if (tbsManualBtn) tbsManualBtn.href = 'assets/docs/TBS-231-L_Fin.pdf';
-          if (tbsManualFin) tbsManualFin.href = 'assets/docs/TBS-231-L_Fin.pdf';
-          if (tbsManualSwe) tbsManualSwe.href = 'assets/docs/TBS-231-L_Swe.pdf';
-          if (tbsManualEng) tbsManualEng.href = 'assets/docs/TBS-231-L_eng.pdf';
-        } else {
-          if (tbsModelBadge) tbsModelBadge.textContent = 'Malli: TBS-221 (Hehkulamput)';
-          if (tbsTargetInfo) tbsTargetInfo.textContent = 'Suunniteltu perinteisille perävaunuille, joissa on tavalliset 12V hehkupolttimot.';
-          if (tbsLoadInfo) tbsLoadInfo.textContent = 'Maks. 5 A kuormitus';
-          if (tbsProductSelect) tbsProductSelect.value = 'TBS-221 (Hehkulamppumalli)';
-          if (tbsMainImg) {
-            tbsMainImg.src = 'assets/img/tbs-221.webp';
-            tbsMainImg.alt = 'Takavalokytkin TBS-221 (Hehkulamppumalli)';
-          }
-          if (tbsFirstThumb) {
-            tbsFirstThumb.setAttribute('data-full', 'assets/img/tbs-221.webp');
-            const thumbImg = tbsFirstThumb.querySelector('img');
-            if (thumbImg) thumbImg.src = 'assets/img/tbs-221.webp';
-          }
-          if (tbsManualBtn) tbsManualBtn.href = 'assets/docs/TBS-221_Fin.pdf';
-          if (tbsManualFin) tbsManualFin.href = 'assets/docs/TBS-221_Fin.pdf';
-          if (tbsManualSwe) tbsManualSwe.href = 'assets/docs/TBS-221_Swe.pdf';
-          if (tbsManualEng) tbsManualEng.href = 'assets/docs/TBS-221_eng.pdf';
-        }
-
-        if (tbsProductSelect) {
-          tbsProductSelect.dispatchEvent(new Event('change'));
-        }
-
-        // Reset thumbnail selection to the primary device photo and show hotspot pins
-        const tbsThumbs = document.querySelectorAll('#tbsGallery .thumb-btn');
-        tbsThumbs.forEach((t, i) => {
-          if (i === 0) t.classList.add('active');
-          else t.classList.remove('active');
-        });
-        const tbsHotspots = document.getElementById('tbsHotspots');
-        if (tbsHotspots) {
-          tbsHotspots.classList.remove('is-hidden');
-          tbsHotspots.removeAttribute('hidden');
-          tbsHotspots.removeAttribute('aria-hidden');
-          const pins = tbsHotspots.querySelectorAll('.hotspot-pin');
-          const coords = model === 'TBS-231-L'
-            ? [
-                { top: '26.2%', left: '47.2%' },
-                { top: '44%', left: '66%' },
-                { top: '60%', left: '63.2%' },
-                { top: '84%', left: '46.5%' }
-              ]
-            : [
-                { top: '33.5%', left: '44.5%' },
-                { top: '49%', left: '60.5%' },
-                { top: '62.5%', left: '57.5%' },
-                { top: '85%', left: '40%' }
-              ];
-          pins.forEach((p, idx) => {
-            p.classList.remove('active');
-            p.setAttribute('aria-expanded', 'false');
-            if (coords[idx]) {
-              p.style.top = coords[idx].top;
-              p.style.left = coords[idx].left;
-            }
-          });
-        }
+        renderTbsModel(tab.getAttribute('data-model'), true);
       });
     });
   }
@@ -381,39 +392,43 @@ function initQeinoApp() {
 
   // 7. Form Submission (Mailto Generator)
   function buildInquiryData() {
+    const ui = getI18nData()?.ui || {};
     const activeTypeBtn = document.querySelector('.type-btn.active');
-    const clientType = activeTypeBtn ? activeTypeBtn.textContent.trim() : 'Kuluttaja';
-    const product = document.getElementById('inquiryProduct')?.value || 'Yleinen tiedustelu';
+    const clientType = activeTypeBtn ? activeTypeBtn.textContent.trim() : (ui.defaultClientType || 'Kuluttaja');
+    const productSelect = document.getElementById('inquiryProduct');
+    const selectedOpt = productSelect && productSelect.options[productSelect.selectedIndex];
+    const product = selectedOpt ? selectedOpt.textContent.trim() : (productSelect?.value || ui.defaultProduct || 'Yleinen tiedustelu');
     const name = document.getElementById('inquiryName')?.value.trim() || '';
     const email = document.getElementById('inquiryEmail')?.value.trim() || '';
     const phone = document.getElementById('inquiryPhone')?.value.trim() || '';
     const company = document.getElementById('inquiryCompany')?.value.trim() || '';
     const message = document.getElementById('inquiryMessage')?.value.trim() || '';
 
-    const subject = `Tiedustelu Qeino Oy: ${product} (${clientType})`;
+    const subject = `${ui.subjectPrefix || 'Tiedustelu Qeino Oy'}: ${product} (${clientType})`;
     
-    let body = `Hei Hannu / Qeino Oy,\n\n`;
-    body += `Olen kiinnostunut seuraavasta tuotteesta / aiheesta: ${product}\n`;
-    body += `Asiakastyyppi: ${clientType}\n\n`;
-    body += `Yhteystietoni:\n`;
-    body += `Nimi: ${name}\n`;
-    body += `Sähköposti: ${email}\n`;
-    body += `Puhelin: ${phone}\n`;
+    let body = `${ui.greeting || 'Hei Hannu / Qeino Oy,'}\n\n`;
+    body += `${ui.interestLabel || 'Olen kiinnostunut seuraavasta tuotteesta / aiheesta'}: ${product}\n`;
+    body += `${ui.clientTypeLabel || 'Asiakastyyppi'}: ${clientType}\n\n`;
+    body += `${ui.contactInfoHeader || 'Yhteystietoni:'}\n`;
+    body += `${ui.nameLabel || 'Nimi'}: ${name}\n`;
+    body += `${ui.emailLabel || 'Sähköposti'}: ${email}\n`;
+    body += `${ui.phoneLabel || 'Puhelin'}: ${phone}\n`;
     if (company) {
-      body += `Yritys / Y-tunnus: ${company}\n`;
+      body += `${ui.companyLabel || 'Yritys / Y-tunnus'}: ${company}\n`;
     }
-    body += `\nViesti / Tiedustelu:\n${message}\n\n`;
-    body += `Terveisin,\n${name}`;
+    body += `\n${ui.messageHeader || 'Viesti / Tiedustelu:'}\n${message}\n\n`;
+    body += `${ui.regards || 'Terveisin,'}\n${name}`;
 
     return { subject, body, name, email };
   }
 
   window.handleInquirySubmit = function(e) {
     if (e && e.preventDefault) e.preventDefault();
+    const ui = getI18nData()?.ui || {};
     const data = buildInquiryData();
     
     if (!data.name || !data.email) {
-      showToast('Ole hyvä ja täytä vähintään nimi ja sähköpostiosoite.');
+      showToast(ui.validationToast || 'Ole hyvä ja täytä vähintään nimi ja sähköpostiosoite.');
       return false;
     }
 
@@ -428,13 +443,14 @@ function initQeinoApp() {
         successBanner.style.display = 'none';
       }, 10000);
     }
-    showToast('Sähköpostiohjelma avautuu valmiilla viestillä!');
+    showToast(ui.mailtoToast || 'Sähköpostiohjelma avautuu valmiilla viestillä!');
     return false;
   };
 
   window.copyInquiryMessage = function() {
+    const ui = getI18nData()?.ui || {};
     const data = buildInquiryData();
-    const formatted = `Aihe: ${data.subject}\n\n${data.body}\n\nVastaanottaja: qeino.fi@gmail.com`;
+    const formatted = `${ui.copySubjectLabel || 'Aihe'}: ${data.subject}\n\n${data.body}\n\n${ui.copyRecipientLabel || 'Vastaanottaja'}: qeino.fi@gmail.com`;
 
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(formatted).then(() => {
@@ -448,6 +464,7 @@ function initQeinoApp() {
   };
 
   function fallbackCopyText(text) {
+    const ui = getI18nData()?.ui || {};
     const ta = document.createElement('textarea');
     ta.value = text;
     ta.style.position = 'fixed';
@@ -458,21 +475,22 @@ function initQeinoApp() {
       document.execCommand('copy');
       handleCopySuccess();
     } catch (err) {
-      showToast('Kopiointi leikepöydälle ei onnistunut.');
+      showToast(ui.copyFailToast || 'Kopiointi leikepöydälle ei onnistunut.');
     }
     document.body.removeChild(ta);
   }
 
   function handleCopySuccess() {
+    const ui = getI18nData()?.ui || {};
     const copyBtnText = document.getElementById('copyBtnText');
     if (copyBtnText) {
-      const original = copyBtnText.textContent;
-      copyBtnText.textContent = '✓ Viesti kopioitu leikepöydälle!';
+      copyBtnText.textContent = ui.copyBtnDone || '✓ Viesti kopioitu leikepöydälle!';
       setTimeout(() => {
-        copyBtnText.textContent = original;
+        const latestUi = getI18nData()?.ui || {};
+        copyBtnText.textContent = latestUi.copyBtnDefault || 'Kopioi viesti leikepöydälle';
       }, 3500);
     }
-    showToast('Viesti kopioitu leikepöydälle! Voit nyt liittää sen sähköpostiisi.');
+    showToast(ui.copySuccessToast || 'Viesti kopioitu leikepöydälle! Voit nyt liittää sen sähköpostiisi.');
   }
 
   const inquiryForm = document.getElementById('inquiryForm');
@@ -510,8 +528,11 @@ function initQeinoApp() {
   const simPowerPercent = document.getElementById('simPowerPercent');
   const simPresetBtns = document.querySelectorAll('.sim-preset-btn');
 
+  let updateSim = null;
+
   if (tempSlider && tempDisplay) {
-    const updateSim = (val) => {
+    updateSim = (val) => {
+      const states = getI18nData()?.simStates;
       tempDisplay.textContent = `${val > 0 ? '+' : ''}${val} °C`;
 
       simPresetBtns.forEach(btn => {
@@ -524,41 +545,44 @@ function initQeinoApp() {
       }
 
       if (val > 4) {
+        const s = states?.standby;
         tempDisplay.style.color = '#059669';
         if (winterSimCard) winterSimCard.classList.add('sim-state-standby');
         if (simPowerFill) {
           simPowerFill.style.width = '0%';
           simPowerFill.style.background = '#10B981';
         }
-        if (simPowerPercent) simPowerPercent.textContent = '0 % (Lepotila • Akku suojattu)';
-        if (tempStatus) tempStatus.innerHTML = '<span class="status-dot-pulse" style="background:#10B981; box-shadow:0 0 8px #10B981;"></span><span>Lauha / Kesätila: Virta katkaistu (0 W)</span>';
-        if (simElementTemp) simElementTemp.textContent = 'Lepotilassa (0 W)';
-        if (simPowerUsage) simPowerUsage.textContent = '0 W (Ei kuormita akkua lainkaan)';
-        if (tempElementState) tempElementState.innerHTML = '<strong>Automaattinen virransäästö:</strong> Kun ulkolämpötila nousee yli +4 °C, mikroprosessori katkaisee elementin virransyötön kokonaan. Akkua ei pureta koskaan turhaan.';
+        if (simPowerPercent) simPowerPercent.textContent = s?.percent || '0 % (Lepotila • Akku suojattu)';
+        if (tempStatus) tempStatus.innerHTML = `<span class="status-dot-pulse" style="background:#10B981; box-shadow:0 0 8px #10B981;"></span><span>${s?.status || 'Lauha / Kesätila: Virta katkaistu (0 W)'}</span>`;
+        if (simElementTemp) simElementTemp.textContent = s?.element || 'Lepotilassa (0 W)';
+        if (simPowerUsage) simPowerUsage.textContent = s?.power || '0 W (Ei kuormita akkua lainkaan)';
+        if (tempElementState) tempElementState.innerHTML = s?.desc || '<strong>Automaattinen virransäästö:</strong> Kun ulkolämpötila nousee yli +4 °C, mikroprosessori katkaisee elementin virransyötön kokonaan. Akkua ei pureta koskaan turhaan.';
       } else if (val >= -4) {
+        const s = states?.slush;
         tempDisplay.style.color = '#0284C7';
         if (winterSimCard) winterSimCard.classList.add('sim-state-slush');
         if (simPowerFill) {
           simPowerFill.style.width = '68%';
           simPowerFill.style.background = 'linear-gradient(90deg, #0284C7 0%, #38BDF8 100%)';
         }
-        if (simPowerPercent) simPowerPercent.textContent = '68 % (Ylläpitolämpö)';
-        if (tempStatus) tempStatus.innerHTML = '<span class="status-dot-pulse" style="background:#0284C7; box-shadow:0 0 8px #0284C7;"></span><span>Pikkupakkanen / kostea sohjokeli</span>';
-        if (simElementTemp) simElementTemp.textContent = '+45 °C (Ylläpitolämpö)';
-        if (simPowerUsage) simPowerUsage.textContent = '~15 W (Vain auton ollessa hereillä)';
-        if (tempElementState) tempElementState.innerHTML = '<strong>Sohjo- ja nollakeli:</strong> Elementti tuottaa tasaisen ylläpitolämmön (+45 °C), joka pitää luukun reunan, tiivisteen ja lukitustapin täysin vapaana sohjosta ja alijäähtyneestä vedestä.';
+        if (simPowerPercent) simPowerPercent.textContent = s?.percent || '68 % (Ylläpitolämpö)';
+        if (tempStatus) tempStatus.innerHTML = `<span class="status-dot-pulse" style="background:#0284C7; box-shadow:0 0 8px #0284C7;"></span><span>${s?.status || 'Pikkupakkanen / kostea sohjokeli'}</span>`;
+        if (simElementTemp) simElementTemp.textContent = s?.element || '+45 °C (Ylläpitolämpö)';
+        if (simPowerUsage) simPowerUsage.textContent = s?.power || '~15 W (Vain auton ollessa hereillä)';
+        if (tempElementState) tempElementState.innerHTML = s?.desc || '<strong>Sohjo- ja nollakeli:</strong> Elementti tuottaa tasaisen ylläpitolämmön (+45 °C), joka pitää luukun reunan, tiivisteen ja lukitustapin täysin vapaana sohjosta ja alijäähtyneestä vedestä.';
       } else {
+        const s = states?.frost;
         tempDisplay.style.color = '#1D4ED8';
         if (winterSimCard) winterSimCard.classList.add('sim-state-frost');
         if (simPowerFill) {
           simPowerFill.style.width = '100%';
           simPowerFill.style.background = 'linear-gradient(90deg, #1D4ED8 0%, #3B82F6 60%, #F59E0B 100%)';
         }
-        if (simPowerPercent) simPowerPercent.textContent = '100 % (Täysteho sulatus)';
-        if (tempStatus) tempStatus.innerHTML = '<span class="status-dot-pulse" style="background:#3B82F6; box-shadow:0 0 8px #3B82F6;"></span><span>Kova pakkanen: Täysteholämmitys</span>';
-        if (simElementTemp) simElementTemp.textContent = '+65 °C (Täysteho sulatus)';
-        if (simPowerUsage) simPowerUsage.textContent = '~20 W (Vain auton ollessa hereillä)';
-        if (tempElementState) tempElementState.innerHTML = '<strong>Täysteholämmitys:</strong> Mikroprosessori ohjaa lämmitystä portaattomasti jopa +65 °C asti estäen luukun ja latauspistoolin kiinnijäätymisen paukkupakkasillakin.';
+        if (simPowerPercent) simPowerPercent.textContent = s?.percent || '100 % (Täysteho sulatus)';
+        if (tempStatus) tempStatus.innerHTML = `<span class="status-dot-pulse" style="background:#3B82F6; box-shadow:0 0 8px #3B82F6;"></span><span>${s?.status || 'Kova pakkanen: Täysteholämmitys'}</span>`;
+        if (simElementTemp) simElementTemp.textContent = s?.element || '+65 °C (Täysteho sulatus)';
+        if (simPowerUsage) simPowerUsage.textContent = s?.power || '~20 W (Vain auton ollessa hereillä)';
+        if (tempElementState) tempElementState.innerHTML = s?.desc || '<strong>Täysteholämmitys:</strong> Mikroprosessori ohjaa lämmitystä portaattomasti jopa +65 °C asti estäen luukun ja latauspistoolin kiinnijäätymisen paukkupakkasillakin.';
       }
     };
 
@@ -577,78 +601,58 @@ function initQeinoApp() {
 
   // 9b. Hero Dual-Product Preview Switcher (LidAid / Takavalokytkin TBS)
   const heroSwitchBtns = document.querySelectorAll('.hero-switch-btn');
-  const heroCatalog = {
-    lidaid: {
-      img: 'assets/img/lidaid-device.webp',
-      alt: 'LidAid-latausluukunlämmitin ohjainlaite',
-      tag: '−40 °C testattu',
-      title: 'LidAid-latausluukunlämmitin',
-      desc: 'Mikroprosessoriohjattu automaattilämmitin pitää sähköauton ja hybridin latausluukun ja pistokkeen sulana kovissakin pakkasissa.',
-      s1l: 'Virrankulutus', s1v: '~20 W',
-      s2l: 'Säätöalue', s2v: '+45...+65°C',
-      s3l: 'Katkaisu', s3v: '> +4°C autom.',
-      href: '#lidaid',
-      cta: 'Tutustu LidAidiin tarkemmin'
-    },
-    tbs: {
-      img: 'assets/img/tbs-device.webp',
-      alt: 'Perävaunun takavalokytkin TBS-231-L ohjainyksikkö',
-      tag: 'PRH-patentoitu',
-      title: 'Perävaunun takavalokytkin (TBS)',
-      desc: 'Patentoitu kytkinlaite muuttaa perävaunun omat takavalot tehokkaiksi peruutusvaloiksi ilman häikäisevää takasumuvaloa.',
-      s1l: 'Käyttöjännite', s1v: '12 VDC',
-      s2l: 'Kuormitus', s2v: 'Maks. 5 A',
-      s3l: 'Mallit', s3v: 'LED & Hehku',
-      href: '#takavalokytkin',
-      cta: 'Tutustu takavalokytkimeen'
+  let activeHeroProduct = 'lidaid';
+
+  function renderHeroProduct(key) {
+    activeHeroProduct = key === 'tbs' ? 'tbs' : 'lidaid';
+    const catalog = getI18nData()?.heroCatalog;
+    const item = catalog?.[activeHeroProduct];
+    if (!item) return;
+
+    heroSwitchBtns.forEach(b => {
+      const isMatch = b.getAttribute('data-hero-product') === activeHeroProduct;
+      b.classList.toggle('active', isMatch);
+      b.setAttribute('aria-pressed', isMatch ? 'true' : 'false');
+    });
+
+    const imgEl = document.getElementById('heroPreviewImg');
+    if (imgEl) {
+      imgEl.src = item.img;
+      imgEl.alt = item.alt;
     }
-  };
+    const tagSpan = document.querySelector('#heroPreviewTag span');
+    if (tagSpan) tagSpan.textContent = item.tag;
+    const titleEl = document.getElementById('heroPreviewTitle');
+    if (titleEl) titleEl.textContent = item.title;
+    const descEl = document.getElementById('heroPreviewDesc');
+    if (descEl) descEl.textContent = item.desc;
+    const setTxt = (id, txt) => { const el = document.getElementById(id); if (el) el.textContent = txt; };
+    setTxt('heroSpec1Label', item.s1l);
+    setTxt('heroSpec1Val', item.s1v);
+    setTxt('heroSpec2Label', item.s2l);
+    setTxt('heroSpec2Val', item.s2v);
+    setTxt('heroSpec3Label', item.s3l);
+    setTxt('heroSpec3Val', item.s3v);
+    setTxt('heroPreviewCtaText', item.cta);
+    const ctaEl = document.getElementById('heroPreviewCta');
+    if (ctaEl) ctaEl.setAttribute('href', item.href);
+  }
 
   if (heroSwitchBtns.length) {
     heroSwitchBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        const key = btn.getAttribute('data-hero-product');
-        const item = heroCatalog[key];
-        if (!item) return;
-
-        heroSwitchBtns.forEach(b => {
-          b.classList.remove('active');
-          b.setAttribute('aria-pressed', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-pressed', 'true');
-
-        const imgEl = document.getElementById('heroPreviewImg');
-        if (imgEl) {
-          imgEl.src = item.img;
-          imgEl.alt = item.alt;
-        }
-        const tagSpan = document.querySelector('#heroPreviewTag span');
-        if (tagSpan) tagSpan.textContent = item.tag;
-        const titleEl = document.getElementById('heroPreviewTitle');
-        if (titleEl) titleEl.textContent = item.title;
-        const descEl = document.getElementById('heroPreviewDesc');
-        if (descEl) descEl.textContent = item.desc;
-        const setTxt = (id, txt) => { const el = document.getElementById(id); if (el) el.textContent = txt; };
-        setTxt('heroSpec1Label', item.s1l);
-        setTxt('heroSpec1Val', item.s1v);
-        setTxt('heroSpec2Label', item.s2l);
-        setTxt('heroSpec2Val', item.s2v);
-        setTxt('heroSpec3Label', item.s3l);
-        setTxt('heroSpec3Val', item.s3v);
-        setTxt('heroPreviewCtaText', item.cta);
-        const ctaEl = document.getElementById('heroPreviewCta');
-        if (ctaEl) ctaEl.setAttribute('href', item.href);
+        renderHeroProduct(btn.getAttribute('data-hero-product'));
       });
     });
   }
 
   // 9c. 1-Click Copy Email Helper (Footer)
   window.copyEmailAddress = function() {
+    const ui = getI18nData()?.ui || {};
     const email = 'qeino.fi@gmail.com';
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(email).then(() => {
-        showToast('Sähköpostiosoite qeino.fi@gmail.com kopioitu!');
+        showToast(ui.emailCopiedToast || 'Sähköpostiosoite qeino.fi@gmail.com kopioitu!');
       }).catch(() => {
         fallbackCopyText(email);
       });
@@ -658,76 +662,37 @@ function initQeinoApp() {
   };
 
   // 10. Vehicle Compatibility Selector for LidAid
-  const compatData = {
-    skoda: {
-      title: "Skoda Enyaq iV (50, 60, 80, 85, vRS) & Superb / Octavia iV",
-      desc: "Enyaqissa latausluukun salpamekanismi on erittäin altis nuoskalumen ja alijäähtyneen veden jäätymiselle. LidAidin ultraohut lämpökalvo asennetaan suoraan luukun sisäpintaan vesivalumareitin taakse. Kytkentä tapahtuu turvallisesti auton 12V herätevirtaan — ei vaikuta korkeajänniteakkuun eikä auton tehdastakuuseen.",
-      productVal: "LidAid-latausluukunlämmitin (Skoda)",
-      btnText: "Valitse LidAid Skodalle & pyydä tarjous"
-    },
-    vw: {
-      title: "Volkswagen ID.3, ID.4, ID.5, ID.7, ID. Buzz & Passat / Golf GTE",
-      desc: "VW MEB-pohjaisissa sähköautoissa (ID-sarja) latausluukku kerää herkästi sohjoa ajoviiman mukana. LidAidin termostaattiohjattu lämmitin pitää luukun reunan ja lukitustapin täysin sulana ilman pelkoa 12V akun tyhjenemisestä.",
-      productVal: "LidAid-latausluukunlämmitin (Volkswagen)",
-      btnText: "Valitse LidAid Volkswagenille & pyydä tarjous"
-    },
-    cupra: {
-      title: "Cupra Born, Tavascan, Terramar & Formentor / Leon e-Hybrid",
-      desc: "Cupran sähkö- ja hybridimalleissa latausluukun tiiviste ja lukitusjousi toimivat luotettavasti läpi talven. Ohut silikonielementti mahtuu huomaamattomasti luukun kotelon sisälle ilman pintamuutoksia.",
-      productVal: "LidAid-latausluukunlämmitin (Cupra / SEAT)",
-      btnText: "Valitse LidAid Cupralle & pyydä tarjous"
-    },
-    audi: {
-      title: "Audi Q4 e-tron, Q8 e-tron, e-tron GT & TFSI e -lataushybridit",
-      desc: "Täysin yhteensopiva Audin sähköisen luukunmekanismin kanssa. Lämmitin ehkäisee servo- ja lukitusmoottorin ylikuormittumisen, kun jää ei pääse estämään luukun avausliikettä.",
-      productVal: "LidAid-latausluukunlämmitin (Audi)",
-      btnText: "Valitse LidAid Audille & pyydä tarjous"
-    },
-    bmw: {
-      title: "BMW iX3, i4, iX, i5, i7, iX1 & 330e, 530e, 225xe -mallit",
-      desc: "BMW:n sähköisissä luukuissa LidAid suojaa luukun mekaanisen painallussalvan jäätymiseltä. Älykäs mikrokontrolleri kytkeytyy automaattisesti pois päältä lämpötilan noustessa yli +4 °C.",
-      productVal: "LidAid-latausluukunlämmitin (BMW)",
-      btnText: "Valitse LidAid BMW:lle & pyydä tarjous"
-    },
-    hyundai: {
-      title: "Hyundai Ioniq 5 / 6, Kona Electric & Kia EV6 / EV9, Niro EV",
-      desc: "Korealaisissa 800V-arkkitehtuurin autoissa LidAid kytkeytyy erilliseen 12V apujärjestelmään, joten pikalatausominaisuudet tai ajoakun takuu säilyvät 100 % koskemattomina.",
-      productVal: "LidAid-latausluukunlämmitin (Hyundai / Kia)",
-      btnText: "Valitse LidAid Hyundai/Kialle & pyydä tarjous"
-    },
-    other: {
-      title: "Kaikki muut Type 2 & CCS -sähköautot ja ladattavat hybridit",
-      desc: "LidAid on universaalisti asennettavissa käytännössä mihin tahansa 12V sähköjärjestelmällä varustettuun sähköautoon tai hybridiin (mm. Tesla Model 3/Y/S, Volvo EX40/EX30, Polestar 2/3/4, Mercedes-Benz EQ, Renault, Peugeot, Ford, Nissan ym.).",
-      productVal: "LidAid-latausluukunlämmitin (Muu automalli)",
-      btnText: "Valitse LidAid autollesi & pyydä tarjous"
-    }
-  };
-
   const compatChips = document.querySelectorAll('.compat-chip');
   const compatModelName = document.getElementById('compatModelName');
   const compatModelText = document.getElementById('compatModelText');
   const compatSelectBtn = document.getElementById('compatSelectBtn');
+  let activeCompatBrand = 'skoda';
+
+  function renderCompatBrand(brand) {
+    activeCompatBrand = brand || 'skoda';
+    const table = getI18nData()?.compatData;
+    const data = table?.[activeCompatBrand] || table?.other;
+    if (!data) return;
+
+    compatChips.forEach(c => {
+      const isMatch = c.getAttribute('data-brand') === activeCompatBrand;
+      c.classList.toggle('active', isMatch);
+      c.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+    });
+
+    if (compatModelName) compatModelName.textContent = data.title;
+    if (compatModelText) compatModelText.textContent = data.desc;
+    if (compatSelectBtn) {
+      const span = compatSelectBtn.querySelector('span');
+      if (span) span.textContent = data.btnText;
+      compatSelectBtn.setAttribute('onclick', `selectInquiryProduct('${data.productVal}')`);
+    }
+  }
 
   if (compatChips.length) {
     compatChips.forEach(chip => {
       chip.addEventListener('click', () => {
-        compatChips.forEach(c => {
-          c.classList.remove('active');
-          c.setAttribute('aria-selected', 'false');
-        });
-        chip.classList.add('active');
-        chip.setAttribute('aria-selected', 'true');
-
-        const brand = chip.getAttribute('data-brand');
-        const data = compatData[brand] || compatData.other;
-
-        if (compatModelName) compatModelName.textContent = data.title;
-        if (compatModelText) compatModelText.textContent = data.desc;
-        if (compatSelectBtn) {
-          const span = compatSelectBtn.querySelector('span');
-          if (span) span.textContent = data.btnText;
-          compatSelectBtn.setAttribute('onclick', `selectInquiryProduct('${data.productVal}')`);
-        }
+        renderCompatBrand(chip.getAttribute('data-brand'));
       });
     });
   }
@@ -908,6 +873,20 @@ function initQeinoApp() {
     }, { threshold: 0.05, rootMargin: '0px 0px -24px 0px' });
 
     document.querySelectorAll('.reveal-up').forEach(el => revealObserver.observe(el));
+  }
+
+  // 16. Trilingual Sync (FI / SV / EN)
+  window.addEventListener('qeino:langchange', () => {
+    renderHeroProduct(activeHeroProduct);
+    renderCompatBrand(activeCompatBrand);
+    renderTbsModel(activeTbsModel, false);
+    if (updateSim && tempSlider) {
+      updateSim(parseInt(tempSlider.value, 10));
+    }
+  });
+
+  if (window.qeinoI18n) {
+    window.qeinoI18n.initLangSwitcher();
   }
 }
 

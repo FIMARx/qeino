@@ -189,6 +189,7 @@
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
     </div>
+    <div class="scroll-progress-bar" id="scrollProgressBar" aria-hidden="true"></div>
   </header>
 
   <main id="main-content">
@@ -263,6 +264,10 @@
           
           <div class="hero-card-img-wrap">
             <img src="assets/img/lidaid-device.webp" alt="LidAid-latausluukunlämmitin ohjainlaite" loading="eager">
+            <span class="hero-studio-tag" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg>
+              −40 °C testattu
+            </span>
           </div>
 
           <div class="hero-card-body">
@@ -607,6 +612,12 @@
                 <source src="assets/video/lidaid-demo.mp4" type="video/mp4">
                 Selaimesi ei tue videotoistoa.
               </video>
+              <button type="button" class="video-play-overlay" aria-label="Toista LidAid talvitestivideo">
+                <span class="video-play-circle" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+                </span>
+                <span class="video-play-label">Toista talvitesti (0:42)</span>
+              </button>
             </div>
           </div>
 
@@ -869,6 +880,12 @@
                 <source src="assets/video/tbs-demo.mp4" type="video/mp4">
                 Selaimesi ei tue videotoistoa.
               </video>
+              <button type="button" class="video-play-overlay" aria-label="Toista takavalokytkimen demonstraatiovideo">
+                <span class="video-play-circle" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+                </span>
+                <span class="video-play-label">Toista demonstraatio (0:17)</span>
+              </button>
             </div>
           </div>
 
@@ -1312,9 +1329,11 @@
             </span>
           </button>
           <div class="faq-answer" id="faqAnswer1">
-            <p>
-              Ei pura. LidAid kytketään auton 12V herätevirtaan, joten se toimii vain kun auto on 'hereillä' tai latauksessa. Lisäksi mikroprosessori katkaisee lämmityksen automaattisesti kun ympäristön lämpötila nousee yli +4 °C.
-            </p>
+            <div class="faq-answer-inner">
+              <p>
+                Ei pura. LidAid kytketään auton 12V herätevirtaan, joten se toimii vain kun auto on 'hereillä' tai latauksessa. Lisäksi mikroprosessori katkaisee lämmityksen automaattisesti kun ympäristön lämpötila nousee yli +4 °C.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -1326,9 +1345,11 @@
             </span>
           </button>
           <div class="faq-answer" id="faqAnswer2">
-            <p>
-              Valinta riippuu peräkärrysi takavaloista: Jos peräkärryssäsi on modernit <strong>LED-takavalot</strong>, valitse <strong>TBS-231-L</strong>. Jos peräkärryssäsi on perinteiset <strong>hehkulamput</strong>, valitse <strong>TBS-221</strong>.
-            </p>
+            <div class="faq-answer-inner">
+              <p>
+                Valinta riippuu peräkärrysi takavaloista: Jos peräkärryssäsi on modernit <strong>LED-takavalot</strong>, valitse <strong>TBS-231-L</strong>. Jos peräkärryssäsi on perinteiset <strong>hehkulamput</strong>, valitse <strong>TBS-221</strong>.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -1340,9 +1361,11 @@
             </span>
           </button>
           <div class="faq-answer" id="faqAnswer3">
-            <p>
-              Takavalokytkintä ei ole hyväksytty yleiseen tieliikennekäyttöön. Laitteen voi laillisesti kytkeä päälle vasta kun olet yleisen tieliikenteen ulkopuolella, kuten mökkitiellä, työmaalla, puistoalueella tai omassa pihassa. Maantiellä ajettaessa laite pidetään kytkettynä pois.
-            </p>
+            <div class="faq-answer-inner">
+              <p>
+                Takavalokytkintä ei ole hyväksytty yleiseen tieliikennekäyttöön. Laitteen voi laillisesti kytkeä päälle vasta kun olet yleisen tieliikenteen ulkopuolella, kuten mökkitiellä, työmaalla, puistoalueella tai omassa pihassa. Maantiellä ajettaessa laite pidetään kytkettynä pois.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -1354,9 +1377,11 @@
             </span>
           </button>
           <div class="faq-answer" id="faqAnswer4">
-            <p>
-              Laite on suunniteltu henkilöautojen 12 Voltin järjestelmään. Laite voidaan kuitenkin asentaa 24 Voltin järjestelmään lisäämällä plus-johtoon 1 Watin etuvastus, jonka arvo on 300 Ohmia.
-            </p>
+            <div class="faq-answer-inner">
+              <p>
+                Laite on suunniteltu henkilöautojen 12 Voltin järjestelmään. Laite voidaan kuitenkin asentaa 24 Voltin järjestelmään lisäämällä plus-johtoon 1 Watin etuvastus, jonka arvo on 300 Ohmia.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -1380,19 +1405,45 @@
         </p>
       </div>
 
-      <div class="contact-grid">
-        <!-- Contact Info Card -->
+      <div class="contact-shell">
+        <!-- Left: Deep Nordic Obsidian Contact Sidebar -->
         <div class="contact-info-panel">
-          <div class="contact-card-box">
+          <div class="contact-obsidian-grid" aria-hidden="true"></div>
+          <div class="contact-obsidian-top">
+            <div class="contact-brand-pill">
+              <span class="status-pulse-dot" aria-hidden="true"></span>
+              <span>Suora yhteys keksijään &bull; Sipoo</span>
+            </div>
             <h3>Qeino Oy</h3>
             <p class="company-desc-text">
-              Suomalainen autosähköön ja ajoneuvoelektroniikkaan erikoistunut innovaatioyritys. Kotipaikka Sipoo.
+              Suomalainen autosähköön ja ajoneuvoelektroniikkaan erikoistunut innovaatioyritys. Kaikki laitteet suunnitellaan, kootaan ja testataan Sipoossa.
             </p>
 
             <div class="contact-list">
               <div class="contact-item">
                 <div class="contact-item-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div class="contact-item-text">
+                  <span class="title">Puhelin &amp; WhatsApp</span>
+                  <a href="tel:0443069752" class="val">044 306 9752</a>
+                  <span class="subtext">Hannu Alhovuori (Perustaja &amp; Keksijä)</span>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div class="contact-item-text">
+                  <span class="title">Sähköposti</span>
+                  <a href="mailto:qeino.fi@gmail.com" class="val">qeino.fi@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 </div>
                 <div class="contact-item-text">
                   <span class="title">Käynti- ja postiosoite</span>
@@ -1404,28 +1455,7 @@
 
               <div class="contact-item">
                 <div class="contact-item-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                </div>
-                <div class="contact-item-text">
-                  <span class="title">Puhelin &amp; WhatsApp</span>
-                  <a href="tel:0443069752" class="val">044 306 9752</a>
-                  <span class="subtext">Hannu Alhovuori (Keksijä)</span>
-                </div>
-              </div>
-
-              <div class="contact-item">
-                <div class="contact-item-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                </div>
-                <div class="contact-item-text">
-                  <span class="title">Sähköposti</span>
-                  <a href="mailto:qeino.fi@gmail.com" class="val">qeino.fi@gmail.com</a>
-                </div>
-              </div>
-
-              <div class="contact-item">
-                <div class="contact-item-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 </div>
                 <div class="contact-item-text">
                   <span class="title">Palveluajat</span>
@@ -1434,25 +1464,41 @@
               </div>
             </div>
           </div>
+
+          <!-- Bottom Architectural Guarantee Card inside Obsidian Panel -->
+          <div class="contact-obsidian-footer">
+            <div class="obsidian-perk">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>2 vuoden tehdastakuu</strong> &amp; 14 vrk palautusoikeus</span>
+            </div>
+            <div class="obsidian-perk">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Lähetys 1–2 arkipäivässä</strong> Postin seurantakoodilla</span>
+            </div>
+            <div class="obsidian-perk">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Ei välikäsiä</strong> — suora tuki sähköinsinööriltä</span>
+            </div>
+          </div>
         </div>
 
-        <!-- Modern Polished Inquiry Form Card -->
+        <!-- Right: Tactile Modern Form Surface -->
         <div class="inquiry-form-card">
-          <div class="form-header-badge">
-            <span class="status-pulse-dot" aria-hidden="true"></span>
-            <span>Nopea vastausaika &bull; Suora yhteys keksijään</span>
+          <div class="form-head-row">
+            <div>
+              <h3 class="form-title">Lähetä tiedustelu tai tilauspyyntö</h3>
+              <p class="form-subtitle">Valitse tuote alta ja jätä tietosi — vastaamme henkilökohtaisesti saman arkipäivän aikana.</p>
+            </div>
           </div>
-          <h3 class="form-title">Lähetä tiedustelu tai tilauspyyntö</h3>
-          <p class="form-subtitle">Valitse tuote, jätä tietosi ja lähetä tiedustelu suoraan Hannulle. Vastaamme henkilökohtaisesti arkisin ja viikonloppuisin.</p>
 
           <form id="inquiryForm" onsubmit="handleInquirySubmit(event)">
             <!-- Customer Switcher -->
             <div class="customer-type-toggle" role="group" aria-label="Asiakastyyppi">
-              <button type="button" class="type-btn active" data-type="consumer">
+              <button type="button" class="type-btn active" data-type="consumer" aria-pressed="true">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 <span>Yksityisasiakas</span>
               </button>
-              <button type="button" class="type-btn" data-type="b2b">
+              <button type="button" class="type-btn" data-type="b2b" aria-pressed="false">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
                 <span>Yritys / Jälleenmyyjä</span>
               </button>
@@ -1466,8 +1512,17 @@
               </div>
             </div>
 
+            <!-- 1-Click Product Quick-Select Chips + Synced Native Select -->
             <div class="form-group">
               <label for="inquiryProduct" class="form-label">Valitse tuote tai aihe <span class="required-star">*</span></label>
+              <div class="product-quick-chips" id="productQuickChips" role="group" aria-label="Pikavalinta tuotteelle">
+                <button type="button" class="product-chip active" data-value="LidAid-latausluukunlämmitin" aria-pressed="true">LidAid-lämmitin</button>
+                <button type="button" class="product-chip" data-value="TBS-231-L (LED-malli)" aria-pressed="false">TBS-231-L (LED)</button>
+                <button type="button" class="product-chip" data-value="TBS-221 (Hehkulamppumalli)" aria-pressed="false">TBS-221 (Hehku)</button>
+                <button type="button" class="product-chip" data-value="Webaston kauko-ohjain CSW-1" aria-pressed="false">CSW-1 Webasto</button>
+                <button type="button" class="product-chip" data-value="Jälleenmyynti & tukkuhinnasto" aria-pressed="false">Jälleenmyynti</button>
+                <button type="button" class="product-chip" data-value="Yleinen tiedustelu" aria-pressed="false">Muu aihe</button>
+              </div>
               <div class="input-wrapper">
                 <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
                 <select id="inquiryProduct" class="form-select with-icon">
@@ -1486,14 +1541,17 @@
                 <label for="inquiryName" class="form-label">Nimi <span class="required-star">*</span></label>
                 <div class="input-wrapper">
                   <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                  <input type="text" id="inquiryName" class="form-control with-icon" placeholder="Etunimi Sukunimi" required>
+                  <input type="text" id="inquiryName" class="form-control with-icon" placeholder="Etunimi Sukunimi" autocomplete="name" required>
                 </div>
               </div>
               <div class="form-group">
-                <label for="inquiryPhone" class="form-label">Puhelinnumero</label>
+                <div class="label-row">
+                  <label for="inquiryPhone" class="form-label">Puhelinnumero</label>
+                  <span class="label-hint">valinnainen</span>
+                </div>
                 <div class="input-wrapper">
                   <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  <input type="tel" id="inquiryPhone" class="form-control with-icon" placeholder="040 123 4567">
+                  <input type="tel" id="inquiryPhone" class="form-control with-icon" placeholder="040 123 4567" autocomplete="tel">
                 </div>
               </div>
             </div>
@@ -1502,65 +1560,52 @@
               <label for="inquiryEmail" class="form-label">Sähköpostiosoite <span class="required-star">*</span></label>
               <div class="input-wrapper">
                 <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                <input type="email" id="inquiryEmail" class="form-control with-icon" placeholder="nimi@osoite.fi" required>
+                <input type="email" id="inquiryEmail" class="form-control with-icon" placeholder="nimi@osoite.fi" autocomplete="email" required>
               </div>
             </div>
 
             <div class="form-group">
               <div class="label-row">
                 <label for="inquiryMessage" class="form-label">Viesti tai kysymys</label>
-                <span class="label-hint">Toivottu määrä tai automalli</span>
+                <span class="label-hint">Automalli, kappalemäärä tms.</span>
               </div>
               <div class="input-wrapper textarea-wrapper">
                 <svg class="input-icon textarea-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                <textarea id="inquiryMessage" class="form-control with-icon" rows="4" placeholder="Kirjoita viestisi, toivottu kappalemäärä tai autosi/peräkärrysi malli..."></textarea>
+                <textarea id="inquiryMessage" class="form-control with-icon" rows="4" placeholder="Kerro autosi / peräkärrysi malli, toivottu kappalemäärä tai kysymyksesi..."></textarea>
               </div>
             </div>
 
-            <!-- Action Buttons Stack -->
-            <div class="form-actions-stack">
+            <!-- Action Buttons -->
+            <div class="form-actions-grid">
               <button type="submit" class="btn btn-primary form-submit-btn" id="inquirySubmitBtn">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                <span>Avaa sähköpostissa (Lähetä)</span>
+                <span>Avaa sähköpostissa &amp; lähetä</span>
               </button>
 
-              <button type="button" class="btn btn-secondary form-copy-btn" id="inquiryCopyBtn" onclick="copyInquiryMessage()">
+              <button type="button" class="form-copy-btn" id="inquiryCopyBtn" onclick="copyInquiryMessage()">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                <span id="copyBtnText">Kopioi valmis viesti leikepöydälle</span>
+                <span id="copyBtnText">Kopioi viesti leikepöydälle</span>
               </button>
             </div>
 
-            <!-- Direct Call Assistance Strip -->
-            <div class="form-call-strip">
-              <div class="call-strip-left">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <span>Kaipaatko pikaista vastausta tai asennusneuvoa?</span>
-              </div>
-              <a href="tel:0443069752" class="call-strip-link">Soita 044 306 9752</a>
-            </div>
-
-            <!-- Trust Row -->
+            <!-- Subtle Reassurance Bar -->
             <div class="form-trust-row">
               <div class="trust-badge-item">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                <span>Luottamuksellinen</span>
+                <span>Luottamuksellinen käsittely</span>
               </div>
               <div class="trust-badge-item">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                <span>Vastaus saman arkipäivän aikana</span>
-              </div>
-              <div class="trust-badge-item">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
-                <span>Varastotoimitus Sipoon toimipisteeltä</span>
+                <span>Vastaus yleensä saman päivän aikana</span>
               </div>
             </div>
 
             <div id="inquirySuccess" class="form-success-banner" role="status" aria-live="polite" style="display:none;">
               <div class="success-banner-header">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                 <strong>Sähköpostiohjelmasi avautuu valmiilla viestipohjalla!</strong>
               </div>
-              <p>Vastaanottajaksi on asetettu <strong>qeino.fi@gmail.com</strong>. Jos sähköpostiohjelmasi ei auennut, voit painaa yltä "Kopioi valmis viesti leikepöydälle" ja liittää sen suoraan omaan sähköpostiisi.</p>
+              <p>Vastaanottaja: <strong>qeino.fi@gmail.com</strong>. Jos käytät selainsähköpostia (esim. Gmail), paina yltä "Kopioi viesti leikepöydälle" ja liitä viesti suoraan.</p>
             </div>
           </form>
         </div>
@@ -1635,11 +1680,25 @@
     </a>
   </aside>
 
-  <!-- Lightbox Modal for Full Image Inspection -->
+  <!-- Floating Back-to-Top Button -->
+  <button type="button" class="back-to-top" id="backToTopBtn" aria-label="Palaa sivun alkuun">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <!-- Lightbox Modal for Full Image Gallery Inspection -->
   <div id="lightboxModal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Kuvan suurennos">
     <div class="lightbox-content">
-      <button id="lightboxClose" class="lightbox-close" aria-label="Sulje suurennos">&times;</button>
+      <button type="button" id="lightboxClose" class="lightbox-close" aria-label="Sulje suurennos">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <button type="button" id="lightboxPrev" class="lightbox-nav lightbox-prev" aria-label="Edellinen kuva">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
       <img id="lightboxImg" class="lightbox-img" src="" alt="Suurennettu tuotekuva">
+      <button type="button" id="lightboxNext" class="lightbox-nav lightbox-next" aria-label="Seuraava kuva">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <div class="lightbox-caption" id="lightboxCaption" aria-live="polite"></div>
     </div>
   </div>
 

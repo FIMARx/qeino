@@ -34,18 +34,51 @@ function initQeinoApp() {
   const lightbox = document.getElementById('lightboxModal');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+  const lightboxCaption = document.getElementById('lightboxCaption');
   let lastFocusedBeforeLightbox = null;
+  let lightboxItems = [];
+  let lightboxIndex = 0;
 
-  function openLightbox(src, alt) {
+  function renderLightboxSlide() {
+    if (!lightboxImg || !lightboxItems.length) return;
+    const item = lightboxItems[lightboxIndex];
+    lightboxImg.src = item.src;
+    lightboxImg.alt = item.alt || 'Suurennettu kuva';
+    if (lightboxCaption) {
+      const label = item.alt || 'Tuotekuva';
+      lightboxCaption.textContent = lightboxItems.length > 1
+        ? `${lightboxIndex + 1} / ${lightboxItems.length} — ${label}`
+        : label;
+    }
+    const multi = lightboxItems.length > 1;
+    if (lightboxPrev) lightboxPrev.hidden = !multi;
+    if (lightboxNext) lightboxNext.hidden = !multi;
+  }
+
+  function openLightbox(src, alt, galleryItems = null, startIndex = 0) {
     if (!lightbox || !lightboxImg) return;
     lastFocusedBeforeLightbox = document.activeElement;
-    lightboxImg.src = src;
-    lightboxImg.alt = alt || 'Suurennettu kuva';
+    if (Array.isArray(galleryItems) && galleryItems.length > 0) {
+      lightboxItems = galleryItems;
+      lightboxIndex = Math.max(0, Math.min(startIndex, galleryItems.length - 1));
+    } else {
+      lightboxItems = [{ src, alt: alt || 'Suurennettu kuva' }];
+      lightboxIndex = 0;
+    }
+    renderLightboxSlide();
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
     if (lightboxClose) {
       setTimeout(() => lightboxClose.focus(), 50);
     }
+  }
+
+  function stepLightbox(delta) {
+    if (lightboxItems.length <= 1) return;
+    lightboxIndex = (lightboxIndex + delta + lightboxItems.length) % lightboxItems.length;
+    renderLightboxSlide();
   }
 
   function closeLightbox() {
@@ -61,14 +94,33 @@ function initQeinoApp() {
   if (lightboxClose) {
     lightboxClose.addEventListener('click', closeLightbox);
   }
+  if (lightboxPrev) {
+    lightboxPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      stepLightbox(-1);
+    });
+  }
+  if (lightboxNext) {
+    lightboxNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      stepLightbox(1);
+    });
+  }
   if (lightbox) {
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) closeLightbox();
     });
   }
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox && lightbox.classList.contains('open')) {
+    if (!lightbox || !lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') {
       closeLightbox();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      stepLightbox(-1);
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      stepLightbox(1);
     }
   });
 
@@ -79,14 +131,20 @@ function initQeinoApp() {
     const hotspotLayer = hotspotLayerId ? document.getElementById(hotspotLayerId) : null;
     if (!gallery || !mainImg) return;
 
+    const thumbs = gallery.querySelectorAll('.thumb-btn');
+
     if (mainFrame) {
       mainFrame.addEventListener('click', (e) => {
         if (e.target.closest('.hotspot-pin')) return;
-        openLightbox(mainImg.src, mainImg.alt);
+        const items = Array.from(thumbs).map(t => ({
+          src: t.getAttribute('data-full') || t.querySelector('img')?.src || mainImg.src,
+          alt: t.getAttribute('aria-label') || t.querySelector('img')?.alt || mainImg.alt
+        }));
+        let activeIdx = Array.from(thumbs).findIndex(t => t.classList.contains('active'));
+        if (activeIdx < 0) activeIdx = 0;
+        openLightbox(mainImg.src, mainImg.alt, items.length ? items : null, activeIdx);
       });
     }
-
-    const thumbs = gallery.querySelectorAll('.thumb-btn');
     thumbs.forEach((btn, index) => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -178,6 +236,10 @@ function initQeinoApp() {
           if (tbsManualEng) tbsManualEng.href = 'assets/docs/TBS-221_eng.pdf';
         }
 
+        if (tbsProductSelect) {
+          tbsProductSelect.dispatchEvent(new Event('change'));
+        }
+
         // Reset thumbnail selection to the primary device photo and show hotspot pins
         const tbsThumbs = document.querySelectorAll('#tbsGallery .thumb-btn');
         tbsThumbs.forEach((t, i) => {
@@ -238,13 +300,48 @@ function initQeinoApp() {
     });
   });
 
-  // 6. Direct CTAs to prefill Inquiry Form
+  // 6. Product Quick-Select Chips & Direct CTAs to prefill Inquiry Form
+  const productChips = document.querySelectorAll('.product-chip');
+  const inquiryProductSelect = document.getElementById('inquiryProduct');
+
+  function syncProductChips(val) {
+    if (!productChips.length) return;
+    productChips.forEach(chip => {
+      const chipVal = chip.getAttribute('data-value');
+      const isMatch = chipVal === val || (val && val.includes('LidAid') && chipVal === 'LidAid-latausluukunlämmitin');
+      chip.classList.toggle('active', isMatch);
+      chip.setAttribute('aria-pressed', isMatch ? 'true' : 'false');
+    });
+  }
+
+  if (productChips.length && inquiryProductSelect) {
+    productChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const val = chip.getAttribute('data-value');
+        if (val) {
+          inquiryProductSelect.value = val;
+          syncProductChips(val);
+        }
+      });
+    });
+
+    inquiryProductSelect.addEventListener('change', () => {
+      syncProductChips(inquiryProductSelect.value);
+    });
+  }
+
   window.selectInquiryProduct = function(productName, isB2B = false) {
     const select = document.getElementById('inquiryProduct');
     const contactSection = document.getElementById('yhteystiedot');
     
     if (select) {
-      select.value = productName;
+      // Match option even when productName carries a car brand suffix like "LidAid-latausluukunlämmitin (Skoda)"
+      const matchOption = Array.from(select.options).find(opt => opt.value === productName)
+        || Array.from(select.options).find(opt => productName && productName.startsWith(opt.value));
+      if (matchOption) {
+        select.value = matchOption.value;
+      }
+      syncProductChips(select.value);
     }
     
     if (isB2B) {
@@ -558,6 +655,114 @@ function initQeinoApp() {
       });
     }
   });
+
+  // 13. Custom Video Showcase Play Overlays
+  document.querySelectorAll('.video-wrap').forEach(wrap => {
+    const video = wrap.querySelector('video');
+    const overlay = wrap.querySelector('.video-play-overlay');
+    if (!video || !overlay) return;
+
+    overlay.addEventListener('click', () => {
+      overlay.classList.add('is-playing');
+      video.play().catch(() => {
+        // Fallback if autoplay/play is interrupted
+        overlay.classList.remove('is-playing');
+      });
+    });
+
+    video.addEventListener('play', () => {
+      overlay.classList.add('is-playing');
+    });
+
+    video.addEventListener('ended', () => {
+      overlay.classList.remove('is-playing');
+    });
+  });
+
+  // 14. Scroll-Progress Hairline, Frosted Header, Scroll-Spy Nav & Back-to-Top
+  const siteHeader = document.querySelector('.site-header');
+  const scrollProgressBar = document.getElementById('scrollProgressBar');
+  const backToTopBtn = document.getElementById('backToTopBtn');
+  const navAnchors = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+  const observedSections = navAnchors
+    .map(a => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+
+  function updateScrollUI() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
+
+    if (scrollProgressBar) {
+      scrollProgressBar.style.width = `${pct.toFixed(1)}%`;
+    }
+    if (siteHeader) {
+      siteHeader.classList.toggle('scrolled', scrollTop > 24);
+    }
+    if (backToTopBtn) {
+      backToTopBtn.classList.toggle('visible', scrollTop > 600);
+    }
+  }
+
+  window.addEventListener('scroll', updateScrollUI, { passive: true });
+  updateScrollUI();
+
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  if ('IntersectionObserver' in window && observedSections.length) {
+    const spyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navAnchors.forEach(a => {
+            const isActive = a.getAttribute('href') === `#${id}`;
+            a.classList.toggle('active', isActive);
+            if (isActive) a.setAttribute('aria-current', 'location');
+            else a.removeAttribute('aria-current');
+          });
+        }
+      });
+    }, { rootMargin: '-25% 0px -60% 0px', threshold: 0.01 });
+
+    observedSections.forEach(sec => spyObserver.observe(sec));
+  }
+
+  // 15. Tactile Scroll-Reveal Choreography (Disabled cleanly for prefers-reduced-motion)
+  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+    const revealGroups = [
+      '.trust-item',
+      '.review-card',
+      '.process-step-card',
+      '.b2b-card',
+      '.story-quote-card',
+      '.contact-shell'
+    ];
+    const revealEls = document.querySelectorAll(revealGroups.join(', '));
+    revealEls.forEach((el, idx) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.95) {
+        return; // Already in initial viewport — never hide above-the-fold content
+      }
+      el.classList.add('reveal-up');
+      el.style.transitionDelay = `${(idx % 3) * 70}ms`;
+    });
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -24px 0px' });
+
+    document.querySelectorAll('.reveal-up').forEach(el => revealObserver.observe(el));
+  }
 }
 
 if (document.readyState === 'loading') {

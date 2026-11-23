@@ -49,13 +49,13 @@
         'TBS-231-L': {
           badge: 'Malli: TBS-231-L (LED-takavalot)',
           target: 'Suositellaan moderneille peräkärryille ja trailereille, joissa on LED-takavalot.',
-          load: 'Maks. 5 A (jopa 60W LED-valotehoa)',
+          load: 'Maks. 5 A (jopa 60 W LED-valotehoa)',
           alt: 'Takavalokytkin TBS-231-L (LED-malli)',
           manual: 'assets/docs/TBS-231-L_Fin.pdf'
         },
         'TBS-221': {
           badge: 'Malli: TBS-221 (Hehkulamput)',
-          target: 'Suunniteltu perinteisille perävaunuille, joissa on tavalliset 12V hehkupolttimot.',
+          target: 'Suunniteltu perinteisille perävaunuille, joissa on tavalliset 12 V -hehkupolttimot.',
           load: 'Maks. 5 A kuormitus',
           alt: 'Takavalokytkin TBS-221 (Hehkulamppumalli)',
           manual: 'assets/docs/TBS-221_Fin.pdf'
@@ -77,9 +77,9 @@
           desc: '<strong>Sohjo- ja nollakeli:</strong> Elementti tuottaa tasaisen ylläpitolämmön (+45 °C), joka pitää luukun reunan, tiivisteen ja lukitustapin täysin vapaana sohjosta ja alijäähtyneestä vedestä.'
         },
         frost: {
-          percent: '100 % (Täysteho sulatus)',
+          percent: '100 % (Täystehosulatus)',
           status: 'Kova pakkanen: Täysteholämmitys',
-          element: '+65 °C (Täysteho sulatus)',
+          element: '+65 °C (Täystehosulatus)',
           power: '~20 W (Vain auton ollessa hereillä)',
           desc: '<strong>Täysteholämmitys:</strong> Mikroprosessori ohjaa lämmitystä portaattomasti jopa +65 °C asti estäen luukun ja latauspistoolin kiinnijäätymisen paukkupakkasillakin.'
         }
@@ -87,13 +87,13 @@
       compatData: {
         skoda: {
           title: 'Skoda Enyaq iV (50, 60, 80, 85, vRS) & Superb / Octavia iV',
-          desc: 'Enyaqissa latausluukun salpamekanismi on erittäin altis nuoskalumen ja alijäähtyneen veden jäätymiselle. LidAidin ultraohut lämpökalvo asennetaan suoraan luukun sisäpintaan vesivalumareitin taakse. Kytkentä tapahtuu turvallisesti auton 12V herätevirtaan — ei vaikuta korkeajänniteakkuun eikä auton tehdastakuuseen.',
+          desc: 'Enyaqissa latausluukun salpamekanismi on erittäin altis nuoskalumen ja alijäähtyneen veden jäätymiselle. LidAidin ultraohut lämpökalvo asennetaan suoraan luukun sisäpintaan vesivalumareitin taakse. Kytkentä tapahtuu turvallisesti auton 12 V -herätevirtaan — ei vaikuta korkeajänniteakkuun eikä auton tehdastakuuseen.',
           productVal: 'LidAid-latausluukunlämmitin (Skoda)',
           btnText: 'Valitse LidAid Skodalle & pyydä tarjous'
         },
         vw: {
           title: 'Volkswagen ID.3, ID.4, ID.5, ID.7, ID. Buzz & Passat / Golf GTE',
-          desc: 'VW MEB-pohjaisissa sähköautoissa (ID-sarja) latausluukku kerää herkästi sohjoa ajoviiman mukana. LidAidin termostaattiohjattu lämmitin pitää luukun reunan ja lukitustapin täysin sulana ilman pelkoa 12V akun tyhjenemisestä.',
+          desc: 'VW:n MEB-pohjaisissa sähköautoissa (ID-sarja) latausluukku kerää herkästi sohjoa ajoviiman mukana. LidAidin termostaattiohjattu lämmitin pitää luukun reunan ja lukitustapin täysin sulana ilman pelkoa 12 V -akun tyhjenemisestä.',
           productVal: 'LidAid-latausluukunlämmitin (Volkswagen)',
           btnText: 'Valitse LidAid Volkswagenille & pyydä tarjous'
         },
@@ -105,7 +105,7 @@
         },
         audi: {
           title: 'Audi Q4 e-tron, Q8 e-tron, e-tron GT & TFSI e -lataushybridit',
-          desc: 'Täysin yhteensopiva Audin sähköisen luukunmekanismin kanssa. Lämmitin ehkäisee servo- ja lukitusmoottorin ylikuormittumisen, kun jää ei pääse estämään luukun avausliikettä.',
+          desc: 'Täysin yhteensopiva Audin sähköisen luukun mekanismin kanssa. Lämmitin ehkäisee servo- ja lukitusmoottorin ylikuormittumisen, kun jää ei pääse estämään luukun avausliikettä.',
           productVal: 'LidAid-latausluukunlämmitin (Audi)',
           btnText: 'Valitse LidAid Audille & pyydä tarjous'
         },
@@ -117,13 +117,13 @@
         },
         hyundai: {
           title: 'Hyundai Ioniq 5 / 6, Kona Electric & Kia EV6 / EV9, Niro EV',
-          desc: 'Korealaisissa 800V-arkkitehtuurin autoissa LidAid kytkeytyy erilliseen 12V apujärjestelmään, joten pikalatausominaisuudet tai ajoakun takuu säilyvät 100 % koskemattomina.',
+          desc: 'Korealaisissa 800 V -arkkitehtuurin autoissa LidAid kytkeytyy erilliseen 12 V -apujärjestelmään, joten pikalatausominaisuudet ja ajoakun takuu säilyvät 100 % koskemattomina.',
           productVal: 'LidAid-latausluukunlämmitin (Hyundai / Kia)',
           btnText: 'Valitse LidAid Hyundai/Kialle & pyydä tarjous'
         },
         other: {
           title: 'Kaikki muut Type 2 & CCS -sähköautot ja ladattavat hybridit',
-          desc: 'LidAid on universaalisti asennettavissa käytännössä mihin tahansa 12V sähköjärjestelmällä varustettuun sähköautoon tai hybridiin.',
+          desc: 'LidAid on universaalisti asennettavissa käytännössä mihin tahansa 12 V -sähköjärjestelmällä varustettuun sähköautoon tai hybridiin.',
           productVal: 'LidAid-latausluukunlämmitin (Muu automalli)',
           btnText: 'Valitse LidAid autollesi & pyydä tarjous'
         }
@@ -172,7 +172,7 @@
         },
         tbs: {
           img: 'assets/img/tbs-device.webp',
-          alt: 'Släpvagns bakljusbrytare TBS-231-L styrenhet',
+          alt: 'Släpvagnens bakljusbrytare TBS-231-L, styrenhet',
           tag: 'Mönsterskyddad i Finland',
           title: 'Släpvagnens bakljusbrytare (TBS)',
           desc: 'Mönsterskyddad brytarenhet som förvandlar släpets egna bakljus till effektiva backljus utan att bilens bländande bakre dimljus tänds.',
@@ -193,9 +193,9 @@
         },
         'TBS-221': {
           badge: 'Modell: TBS-221 (Glödlampor)',
-          target: 'Utvecklad för traditionella släpvagnar med vanliga 12 V glödlampor.',
+          target: 'Utvecklad för traditionella släpvagnar med vanliga 12 V-glödlampor.',
           load: 'Max 5 A belastning',
-          alt: 'Bakljusbrytare TBS-221 (Glödlampsmodell)',
+          alt: 'Bakljusbrytare TBS-221 (glödlampsmodell)',
           manual: 'assets/docs/TBS-221_Swe.pdf'
         }
       },
@@ -242,7 +242,7 @@
           btnText: 'Välj LidAid för Cupra & begär offert'
         },
         audi: {
-          title: 'Audi Q4 e-tron, Q8 e-tron, e-tron GT & TFSI e laddhybrider',
+          title: 'Audi Q4 e-tron, Q8 e-tron, e-tron GT & TFSI e-laddhybrider',
           desc: 'Helt kompatibel med Audis elektriska laddlucka. Värmaren förhindrar att servo- och låsmotorn överbelastas genom att hålla mekanismen fri från is.',
           productVal: 'LidAid-latausluukunlämmitin (Audi)',
           btnText: 'Välj LidAid för Audi & begär offert'
@@ -260,7 +260,7 @@
           btnText: 'Välj LidAid för Hyundai/Kia & begär offert'
         },
         other: {
-          title: 'Alla övriga Type 2 & CCS elbilar och laddhybrider',
+          title: 'Alla övriga Type 2- och CCS-elbilar samt laddhybrider',
           desc: 'LidAid har en universell design och kan installeras i praktiskt taget alla elbilar och laddhybrider med 12 V-system.',
           productVal: 'LidAid-latausluukunlämmitin (Muu automalli)',
           btnText: 'Välj LidAid för din bil & begär offert'
@@ -339,21 +339,21 @@
       },
       simStates: {
         standby: {
-          percent: '0 % (Standby • Battery Protected)',
+          percent: '0% (Standby • Battery Protected)',
           status: 'Mild / Summer Mode: Power Off (0 W)',
           element: 'Standby (0 W)',
           power: '0 W (Zero battery drain)',
           desc: '<strong>Automatic Power Saving:</strong> Whenever ambient temperature rises above +4 °C, the microprocessor cuts heater power completely. Your 12 V battery is never drained unnecessarily.'
         },
         slush: {
-          percent: '68 % (Maintenance Heat)',
+          percent: '68% (Maintenance Heat)',
           status: 'Light Frost / Wet Slush Conditions',
           element: '+45 °C (Maintenance Heat)',
           power: '~15 W (Only while vehicle is awake)',
           desc: '<strong>Slush & Freezing Rain:</strong> The element delivers steady maintenance heat (+45 °C), keeping the flap edges, weather seal, and latch pin completely clear of wet snow and freezing sleet.'
         },
         frost: {
-          percent: '100 % (Full Defrost Power)',
+          percent: '100% (Full Defrost Power)',
           status: 'Severe Frost: Full Heating Active',
           element: '+65 °C (Full Defrost)',
           power: '~20 W (Only while vehicle is awake)',
@@ -363,7 +363,7 @@
       compatData: {
         skoda: {
           title: 'Skoda Enyaq iV (50, 60, 80, 85, vRS) & Superb / Octavia iV',
-          desc: 'On the Enyaq, the charge flap latch mechanism is notoriously prone to freezing in wet snow and sleet. LidAid’s ultra-thin heating film installs cleanly inside the flap cavity behind the water channel. Connects safely to the vehicle’s 12 V wake-up feed — zero effect on the HV battery or factory warranty.',
+          desc: 'On the Enyaq, the charge flap latch mechanism is notoriously prone to freezing in wet snow and sleet. LidAid’s ultra-thin heating film installs cleanly inside the flap cavity behind the water channel. It connects safely to the vehicle’s 12 V wake-up feed — with zero effect on the HV battery or factory warranty.',
           productVal: 'LidAid-latausluukunlämmitin (Skoda)',
           btnText: 'Select LidAid for Skoda & request quote'
         },
@@ -381,7 +381,7 @@
         },
         audi: {
           title: 'Audi Q4 e-tron, Q8 e-tron, e-tron GT & TFSI e Plug-in Hybrids',
-          desc: 'Fully compatible with Audi’s motorized and push-latch charge flaps. Prevents servo and actuator overload by keeping ice from jamming the opening mechanism.',
+          desc: 'Fully compatible with Audi’s motorized and push-latch charge flaps. It prevents servo and actuator overload by keeping ice from jamming the opening mechanism.',
           productVal: 'LidAid-latausluukunlämmitin (Audi)',
           btnText: 'Select LidAid for Audi & request quote'
         },
@@ -393,7 +393,7 @@
         },
         hyundai: {
           title: 'Hyundai Ioniq 5 / 6, Kona Electric & Kia EV6 / EV9, Niro EV',
-          desc: 'On Korean 800 V EVs, LidAid connects exclusively to the separate 12 V auxiliary circuit, keeping ultra-fast charging and traction battery warranties 100 % untouched.',
+          desc: 'On Korean 800 V EVs, LidAid connects exclusively to the separate 12 V auxiliary circuit, keeping ultra-fast charging and traction battery warranties 100% untouched.',
           productVal: 'LidAid-latausluukunlämmitin (Hyundai / Kia)',
           btnText: 'Select LidAid for Hyundai/Kia & request quote'
         },
@@ -459,7 +459,7 @@
         ['.header-cta .btn span', 'Kontakta oss'],
 
         // Hero
-        ['.hero-desc', 'Qeino Oy utvecklar och tillverkar finsk elektronik som gör elbilsägandet och släpvagnskörningen bekymmersfri. Inget krångel – bara pålitlig, hållbar ingenjörskonst från Sibbo.'],
+        ['.hero-desc', 'Qeino Oy utvecklar och tillverkar finsk elektronik som gör elbilsägandet och släpvagnskörningen bekymmersfria. Inget krångel – bara pålitlig, hållbar ingenjörskonst från Sibbo.'],
         ['.hero-actions .btn-primary span', 'Utforska LidAid'],
         ['.hero-actions .btn-secondary span', 'Släpets bakljusbrytare'],
         ['.hero-location-tag', 'Sibbo, Finland'],
@@ -486,7 +486,7 @@
         ['#lidaidHotspots .hotspot-pin:nth-child(3) strong', 'Temperaturreglage'],
         ['#lidaidHotspots .hotspot-pin:nth-child(3) em', 'Steglös justering +45 ... +65 °C'],
         ['#lidaidHotspots .hotspot-pin:nth-child(4) strong', 'Kabelhärva & NTC-givare'],
-        ['#lidaidHotspots .hotspot-pin:nth-child(4) em', '12 V styrsignal och exakt temperaturgivare'],
+        ['#lidaidHotspots .hotspot-pin:nth-child(4) em', '12 V-styrsignal och exakt temperaturgivare'],
         ['#zoomBadge span', 'Förstora bild'],
         ['#lidaid .media-quote-text', '"Uppfinnaren från Sibbo löste elbilisternas vinterplåga – termostatstyrd värmare håller laddluckan fungerande även i sträng kyla."'],
         ['#lidaid .media-article-link span', 'Läs hela artikeln i Ilta-Sanomat (FI)'],
@@ -497,7 +497,7 @@
         ['.compat-header-title span', 'Kompatibilitet med olika bilmärken'],
         ['.compat-badge', 'Passar alla Type 2 / CCS-bilar'],
         ['.compat-chip[data-brand="other"]', 'Alla andra märken'],
-        ['.compat-result-footer .compat-tag:nth-child(1) span', '12 V styrsignal'],
+        ['.compat-result-footer .compat-tag:nth-child(1) span', '12 V-styrsignal'],
         ['.compat-result-footer .compat-tag:nth-child(2) span', 'Montering ca 30–45 min'],
 
         // Winter Sim
@@ -549,7 +549,7 @@
         ['#tbsHotspots .hotspot-pin:nth-child(3) strong', 'QC PASSED-sigill'],
         ['#tbsHotspots .hotspot-pin:nth-child(3) em', '100 % eltestad enhet från fabriken'],
         ['#tbsHotspots .hotspot-pin:nth-child(4) strong', 'Anslutningskablage'],
-        ['#tbsHotspots .hotspot-pin:nth-child(4) em', '12 V inkoppling utan 13-polig kontakt'],
+        ['#tbsHotspots .hotspot-pin:nth-child(4) em', '12 V-inkoppling utan 13-polig kontakt'],
         ['#takavalokytkin .zoom-hint span', 'Förstora bild'],
         ['#takavalokytkin .product-lead-text', 'Trygg och enkel backning på mörka gårdar, stugvägar och arbetsplatser.'],
         ['#takavalokytkin .product-desc-body', 'TBS bakljusbrytare löser det klassiska problemet: när du backar med släpvagn i mörker ser du ingenting bakåt. Med brytaren kan du använda släpets egna bakljus som arbets- och backbelysning utan att bilens eget bländande dimbakljus tänds.'],
@@ -571,14 +571,14 @@
         ['#takavalokytkin .package-header h3', 'Förpackningens innehåll (Plug-and-play)'],
         ['#takavalokytkin .price-label', 'Pris & Beställning'],
         ['#takavalokytkin .price-amount', 'Begär offert'],
-        ['#takavalokytkin .price-subtext', 'Finns direkt från uppfinnaren och hos auktoriserade återförsäljare'],
+        ['#takavalokytkin .price-subtext', 'Beställs direkt från uppfinnaren eller via auktoriserade återförsäljare'],
         ['#takavalokytkin .pricing-action-box .btn-primary span', 'Beställ / Begär offert'],
         ['#tbsManualBtnText', 'Ladda ner manual (PDF)'],
         ['#takavalokytkin .manual-group-label', 'Officiella installations- och bruksanvisningar:'],
 
         // Media & Field Testing
-        ['#kokemuksia .section-title', 'Testad i nordiska vinterförhållanden'],
-        ['#kokemuksia .section-subtitle', 'Testad i nordiska förhållanden. Läs artikeln i Ilta-Sanomat (länk nedan).'],
+        ['#kokemuksia .section-title', 'Testade i nordiska vinterförhållanden'],
+        ['#kokemuksia .section-subtitle', 'Testade i finska förhållanden. Läs artikeln i Ilta-Sanomat (länk nedan).'],
         ['.press-sub-badge', 'Motorredaktionen'],
         ['.press-quote', '”Uppfinnaren från Sibbo löste elbilisternas vinterplåga – den termostatstyrda värmaren håller laddluckan fungerande även i smällkall kyla.”'],
         ['.press-author', 'Journalist Tommi Lempinen, Ilta-Sanomat'],
@@ -589,7 +589,7 @@
         ['#tilausohje .section-subtitle', 'Inga krångliga konton eller webbshoppar. Du får personlig service och snabb leverans direkt från tillverkaren i Finland.'],
         ['.process-step-card:nth-child(1) h3', '1. Välj produkt & kontakta oss'],
         ['.process-step-card:nth-child(2) h3', '2. Bekräftelse & tydlig faktura'],
-        ['.process-step-card:nth-child(2) p', 'Vi bekräftar beställningen via e-post. För privatkunder säker banköverföring eller MobilePay, för företag officiell e-faktura (14 dagar netto).'],
+        ['.process-step-card:nth-child(2) p', 'Vi bekräftar beställningen via e-post. Privatkunder betalar säkert via banköverföring eller MobilePay, och företag får officiell e-faktura (14 dagar netto).'],
         ['.process-step-card:nth-child(3) h3', '3. Snabb leverans från Sibbo'],
         ['.process-step-card:nth-child(3) p', 'Paketet skickas inom 1–2 vardagar med spårningskod. Kompletta monteringstillbehör och tydliga instruktioner ingår.'],
 
@@ -605,7 +605,7 @@
         ['#jalleenmyyjat .section-subtitle', 'Qeinos produkter har väckt stort intresse i fordonsbranschen. Vi erbjuder återförsäljare och verkstäder konkurrenskraftiga grossistpriser och direkt teknisk support.'],
         ['.b2b-card:nth-child(1) .b2b-partner-tag', 'Verkstäder & Installatörer'],
         ['.b2b-card:nth-child(1) h3', 'Bilverkstäder & Monteringsfirmor'],
-        ['.b2b-card:nth-child(1) p', 'Erbjud elbilsägare en lösning som verkligen fungerar. En snabb 30–45 minuters installation ger bra merförsäljning och nöjda kunder.'],
+        ['.b2b-card:nth-child(1) p', 'Erbjud elbilsägare en lösning som verkligen fungerar. En snabb installation på 30–45 minuter ger bra merförsäljning och nöjda kunder.'],
         ['.b2b-card:nth-child(1) .b2b-perks-list li:nth-child(1) span', 'God återförsäljarmarginal och mängdrabatter'],
         ['.b2b-card:nth-child(1) .b2b-perks-list li:nth-child(2) span', 'Färdiga kabelsatser och modellspecifika guider'],
         ['.b2b-card:nth-child(1) .b2b-perks-list li:nth-child(3) span', 'Direkt telefonsupport från uppfinnaren vid frågor'],
@@ -622,12 +622,12 @@
         ['#ukk .section-title', 'Frågor och svar'],
         ['#ukk .section-subtitle', 'Här hittar du svar på de vanligaste frågorna om installation, funktion och garantier.'],
         ['.faq-item:nth-child(1) .faq-question > span:first-child', 'Laddar LidAid ur bilens batteri om bilen står länge i kylan?'],
-        ['.faq-item:nth-child(1) .faq-answer p', 'Nej. LidAid kopplas till bilens 12 V-styrsignal och fungerar därför endast när bilen är "vaken" eller laddas. Dessutom stänger mikroprocessorn automatiskt av uppvärmningen när utomhustemperaturen överstiger +4 °C. Om bilen står parkerad längre än två dygn rekommenderar vi att använda en 12 V batteriladdare.'],
+        ['.faq-item:nth-child(1) .faq-answer p', 'Nej. LidAid kopplas till bilens 12 V-styrsignal och fungerar därför endast när bilen är "vaken" eller laddas. Dessutom stänger mikroprocessorn automatiskt av uppvärmningen när utomhustemperaturen överstiger +4 °C. Om bilen står parkerad längre än två dygn rekommenderar vi att använda en 12 V-batteriladdare.'],
         ['.faq-item:nth-child(2) .faq-question > span:first-child', 'Hur väljer jag rätt modell av bakljusbrytaren (TBS-231-L eller TBS-221)?'],
         ['.faq-item:nth-child(3) .faq-question > span:first-child', 'Får bakljusbrytaren användas i vanlig vägtrafik?'],
         ['.faq-item:nth-child(3) .faq-answer p', 'Bakljusbrytaren är inte godkänd för allmän vägtrafik. Enheten får endast slås på utanför allmän väg, till exempel på stugväg, byggarbetsplats, gårdsplan eller parkområde. Vid körning på landsväg ska enheten vara avstängd.'],
         ['.faq-item:nth-child(4) .faq-question > span:first-child', 'Fungerar bakljusbrytaren i ett 24-voltssystem?'],
-        ['.faq-item:nth-child(4) .faq-answer p', 'Enheten är konstruerad för personbilars 12-voltssystem. Den kan dock installeras i ett 24-voltssystem genom att lägga till ett 1 W förkopplingsmotstånd på 300 ohm i plusledningen.'],
+        ['.faq-item:nth-child(4) .faq-answer p', 'Enheten är konstruerad för personbilars 12-voltssystem. Den kan dock installeras i ett 24-voltssystem genom att lägga till ett förkopplingsmotstånd på 300 ohm (1 W) i plusledningen.'],
 
         // Contact
         ['#yhteystiedot .section-title', 'Kontakt och beställningsförfrågningar'],
@@ -650,13 +650,13 @@
         ['label[for="inquiryCompany"]', 'Företagsnamn och FO-/org.nummer'],
         ['.product-chip[data-value="LidAid-latausluukunlämmitin"]', 'LidAid-värmare'],
         ['.product-chip[data-value="TBS-231-L (LED-malli)"]', 'TBS-231-L (LED)'],
-        ['.product-chip[data-value="TBS-221 (Hehkulamppumalli)"]', 'TBS-221 (Glödlampa)'],
+        ['.product-chip[data-value="TBS-221 (Hehkulamppumalli)"]', 'TBS-221 (glödlampa)'],
         ['.product-chip[data-value="Webaston kauko-ohjain CSW-1"]', 'CSW-1 Webasto'],
         ['.product-chip[data-value="Jälleenmyynti & tukkuhinnasto"]', 'Återförsäljning'],
         ['.product-chip[data-value="Yleinen tiedustelu"]', 'Annat ärende'],
-        ['#inquiryProduct option[value="LidAid-latausluukunlämmitin"]', 'LidAid laddluckevärmare (För elbilar)'],
-        ['#inquiryProduct option[value="TBS-231-L (LED-malli)"]', 'Bakljusbrytare TBS-231-L (För LED-bakljus)'],
-        ['#inquiryProduct option[value="TBS-221 (Hehkulamppumalli)"]', 'Bakljusbrytare TBS-221 (För glödlampor)'],
+        ['#inquiryProduct option[value="LidAid-latausluukunlämmitin"]', 'LidAid laddluckevärmare (för elbilar)'],
+        ['#inquiryProduct option[value="TBS-231-L (LED-malli)"]', 'Bakljusbrytare TBS-231-L (för LED-bakljus)'],
+        ['#inquiryProduct option[value="TBS-221 (Hehkulamppumalli)"]', 'Bakljusbrytare TBS-221 (för glödlampor)'],
         ['#inquiryProduct option[value="Webaston kauko-ohjain CSW-1"]', 'Webasto fjärrstyrning CSW-1 (Webasto / Eber)'],
         ['#inquiryProduct option[value="Jälleenmyynti & tukkuhinnasto"]', 'Återförsäljning & grossistprislista (B2B)'],
         ['#inquiryProduct option[value="Yleinen tiedustelu"]', 'Annan fråga eller monteringsstöd'],
@@ -691,13 +691,13 @@
       ],
       html: [
         ['.hero-title', 'Smarta lösningar för bilkörning <span class="highlight">i kyla och mörker</span>'],
-        ['.hero-badges .hero-badge-item:nth-child(1) .hero-badge-text', '100 % designad &amp;<br>testad i Finland'],
+        ['.hero-badges .hero-badge-item:nth-child(1) .hero-badge-text', '100 % designade &amp;<br>testade i Finland'],
         ['.hero-badges .hero-badge-item:nth-child(2) .hero-badge-text', 'Tål sträng nordisk<br>kyla (−40 °C)'],
         ['.hero-badges .hero-badge-item:nth-child(3) .hero-badge-text', 'Säker &amp; enkel för<br>12 V-system'],
         ['#lidaid .benefit-item:nth-child(1) span', '<strong>Helt automatisk:</strong> Stängs av automatiskt när temperaturen överstiger +4 °C.'],
         ['#lidaid .benefit-item:nth-child(2) span', '<strong>Säkert 12 V-system:</strong> Påverkar varken högvoltsbatteriet eller bilens fabriksgaranti.'],
         ['#lidaid .benefit-item:nth-child(3) span', '<strong>Justerbar temperatur:</strong> Steglös inställning +45 °C ... +65 °C efter behov.'],
-        ['#lidaid .package-item:nth-child(1) > div', '<strong>LidAid styrenhet</strong> i aluminiumkapsling med steglös reglering'],
+        ['#lidaid .package-item:nth-child(1) > div', '<strong>LidAid-styrenhet</strong> i aluminiumkapsling med steglös reglering'],
         ['#lidaid .package-item:nth-child(2) > div', '<strong>Flexibelt silikonelement</strong> med fästtejp och givaryta'],
         ['#lidaid .package-item:nth-child(3) > div', '<strong>Komplett kabelsats</strong>, anslutningsdon och säkringshållare'],
         ['#lidaid .package-item:nth-child(4) > div', '<strong>Tydlig monteringsanvisning</strong> (FI / EN) med kopplingsschema'],
@@ -718,14 +718,14 @@
         ['#tarina .story-text > p:nth-of-type(2)', 'Företagets grundare <strong>Hannu Alhovuori</strong> har över 40 års erfarenhet av elektronik, fordonselektronik och industriell konstruktion. Varje enhet från Qeino konstrueras, monteras och testas noggrant i Sibbo för att tåla tuffa nordiska förhållanden.'],
         ['#tarina .story-text > p:nth-of-type(3)', 'Vi tillverkar ingen slit-och-släng-massproduktion – våra enheter är reparerbara, hållbara och genomtänkta elinnovationer.'],
         ['.story-author-tag', '<strong>Hannu Alhovuori</strong> — Grundare &amp; Elingenjör, Qeino Oy'],
-        ['.faq-item:nth-child(2) .faq-answer p', 'Valet beror på släpvagnens bakljus: Om släpet har moderna <strong>LED-bakljus</strong> väljer du <strong>TBS-231-L</strong>. Om släpet har traditionella <strong>glödlampor</strong> väljer du <strong>TBS-221</strong>.'],
+        ['.faq-item:nth-child(2) .faq-answer p', 'Valet beror på släpvagnens bakljus. Om släpet har moderna <strong>LED-bakljus</strong> väljer du <strong>TBS-231-L</strong>. Om släpet har traditionella <strong>glödlampor</strong> väljer du <strong>TBS-221</strong>.'],
         ['.contact-obsidian-footer .obsidian-perk:nth-child(1) span', '<strong>2 års fabriksgaranti</strong> &amp; 14 dagars returrätt'],
         ['.contact-obsidian-footer .obsidian-perk:nth-child(2) span', '<strong>Leverans inom 1–2 vardagar</strong> med spårningskod'],
-        ['.contact-obsidian-footer .obsidian-perk:nth-child(3) span', '<strong>Inga mellanhänder</strong> — direkt support av elingenjören'],
+        ['.contact-obsidian-footer .obsidian-perk:nth-child(3) span', '<strong>Inga mellanhänder</strong> — direkt support från elingenjören'],
         ['label[for="inquiryProduct"]', 'Välj produkt eller ärende <span class="required-star">*</span>'],
         ['label[for="inquiryName"]', 'Namn <span class="required-star">*</span>'],
         ['label[for="inquiryEmail"]', 'E-postadress <span class="required-star">*</span>'],
-        ['#inquirySuccess p', 'Mottagare: <strong>qeino.fi@gmail.com</strong>. Om du använder webbmejl (t.ex. Gmail), klicka på "Kopiera meddelande till urklipp" ovan och klistra in direkt.'],
+        ['#inquirySuccess p', 'Mottagare: <strong>qeino.fi@gmail.com</strong>. Om du använder webbmejl (t.ex. Gmail) klickar du på "Kopiera meddelande till urklipp" ovan och klistrar in meddelandet direkt.'],
         ['.footer-col:nth-child(3) .footer-links li:nth-child(3)', 'Tel: <a href="tel:+358443069752">+358 44 306 9752</a>'],
         ['.footer-col:nth-child(3) .footer-links li:nth-child(4)', 'E-post: <a href="mailto:qeino.fi@gmail.com">qeino.fi@gmail.com</a>']
       ],
@@ -779,15 +779,15 @@
         ['#tbsHotspots .hotspot-pin:nth-child(2)', 'aria-label', 'Komponent: Kopplingsschema på locket'],
         ['#tbsHotspots .hotspot-pin:nth-child(3)', 'aria-label', 'Komponent: QC PASSED-sigill'],
         ['#tbsHotspots .hotspot-pin:nth-child(4)', 'aria-label', 'Komponent: Anslutningskablage'],
-        ['#takavalokytkin .zoom-hint', 'aria-label', 'Förstora TBS bakljusbrytares produktbild'],
-        ['#tbsGallery .thumb-btn:nth-child(1)', 'aria-label', 'Bakljusbrytare enhet'],
-        ['#tbsGallery .thumb-btn:nth-child(1) img', 'alt', 'Bakljusbrytare enhet'],
-        ['#tbsGallery .thumb-btn:nth-child(2)', 'aria-label', 'Bakljusbrytare kretskort'],
-        ['#tbsGallery .thumb-btn:nth-child(2) img', 'alt', 'Bakljusbrytare kretskort'],
+        ['#takavalokytkin .zoom-hint', 'aria-label', 'Förstora produktbild för TBS bakljusbrytare'],
+        ['#tbsGallery .thumb-btn:nth-child(1)', 'aria-label', 'Bakljusbrytare, enhet'],
+        ['#tbsGallery .thumb-btn:nth-child(1) img', 'alt', 'Bakljusbrytare, enhet'],
+        ['#tbsGallery .thumb-btn:nth-child(2)', 'aria-label', 'Bakljusbrytare, kretskort'],
+        ['#tbsGallery .thumb-btn:nth-child(2) img', 'alt', 'Bakljusbrytare, kretskort'],
         ['#tbsGallery .thumb-btn:nth-child(3)', 'data-full', 'assets/img/tbs-kytkenta-sv.webp?v=4'],
-        ['#tbsGallery .thumb-btn:nth-child(3)', 'aria-label', 'Bakljusbrytare kopplingsschema'],
+        ['#tbsGallery .thumb-btn:nth-child(3)', 'aria-label', 'Bakljusbrytare, kopplingsschema'],
         ['#tbsGallery .thumb-btn:nth-child(3) img', 'src', 'assets/img/tbs-kytkenta-sv.webp?v=4'],
-        ['#tbsGallery .thumb-btn:nth-child(3) img', 'alt', 'Bakljusbrytare kopplingsschema'],
+        ['#tbsGallery .thumb-btn:nth-child(3) img', 'alt', 'Bakljusbrytare, kopplingsschema'],
         ['#takavalokytkin video', 'aria-label', 'Demovideo för släpvagnens bakljusbrytare i mörker'],
         ['#takavalokytkin .video-play-overlay', 'aria-label', 'Spela demovideo för bakljusbrytaren'],
         ['.press-link', 'aria-label', 'Läs hela artikeln i Ilta-Sanomat'],
@@ -919,7 +919,7 @@
         ['#tbsHotspots .hotspot-pin:nth-child(2) strong', 'Lid Wiring Legend'],
         ['#tbsHotspots .hotspot-pin:nth-child(2) em', 'Color-coded connections printed right on the lid'],
         ['#tbsHotspots .hotspot-pin:nth-child(3) strong', 'QC PASSED Seal'],
-        ['#tbsHotspots .hotspot-pin:nth-child(3) em', '100 % electrically bench-tested at the factory'],
+        ['#tbsHotspots .hotspot-pin:nth-child(3) em', '100% electrically bench-tested at the factory'],
         ['#tbsHotspots .hotspot-pin:nth-child(4) strong', '12 V Wiring Harness'],
         ['#tbsHotspots .hotspot-pin:nth-child(4) em', 'Connects directly — no 13-pin socket required'],
         ['#takavalokytkin .zoom-hint span', 'Enlarge photo'],
@@ -930,7 +930,7 @@
         ['#takavalokytkin .video-play-label', 'Play demonstration (0:17)'],
         ['.patent-tag', 'PRH • DESIGN-PROTECTED FINNISH INVENTION'],
         ['.patent-seal-content h3', 'Design-Protected Switching Technology'],
-        ['.patent-seal-content p', 'Protected Finnish design: Triggers trailer reversing lights via turn-signal pulses with zero car coding or expensive 13-pin harness re-wiring.'],
+        ['.patent-seal-content p', 'Registered Finnish design: triggers trailer reversing lights via turn-signal pulses with zero vehicle coding or expensive 13-pin harness rewiring.'],
         ['#takavalokytkin .specs-heading', 'Technical Specifications'],
         ['#takavalokytkin .specs-list li:nth-child(1) .spec-name', 'Operating Voltage'],
         ['#takavalokytkin .specs-list li:nth-child(1) .spec-val', '12 VDC (24 V with series resistor)'],
@@ -963,7 +963,7 @@
         ['.process-step-card:nth-child(2) h3', '2. Confirmation & clear invoice'],
         ['.process-step-card:nth-child(2) p', 'We confirm your order by email. Consumers pay safely via bank transfer or MobilePay; businesses receive an official e-invoice (14 days net).'],
         ['.process-step-card:nth-child(3) h3', '3. Fast dispatch from Sipoo'],
-        ['.process-step-card:nth-child(3) p', 'Parcels ship within 1–2 business days with full tracking. Includes complete mounting hardware and clear English installation instructions.'],
+        ['.process-step-card:nth-child(3) p', 'Parcels ship within 1–2 business days with full tracking. Every order includes complete mounting hardware and clear English installation instructions.'],
 
         // Founder Story
         ['#tarina .section-title', 'The Story Behind Qeino'],
@@ -980,7 +980,7 @@
         ['.b2b-card:nth-child(1) p', 'Offer EV owners a winter upgrade that genuinely works. A straightforward 30–45 minute installation creates strong service revenue and delighted customers.'],
         ['.b2b-card:nth-child(1) .b2b-perks-list li:nth-child(1) span', 'Strong dealer margins and volume discounts'],
         ['.b2b-card:nth-child(1) .b2b-perks-list li:nth-child(2) span', 'Pre-terminated harnesses & model-specific guides'],
-        ['.b2b-card:nth-child(1) .b2b-perks-list li:nth-child(3) span', 'Direct phone hotline to the inventor during installs'],
+        ['.b2b-card:nth-child(1) .b2b-perks-list li:nth-child(3) span', 'Direct phone hotline to the inventor during installations'],
         ['.b2b-card:nth-child(1) .btn span', 'Request Wholesale Pricing'],
         ['.b2b-card:nth-child(2) .b2b-partner-tag', 'Trailers & Resellers'],
         ['.b2b-card:nth-child(2) h3', 'Trailer Dealers & Manufacturers'],
@@ -997,7 +997,7 @@
         ['.faq-item:nth-child(1) .faq-answer p', 'No. LidAid connects to the car’s 12 V wake-up feed, so it only operates while the vehicle is awake or actively charging. In addition, the microprocessor automatically cuts heating whenever ambient temperature rises above +4 °C. If the car remains parked for more than two days, we recommend using a 12 V battery charger.'],
         ['.faq-item:nth-child(2) .faq-question > span:first-child', 'How do I choose the right TBS model (TBS-231-L vs. TBS-221)?'],
         ['.faq-item:nth-child(3) .faq-question > span:first-child', 'Can the trailer taillight switch be used on public roads?'],
-        ['.faq-item:nth-child(3) .faq-answer p', 'The taillight switch is not approved for public highway driving. It may only be switched on off public roads — such as cottage lanes, construction sites, private yards, or loading areas. Keep the switch OFF during normal road driving.'],
+        ['.faq-item:nth-child(3) .faq-answer p', 'The taillight switch is not approved for public highway driving. It may only be activated off public roads — such as on cottage lanes, construction sites, private yards, or loading areas. Keep the switch OFF during normal road driving.'],
         ['.faq-item:nth-child(4) .faq-question > span:first-child', 'Does the TBS taillight switch work on 24 V electrical systems?'],
         ['.faq-item:nth-child(4) .faq-answer p', 'The unit is designed for 12 V passenger-vehicle systems. However, it can easily be installed on a 24 V system by placing a 1 W, 300-ohm series resistor on the positive supply wire.'],
 
@@ -1039,7 +1039,7 @@
         ['#inquirySubmitBtn span', 'Open in Email & Send'],
         ['#copyBtnText', 'Copy message to clipboard'],
         ['.form-trust-row .trust-badge-item:nth-child(1) span', 'Confidential handling'],
-        ['.form-trust-row .trust-badge-item:nth-child(2) span', 'Reply usually same business day'],
+        ['.form-trust-row .trust-badge-item:nth-child(2) span', 'Replies usually within the same business day'],
         ['#inquirySuccess strong', 'Your email app is opening with a pre-filled message!'],
 
         // Footer & Mobile Bar
@@ -1063,13 +1063,13 @@
       ],
       html: [
         ['.hero-title', 'Smart automotive solutions for <span class="highlight">extreme cold &amp; darkness</span>'],
-        ['.hero-badges .hero-badge-item:nth-child(1) .hero-badge-text', '100 % Designed &amp;<br>Tested in Finland'],
+        ['.hero-badges .hero-badge-item:nth-child(1) .hero-badge-text', '100% Designed &amp;<br>Tested in Finland'],
         ['.hero-badges .hero-badge-item:nth-child(2) .hero-badge-text', 'Built for Arctic<br>Winters (−40 °C)'],
         ['.hero-badges .hero-badge-item:nth-child(3) .hero-badge-text', 'Safe &amp; Easy<br>12 V Integration'],
         ['#lidaid .benefit-item:nth-child(1) span', '<strong>Fully Automatic:</strong> Shuts off automatically whenever ambient temperature exceeds +4 °C.'],
         ['#lidaid .benefit-item:nth-child(2) span', '<strong>Safe 12 V System:</strong> Zero impact on the high-voltage battery or vehicle factory warranty.'],
         ['#lidaid .benefit-item:nth-child(3) span', '<strong>Adjustable Temperature:</strong> Stepless +45 °C ... +65 °C dial tailored to your vehicle.'],
-        ['#lidaid .package-item:nth-child(1) > div', '<strong>LidAid Controller Unit</strong> in durable enclosure with stepless temp dial'],
+        ['#lidaid .package-item:nth-child(1) > div', '<strong>LidAid Controller Unit</strong> in a durable enclosure with a stepless temperature dial'],
         ['#lidaid .package-item:nth-child(2) > div', '<strong>Flexible Silicone Heating Element</strong> with adhesive backing &amp; NTC sensor'],
         ['#lidaid .package-item:nth-child(3) > div', '<strong>Complete Wiring Kit</strong>, splice connectors, and inline fuse holder'],
         ['#lidaid .package-item:nth-child(4) > div', '<strong>Clear Illustrated Installation Manual</strong> (English &amp; Finnish) with wiring diagram'],
@@ -1081,7 +1081,7 @@
         ['#takavalokytkin .package-item:nth-child(2) > div', '<strong>Pre-wired Automotive Harness</strong> with protective sleeve &amp; labeled leads'],
         ['#takavalokytkin .package-item:nth-child(3) > div', '<strong>Quick-splice Connectors</strong> and ring ground terminal'],
         ['#takavalokytkin .package-item:nth-child(4) > div', '<strong>Step-by-step English Installation &amp; Wiring Manual</strong>'],
-        ['#takavalokytkin .package-item:nth-child(5) > div', '<strong>2-Year Manufacturer Warranty</strong> and direct technical install support'],
+        ['#takavalokytkin .package-item:nth-child(5) > div', '<strong>2-Year Manufacturer Warranty</strong> and direct technical installation support'],
         ['.process-step-card:nth-child(1) p', 'Fill in the inquiry form below or call the inventor directly (<a href="tel:+358443069752">+358 44 306 9752</a>). Let us know the product and your vehicle or trailer model.'],
         ['.process-guarantee-bar .guarantee-pill:nth-child(1) span', '<strong>2-Year Manufacturer Warranty</strong> on every device'],
         ['.process-guarantee-bar .guarantee-pill:nth-child(2) span', '<strong>14-Day Satisfaction Guarantee</strong> &amp; full right of return'],
@@ -1090,8 +1090,8 @@
         ['#tarina .story-text > p:nth-of-type(2)', 'Founder <strong>Hannu Alhovuori</strong> brings over 40 years of hands-on experience in electronics, automotive electrics, and industrial design. Every Qeino unit is engineered, assembled, and individually tested in Sipoo to endure harsh Nordic winters.'],
         ['#tarina .story-text > p:nth-of-type(3)', 'We never build disposable mass-market gadgets — our devices are repairable, rugged, and thoughtfully crafted electrical innovations.'],
         ['.story-author-tag', '<strong>Hannu Alhovuori</strong> — Founder &amp; Electrical Engineer, Qeino Oy'],
-        ['.faq-item:nth-child(2) .faq-answer p', 'Simply match your trailer’s taillights: If your trailer uses modern <strong>LED taillights</strong>, choose <strong>TBS-231-L</strong>. If it uses traditional <strong>incandescent bulbs</strong>, choose <strong>TBS-221</strong>.'],
-        ['.contact-obsidian-footer .obsidian-perk:nth-child(1) span', '<strong>2-Year Factory Warranty</strong> &amp; 14-day return right'],
+        ['.faq-item:nth-child(2) .faq-answer p', 'Simply match your trailer’s taillights. If your trailer uses modern <strong>LED taillights</strong>, choose <strong>TBS-231-L</strong>. If it uses traditional <strong>incandescent bulbs</strong>, choose <strong>TBS-221</strong>.'],
+        ['.contact-obsidian-footer .obsidian-perk:nth-child(1) span', '<strong>2-Year Factory Warranty</strong> &amp; 14-day return policy'],
         ['.contact-obsidian-footer .obsidian-perk:nth-child(2) span', '<strong>Dispatched in 1–2 business days</strong> with parcel tracking'],
         ['.contact-obsidian-footer .obsidian-perk:nth-child(3) span', '<strong>No middlemen</strong> — direct support from the electrical engineer'],
         ['label[for="inquiryProduct"]', 'Select product or topic <span class="required-star">*</span>'],

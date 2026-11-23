@@ -1428,6 +1428,50 @@ nav {
   transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0s;
 }
 
+/* Edge-safe horizontal tooltip alignment for pins near left/right image edges */
+.hotspot-pin.tooltip-align-right .hotspot-tooltip {
+  left: auto;
+  right: -4px;
+  transform: translateY(4px);
+}
+
+.hotspot-pin.tooltip-align-right.tooltip-bottom .hotspot-tooltip {
+  transform: translateY(-4px);
+}
+
+.hotspot-pin.tooltip-align-right .hotspot-tooltip::after {
+  left: auto;
+  right: 16px;
+  transform: none;
+}
+
+.hotspot-pin.tooltip-align-right:hover .hotspot-tooltip,
+.hotspot-pin.tooltip-align-right:focus-visible .hotspot-tooltip,
+.hotspot-pin.tooltip-align-right.active .hotspot-tooltip {
+  transform: translateY(0);
+}
+
+.hotspot-pin.tooltip-align-left .hotspot-tooltip {
+  left: -4px;
+  right: auto;
+  transform: translateY(4px);
+}
+
+.hotspot-pin.tooltip-align-left.tooltip-bottom .hotspot-tooltip {
+  transform: translateY(-4px);
+}
+
+.hotspot-pin.tooltip-align-left .hotspot-tooltip::after {
+  left: 16px;
+  transform: none;
+}
+
+.hotspot-pin.tooltip-align-left:hover .hotspot-tooltip,
+.hotspot-pin.tooltip-align-left:focus-visible .hotspot-tooltip,
+.hotspot-pin.tooltip-align-left.active .hotspot-tooltip {
+  transform: translateY(0);
+}
+
 .gallery-thumbs {
   display: flex;
   gap: 12px;

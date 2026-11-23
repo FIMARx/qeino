@@ -23,7 +23,7 @@
         lidaid: {
           img: 'assets/img/lidaid-device.webp',
           alt: 'LidAid-latausluukunlämmitin ohjainlaite',
-          tag: '−40 °C testattu',
+          tag: '−15 °C testattu',
           title: 'LidAid-latausluukunlämmitin',
           desc: 'Mikroprosessoriohjattu automaattilämmitin pitää sähköauton ja hybridin latausluukun ja pistokkeen sulana kovissakin pakkasissa.',
           s1l: 'Virrankulutus', s1v: '~20 W',
@@ -123,7 +123,7 @@
         },
         other: {
           title: 'Kaikki muut Type 2 & CCS -sähköautot ja ladattavat hybridit',
-          desc: 'LidAid on universaalisti asennettavissa käytännössä mihin tahansa 12V sähköjärjestelmällä varustettuun sähköautoon tai hybridiin (mm. Tesla Model 3/Y/S, Volvo EX40/EX30, Polestar 2/3/4, Mercedes-Benz EQ, Renault, Peugeot, Ford, Nissan ym.).',
+          desc: 'LidAid on universaalisti asennettavissa käytännössä mihin tahansa 12V sähköjärjestelmällä varustettuun sähköautoon tai hybridiin.',
           productVal: 'LidAid-latausluukunlämmitin (Muu automalli)',
           btnText: 'Valitse LidAid autollesi & pyydä tarjous'
         }
@@ -161,7 +161,7 @@
         lidaid: {
           img: 'assets/img/lidaid-device.webp',
           alt: 'LidAid laddluckevärmare styrenhet',
-          tag: 'Testad vid −40 °C',
+          tag: 'Testad vid −15 °C',
           title: 'LidAid laddluckevärmare',
           desc: 'Mikroprocessorstyrd automatisk värmare som håller elbilens och laddhybridens laddlucka och kontakt isfria även i sträng kyla.',
           s1l: 'Effekt', s1v: '~20 W',
@@ -261,7 +261,7 @@
         },
         other: {
           title: 'Alla övriga Type 2 & CCS elbilar och laddhybrider',
-          desc: 'LidAid har en universell design och kan installeras i praktiskt taget alla elbilar och laddhybrider med 12 V-system (t.ex. Tesla Model 3/Y/S, Volvo EX40/EX30, Polestar 2/3/4, Mercedes-Benz EQ, Renault, Peugeot, Ford, Nissan m.fl.).',
+          desc: 'LidAid har en universell design och kan installeras i praktiskt taget alla elbilar och laddhybrider med 12 V-system.',
           productVal: 'LidAid-latausluukunlämmitin (Muu automalli)',
           btnText: 'Välj LidAid för din bil & begär offert'
         }
@@ -299,7 +299,7 @@
         lidaid: {
           img: 'assets/img/lidaid-device.webp',
           alt: 'LidAid EV charge port heater controller unit',
-          tag: '−40 °C tested',
+          tag: '−15 °C tested',
           title: 'LidAid Charge Port Heater',
           desc: 'Microprocessor-controlled automatic heater that keeps EV and plug-in hybrid charge flaps and connectors ice-free even in extreme Arctic cold.',
           s1l: 'Power draw', s1v: '~20 W',
@@ -399,7 +399,7 @@
         },
         other: {
           title: 'All Other Type 2 & CCS Electric Vehicles and Plug-in Hybrids',
-          desc: 'LidAid installs universally in virtually any EV or plug-in hybrid with a 12 V auxiliary system (including Tesla Model 3/Y/S, Volvo EX40/EX30, Polestar 2/3/4, Mercedes-Benz EQ, Renault, Peugeot, Ford, Nissan, and more).',
+          desc: 'LidAid installs universally in virtually any EV or plug-in hybrid with a 12 V auxiliary system.',
           productVal: 'LidAid-latausluukunlämmitin (Muu automalli)',
           btnText: 'Select LidAid for your car & request quote'
         }
@@ -503,7 +503,7 @@
         // Winter Sim
         ['.sim-header-title span', 'Vinterväder- & termostatsimulator'],
         ['.sim-badge', 'Interaktivt test'],
-        ['.sim-desc', 'Testa med reglaget eller snabbvalen hur mikroprocessorn styr värmeeffekten och skyddar batteriet:'],
+        ['.sim-desc', 'Testa med reglaget eller snabbvalen hur mikroprocessorn styr värmeeffekten och skyddar laddluckan:'],
         ['.sim-preset-btn[data-temp="-25"]', '−25 °C Lappland'],
         ['.sim-preset-btn[data-temp="-15"]', '−15 °C Köldknäpp'],
         ['.sim-preset-btn[data-temp="-2"]', '−2 °C Blötsnö'],
@@ -881,7 +881,7 @@
         // Winter Sim
         ['.sim-header-title span', 'Winter Weather & Thermostat Simulator'],
         ['.sim-badge', 'Interactive Demo'],
-        ['.sim-desc', 'Drag the slider or tap a weather preset to see how the microprocessor regulates heat output and protects your 12 V battery:'],
+        ['.sim-desc', 'Drag the slider or tap a weather preset to see how the microprocessor regulates heat output and protects your charge flap:'],
         ['.sim-preset-btn[data-temp="-25"]', '−25 °C Lapland'],
         ['.sim-preset-btn[data-temp="-15"]', '−15 °C Deep Freeze'],
         ['.sim-preset-btn[data-temp="-2"]', '−2 °C Wet Slush'],

@@ -21,7 +21,7 @@
     fi: {
       heroCatalog: {
         lidaid: {
-          img: 'assets/img/lidaid-device.webp',
+          img: 'assets/img/lidaid-device.webp?v=2',
           alt: 'LidAid-latausluukunlämmitin ohjainlaite',
           tag: '−15 °C testattu',
           title: 'LidAid-latausluukunlämmitin',
@@ -159,7 +159,7 @@
     sv: {
       heroCatalog: {
         lidaid: {
-          img: 'assets/img/lidaid-device.webp',
+          img: 'assets/img/lidaid-device.webp?v=2',
           alt: 'LidAid laddluckevärmare styrenhet',
           tag: 'Testad vid −15 °C',
           title: 'LidAid laddluckevärmare',
@@ -297,7 +297,7 @@
     en: {
       heroCatalog: {
         lidaid: {
-          img: 'assets/img/lidaid-device.webp',
+          img: 'assets/img/lidaid-device.webp?v=2',
           alt: 'LidAid EV charge port heater controller unit',
           tag: '−15 °C tested',
           title: 'LidAid Charge Port Heater',

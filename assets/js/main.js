@@ -876,10 +876,24 @@ function initQeinoApp() {
   }
 
   // 16. Trilingual Sync (FI / SV / EN)
+  function syncActiveGalleryImage(galleryId, mainImgId) {
+    const activeThumb = document.querySelector(`#${galleryId} .thumb-btn.active`);
+    const mainImg = document.getElementById(mainImgId);
+    if (!activeThumb || !mainImg) return;
+    const fullSrc = activeThumb.getAttribute('data-full');
+    if (fullSrc && mainImg.getAttribute('src') !== fullSrc) {
+      mainImg.src = fullSrc;
+      const thumbAlt = activeThumb.getAttribute('aria-label') || activeThumb.querySelector('img')?.alt;
+      if (thumbAlt) mainImg.alt = thumbAlt;
+    }
+  }
+
   window.addEventListener('qeino:langchange', () => {
     renderHeroProduct(activeHeroProduct);
     renderCompatBrand(activeCompatBrand);
     renderTbsModel(activeTbsModel, false);
+    syncActiveGalleryImage('lidaidGallery', 'lidaidMainImg');
+    syncActiveGalleryImage('tbsGallery', 'tbsMainImg');
     if (updateSim && tempSlider) {
       updateSim(parseInt(tempSlider.value, 10));
     }

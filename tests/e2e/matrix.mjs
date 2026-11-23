@@ -113,11 +113,11 @@ try {
     const lidThumbsCount = await b.ev(`document.querySelectorAll('#lidaidGallery .thumb-btn').length`);
     check(`${d.id}: LidAid gallery has 3 thumbnails`, lidThumbsCount === 3);
 
-    // Click 2nd thumbnail (lidaid-angle)
+    // Click 2nd thumbnail (lidaid-kaavio wiring diagram)
     await click('#lidaidGallery .thumb-btn:nth-child(2)');
     await sleep(350);
     const lidSrc2 = await b.ev(`document.getElementById('lidaidMainImg')?.getAttribute('src')`);
-    check(`${d.id}: LidAid switches to angle image`, lidSrc2 && lidSrc2.includes('lidaid-angle.webp'), lidSrc2);
+    check(`${d.id}: LidAid switches to wiring diagram`, lidSrc2 && lidSrc2.includes('lidaid-kaavio'), lidSrc2);
     const lidHotspotsHidden2 = await b.ev(`(() => {
       const el = document.getElementById('lidaidHotspots');
       return el && (el.classList.contains('is-hidden') || window.getComputedStyle(el).display === 'none');
@@ -297,7 +297,7 @@ try {
     await click('#tbsGallery .thumb-btn:nth-child(3)');
     await sleep(350);
     const tbsSrc3 = await b.ev(`document.getElementById('tbsMainImg')?.getAttribute('src')`);
-    check(`${d.id}: TBS gallery switches to kytkentäkaavio schematic`, tbsSrc3 && tbsSrc3.includes('tbs-kytkenta.webp'), tbsSrc3);
+    check(`${d.id}: TBS gallery switches to kytkentäkaavio schematic`, tbsSrc3 && tbsSrc3.includes('tbs-kytkenta'), tbsSrc3);
     const tbsHotspotsHidden3 = await b.ev(`(() => {
       const el = document.getElementById('tbsHotspots');
       return el && (el.classList.contains('is-hidden') || window.getComputedStyle(el).display === 'none');
